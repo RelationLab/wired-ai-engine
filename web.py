@@ -8,8 +8,6 @@ from base import logger_name
 from base.logger_util import LOG
 from chat_tools import get_answer, get_answer_v2
 from data_analyses import data_analyses
-from data_explain import explain_data1
-from data_explain_new import explain_data
 from data_interpretation import data_interpretation_chat
 from file_tools import save_file
 from label_tools import redefine_label_info, get_label_info, delete_label_info
@@ -192,24 +190,6 @@ def deleteLabelInfo(labelName: str):
     try:
         delete_label_info(labelName)
         return success()
-    except Exception as ex:
-        logger.error(ex)
-        return fail()
-
-
-@app.post("/data/explain")
-def explain(file: UploadFile = Form(), question: str = Form()):
-    json_str = file.file.read()
-    result = explain_data(json_str, question)
-    return result
-
-
-@app.post("/data/explain1")
-def explain(file: UploadFile = Form(), question: str = Form()):
-    try:
-        json_str = file.file.read()
-        result = explain_data1(json_str, question)
-        return result
     except Exception as ex:
         logger.error(ex)
         return fail()
