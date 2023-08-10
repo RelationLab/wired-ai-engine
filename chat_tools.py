@@ -52,6 +52,7 @@ def create_msg(tables, example, question, history, isSqlQuestion, sessionId):
             messages.append(SystemMessage(content=f"This is a question and sql example: the question is '{sessionExample.get('question')}' and the query SQL is '{sessionExample.get('answer')}'.\n"))
 
     messages.append(HumanMessage(content=question))
+    messages.append(SystemMessage(content="If your reply contains sql, use the exec_sql function whenever possible"))
 
     return messages
 
