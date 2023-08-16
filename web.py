@@ -9,8 +9,9 @@ from base.logger_util import LOG
 from chat_tools import get_answer, get_answer_v2
 from data_analyses import data_analyses
 from data_interpretation import data_interpretation_chat
-from file_tools import save_file
+from file_tools import save_file, save_file_url
 from label_tools import redefine_label_info, get_label_info, delete_label_info
+from long_json_analysis import long_json_chat
 from table_tools import redefine_table_info, get_table_info, delete_table_info
 from train_tools import train, find_similar_question
 from train_tools_v2 import train_v2, find_similar_question_v2
@@ -64,6 +65,12 @@ class DataInterpretation(BaseModel):
     reportDesc: Optional[str] = None
     question: str
     sessionId: Optional[str] = None
+
+
+class LongJsonChat(BaseModel):
+    sessionId: Optional[str] = None
+    jsonData: Optional[str] = None
+    question: Optional[str] = None
 
 
 app = FastAPI()
@@ -214,6 +221,15 @@ def file_upload(file: UploadFile):
         return fail()
 
 
+@app.post("/file/upload_by_url")
+def file_upload_url(url: str = Form()):
+    try:
+        return success(save_file_url(url))
+    except Exception as ex:
+        logger.error(ex)
+        return fail()
+
+
 @app.post("/data/interpretation")
 def data_interpretation(data: DataInterpretation):
     try:
@@ -223,6 +239,15 @@ def data_interpretation(data: DataInterpretation):
                                           question=data.question,
                                           sessionId=data.sessionId)
         return success(result)
+    except Exception as ex:
+        logger.error(ex)
+        return fail()
+
+
+@app.post("/data/long_json_analyses")
+def long_json_analyses(data: LongJsonChat):
+    try:
+        return success(long_json_chat(json_data=data.jsonData, question=data.question, sessionId=data.sessionId))
     except Exception as ex:
         logger.error(ex)
         return fail()
