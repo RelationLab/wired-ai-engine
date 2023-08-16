@@ -86,27 +86,61 @@ def chat_json(json_data):
             HumanMessage(content="ReportName:crowd_portrait\nReportData:" + json.dumps(report7)),
             SystemMessage(content="Response should not exceed 1000 tokens")]
 
-    # sleep(10) 防止被限流
-    result1 = data_explain_chat(msg1).content
-    sleep(10)
-    result2 = data_explain_chat(msg2).content
-    sleep(10)
-    result3 = data_explain_chat(msg3).content
-    sleep(10)
-    result4 = data_explain_chat(msg4).content
-    sleep(10)
-    result5 = data_explain_chat(msg5).content
-    sleep(10)
-    result6 = data_explain_chat(msg6).content
-    sleep(10)
-    result7 = data_explain_chat(msg7).content
+    # sleep(5) 防止被限流
+    result1 = ""
+    try:
+        result1 = data_explain_chat(msg1).content
+        sleep(5)
+    except Exception as ex:
+        logger.error(ex)
 
+    result2 = ""
+    try:
+        result2 = data_explain_chat(msg2).content
+        sleep(5)
+    except Exception as ex:
+        logger.error(ex)
+
+    result3 = ""
+    try:
+        result3 = data_explain_chat(msg3).content
+        sleep(5)
+    except Exception as ex:
+        logger.error(ex)
+
+    result4 = ""
+    try:
+        result4 = data_explain_chat(msg4).content
+        sleep(5)
+    except Exception as ex:
+        logger.error(ex)
+
+    result5 = ""
+    try:
+        result5 = data_explain_chat(msg5).content
+        sleep(5)
+    except Exception as ex:
+        logger.error(ex)
+
+    result6 = ""
+    try:
+        result6 = data_explain_chat(msg6).content
+        sleep(5)
+    except Exception as ex:
+        logger.error(ex)
+
+    result7 = ""
+    try:
+        result7 = data_explain_chat(msg7).content
+        sleep(5)
+    except Exception as ex:
+        logger.error(ex)
     msg_merge1 = [system_msg,
                   HumanMessage(content=result1 + "\n" + result2 + "\n" + result3 + "\n" + result4 + "\n" + result5 + "\n" + result6),
                   HumanMessage("Summarize the above conclusions again"),
                   SystemMessage(content="Response should not exceed 1000 tokens")]
     result_merger1 = data_explain_chat(msg_merge1).content
-
+    sleep(5)
     msg_merge2 = [system_msg,
                   HumanMessage(content=result7 + "\n" + result_merger1),
                   HumanMessage("Summarize the above conclusions again"),
