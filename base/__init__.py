@@ -14,7 +14,7 @@ MILVUS_PASS = ""
 OPENAI_EMBED_ENGINE = 'text-embedding-ada-002'
 OPENAI_API_BASE = 'https://www.googlex.vip/v1'
 openai.api_base = OPENAI_API_BASE
-os.environ["OPENAI_API_KEY"] = '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'
+os.environ["OPENAI_API_KEY"] = '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'
 openai.api_key = os.environ["OPENAI_API_KEY"]
 
 logger_name = "Wired"
@@ -24,6 +24,7 @@ redis_pool = redis.ConnectionPool(max_connections=100, host='10.5.0.2',
                                   db=1,
                                   password='123456',
                                   decode_responses=True)
+
 
 def SystemMessage(content):
     return {"role": "system", "content": content}

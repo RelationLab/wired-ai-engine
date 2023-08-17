@@ -1,15 +1,24 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
 import json
+import os
+from threading import Thread
 from time import sleep
-
 import openai
 import redis
-
 from base import logger_name, ChatResult, SystemMessage, HumanMessage, redis_pool, AIMessage
 from base.logger_util import LOG
 
 logger = LOG.get_logger(logger_name)
+
+
+def Async(f):
+    def wrapper(*args, **kwargs):
+        thr = Thread(target=f, args=args, kwargs=kwargs)
+        thr.start()
+
+    return wrapper
+
 
 system_msg = SystemMessage(
     content="You are a data analysis engineer.\n"
@@ -27,112 +36,131 @@ def data_explain_chat(messages):
     return result
 
 
-def long_json_chat(json_data, question, sessionId):
-    messages = [system_msg]
-    if json_data:
-        msg = chat_json(json_data)
-        if sessionId:
-            clear_content(sessionId)
-            add_session_content(sessionId, [json.dumps(AIMessage(content=msg))])
-        return {"success": True, "data": msg}
+@Async
+def long_json_analysis(json_data, taskId, sessionId):
+    msg = chat_json(json_data)
+    if sessionId:
+        clear_content(sessionId)
+        add_session_content(sessionId, [json.dumps(AIMessage(content=msg))])
+    os.makedirs("./data", exist_ok=True)
+    write_all_text(f"./data/{taskId}", msg)
+
+
+def get_task_result(taskId):
+    if os.path.isfile(f"./data/{taskId}"):
+        result = read_all_text(f"./data/{taskId}")
+        return {"success": True, "data": result}
     else:
-        ask = HumanMessage(content=question)
-        if sessionId:
-            recent_list = get_recent_content(sessionId)
-            for recent in recent_list:
-                messages.append(json.loads(recent))
-        messages.append(ask)
-        result = data_explain_chat(messages)
-        if sessionId:
-            add_session_content(sessionId, [json.dumps(ask), json.dumps(AIMessage(result.content))])
-        return {"success": True, "data": result.content}
+        return {"success": False, "data": None}
+
+
+def write_all_text(file_path, contents):
+    with open(file_path, "w", encoding='utf-8') as file:
+        file.write(contents)
+
+
+def read_all_text(file_path):
+    with open(file_path, "r", encoding='utf-8') as file:
+        txt = file.read()
+        return txt
+
+
+def long_json_chat(question, sessionId):
+    messages = [SystemMessage(content="You are a data analysis engineer.\n"
+                                      "Based on the digital currency information you know,Analyzing and answering questions and conclusions raised by user\n")]
+    ask = HumanMessage(content=question)
+    if sessionId:
+        recent_list = get_recent_content(sessionId)
+        for recent in recent_list:
+            messages.append(json.loads(recent))
+    messages.append(ask)
+    result = data_explain_chat(messages)
+    if sessionId:
+        add_session_content(sessionId, [json.dumps(ask), json.dumps(AIMessage(result.content))])
+    return {"success": True, "data": result.content}
 
 
 def chat_json(json_data):
+    # sleep(30)
+    # return "hh"
     data: dict = json.loads(json_data)
-    report1 = data.get("level_address_statistics").get("action").get("nft")
-    msg1 = [system_msg,
-            HumanMessage(content="ReportId:level_address_statistics.action.nft\nReportData:" + json.dumps(report1)),
-            SystemMessage(content="Response should not exceed 400 tokens")]
 
-    report2 = data.get("level_address_statistics").get("action").get("token")
-    msg2 = [system_msg,
-            HumanMessage(content="ReportId:level_address_statistics.action.token\nReportData:" + json.dumps(report2)),
-            SystemMessage(content="Response should not exceed 400 tokens")]
-
-    report3 = data.get("level_address_statistics").get("asset").get("nft")
-    msg3 = [system_msg,
-            HumanMessage(content="ReportId:level_address_statistics.asset.nft\nReportData:" + json.dumps(report3)),
-            SystemMessage(content="Response should not exceed 400 tokens")]
-
-    report4 = data.get("level_address_statistics").get("asset").get("token")
-    msg4 = [system_msg,
-            HumanMessage(content="ReportId:level_address_statistics.asset.token\nReportData:" + json.dumps(report4)),
-            SystemMessage(content="Response should not exceed 400 tokens")]
-
-    report5 = data.get("level_address_statistics").get("platform").get("nft")
-    msg5 = [system_msg,
-            HumanMessage(content="ReportId:level_address_statistics.platform.nft\nReportData:" + json.dumps(report5)),
-            SystemMessage(content="Response should not exceed 400 tokens")]
-
-    report6 = data.get("level_address_statistics").get("platform").get("token")
-    msg6 = [system_msg,
-            HumanMessage(content="ReportId:level_address_statistics.platform.token\nReportData:" + json.dumps(report6)),
-            SystemMessage(content="Response should not exceed 400 tokens")]
-
-    data.pop("level_address_statistics")
-    report7 = data
-    msg7 = [system_msg,
-            HumanMessage(content="ReportName:crowd_portrait\nReportData:" + json.dumps(report7)),
-            SystemMessage(content="Response should not exceed 1000 tokens")]
-
-    # sleep(5) 防止被限流
+    # sleep(10) 防止被限流
     result1 = ""
     try:
+        report1 = data.get("level_address_statistics").get("action").get("nft")
+        msg1 = [system_msg,
+                HumanMessage(content="ReportId:level_address_statistics.action.nft\nReportData:" + json.dumps(report1)),
+                SystemMessage(content="Response should not exceed 400 tokens")]
         result1 = data_explain_chat(msg1).content
-        sleep(5)
+        sleep(10)
     except Exception as ex:
         logger.error(ex)
 
     result2 = ""
     try:
+        report2 = data.get("level_address_statistics").get("action").get("token")
+        msg2 = [system_msg,
+                HumanMessage(content="ReportId:level_address_statistics.action.token\nReportData:" + json.dumps(report2)),
+                SystemMessage(content="Response should not exceed 400 tokens")]
         result2 = data_explain_chat(msg2).content
-        sleep(5)
+        sleep(10)
     except Exception as ex:
         logger.error(ex)
 
     result3 = ""
     try:
+        report3 = data.get("level_address_statistics").get("asset").get("nft")
+        msg3 = [system_msg,
+                HumanMessage(content="ReportId:level_address_statistics.asset.nft\nReportData:" + json.dumps(report3)),
+                SystemMessage(content="Response should not exceed 400 tokens")]
         result3 = data_explain_chat(msg3).content
-        sleep(5)
+        sleep(10)
     except Exception as ex:
         logger.error(ex)
 
     result4 = ""
     try:
+        report4 = data.get("level_address_statistics").get("asset").get("token")
+        msg4 = [system_msg,
+                HumanMessage(content="ReportId:level_address_statistics.asset.token\nReportData:" + json.dumps(report4)),
+                SystemMessage(content="Response should not exceed 400 tokens")]
         result4 = data_explain_chat(msg4).content
-        sleep(5)
+        sleep(10)
     except Exception as ex:
         logger.error(ex)
 
     result5 = ""
     try:
+        report5 = data.get("level_address_statistics").get("platform").get("nft")
+        msg5 = [system_msg,
+                HumanMessage(content="ReportId:level_address_statistics.platform.nft\nReportData:" + json.dumps(report5)),
+                SystemMessage(content="Response should not exceed 400 tokens")]
         result5 = data_explain_chat(msg5).content
-        sleep(5)
+        sleep(10)
     except Exception as ex:
         logger.error(ex)
 
     result6 = ""
     try:
+        report6 = data.get("level_address_statistics").get("platform").get("token")
+        msg6 = [system_msg,
+                HumanMessage(content="ReportId:level_address_statistics.platform.token\nReportData:" + json.dumps(report6)),
+                SystemMessage(content="Response should not exceed 400 tokens")]
         result6 = data_explain_chat(msg6).content
-        sleep(5)
+        sleep(10)
     except Exception as ex:
         logger.error(ex)
 
     result7 = ""
     try:
+        data.pop("level_address_statistics")
+        report7 = data
+        msg7 = [system_msg,
+                HumanMessage(content="ReportName:crowd_portrait\nReportData:" + json.dumps(report7)),
+                SystemMessage(content="Response should not exceed 1000 tokens")]
         result7 = data_explain_chat(msg7).content
-        sleep(5)
+        sleep(10)
     except Exception as ex:
         logger.error(ex)
     msg_merge1 = [system_msg,
@@ -140,7 +168,7 @@ def chat_json(json_data):
                   HumanMessage("Summarize the above conclusions again"),
                   SystemMessage(content="Response should not exceed 1000 tokens")]
     result_merger1 = data_explain_chat(msg_merge1).content
-    sleep(5)
+    sleep(10)
     msg_merge2 = [system_msg,
                   HumanMessage(content=result7 + "\n" + result_merger1),
                   HumanMessage("Summarize the above conclusions again"),
@@ -200,7 +228,4 @@ def add_session_content(sessionId, messages):
 
 
 if __name__ == "__main__":
-    r = open("/Users/guoxinyou/Desktop/data_analysis1.json")
-    json_str = r.read()
-    s = chat_json(json_str)
-    logger.info(s)
+    pass

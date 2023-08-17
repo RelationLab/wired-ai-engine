@@ -9,9 +9,9 @@ from base.logger_util import LOG
 from chat_tools import get_answer, get_answer_v2
 from data_analyses import data_analyses
 from data_interpretation import data_interpretation_chat
-from file_tools import save_file, save_file_url
+from file_tools import save_file, save_file_url, get_uuid
 from label_tools import redefine_label_info, get_label_info, delete_label_info
-from long_json_analysis import long_json_chat
+from long_json_analysis import long_json_chat, long_json_analysis, get_task_result
 from table_tools import redefine_table_info, get_table_info, delete_table_info
 from train_tools import train, find_similar_question
 from train_tools_v2 import train_v2, find_similar_question_v2
@@ -244,10 +244,32 @@ def data_interpretation(data: DataInterpretation):
         return fail()
 
 
-@app.post("/data/long_json_analyses")
+@app.post("/report/json_analyses")
 def long_json_analyses(data: LongJsonChat):
     try:
-        return success(long_json_chat(json_data=data.jsonData, question=data.question, sessionId=data.sessionId))
+        if not data.jsonData:
+            raise Exception("json_data can't be None")
+        taskId = get_uuid()
+        long_json_analysis(json_data=data.jsonData, taskId=taskId, sessionId=data.sessionId)
+        return success({"taskId": taskId})
+    except Exception as ex:
+        logger.error(ex)
+        return fail()
+
+
+@app.get("/report/get_task_info")
+def get_task_info(taskId: str):
+    try:
+        return get_task_result(taskId=taskId)
+    except Exception as ex:
+        logger.error(ex)
+        return fail()
+
+
+@app.post("/report/json_chat")
+def json_chat(data: LongJsonChat):
+    try:
+        return long_json_chat(question=data.question, sessionId=data.sessionId)
     except Exception as ex:
         logger.error(ex)
         return fail()
