@@ -1,0 +1,19 @@
+version: '3'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: wired-ai
+    environment:
+      - MLIVUS_HOST=192.168.3.169
+      - MLIVUS_PORT=19530
+      - OPEN_AI_KEY=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
+    ports:
+      - 8888:8765
+    logging:
+        driver: "json-file"
+        options:
+            max-size: "5g"
+    volumes:
+      - "/Users/laobinggun/logs:/app/log"
