@@ -5,8 +5,6 @@ http://{ip}:{port}/docs
 
 http://127.0.0.1:8765/docs
 
-### 部署方式
-
 ### 参数说明
 
 ```{MLIVUS_IP}```: mlivus向量数据库连接地址，默认```127.0.0.1```
@@ -19,6 +17,7 @@ http://127.0.0.1:8765/docs
 
 ```{OPEN_AI_KEY}```: openai的key, <font color="red">(*保存好openai的key)</font>
 
+### 部署方式
 
 #### 独立运行
 从git 拉取项目后, 进入base文件夹下的```__init__.py```
