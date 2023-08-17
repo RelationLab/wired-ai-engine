@@ -2,20 +2,16 @@ import os
 import openai
 import redis
 
-MILVUS_HOST = '127.0.0.1'
-# MILVUS_PORT = 19530
-# MILVUS_USER = "wired-milvus"
-# MILVUS_PASS = "eqS9TjC7YbaviH9VdKTv"
-# MILVUS_HOST = '192.168.0.102'
-# MILVUS_HOST = '10.5.0.2'
-MILVUS_PORT = 19530
-MILVUS_USER = ""
-MILVUS_PASS = ""
+MILVUS_HOST = os.environ.setdefault('MLIVUS_HOST', '127.0.0.1')
+MILVUS_PORT = os.environ.setdefault('MLIVUS_PORT', '19530')
+MILVUS_USER = os.environ.setdefault('MLIVUS_USERNAME', '')
+MILVUS_PASS = os.environ.setdefault('MLIVUS_PASSWORD', '')
+openai.api_key = os.environ.setdefault('OPEN_AI_KEY', '')
 OPENAI_EMBED_ENGINE = 'text-embedding-ada-002'
 OPENAI_API_BASE = 'https://www.googlex.vip/v1'
 openai.api_base = OPENAI_API_BASE
-os.environ["OPENAI_API_KEY"] = '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'
-openai.api_key = os.environ["OPENAI_API_KEY"]
+# os.environ["OPENAI_API_KEY"] = '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'
+# openai.api_key = os.environ["OPENAI_API_KEY"]
 
 logger_name = "Wired"
 
@@ -24,7 +20,6 @@ redis_pool = redis.ConnectionPool(max_connections=100, host='10.5.0.2',
                                   db=1,
                                   password='123456',
                                   decode_responses=True)
-
 
 def SystemMessage(content):
     return {"role": "system", "content": content}
