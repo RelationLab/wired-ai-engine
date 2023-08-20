@@ -32,8 +32,7 @@ def set_session_table(sessionId, table):
 
 def create_msg(tables, example, question, history, isSqlQuestion, sessionId):
     messages = [SystemMessage(
-        content="You are a PostgreSQL expert. Given an input question, Determine if the user needs to generate sql, if so create a syntactically correct PostgreSQL query.If the queried columns include 'address', then deduplicate based on the "
-                "'address' field. ")]
+        content="You are a PostgreSQL expert. Given an input question, Determine if the user needs to generate sql, if so create a syntactically correct PostgreSQL query.")]
     # messages.append(SystemMessage(content="If you know the answer then reply SQL:[your sql answer here] \n\n Don't write explanations and any other information in your responses \n"))
     # "Otherwise tell the user what additional information you need.\n\n Streamline your answers as much as possible"))
     for content in history or []:
