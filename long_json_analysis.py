@@ -38,12 +38,12 @@ def data_explain_chat(messages):
 
 @Async
 def long_json_analysis(json_data, taskId, sessionId):
-    msg = chat_json(json_data)
+    msg_all, msg_session = chat_json(json_data)
     if sessionId:
         clear_content(sessionId)
-        add_session_content(sessionId, [json.dumps(AIMessage(content=msg))])
+        add_session_content(sessionId, [json.dumps(AIMessage(content=msg_session))])
     os.makedirs("./data", exist_ok=True)
-    write_all_text(f"./data/{taskId}", msg)
+    write_all_text(f"./data/{taskId}", msg_all)
 
 
 def get_task_result(taskId):
@@ -152,6 +152,28 @@ def chat_json(json_data):
     except Exception as ex:
         logger.error(ex)
 
+    result8 = ""
+    try:
+        report8 = data.get("level_address_statistics").get("action").get("web3")
+        msg8 = [system_msg,
+                HumanMessage(content="ReportId:level_address_statistics.action.web3\nReportData:" + json.dumps(report8)),
+                SystemMessage(content="Response should not exceed 400 tokens")]
+        result8 = data_explain_chat(msg8).content
+        sleep(10)
+    except Exception as ex:
+        logger.error(ex)
+
+    result9 = ""
+    try:
+        report9 = data.get("level_address_statistics").get("platform").get("web3")
+        msg9 = [system_msg,
+                HumanMessage(content="ReportId:level_address_statistics.platform.web3\nReportData:" + json.dumps(report9)),
+                SystemMessage(content="Response should not exceed 400 tokens")]
+        result9 = data_explain_chat(msg9).content
+        sleep(10)
+    except Exception as ex:
+        logger.error(ex)
+
     result7 = ""
     try:
         data.pop("level_address_statistics")
@@ -164,7 +186,7 @@ def chat_json(json_data):
     except Exception as ex:
         logger.error(ex)
     msg_merge1 = [system_msg,
-                  HumanMessage(content=result1 + "\n" + result2 + "\n" + result3 + "\n" + result4 + "\n" + result5 + "\n" + result6),
+                  HumanMessage(content=result1 + "\n" + result2 + "\n" + result3 + "\n" + result4 + "\n" + result5 + "\n" + result6 + "\n" + result8 + "\n" + result9),
                   HumanMessage("Summarize the above conclusions again"),
                   SystemMessage(content="Response should not exceed 1000 tokens")]
     result_merger1 = data_explain_chat(msg_merge1).content
@@ -180,12 +202,15 @@ def chat_json(json_data):
     logger.info("result4:" + result4)
     logger.info("result5:" + result5)
     logger.info("result6:" + result6)
-    logger.info("result7:" + result7)
+    logger.info("result8:" + result8)
+    logger.info("result9:" + result9)
 
+    logger.info("result7:" + result7)
     logger.info("result_merger1:" + result_merger1)
     logger.info("result_merger2:" + result_merger2)
-
-    return result_merger2
+    msg_all = result1 + "\n" + result2 + "\n" + result3 + "\n" + result4 + "\n" + result5 + "\n" + result6 + "\n" + result8 + "\n" + result9 + "\n" + result7 + "\n" + result_merger1 + "\n" + result_merger2
+    msg_session = result7 + "\n" + result_merger1 + "\n" + result_merger2
+    return msg_all, msg_session
 
 
 def clear_content(sessionId):
