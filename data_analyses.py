@@ -40,7 +40,7 @@ def create_functions():
                 "properties": {
                     "script": {
                         "type": "string",
-                        "description": "the syntactically correct python script.Pay attention to the format when converting to json"
+                        "description": "the syntactically correct python script.Pay attention to the format when converting to json,The python script does not have permission to write to local file"
                     },
                     "packages": {
                         "type": "string",
@@ -109,6 +109,7 @@ def data_analyses(fileId, question, sessionId):
                 "Please consider the execution performance of the code according to the characteristics of the data.\n"
                 "And according to the user's question explain the statistical data.\n"
                 "Don't use dangerous code like delete data etc.\n"
+                "Do not generate code that writes to file.\n"
                 "Don't let the user know the process executed by python and the path where the file is stored.\n"
                 f"The user's data file is '{csv_file_name}'\n")]
     csv_sample, describe = get_csv_data_sample(csv_file_name)
