@@ -17,6 +17,14 @@ http://127.0.0.1:8765/docs
 
 ```{OPEN_AI_KEY}```: openai的key, <font color="red">(*保存好openai的key)</font>
 
+```{REDIS_HOST}```: redis连接地址, 默认```127.0.0.1```
+
+```{REDIS_PORT}```: redis连接端口号, 默认```6379```
+
+```{REDIS_PASSWORD}```: redis连接密码, 默认```''```
+
+
+
 ### 部署方式
 
 #### 独立运行
@@ -28,6 +36,9 @@ MILVUS_PORT = os.environ.setdefault('MLIVUS_PORT', '{MLIVUS_PORT}')
 MILVUS_USER = os.environ.setdefault('MLIVUS_USERNAME', '{MLIVUS_USERNAME}')
 MILVUS_PASS = os.environ.setdefault('MLIVUS_PASSWORD', '{MLIVUS_PASSWORD}')
 openai.api_key = os.environ.setdefault('OPEN_AI_KEY', '{OPEN_AI_KEY}')
+REDIS_HOST = os.environ.setdefault('REDIS_HOST', '{REDIS_HOST}')
+REDIS_PORT = os.environ.setdefault('REDIS_PORT', '{REDIS_PORT}')
+REDIS_PASSWORD = os.environ.setdefault('REDIS_PASSWORD', '{REDIS_PASSWORD}')
 ```
 
 服务端口号修改：```web.py```中```uvicorn.run(app, host="0.0.0.0", port=8765)```
@@ -50,6 +61,9 @@ services:
       - MLIVUS_HOST=127.0.0.1
       - MLIVUS_PORT=19530
       - OPEN_AI_KEY=sk-xxxxxxxxxxxxxxxxxxxxxxxx
+      - REDIS_HOST=127.0.0.1
+      - REDIS_PORT=6379
+      - REDIS_PASSWORD=123456
     ports:
       - 8765:8765
     logging:
