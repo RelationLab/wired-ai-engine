@@ -6,6 +6,9 @@ MILVUS_HOST = os.environ.setdefault('MLIVUS_HOST', '127.0.0.1')
 MILVUS_PORT = os.environ.setdefault('MLIVUS_PORT', '19530')
 MILVUS_USER = os.environ.setdefault('MLIVUS_USERNAME', '')
 MILVUS_PASS = os.environ.setdefault('MLIVUS_PASSWORD', '')
+REDIS_HOST = os.environ.setdefault('REDIS_HOST', '127.0.0.1')
+REDIS_PORT = os.environ.setdefault('REDIS_PORT', '6379')
+REDIS_PASSWORD = os.environ.setdefault('REDIS_PASSWORD', '')
 openai.api_key = os.environ.setdefault('OPEN_AI_KEY', '')
 OPENAI_EMBED_ENGINE = 'text-embedding-ada-002'
 OPENAI_API_BASE = 'https://www.googlex.vip/v1'
@@ -15,10 +18,10 @@ openai.api_base = OPENAI_API_BASE
 
 logger_name = "Wired"
 
-redis_pool = redis.ConnectionPool(max_connections=100, host='10.5.0.2',
-                                  port=6379,
+redis_pool = redis.ConnectionPool(max_connections=100, host=REDIS_HOST,
+                                  port=REDIS_PORT,
                                   db=1,
-                                  password='123456',
+                                  password=REDIS_PASSWORD,
                                   decode_responses=True)
 
 def SystemMessage(content):
