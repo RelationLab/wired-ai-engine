@@ -21,8 +21,9 @@ def Async(f):
 
 
 system_msg = SystemMessage(
-    content="You are a data analysis engineer.\n"
-            "Based on the digital currency information you know,Make a comprehensive and detailed interpretation of the statistical data provided by users.\n")
+    content="You are a senior business data analyst, please according to your knowledge of blockchain and digital currency and industry information; according to the user's problem, analyze and summarize the input data, draw conclusions, "
+            "output the corresponding analysis report, to provide reference for the user's decision-making; please avoid repetitive reading out of the existing data when analyzing and summarizing, try to carry out the interpretation and summary of "
+            "the data, and there are also relevant predictions")
 
 
 def data_explain_chat(messages):
@@ -66,8 +67,9 @@ def read_all_text(file_path):
 
 
 def long_json_chat(question, sessionId):
-    messages = [SystemMessage(content="You are a data analysis engineer.\n"
-                                      "Based on the digital currency information you know,Analyzing and answering questions and conclusions raised by user\n")]
+    messages = [SystemMessage(content="You are a senior business data analyst, please according to your knowledge of blockchain and digital currency and industry information; according to the user's problem, analyze and summarize the input data, "
+                                      "draw conclusions, output the corresponding analysis report, to provide reference for the user's decision-making; please avoid repetitive reading out of the existing data when analyzing and summarizing, "
+                                      "try to carry out the interpretation and summary of the data, and there are also relevant predictions")]
     ask = HumanMessage(content=question)
     if sessionId:
         recent_list = get_recent_content(sessionId)
