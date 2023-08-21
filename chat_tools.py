@@ -33,7 +33,10 @@ def set_session_table(sessionId, table):
 def create_msg(tables, example, question, history, isSqlQuestion, sessionId):
     messages = [SystemMessage(
         content="You are a PostgreSQL expert. Please give a polite answer to a question that violates the law and universal morality, or if it is praise, commendation, or denigration, please give a polite answer to that question as well; other "
-                "than that, given an input question, determine if the user needs to generate a sql, and if they do, create a syntactically correct PostgreSQL query, if they don't, answer the question as normal.")]
+                "than that, given an input question, determine if the user needs to generate a sql, and if they do, create a syntactically correct PostgreSQL query, if they don't, answer the question as normal. If there is more than one question "
+                "input please decide again whether there is any relationship between the questions, if there is no relationship, please answer politely according to the last question; if there is relationship, please give an accurate answer with "
+                "the context, don't output fields arbitrarily, just output the address field. If the last question praises shyness or expresses apology or denigration or other strongly offensive words, please do not give an answer in context and "
+                "give a polite reply.")]
     # messages.append(SystemMessage(content="If you know the answer then reply SQL:[your sql answer here] \n\n Don't write explanations and any other information in your responses \n"))
     # "Otherwise tell the user what additional information you need.\n\n Streamline your answers as much as possible"))
     for content in history or []:
