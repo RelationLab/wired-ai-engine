@@ -21,13 +21,13 @@ def Async(f):
 
 
 system_msg = SystemMessage(
-        content="You are a senior business data analyst, your answer is very important to us, please follow the following rules when you reply:"
-                "\n1 Please analyze and summarize the input data based on your understanding of blockchain and digital currency and industry information, according to the user's questions, draw conclusions, and output corresponding analysis reports "
-                "to provide references for the user's decision-making; when analyzing and summarizing, please avoid repetitive interpretations of the existing data, and try to interpret and summarize the data as much as possible, "
-                "and make relevant predictions; please don't give replies or Please do not give responses or answers that are not related to the input data; "
-                "\n2 Under the conditions of rule 1 above, when there are multiple questions input, you need to decide whether there is a relation between the upper and lower questions; if you decide that there is no relation, "
-                "please answer the last question; if you decide that there is a relation, please combine the replies with the contextual questions. "
-                "\n3 Thank you again, your reply is very important to us, please make sure you reply professionally and seriously!")
+    content="You are a senior business data analyst, your answer is very important to us, please follow the following rules when you reply:"
+            "\n1 Please analyze and summarize the input data based on your understanding of blockchain and digital currency and industry information, according to the user's questions, draw conclusions, and output corresponding analysis reports "
+            "to provide references for the user's decision-making; when analyzing and summarizing, please avoid repetitive interpretations of the existing data, and try to interpret and summarize the data as much as possible, "
+            "and make relevant predictions; please don't give replies or Please do not give responses or answers that are not related to the input data; "
+            "\n2 Under the conditions of rule 1 above, when there are multiple questions input, you need to decide whether there is a relation between the upper and lower questions; if you decide that there is no relation, "
+            "please answer the last question; if you decide that there is a relation, please combine the replies with the contextual questions. "
+            "\n3 Thank you again, your reply is very important to us, please make sure you reply professionally and seriously!")
 
 
 def data_explain_chat(messages):
@@ -43,10 +43,10 @@ def data_explain_chat(messages):
 
 @Async
 def long_json_analysis(json_data, taskId, sessionId):
-    msg_all, msg_session = chat_json(json_data)
+    msg_all = chat_json(json_data)
     if sessionId:
         clear_content(sessionId)
-        add_session_content(sessionId, [json.dumps(AIMessage(content=msg_session))])
+        add_session_content(sessionId, [json.dumps(AIMessage(content=msg_all))])
     os.makedirs("./data", exist_ok=True)
     write_all_text(f"./data/{taskId}", msg_all)
 
@@ -95,7 +95,7 @@ def chat_json(json_data):
         report1 = data.get("level_address_statistics").get("action").get("nft")
         msg1 = [system_msg,
                 HumanMessage(content="ReportId:level_address_statistics.action.nft\nReportData:" + json.dumps(report1)),
-                SystemMessage(content="Response should not exceed 400 tokens")]
+                SystemMessage(content="Response should not exceed 200 tokens")]
         result1 = data_explain_chat(msg1).content
         sleep(10)
     except Exception as ex:
@@ -106,7 +106,7 @@ def chat_json(json_data):
         report2 = data.get("level_address_statistics").get("action").get("token")
         msg2 = [system_msg,
                 HumanMessage(content="ReportId:level_address_statistics.action.token\nReportData:" + json.dumps(report2)),
-                SystemMessage(content="Response should not exceed 400 tokens")]
+                SystemMessage(content="Response should not exceed 200 tokens")]
         result2 = data_explain_chat(msg2).content
         sleep(10)
     except Exception as ex:
@@ -117,7 +117,7 @@ def chat_json(json_data):
         report3 = data.get("level_address_statistics").get("asset").get("nft")
         msg3 = [system_msg,
                 HumanMessage(content="ReportId:level_address_statistics.asset.nft\nReportData:" + json.dumps(report3)),
-                SystemMessage(content="Response should not exceed 400 tokens")]
+                SystemMessage(content="Response should not exceed 200 tokens")]
         result3 = data_explain_chat(msg3).content
         sleep(10)
     except Exception as ex:
@@ -128,7 +128,7 @@ def chat_json(json_data):
         report4 = data.get("level_address_statistics").get("asset").get("token")
         msg4 = [system_msg,
                 HumanMessage(content="ReportId:level_address_statistics.asset.token\nReportData:" + json.dumps(report4)),
-                SystemMessage(content="Response should not exceed 400 tokens")]
+                SystemMessage(content="Response should not exceed 200 tokens")]
         result4 = data_explain_chat(msg4).content
         sleep(10)
     except Exception as ex:
@@ -139,7 +139,7 @@ def chat_json(json_data):
         report5 = data.get("level_address_statistics").get("platform").get("nft")
         msg5 = [system_msg,
                 HumanMessage(content="ReportId:level_address_statistics.platform.nft\nReportData:" + json.dumps(report5)),
-                SystemMessage(content="Response should not exceed 400 tokens")]
+                SystemMessage(content="Response should not exceed 200 tokens")]
         result5 = data_explain_chat(msg5).content
         sleep(10)
     except Exception as ex:
@@ -150,18 +150,29 @@ def chat_json(json_data):
         report6 = data.get("level_address_statistics").get("platform").get("token")
         msg6 = [system_msg,
                 HumanMessage(content="ReportId:level_address_statistics.platform.token\nReportData:" + json.dumps(report6)),
-                SystemMessage(content="Response should not exceed 400 tokens")]
+                SystemMessage(content="Response should not exceed 200 tokens")]
         result6 = data_explain_chat(msg6).content
+        sleep(10)
+    except Exception as ex:
+        logger.error(ex)
+
+    result7 = ""
+    try:
+        report7 = data.get("level_address_statistics").get("action").get("web3")
+        msg7 = [system_msg,
+                HumanMessage(content="ReportId:level_address_statistics.action.web3\nReportData:" + json.dumps(report7)),
+                SystemMessage(content="Response should not exceed 200 tokens")]
+        result7 = data_explain_chat(msg7).content
         sleep(10)
     except Exception as ex:
         logger.error(ex)
 
     result8 = ""
     try:
-        report8 = data.get("level_address_statistics").get("action").get("web3")
+        report8 = data.get("level_address_statistics").get("platform").get("web3")
         msg8 = [system_msg,
-                HumanMessage(content="ReportId:level_address_statistics.action.web3\nReportData:" + json.dumps(report8)),
-                SystemMessage(content="Response should not exceed 400 tokens")]
+                HumanMessage(content="ReportId:level_address_statistics.platform.web3\nReportData:" + json.dumps(report8)),
+                SystemMessage(content="Response should not exceed 200 tokens")]
         result8 = data_explain_chat(msg8).content
         sleep(10)
     except Exception as ex:
@@ -169,36 +180,26 @@ def chat_json(json_data):
 
     result9 = ""
     try:
-        report9 = data.get("level_address_statistics").get("platform").get("web3")
+        data.pop("level_address_statistics")
+        report9 = data
         msg9 = [system_msg,
-                HumanMessage(content="ReportId:level_address_statistics.platform.web3\nReportData:" + json.dumps(report9)),
-                SystemMessage(content="Response should not exceed 400 tokens")]
+                HumanMessage(content="ReportName:crowd_portrait\nReportData:" + json.dumps(report9)),
+                SystemMessage(content="Response should not exceed 500 tokens")]
         result9 = data_explain_chat(msg9).content
         sleep(10)
     except Exception as ex:
         logger.error(ex)
 
-    result7 = ""
-    try:
-        data.pop("level_address_statistics")
-        report7 = data
-        msg7 = [system_msg,
-                HumanMessage(content="ReportName:crowd_portrait\nReportData:" + json.dumps(report7)),
-                SystemMessage(content="Response should not exceed 1000 tokens")]
-        result7 = data_explain_chat(msg7).content
-        sleep(10)
-    except Exception as ex:
-        logger.error(ex)
     msg_merge1 = [system_msg,
-                  HumanMessage(content=result1 + "\n" + result2 + "\n" + result3 + "\n" + result4 + "\n" + result5 + "\n" + result6 + "\n" + result8 + "\n" + result9),
+                  HumanMessage(content=result1 + "\n" + result2 + "\n" + result3 + "\n" + result4 + "\n" + result5 + "\n" + result6 + "\n" + result7 + "\n" + result8),
                   HumanMessage("Summarize the above conclusions again"),
-                  SystemMessage(content="Response should not exceed 1000 tokens")]
+                  SystemMessage(content="Response should not exceed 500 tokens")]
     result_merger1 = data_explain_chat(msg_merge1).content
     sleep(10)
     msg_merge2 = [system_msg,
-                  HumanMessage(content=result7 + "\n" + result_merger1),
+                  HumanMessage(content=result9 + "\n" + result_merger1),
                   HumanMessage("Summarize the above conclusions again"),
-                  SystemMessage(content="Response should not exceed 2000 tokens")]
+                  SystemMessage(content="Response should not exceed 1000 tokens")]
     result_merger2 = data_explain_chat(msg_merge2).content
     logger.info("result1:" + result1)
     logger.info("result2:" + result2)
@@ -206,15 +207,15 @@ def chat_json(json_data):
     logger.info("result4:" + result4)
     logger.info("result5:" + result5)
     logger.info("result6:" + result6)
+    logger.info("result7:" + result7)
     logger.info("result8:" + result8)
     logger.info("result9:" + result9)
-
-    logger.info("result7:" + result7)
     logger.info("result_merger1:" + result_merger1)
     logger.info("result_merger2:" + result_merger2)
-    msg_all = result1 + "\n" + result2 + "\n" + result3 + "\n" + result4 + "\n" + result5 + "\n" + result6 + "\n" + result8 + "\n" + result9 + "\n" + result7 + "\n" + result_merger1 + "\n" + result_merger2
-    msg_session = result7 + "\n" + result_merger1 + "\n" + result_merger2
-    return msg_all, msg_session
+    msg_all = result1 + "\n" + result2 + "\n" + result3 + "\n" + result4 + "\n" \
+              + result5 + "\n" + result6 + "\n" + result7 + "\n" + result8 + "\n" \
+              + result9 + "\n" + result_merger1 + "\n" + result_merger2
+    return msg_all
 
 
 def clear_content(sessionId):
