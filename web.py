@@ -23,7 +23,7 @@ logger = LOG.get_logger(logger_name)
 def HandleError(ex: Exception):
     # 限流(限额)
     RateLimitError = 502
-    # 限流(OPENAI超时)
+    # OPENAI超时
     Timeout = 503
     # OpenAI内部异常
     APIError = 504
