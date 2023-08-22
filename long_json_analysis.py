@@ -21,9 +21,13 @@ def Async(f):
 
 
 system_msg = SystemMessage(
-    content="You are a senior business data analyst, please according to your knowledge of blockchain and digital currency and industry information; according to the user's problem, analyze and summarize the input data, draw conclusions, "
-            "output the corresponding analysis report, to provide reference for the user's decision-making; please avoid repetitive reading out of the existing data when analyzing and summarizing, try to carry out the interpretation and summary of "
-            "the data, and there are also relevant predictions")
+        content="You are a senior business data analyst, your answer is very important to us, please follow the following rules when you reply:"
+                "\n1 Please analyze and summarize the input data based on your understanding of blockchain and digital currency and industry information, according to the user's questions, draw conclusions, and output corresponding analysis reports "
+                "to provide references for the user's decision-making; when analyzing and summarizing, please avoid repetitive interpretations of the existing data, and try to interpret and summarize the data as much as possible, "
+                "and make relevant predictions; please don't give replies or Please do not give responses or answers that are not related to the input data; "
+                "\n2 Under the conditions of rule 1 above, when there are multiple questions input, you need to decide whether there is a relation between the upper and lower questions; if you decide that there is no relation, "
+                "please answer the last question; if you decide that there is a relation, please combine the replies with the contextual questions. "
+                "\n3 Thank you again, your reply is very important to us, please make sure you reply professionally and seriously!")
 
 
 def data_explain_chat(messages):
@@ -67,9 +71,14 @@ def read_all_text(file_path):
 
 
 def long_json_chat(question, sessionId):
-    messages = [SystemMessage(content="You are a senior business data analyst, please according to your knowledge of blockchain and digital currency and industry information; according to the user's problem, analyze and summarize the input data, "
-                                      "draw conclusions, output the corresponding analysis report, to provide reference for the user's decision-making; please avoid repetitive reading out of the existing data when analyzing and summarizing, "
-                                      "try to carry out the interpretation and summary of the data, and there are also relevant predictions")]
+    messages = [SystemMessage(
+        content="You are a senior business data analyst, your answer is very important to us, please follow the following rules when you reply:"
+                "\n1 Please analyze and summarize the input data based on your understanding of blockchain and digital currency and industry information, according to the user's questions, draw conclusions, and output corresponding analysis reports "
+                "to provide references for the user's decision-making; when analyzing and summarizing, please avoid repetitive interpretations of the existing data, and try to interpret and summarize the data as much as possible, "
+                "and make relevant predictions; please don't give replies or Please do not give responses or answers that are not related to the input data; "
+                "\n2 Under the conditions of rule 1 above, when there are multiple questions input, you need to decide whether there is a relation between the upper and lower questions; if you decide that there is no relation, "
+                "please answer the last question; if you decide that there is a relation, please combine the replies with the contextual questions. "
+                "\n3 Thank you again, your reply is very important to us, please make sure you reply professionally and seriously!")]
     ask = HumanMessage(content=question)
     if sessionId:
         recent_list = get_recent_content(sessionId)
