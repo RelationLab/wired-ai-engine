@@ -45,8 +45,7 @@ def data_explain_chat(messages):
 def long_json_analysis(json_data, taskId, sessionId):
     msg_all = chat_json(json_data)
     if sessionId:
-        clear_content(sessionId)
-        add_session_content(sessionId, [json.dumps(AIMessage(content=msg_all))])
+        set_session_report_data(sessionId, json.dumps(SystemMessage(content="The content of the data analysis report is as follows:\n" + msg_all)))
     os.makedirs("./data", exist_ok=True)
     write_all_text(f"./data/{taskId}", msg_all)
 
@@ -71,12 +70,16 @@ def read_all_text(file_path):
 
 
 def long_json_chat(question, sessionId):
-    messages = [system_msg]
-    ask = HumanMessage(content=question)
+    messages = [SystemMessage(content="You are a data analytics engineer. Based on your knowledge of digital currency and virtual assets, answer user questions based on the following data analysis report")]
+    msg = get_session_report_data(sessionId)
+    if not msg:
+        raise Exception("The data analysis report has not been completed")
+    messages.append(json.loads(msg))
     if sessionId:
         recent_list = get_recent_content(sessionId)
         for recent in recent_list:
             messages.append(json.loads(recent))
+    ask = HumanMessage(content=question)
     messages.append(ask)
     result = data_explain_chat(messages)
     if sessionId:
@@ -218,17 +221,6 @@ def chat_json(json_data):
     return msg_all
 
 
-def clear_content(sessionId):
-    """
-    清空session
-    :param sessionId: 会话id
-    :return:
-    """
-    conn = redis.Redis(connection_pool=redis_pool)
-    conn.delete(f"long_json::session_context::{sessionId}")
-    conn.close()
-
-
 def get_recent_content(sessionId, limit=10):
     """
     获取最近的十条会话数据
@@ -257,5 +249,28 @@ def add_session_content(sessionId, messages):
     conn.close()
 
 
+def set_session_report_data(sessionId, reportSummary):
+    """
+    :param sessionId: 会话id
+    :param reportSummary: 报表总结
+    :return:
+    """
+    conn = redis.Redis(connection_pool=redis_pool)
+    conn.set(f"long_json::session_report::{sessionId}", reportSummary)
+    conn.expire(f"long_json::session_report::{sessionId}", 60 * 60 * 24 * 3)
+    conn.close()
+
+
+def get_session_report_data(sessionId):
+    """获取会话的总结报告
+    :param sessionId: 会话id
+    :return:
+    """
+    conn = redis.Redis(connection_pool=redis_pool)
+    msg = conn.get(f"long_json::session_report::{sessionId}")
+    conn.close()
+    return msg
+
+
 if __name__ == "__main__":
-    pass
+    test_result = long_json_chat("You have been assigned the task of conducting data mining for a portrait report. Yourgoal is to analyze and extract key information, providing a comprehensive conclusion forthis report.", "e33e")

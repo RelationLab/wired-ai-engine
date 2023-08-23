@@ -86,9 +86,9 @@ def get_sample_sql(ask):
 def get_master_data(asset_acronym):
     exact_value = []
     for row in master_data:
-        if asset_acronym.lower() == row.get("asset").lower():
-            exact_value.append(row.get("symbol"))
-    if exact_value:
+        if asset_acronym.lower() == row.get("symbol").lower():
+            exact_value.append(row.get("asset"))
+    if not exact_value:
         exact_value.append(asset_acronym)
     return f"'{asset_acronym}' is '{exact_value}'"
 
