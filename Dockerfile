@@ -20,7 +20,7 @@ WORKDIR /app
 RUN /usr/local/bin/python -m pip install --upgrade pip
 RUN mkdir /nonexistent && chown -R 1001:1001 /nonexistent /app
 COPY . .
-RUN pip install -r requirements.txt 
+RUN pip install --no-cache-dir -r requirements.txt 
 
 COPY --from=shush-rs /usr/bin/shush-rs /usr/bin/shush-rs
 CMD ["python", "web.py"]
