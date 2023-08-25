@@ -95,12 +95,11 @@ def get_master_data(asset_acronym):
 
 def create_msg(tables, question, history):
     messages = [SystemMessage(
-        content="You are a PostgreSQL expert. \nDetermine whether the user needs to generate a query sql based on the user's input question. \nIf so, create a syntactically correct PostgreSQL query statement and output the response using the "
-                "format_sql function. \nIf the user's question is vague, you can ask the user back to get a more precise description.\nPlease note that some of the user's questions may not match the query criteria for the asset name in the "
-                "table.\n For example, if the user's question is 'eBitcoin' and the database stores 'EBTC', \n you can use the get_master_data function to get the exact value of the asset stored in the database.\n \nIf the user confirms the need "
-                "to continue generating SQL, it must be created based on the user's table structure and problem. Additionally, the get_sql_sample function can be used to obtain the SQL statement for a similar issue, which will help you understand "
-                "the user's table structure and data characteristics."),
-        SystemMessage(content="The structure of the user's data table is as follows:" + (";".join(tables)))]
+        content="You are a PostgreSQL expert. Determine whether the user needs to generate a query sql based on the user's input question. If so, create a syntactically correct PostgreSQL query statement and output the response using the "
+                "format_sql function. If the user's question is vague, you can ask the user back to get a more precise description.\nPlease note that some of the user's questions may not match the query criteria for the asset name in the table. "
+                "For example, if the user's question is 'eBitcoin' and the database stores 'EBTC', you can use the get_master_data function to get the exact value of the asset stored in the database.\nIf the user needs to generate SQL you should "
+                "first use the get_sql_sample function to get the SQL statement for a similar problem to help you understand the user's table structure and data characteristics.\nThe structure of the user's data table is as follows."),
+        SystemMessage(content=";".join(tables))]
     for content in history or []:
         messages.append(json.loads(content))
     messages.append(HumanMessage(content=question))
