@@ -87,11 +87,64 @@ def long_json_chat(question, sessionId):
     return {"success": True, "data": result.content}
 
 
+def chat_json_personal(data: dict):
+    """
+    个人画像分析
+    :return:
+    """
+    # msg_assets = [system_msg,
+    #        HumanMessage(content="ReportName:Personal portrait analysis\nReportData:" + json.dumps(data)),
+    #        SystemMessage(content="Response should not exceed 3000 tokens")]
+    # result_assets = data_explain_chat(msg_assets).content
+
+    result1 = ""
+    try:
+        report1 = data.get("assets")
+        msg1 = [system_msg,
+                HumanMessage(content="ReportId:Personal_portrait_analysis.assets\nReportData:" + json.dumps(report1)),
+                SystemMessage(content="Response should not exceed 700 tokens")]
+        result1 = data_explain_chat(msg1).content
+        sleep(10)
+    except Exception as ex:
+        logger.error(ex)
+
+    result2 = ""
+    try:
+        report2 = data.get("platforms")
+        msg2 = [system_msg,
+                HumanMessage(content="ReportId:Personal_portrait_analysis.platforms\nReportData:" + json.dumps(report2)),
+                SystemMessage(content="Response should not exceed 700 tokens")]
+        result2 = data_explain_chat(msg2).content
+        sleep(10)
+    except Exception as ex:
+        logger.error(ex)
+
+    result3 = ""
+    try:
+        report3 = data.get("actions")
+        msg3 = [system_msg,
+                HumanMessage(content="ReportId:Personal_portrait_analysis.actions\nReportData:" + json.dumps(report3)),
+                SystemMessage(content="Response should not exceed 700 tokens")]
+        result3 = data_explain_chat(msg3).content
+        sleep(10)
+    except Exception as ex:
+        logger.error(ex)
+
+    msg_merge = [system_msg,
+                 HumanMessage(content=result1 + "\n" + result2 + "\n" + result3 + "\n"),
+                 HumanMessage("Summarize the above conclusions again,Then further interpret the above reports"),
+                 SystemMessage(content="Response should not exceed 2000 tokens")]
+    result_merger = data_explain_chat(msg_merge).content
+
+    return result1 + "\n" + result2 + "\n" + result3 + "\n" + result_merger
+
+
 def chat_json(json_data):
     # sleep(30)
     # return "hh"
     data: dict = json.loads(json_data)
-
+    if data.get("assets"):
+        return chat_json_personal(data)
     # sleep(10) 防止被限流
     result1 = ""
     try:
@@ -195,13 +248,13 @@ def chat_json(json_data):
 
     msg_merge1 = [system_msg,
                   HumanMessage(content=result1 + "\n" + result2 + "\n" + result3 + "\n" + result4 + "\n" + result5 + "\n" + result6 + "\n" + result7 + "\n" + result8),
-                  HumanMessage("Summarize the above conclusions again"),
+                  HumanMessage("Summarize the above conclusions again,Then further interpret the above reports"),
                   SystemMessage(content="Response should not exceed 500 tokens")]
     result_merger1 = data_explain_chat(msg_merge1).content
     sleep(10)
     msg_merge2 = [system_msg,
                   HumanMessage(content=result9 + "\n" + result_merger1),
-                  HumanMessage("Summarize the above conclusions again"),
+                  HumanMessage("Summarize the above conclusions again,Then further interpret the above reports"),
                   SystemMessage(content="Response should not exceed 1000 tokens")]
     result_merger2 = data_explain_chat(msg_merge2).content
     logger.info("result1:" + result1)
