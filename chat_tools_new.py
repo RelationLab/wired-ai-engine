@@ -98,7 +98,8 @@ def create_msg(tables, question, history):
         content="You are a PostgreSQL expert. Determine whether the user needs to generate a query sql based on the user's input question. If so, create a syntactically correct PostgreSQL query statement and output the response using the "
                 "format_sql function. \nIf the user's question is vague, you can ask the user back to get a more precise description.\nPlease note that some of the user's questions may not match the query criteria for the asset name in the table. "
                 "For example, The user's question is 'EBTC' but the database stores 'eBitcoin', you can use the get_master_data function to get the exact value of the asset stored in the database.\nIf the user needs to generate SQL you can use the "
-                "get_sql_sample function to get the SQL statement for a similar question to help you understand the user's table structure and data characteristics.\n"),
+                "get_sql_sample function to get the SQL statement for a similar question to help you understand the user's table structure and data characteristics.\n"
+                "If the user's question includes a question about proportions, note how the percentages are calculated"),
         SystemMessage(content="The structure of the user's data table is as follows:\n" + ";".join(tables))]
     for content in history or []:
         messages.append(json.loads(content))
