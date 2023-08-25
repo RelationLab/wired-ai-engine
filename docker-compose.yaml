@@ -6,8 +6,8 @@ services:
       dockerfile: ./Dockerfile
     container_name: wired-ai
     environment:
-      - MLIVUS_HOST=127.0.0.1
-      - MLIVUS_PORT=19530
+      - MILVUS_HOST=192.168.3.169
+      - MILVUS_PORT=19530
       - OPEN_AI_KEY=sk-xxxxxxxxxxxxxxxxxxxxxxxxxxx
       - REDIS_HOST=127.0.0.1
       - REDIS_PORT=6379
@@ -19,4 +19,4 @@ services:
         options:
             max-size: "5g"
     volumes:
-      - "/opt/wired-ai/logs:/app/log"
+      - "/Users/laobinggun/logs:/app/log"
