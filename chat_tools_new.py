@@ -80,30 +80,32 @@ def get_sample_sql(ask):
     train_search_data = trained_data_search_v2(ask)
     if train_search_data:
         train_data = train_search_data[0][2]
-        return f"question : {train_data.get('question')},answer : {train_data.get('answer')}"
+        return f"question : [{train_data.get('question')}],answer : [{train_data.get('answer')}].\nPlease note that this example is for reference only, and should not be overly relied upon."
 
 
 def get_master_data(asset_acronym):
     exact_value = []
     for row in master_data:
-        if asset_acronym.lower() == row.get("symbol").lower():
+        if asset_acronym.lower() == row.get("symbol").lower() or asset_acronym.lower() == row.get("asset").lower():
             exact_value.append(row.get("asset"))
     if not exact_value:
-        exact_value.append(asset_acronym)
+        return f"'There is no asset named '{asset_acronym}''"
     return f"'{asset_acronym}' is '{exact_value}'"
 
 
 def create_msg(tables, question, history):
-    messages = [SystemMessage(
-        content="You are a PostgreSQL expert. Determine whether the user needs to generate a query sql based on the user's input question. If so, create a syntactically correct PostgreSQL query statement and output the response using the "
-                "format_sql function. If the user's question is vague, you can ask the user back to get a more precise description.\nPlease note that some of the user's questions may not match the query criteria for the asset name in the table. "
-                "For example, if the user's question is 'eBitcoin' and the database stores 'EBTC', you can use the get_master_data function to get the exact value of the asset stored in the database.\nIf the user needs to generate SQL you should "
-                "first use the get_sql_sample function to get the SQL statement for a similar problem to help you understand the user's table structure and data characteristics.\nThe structure of the user's data table is as follows."),
-        SystemMessage(content=";".join(tables))]
+    messages = [
+        SystemMessage(content="You are a PostgreSQL expert. Determine whether the user needs to generate a query sql based on the user's input question. "
+                              "If so, create a syntactically correct PostgreSQL query statement and output the response using the format_sql function. \n"
+                              "If the user's question is vague, you can ask the user back to get a more precise description.\n"
+                              "Please note that some of the user's questions may not match the query criteria for the asset name in the table. "
+                              "For example, The user's question is 'EBTC' but the database stores 'eBitcoin', you can use the get_master_data function to get the exact value of the asset stored in the database.\n"
+                              "If the user needs to generate SQL you can use the get_sql_sample function to get the SQL statement for a similar question to help you understand the user's table structure and data characteristics.\n"
+                              "Please pay attention to the calculation method of the percentage when using the PERCENTILE_CONT function,For example, '0.5%' is PERCENTILE_CONT(0.005) instead of PERCENTILE_CONT(0.5)"),
+        SystemMessage(content="The structure of the user's data table is as follows:\n" + ";".join(tables))]
     for content in history or []:
         messages.append(json.loads(content))
     messages.append(HumanMessage(content=question))
-    # messages.append(SystemMessage(content="If your reply contains sql, use the exec_sql function whenever possible"))
     return messages
 
 
