@@ -80,7 +80,7 @@ def get_sample_sql(ask):
     train_search_data = trained_data_search_v2(ask)
     if train_search_data:
         train_data = train_search_data[0][2]
-        return f"question : {train_data.get('question')},answer : {train_data.get('answer')}"
+        return f"question : [{train_data.get('question')}],answer : [{train_data.get('answer')}].\nPlease note that this example is for reference only, and should not be overly relied upon."
 
 
 def get_master_data(asset_acronym):
@@ -96,10 +96,10 @@ def get_master_data(asset_acronym):
 def create_msg(tables, question, history):
     messages = [SystemMessage(
         content="You are a PostgreSQL expert. Determine whether the user needs to generate a query sql based on the user's input question. If so, create a syntactically correct PostgreSQL query statement and output the response using the "
-                "format_sql function. If the user's question is vague, you can ask the user back to get a more precise description.\nPlease note that some of the user's questions may not match the query criteria for the asset name in the table. "
-                "For example, if the user's question is 'eBitcoin' and the database stores 'EBTC', you can use the get_master_data function to get the exact value of the asset stored in the database.\nIf the user needs to generate SQL you should "
-                "first use the get_sql_sample function to get the SQL statement for a similar problem to help you understand the user's table structure and data characteristics.\nThe structure of the user's data table is as follows."),
-        SystemMessage(content=";".join(tables))]
+                "format_sql function. \nIf the user's question is vague, you can ask the user back to get a more precise description.\nPlease note that some of the user's questions may not match the query criteria for the asset name in the table. "
+                "For example, The user's question is 'EBTC' but the database stores 'eBitcoin', you can use the get_master_data function to get the exact value of the asset stored in the database.\nIf the user needs to generate SQL you can use the "
+                "get_sql_sample function to get the SQL statement for a similar question to help you understand the user's table structure and data characteristics.\n"),
+        SystemMessage(content="The structure of the user's data table is as follows:\n" + ";".join(tables))]
     for content in history or []:
         messages.append(json.loads(content))
     messages.append(HumanMessage(content=question))
