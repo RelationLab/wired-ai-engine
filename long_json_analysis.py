@@ -37,13 +37,14 @@ def data_explain_chat(messages):
     logger.info(json.dumps(response))
     response_message = response["choices"][0]["message"]
     result = ChatResult(role=response_message.get("role"), content=response_message.get("content"), function_call=None)
-    print("chat result：", result)
     return result
 
 
 @Async
 def long_json_analysis(json_data, taskId, sessionId):
+    logger.info(f"开始分析json数据,taskId:{taskId},json data:{json_data}")
     msg_all = chat_json(json_data)
+    logger.info(f"json数据分析结束,taskId:{taskId}，分析结果:{msg_all}")
     if sessionId:
         set_session_report_data(sessionId, json.dumps(SystemMessage(content="The content of the data analysis report is as follows:\n" + msg_all)))
     os.makedirs("./data", exist_ok=True)
