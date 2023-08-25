@@ -16,12 +16,11 @@ RUN set -eux \
     && ln -snf /usr/share/zoneinfo/$TZ /etc/localtime \
     && echo $TZ > /etc/timezone
 
-RUN /usr/local/bin/python -m pip install --upgrade pip
-
 WORKDIR /app
+RUN /usr/local/bin/python -m pip install --upgrade pip
+RUN mkdir /nonexistent && chown -R 1001:1001 /nonexistent /app
 COPY . .
-RUN set -ex \
-    pip install -r requirements.txt 
+RUN pip install -r requirements.txt 
 
 COPY --from=shush-rs /usr/bin/shush-rs /usr/bin/shush-rs
 CMD ["python", "web.py"]
