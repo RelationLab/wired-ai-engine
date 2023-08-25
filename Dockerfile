@@ -23,6 +23,6 @@ COPY . .
 RUN pip install --no-cache-dir -r requirements.txt 
 
 COPY --from=shush-rs /usr/bin/shush-rs /usr/bin/shush-rs
-CMD ["python", "web.py"]
+CMD ["shush-rs", "exec", "--", "python", "web.py"]
 
 USER appuser
