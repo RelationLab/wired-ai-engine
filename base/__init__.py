@@ -19,7 +19,7 @@ openai.api_base = OPENAI_API_BASE
 
 logger_name = "Wired"
 
-redis_pool = redis.ConnectionPool(max_connections=100, host=REDIS_HOST,
+redis_pool = redis.ConnectionPool(connection_class=redis.connection.SSLConnection, max_connections=100, host=REDIS_HOST,
                                   port=REDIS_PORT,
                                   db=1,
                                   password=REDIS_PASSWORD,
