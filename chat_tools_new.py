@@ -99,8 +99,8 @@ def create_msg(tables, question, history):
                               "the format_sql function. \nIf the user's question is vague, you can ask the user back to get a more precise description.\nPlease note that some of the user's questions may not match the query criteria for the asset "
                               "name in the table. For example, The user's question is 'EBTC' but the database stores 'eBitcoin', you can use the get_master_data function to get the exact value of the asset stored in the database.When you get "
                               "multiple exact value of the asset, Please ask a rhetorical question to confirm which one should be selected.\nIf the user needs to generate SQL you can use the get_sql_sample function to get the SQL statement for a "
-                              "similar question to help you understand the user's table structure and data characteristics.\nIf the user's question is about the 'holding' of assets, it is necessary to add the condition that the asset balance is "
-                              "greater than 0 in the returned SQL.\nWhen a percentage occurs, such as 0.5%, it corresponds to 0.005, and your understanding of it should be based on rules "
+                              "similar question to help you understand the user's table structure and data characteristics.\nIf the user's question is about the 'holding' of assets, it is necessary to add the condition that the asset balance_count "
+                              "is greater than 0 in the returned SQL.\nWhen a percentage occurs, such as 0.5%, it corresponds to 0.005, and your understanding of it should be based on rules "
                               "such as these. Finally, could you please take the generated sql as a whole and de-emphasize the address field by group by, e.g. select address from (select address from table_name) a1 group by address."),
         SystemMessage(content="The structure of the user's data table is as follows:\n" + ";".join(tables))]
     for content in history or []:
