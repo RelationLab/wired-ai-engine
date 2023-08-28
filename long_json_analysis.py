@@ -39,9 +39,9 @@ def data_explain_chat(messages):
 
 @Async
 def long_json_analysis(json_data, taskId, sessionId):
-    logger.info(f"开始分析json数据,taskId:{taskId},json data:{json_data}")
+    logger.info(f"开始分析json数据,taskId:{taskId},sessionId:{sessionId},json data:{json_data}")
     msg_all = chat_json(json_data)
-    logger.info(f"json数据分析结束,taskId:{taskId}，分析结果:{msg_all}")
+    logger.info(f"json数据分析结束,taskId:{taskId},sessionId:{sessionId},分析结果:{msg_all}")
     if sessionId:
         set_session_report_data(sessionId, json.dumps(SystemMessage(content="The content of the data analysis report is as follows:\n" + msg_all)))
     os.makedirs("./data", exist_ok=True)
@@ -68,6 +68,7 @@ def read_all_text(file_path):
 
 
 def long_json_chat(question, sessionId):
+    logger.info(f"long_json_chat,sessionId:{sessionId},question:{question}")
     messages = [SystemMessage(content="You are a data analytics engineer. Based on your knowledge of digital currency and virtual assets, answer user questions based on the following data analysis report")]
     msg = get_session_report_data(sessionId)
     if not msg:
@@ -90,17 +91,13 @@ def chat_json_personal(data: dict):
     个人画像分析
     :return:
     """
-    # msg_assets = [system_msg,
-    #        HumanMessage(content="ReportName:Personal portrait analysis\nReportData:" + json.dumps(data)),
-    #        SystemMessage(content="Response should not exceed 3000 tokens")]
-    # result_assets = data_explain_chat(msg_assets).content
 
     result1 = ""
     try:
         report1 = data.get("assets")
         msg1 = [system_msg,
                 HumanMessage(content="ReportId:Personal_portrait_analysis.assets\nReportData:" + json.dumps(report1)),
-                SystemMessage(content="Response should not exceed 700 tokens")]
+                SystemMessage(content="Response should not exceed 400 tokens")]
         result1 = data_explain_chat(msg1).content
         sleep(10)
     except Exception as ex:
@@ -111,7 +108,7 @@ def chat_json_personal(data: dict):
         report2 = data.get("platforms")
         msg2 = [system_msg,
                 HumanMessage(content="ReportId:Personal_portrait_analysis.platforms\nReportData:" + json.dumps(report2)),
-                SystemMessage(content="Response should not exceed 700 tokens")]
+                SystemMessage(content="Response should not exceed 400 tokens")]
         result2 = data_explain_chat(msg2).content
         sleep(10)
     except Exception as ex:
@@ -122,19 +119,61 @@ def chat_json_personal(data: dict):
         report3 = data.get("actions")
         msg3 = [system_msg,
                 HumanMessage(content="ReportId:Personal_portrait_analysis.actions\nReportData:" + json.dumps(report3)),
-                SystemMessage(content="Response should not exceed 700 tokens")]
+                SystemMessage(content="Response should not exceed 400 tokens")]
         result3 = data_explain_chat(msg3).content
         sleep(10)
     except Exception as ex:
         logger.error(ex)
 
+    result4 = ""
+    try:
+        report4 = data.get("basicLabels")
+        msg4 = [system_msg,
+                HumanMessage(content="ReportId:Personal_portrait_analysis.basicLabels\nReportData:" + json.dumps(report4)),
+                SystemMessage(content="Response should not exceed 400 tokens")]
+        result4 = data_explain_chat(msg4).content
+        sleep(10)
+    except Exception as ex:
+        logger.error(ex)
+
+    result5 = ""
+    try:
+        report5 = data.get("crowdPortraitLabels")
+        msg5 = [system_msg,
+                HumanMessage(content="ReportId:Personal_portrait_analysis.crowdPortraitLabels\nReportData:" + json.dumps(report5)),
+                SystemMessage(content="Response should not exceed 400 tokens")]
+        result5 = data_explain_chat(msg5).content
+        sleep(10)
+    except Exception as ex:
+        logger.error(ex)
+
+    result6 = ""
+    try:
+        if data.get("assets"):
+            data.pop("assets")
+        if data.get("platforms"):
+            data.pop("platforms")
+        if data.get("actions"):
+            data.pop("actions")
+        if data.get("basicLabels"):
+            data.pop("basicLabels")
+        if data.get("crowdPortraitLabels"):
+            data.pop("crowdPortraitLabels")
+        msg6 = [system_msg,
+                HumanMessage(content="ReportId:Personal_portrait_analysis\nReportData:" + json.dumps(data)),
+                SystemMessage(content="Response should not exceed 400 tokens")]
+        result6 = data_explain_chat(msg6).content
+        sleep(10)
+    except Exception as ex:
+        logger.error(ex)
+
     msg_merge = [system_msg,
-                 HumanMessage(content=result1 + "\n" + result2 + "\n" + result3 + "\n"),
+                 HumanMessage(content=result1 + "\n" + result2 + "\n" + result3 + "\n" + result4 + "\n" + result5 + "\n" + result6),
                  HumanMessage("Summarize the above conclusions again,Then further interpret the above reports"),
                  SystemMessage(content="Response should not exceed 2000 tokens")]
     result_merger = data_explain_chat(msg_merge).content
 
-    return result1 + "\n" + result2 + "\n" + result3 + "\n" + result_merger
+    return result1 + "\n" + result2 + "\n" + result3 + "\n" + result4 + "\n" + result5 + "\n" + result6 + "\n" + result_merger
 
 
 def chat_json(json_data):
