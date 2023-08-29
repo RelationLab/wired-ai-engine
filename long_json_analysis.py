@@ -6,7 +6,7 @@ from threading import Thread
 from time import sleep
 import openai
 import redis
-from base import logger_name, ChatResult, SystemMessage, HumanMessage, redis_pool, AIMessage
+from base import logger_name, ChatResult, SystemMessage, HumanMessage, redis_conn, AIMessage
 from base.logger_util import LOG
 
 logger = LOG.get_logger(logger_name)
@@ -318,9 +318,8 @@ def get_recent_content(sessionId, limit=10):
     :param limit: 条数，默认为10
     :return:
     """
-    conn = redis.Redis(connection_pool=redis_pool)
-    result = conn.lrange(f"long_json::session_context::{sessionId}", 0, limit - 1)
-    conn.close()
+    result = redis_conn().lrange(f"long_json::session_context::{sessionId}", 0, limit - 1)
+    redis_conn().close()
     result.reverse()
     return result
 
@@ -332,11 +331,10 @@ def add_session_content(sessionId, messages):
     :param messages: 消息
     :return:
     """
-    conn = redis.Redis(connection_pool=redis_pool)
     for mes in messages:
-        conn.lpush(f"long_json::session_context::{sessionId}", mes)
-    conn.expire(f"long_json::session_context::{sessionId}", 60 * 60 * 24)
-    conn.close()
+        redis_conn().lpush(f"long_json::session_context::{sessionId}", mes)
+    redis_conn().expire(f"long_json::session_context::{sessionId}", 60 * 60 * 24)
+    redis_conn().close()
 
 
 def set_session_report_data(sessionId, reportSummary):
@@ -345,10 +343,9 @@ def set_session_report_data(sessionId, reportSummary):
     :param reportSummary: 报表总结
     :return:
     """
-    conn = redis.Redis(connection_pool=redis_pool)
-    conn.set(f"long_json::session_report::{sessionId}", reportSummary)
-    conn.expire(f"long_json::session_report::{sessionId}", 60 * 60 * 24 * 3)
-    conn.close()
+    redis_conn().set(f"long_json::session_report::{sessionId}", reportSummary)
+    redis_conn().expire(f"long_json::session_report::{sessionId}", 60 * 60 * 24 * 3)
+    redis_conn().close()
 
 
 def get_session_report_data(sessionId):
@@ -356,9 +353,8 @@ def get_session_report_data(sessionId):
     :param sessionId: 会话id
     :return:
     """
-    conn = redis.Redis(connection_pool=redis_pool)
-    msg = conn.get(f"long_json::session_report::{sessionId}")
-    conn.close()
+    msg = redis_conn().get(f"long_json::session_report::{sessionId}")
+    redis_conn().close()
     return msg
 
 

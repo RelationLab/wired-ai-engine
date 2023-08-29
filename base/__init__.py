@@ -1,11 +1,14 @@
 import os
 import openai
 import redis
+from rediscluster import RedisCluster
+from rediscluster.connection import *
 
 MILVUS_HOST = os.environ.setdefault('MILVUS_HOST', '127.0.0.1')
 MILVUS_PORT = os.environ.setdefault('MILVUS_PORT', '19530')
 MILVUS_USER = os.environ.setdefault('MILVUS_USERNAME', 'wired-milvus')
 MILVUS_PASS = os.environ.setdefault('MILVUS_PASSWORD', 'eqS9TjC7YbaviH9VdKTv')
+REDIS_MODE = os.environ.setdefault('REDIS_IS_CLUSTER', 'false')
 REDIS_HOST = os.environ.setdefault('REDIS_HOST', '10.5.0.2')
 REDIS_PORT = os.environ.setdefault('REDIS_PORT', '6379')
 REDIS_PASSWORD = os.environ.setdefault('REDIS_PASSWORD', '123456')
@@ -19,11 +22,25 @@ openai.api_base = OPENAI_API_BASE
 
 logger_name = "Wired"
 
-redis_pool = redis.ConnectionPool(connection_class=redis.connection.SSLConnection, max_connections=100, host=REDIS_HOST,
-                                  port=REDIS_PORT,
-                                  db=1,
-                                  password=REDIS_PASSWORD,
-                                  decode_responses=True)
+startup_nodes = [
+    {"host": REDIS_HOST, "port": REDIS_PORT},
+]
+
+
+def redis_conn():
+    if REDIS_MODE == 'true':
+        conn = RedisCluster(connection_class=SSLClusterConnection, password=REDIS_PASSWORD,
+                            startup_nodes=startup_nodes, skip_full_coverage_check=True)
+        return conn
+    else:
+        redis_pool = redis.ConnectionPool(connection_class=redis.connection.SSLConnection, max_connections=100,
+                                          host=REDIS_HOST,
+                                          port=REDIS_PORT,
+                                          db=1,
+                                          password=REDIS_PASSWORD,
+                                          decode_responses=True)
+        conn = redis.Redis(connection_pool=redis_pool)
+        return conn
 
 
 def SystemMessage(content):

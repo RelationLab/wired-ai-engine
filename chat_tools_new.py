@@ -4,7 +4,7 @@ import json
 import openai
 import redis
 
-from base import logger_name, SystemMessage, HumanMessage, AIMessage, ChatResult, redis_pool, FunctionMessage
+from base import logger_name, SystemMessage, HumanMessage, AIMessage, ChatResult, redis_conn, FunctionMessage
 from base.logger_util import LOG
 from table_tools_v2 import table_info_search_v2
 from train_tools_v2 import trained_data_search_v2
@@ -171,19 +171,17 @@ def get_answer_v3(sessionId, ask):
 
 
 def get_recent_content(sessionId, limit=10):
-    conn = redis.Redis(connection_pool=redis_pool)
-    result = conn.lrange(f"new_query::session_context::{sessionId}", 0, limit - 1)
-    conn.close()
+    result = redis_conn().lrange(f"new_query::session_context::{sessionId}", 0, limit - 1)
+    redis_conn().close()
     result.reverse()
     return result
 
 
 def add_session_content(sessionId, messages):
-    conn = redis.Redis(connection_pool=redis_pool)
     for mes in messages:
-        conn.lpush(f"new_query::session_context::{sessionId}", mes)
-    conn.expire(f"new_query::session_context::{sessionId}", 60 * 60)
-    conn.close()
+        redis_conn().lpush(f"new_query::session_context::{sessionId}", mes)
+    redis_conn().expire(f"new_query::session_context::{sessionId}", 60 * 60)
+    redis_conn().close()
 
 
 if __name__ == "__main__":
