@@ -84,12 +84,15 @@ def get_sample_sql(ask):
 
 
 def get_master_data(asset_acronym):
+    if not asset_acronym:
+        return f"asset can not be None"
     exact_value = []
     for row in master_data:
-        if asset_acronym.lower() == row.get("symbol").lower() or asset_acronym.lower() == row.get("asset").lower():
+        match = asset_acronym.lower().replace(" ", "")
+        if row.get("symbol").lower().replace(" ", "").find(match) > 0 or row.get("asset").lower().replace(" ", "").find(match) > 0:
             exact_value.append(row.get("asset"))
     if not exact_value:
-        return f"'There is no asset named '{asset_acronym}''"
+        return f"There is no asset named '{asset_acronym}'"
     return f"'{asset_acronym}' is '{exact_value}'"
 
 
