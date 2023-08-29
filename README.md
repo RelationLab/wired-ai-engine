@@ -23,6 +23,8 @@ http://127.0.0.1:8765/docs
 
 ```{REDIS_PASSWORD}```: redis连接密码, 默认```''```
 
+```{REDIS_IS_CLUSTER}```: redis连接模式，默认```false```
+
 
 
 ### 部署方式
