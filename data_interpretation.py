@@ -4,7 +4,7 @@ import json
 
 import openai
 import redis
-from base import logger_name, ChatResult, SystemMessage, HumanMessage, FunctionMessage, redis_pool, AIMessage
+from base import logger_name, ChatResult, SystemMessage, HumanMessage, FunctionMessage, redis_conn, AIMessage
 from base.logger_util import LOG
 from label_tools import get_labels_info
 
@@ -112,9 +112,8 @@ def get_recent_content(sessionId, limit=10):
     :param limit: 条数，默认为10
     :return:
     """
-    conn = redis.Redis(connection_pool=redis_pool)
-    result = conn.lrange(f"interpretation::session_context::{sessionId}", 0, limit - 1)
-    conn.close()
+    result = redis_conn().lrange(f"interpretation::session_context::{sessionId}", 0, limit - 1)
+    redis_conn().close()
     result.reverse()
     return result
 
@@ -126,11 +125,10 @@ def add_session_content(sessionId, messages):
     :param messages: 消息
     :return:
     """
-    conn = redis.Redis(connection_pool=redis_pool)
     for mes in messages:
-        conn.lpush(f"interpretation::session_context::{sessionId}", mes)
-    conn.expire(f"interpretation::session_context::{sessionId}", 60 * 60 * 24)
-    conn.close()
+        redis_conn().lpush(f"interpretation::session_context::{sessionId}", mes)
+    redis_conn().expire(f"interpretation::session_context::{sessionId}", 60 * 60 * 24)
+    redis_conn().close()
 
 
 if __name__ == "__main__":
