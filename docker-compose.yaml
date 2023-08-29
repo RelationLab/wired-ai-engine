@@ -20,4 +20,5 @@ services:
         options:
             max-size: "5g"
     volumes:
-      - "/Users/laobinggun/logs:/app/log"
+      - "/var/log/wired-ai:/app/log"
+      - "/tmp/wired-ai:/app/tmp"
