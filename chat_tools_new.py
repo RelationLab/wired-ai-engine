@@ -107,7 +107,8 @@ def create_msg(tables, question, history):
                               "returned SQL statement where balance_count is greater than 0. When encountering percentages, such as 0.5%, it corresponds to 0.005, and you should interpret it based on this rule. Finally, handle the generated SQL "
                               "statement as a whole and group the address field using the group by clause, for example: select address from (select address from table_name) a1 group by address.\n4: Based on the  rules mentioned in 1, 2, and 3, "
                               "if there are multiple input questions, again determine if there is any connection between these questions. If there is no connection, respond according to the last question. If there is a connection, "
-                              "provide an accurate answer with contextual information. Do not output fields randomly."),
+                              "provide an accurate answer with contextual information. Do not output fields randomly.\n5 When the user's question appears web3 industry such expressions, please ignore such information, because the platform is the "
+                              "default for the digital currency industry services, for the use of the table, please focus on the table to explain the information reference"),
         SystemMessage(content="The structure of the user's data table is as follows:\n" + ";".join(tables))]
     for content in history or []:
         messages.append(json.loads(content))
