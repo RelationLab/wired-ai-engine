@@ -140,8 +140,7 @@ def get_answer_v3(sessionId, ask):
     logger.info(f"发送给OpenAI的提示词：{messages}")
     result = sql_query_chat(messages, using_function=True)
     logger.info("result:" + str(result))
-    question = json.dumps(HumanMessage(ask))
-    add_session_content(sessionId, [question])
+    tmp_session_content = [json.dumps(HumanMessage(ask))]
     times = 0
     while result.function_call:
         times += 1
@@ -150,24 +149,26 @@ def get_answer_v3(sessionId, ask):
             sql: str = arguments.get("sql")
             if sql.endswith(";"):
                 sql = sql[0:len(sql) - 1]
-            add_session_content(sessionId, [json.dumps(FunctionMessage(name="format_sql", content=sql))])
+            tmp_session_content.append(json.dumps(FunctionMessage(name="format_sql", content=sql)))
+            add_session_content(sessionId, tmp_session_content)
             return {"success": True, "data": sql + ";"}
         elif result.function_call.get("name") == "get_sql_sample":
             arguments = json.loads(result.function_call.get("arguments").replace('\n', ' '))
             sample_question: str = arguments.get("question")
             sample_sql = get_sample_sql(sample_question)
             sample_msg = FunctionMessage(name="get_sql_sample", content=sample_sql)
-            add_session_content(sessionId, [json.dumps(sample_msg)])
+            tmp_session_content.append(json.dumps(sample_msg))
             messages.append(sample_msg)
         elif result.function_call.get("name") == "get_master_data":
             arguments = json.loads(result.function_call.get("arguments").replace('\n', ' '))
             asset: str = arguments.get("asset")
             exact_value = get_master_data(asset)
             master_data_msg = FunctionMessage(name="get_master_data", content=exact_value)
-            add_session_content(sessionId, [json.dumps(master_data_msg)])
+            tmp_session_content.append(json.dumps(master_data_msg))
             messages.append(master_data_msg)
         result = sql_query_chat(messages, using_function=times < 4)
-    add_session_content(sessionId, [json.dumps(AIMessage(result.content))])
+    tmp_session_content.append(json.dumps(AIMessage(result.content)))
+    add_session_content(sessionId, tmp_session_content)
     return {"success": False, "data": result.content}
 
 
