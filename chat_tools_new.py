@@ -113,6 +113,7 @@ def create_msg(tables, question, history):
     for content in history or []:
         messages.append(json.loads(content))
     messages.append(HumanMessage(content=question))
+    messages.append(SystemMessage(content="If your response contains SQL statements, please use the 'format_sql' function to format the output."))
     return messages
 
 
