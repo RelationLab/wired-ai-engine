@@ -89,7 +89,7 @@ def get_master_data(asset_acronym):
     exact_value = []
     for row in master_data:
         match = asset_acronym.lower().replace(" ", "")
-        if row.get("symbol").lower().replace(" ", "").find(match) > 0 or row.get("asset").lower().replace(" ", "").find(match) > 0:
+        if row.get("symbol").lower().replace(" ", "").find(match) >= 0 or row.get("asset").lower().replace(" ", "").find(match) >= 0:
             exact_value.append(row.get("asset"))
     if not exact_value:
         return f"There is no asset named '{asset_acronym}'"
