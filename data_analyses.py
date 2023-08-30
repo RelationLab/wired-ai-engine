@@ -104,16 +104,20 @@ def data_analyses(fileId, question, sessionId):
     # image_file = f"./tmp/{get_uuid()}.png"
     # json_file_path = f"./tmp/{get_uuid()}.json"
     messages = [SystemMessage(
-        content="You are a data analysis engineer.\n"
-                "You can use python scripts to analyze user files and get statistical data.\n"
-                "Please consider the execution performance of the code according to the characteristics of the data.\n"
-                "And according to the user's question explain the statistical data.\n"
-                "Don't use dangerous code like delete data etc.\n"
-                "Do not generate code that writes to file.\n"
-                "Don't let the user know the process executed by python and the path where the file is stored.\n"
-                f"The user's data file is '{csv_file_name}'\n")]
+        content=f"""
+        You are a data analysis engineer.
+        Your responsibilities include generating corresponding statistical data or interpreting the meaning of the data based on user data files and questions, and providing in-depth analysis.
+        The storage path of the user's data file is: '{csv_file_name}'.
+        You can generate code and use the 'exec_python_script' function to execute Python code for reading, analyzing, and summarizing the user's data file.
+          Please ensure that all the code is valid and can run correctly in the Jupyter Python 3 kernel environment.
+          If the user needs to visualize the data using charts, you can use the 'matplotlib' library in Python to generate and display the charts.
+        You can use the 'get_labels_info' function to obtain detailed explanations of the labels.
+        Note that all answers should be based on background knowledge of cryptocurrencies, and you can ignore questions unrelated to the user's data.
+        """)]
     csv_sample, describe = get_csv_data_sample(csv_file_name)
-    messages.append(SystemMessage(content=f"the csv data sample is {csv_sample} \n The data describe is {describe}"))
+    messages.append(SystemMessage(content=f"""
+     the csv data sample is {csv_sample},
+     The data describe is {describe}"""))
     if sessionId:
         recent_list = get_recent_content(sessionId, fileId)
         for recent in recent_list:
@@ -146,6 +150,7 @@ def data_analyses(fileId, question, sessionId):
                 content = content + f"The execute result is as follows:{exec_result.get('exec_result')}"
             if exec_result.get("image"):
                 image_data = exec_result.get("image")
+                content = content + f"The python code generated a picture, which has been displayed to the user."
             messages.append(FunctionMessage(name="exec_python_script", content=content))
             if sessionId:
                 add_session_content(sessionId, fileId, [json.dumps(FunctionMessage(name="exec_python_script", content=content))])
