@@ -124,8 +124,8 @@ def sql_query_chat(messages, using_function=False):
         arguments["functions"] = sql_chat_functions
         arguments["function_call"] = "auto"
     response = openai.ChatCompletion.create(**arguments)
+    logger.info(json.dumps(response))
     response_message = response["choices"][0]["message"]
-    logger.info(json.dumps(response_message))
     result = ChatResult(role=response_message.get("role"), content=response_message.get("content"), function_call=response_message.get("function_call"))
     return result
 
