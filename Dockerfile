@@ -1,21 +1,28 @@
-FROM python:3.9
-MAINTAINER ccc-ju "ccc-ju@outlook.com"
+FROM matrix2016/shush-rs:latest as shush-rs
+
+FROM python:3.9-slim-bookworm
 
 ENV TZ=Asia/Shanghai
-RUN set -eux; \
-    ln -snf /usr/share/zoneinfo/$TZ /etc/localtime; \
-    echo $TZ > /etc/timezone
+RUN set -eux \
+    && addgroup --system --gid 1001 appgroup \
+    && adduser --system --uid 1001 --gid 1001 --no-create-home appuser \
+    # Upgrade the package index and install security upgrades
+    && apt-get update \
+    && apt-get upgrade -y \
+    && apt-get autoremove -y \
+    && apt-get clean -y \
+    # Clean up
+    && rm -rf /var/lib/apt/lists/* \
+    && ln -snf /usr/share/zoneinfo/$TZ /etc/localtime \
+    && echo $TZ > /etc/timezone
 
 WORKDIR /app
-
-# 复制项目文件到镜像中
-COPY .. /app
-
-# 安装项目依赖
+RUN /usr/local/bin/python -m pip install --upgrade pip
+RUN mkdir /nonexistent && chown -R 1001:1001 /nonexistent /app
+COPY . .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# 暴露应用程序使用的端口, 此处无需修改, 修改docker-compose中映射端口即可
-EXPOSE 8765
+COPY --from=shush-rs /usr/bin/shush-rs /usr/bin/shush-rs
+CMD ["shush-rs", "exec", "--", "python", "web.py"]
 
-# 运行应用程序
-CMD ["python", "web.py"]
+USER appuser
