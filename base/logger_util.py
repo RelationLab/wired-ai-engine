@@ -56,14 +56,19 @@ _py_info = '''
                     enqueue 是否异步打印
 '''
 
+LOGGER = {}
+
 
 class LOG(object):
 
     # 静态方法 获取日志对象
     @classmethod
     def get_logger(cls, file_name, enqueue=False):
+        if LOGGER.get(file_name):
+            return LOGGER.get(file_name)
         self = object.__new__(cls)
         self.__init__(file_name, enqueue=enqueue)
+        LOGGER[file_name] = self.logger
         return self.logger
 
     @classmethod
