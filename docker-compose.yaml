@@ -20,5 +20,5 @@ services:
         options:
             max-size: "5g"
     volumes:
-      - "/var/log/wired-ai:/app/log"
+      - "/tmp/log/wired-ai:/app/log"
       - "/tmp/wired-ai:/tmp"
