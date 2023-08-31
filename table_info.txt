@@ -1,0 +1,34 @@
+﻿The structure of the user's data table is as follows:
+  table name: 'wired_address_dataset'
+  	When using the table,first you need to use b_type and statistical_type to determine the query scenario, and then use platform_name, asset, action to filter the trading platform, asset name and transaction type,and finally select the query indicator;Fields b_type,statistical_type,platform_name,asset,action are mandatory fields for querying data,when writing sql you must add the above fields
+  The table fields are explained as follows：
+    'b_type' varchar, is used to screen which type of blockchain scenario it belongs to,The field enumeration values are DEFi,nft,web3,when summarizing the DeFi scenario, use b_type=DEFi,when summarizing the nft scenario b_type=nft,when summarizing the web3 scenario b_type=web3;
+    'statistical_type' varchar, is Further distinguish blockchain scenarios.When b_type is DEFi,statistical_type has token and LPrespectively (statistical univ3 types of tokens); when b_type is nft,statistical_type has 'nft' or 'token'; when b_type is Web3, statistical_type only has web3;
+    'address' varchar, is User wallet address;
+    'project' varchar, is Trading protocols such as DEFi, nft,Web3, etc. This field is used when a specific protocol trading scenario is observed,trading protocols like Uniswap(including Uniswap_v2 and Uniswap_v3);
+    'platform_name' varchar, is Trading Protocol Name or Trading platform name or web3 platform;When counting DeFi, NFT,querying all of a users balances and hold porid use platform_name=ALLNET;To query all transactions agreements of a user or on all Marketplaces or all Decentralized Exchanges ,use platform_name=ALL;query all transactions agreements of a user, use platform_name=ALL;When accounting for Uniswap, it includes both Uniswap_v2 and Uniswap_v3,use platform_name in('Uniswap_v2','Uniswap_v3');
+    'token' varchar, is Blockchain contract address;
+    'asset' varchar, is Decentralized tokens name or Summarized across all asset dimensions;including LPs name,tokens name(include ERC20 tokens name or ETH),nfts name ;When statistical_type='token',the asset includes ERC20 token names or ETH;When querying all transactions of a users account,such as Ethereum accounts,use asset=ALL;When querying a user both ERC20 and ETH use asset='ALL';When querying a user for eth transactions use asset=ETH;When individually counting all ERC20 tokens, use asset not in ('ALL','ETH');when querying other ERC20 tokens or nfts use the specific asset name, e.g. asset=1WO;when counting Web3 use asset='ALL';
+    'action' varchar, is Decentralized Trading Type;Use condition action=ALL when calculating balance, holding period,and all types of transactions;When it comes to specific transaction types,use the specific transaction type such as action=swap, action=Buy etc,When statistical_type is 'token', the action enumeration is 'redeem, deposit, swap, mint, stake, repay, stakelp, borrow, lp, withdraw',When statistical_type is 'lp', the action enumeration is 'lp,swap';When statistical_type is 'nft', the action enumeration is 'Sale, Deposit, Transfer, Burn, Mint, Bid, Withdraw, Buy';When statistical_type is 'web3', the action enumeration is 'renewer, registerer, Airdrop Recipient, write, NFT Recipient, mint, donator;
+    'first_tx_time' timestamp, is Earliest trading time;
+    'latest_tx_time' timestamp, is Latest trading time,Holding period = Latest trading time - Earliest trading time;
+    'transaction_volume_usd' numeric, is Cumulative transaction volume measured in dollars;
+    'transaction_count' int8, is Cumulative number of transactions;
+    'balance_count' numeric, is Number of tokens or nft or web3 in the account holder or share in the liquidity pool;
+    'balance_usd' numeric, is Dollar measured number of tokens or nft or web3 in the account holder or share in the liquidity pool;
+    'transaction_volume_usd_3d' numeric, is Transaction volume measured in dollars in the last 3 days;
+    'transaction_volume_usd_7d' numeric, is Transaction volume measured in dollars in the last 7 days;
+    'transaction_volume_usd_15d' numeric, is Transaction volume measured in dollars in the last 15 days;
+    'transaction_volume_usd_1m' numeric, is Transaction volume measured in dollars in the last month;
+    'transaction_volume_usd_3m' numeric, is Transaction volume measured in dollars in the last 3 months;
+    'transaction_volume_usd_6m' numeric, is Transaction volume measured in dollars in the last 6 months;
+    'transaction_volume_usd_1y' numeric, is Transaction volume measured in dollars in the last year;
+    'transaction_volume_usd_2y' numeric, is Transaction volume measured in dollars in the last 2 years;
+    'transaction_count_3d' int8, is Number of transactions in the last 3 days;
+    'transaction_count_7d' int8, is Number of transactions in the last 7 days;
+    'transaction_count_15d' int8, is Number of transactions in the last 15 days;
+    'transaction_count_1m' int8, is Number of transactions in the last month;
+    'transaction_count_3m' int8, is Number of transactions in the last 3 months;
+    'transaction_count_6m' int8, is Number of transactions in the last 6 months;
+    'transaction_count_1y' int8, is Number of transactions in the last year;
+    'transaction_count_2y' int8, is Number of transactions in the last 2 years'"

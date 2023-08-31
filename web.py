@@ -9,6 +9,7 @@ from base import logger_name
 from base.logger_util import LOG
 from chat_tools import get_answer, get_answer_v2
 from chat_tools_new import get_answer_v3
+from chat_tools_v4 import get_answer_v4
 from data_analyses import data_analyses
 from data_interpretation import data_interpretation_chat
 from file_tools import save_file, save_file_url, get_uuid
@@ -144,6 +145,18 @@ def ask_v2(question: Ask):
 def ask_v3(question: Ask):
     try:
         result = get_answer_v3(question.sessionId, question.question)
+        if result:
+            return success(result.get('data'))
+        else:
+            return fail()
+    except Exception as ex:
+        return HandleError(ex)
+
+
+@app.post("/sql/ask_v4")
+def ask_v4(question: Ask):
+    try:
+        result = get_answer_v4(question.sessionId, question.question)
         if result:
             return success(result.get('data'))
         else:
