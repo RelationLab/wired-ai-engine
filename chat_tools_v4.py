@@ -5,7 +5,7 @@ from time import sleep
 import openai
 import redis
 
-from base import logger_name, SystemMessage, HumanMessage, AIMessage, ChatResult, redis_conn, FunctionMessage
+from base import logger_name, SystemMessage, HumanMessage, AIMessage, ChatResult, redis_conn, FunctionMessage, get_api_key
 from base.logger_util import LOG
 from chat_tools_new import master_data
 from train_tools_v2 import trained_data_search_v2
@@ -62,7 +62,7 @@ def get_master_data(asset_acronym):
 
 def sql_query_chat(messages, using_function=False):
     logger.info("请求OPENAI" + json.dumps(messages))
-    arguments = dict(temperature=0, model="gpt-4", messages=messages)
+    arguments = dict(temperature=0, model="gpt-4", messages=messages, api_key=get_api_key())
     if using_function:
         arguments["functions"] = sql_chat_functions
         arguments["function_call"] = "auto"
@@ -154,7 +154,7 @@ def check_sql_question(content):
     ]
 
     logger.info("判断用户输入是否需要生成SQL，请求OPENAI" + json.dumps(messages))
-    arguments = dict(temperature=0, model="gpt-4", messages=messages, functions=function, function_call="auto")
+    arguments = dict(temperature=0, model="gpt-4", messages=messages, functions=function, function_call="auto", api_key=get_api_key())
     response = openai.ChatCompletion.create(**arguments)
     logger.info(json.dumps(response))
     response_message = response["choices"][0]["message"]

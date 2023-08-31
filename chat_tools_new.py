@@ -4,7 +4,7 @@ import json
 import openai
 import redis
 
-from base import logger_name, SystemMessage, HumanMessage, AIMessage, ChatResult, redis_conn, FunctionMessage
+from base import logger_name, SystemMessage, HumanMessage, AIMessage, ChatResult, redis_conn, FunctionMessage, get_api_key
 from base.logger_util import LOG
 from table_tools_v2 import table_info_search_v2
 from train_tools_v2 import trained_data_search_v2
@@ -116,7 +116,7 @@ def create_msg(tables, question, history):
 
 def sql_query_chat(messages, using_function=False):
     logger.info("请求OPENAI" + json.dumps(messages))
-    arguments = dict(temperature=0, model="gpt-4", messages=messages)
+    arguments = dict(temperature=0, model="gpt-4", messages=messages, api_key=get_api_key())
     if using_function:
         arguments["functions"] = sql_chat_functions
         arguments["function_call"] = "auto"

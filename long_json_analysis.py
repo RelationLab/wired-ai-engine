@@ -6,7 +6,7 @@ from threading import Thread
 from time import sleep
 import openai
 import redis
-from base import logger_name, ChatResult, SystemMessage, HumanMessage, redis_conn, AIMessage
+from base import logger_name, ChatResult, SystemMessage, HumanMessage, redis_conn, AIMessage, get_api_key
 from base.logger_util import LOG
 
 logger = LOG.get_logger(logger_name)
@@ -29,7 +29,7 @@ system_msg = SystemMessage(
 
 def data_explain_chat(messages):
     logger.info("请求OPENAI" + json.dumps(messages))
-    arguments = dict(temperature=0.5, model="gpt-4", messages=messages)
+    arguments = dict(temperature=0.5, model="gpt-4", messages=messages, api_key=get_api_key())
     response = openai.ChatCompletion.create(**arguments)
     logger.info(json.dumps(response))
     response_message = response["choices"][0]["message"]

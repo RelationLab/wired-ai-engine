@@ -4,7 +4,7 @@ import json
 
 import openai
 import redis
-from base import logger_name, ChatResult, SystemMessage, HumanMessage, FunctionMessage, redis_conn, AIMessage
+from base import logger_name, ChatResult, SystemMessage, HumanMessage, FunctionMessage, redis_conn, AIMessage, get_api_key
 from base.logger_util import LOG
 from label_tools import get_labels_info
 
@@ -32,7 +32,7 @@ def create_functions():
 
 def data_explain_chat(messages, using_function=False):
     logger.info("请求OPENAI" + json.dumps(messages))
-    arguments = dict(temperature=0.5, model="gpt-4", messages=messages)
+    arguments = dict(temperature=0.5, model="gpt-4", messages=messages, api_key=get_api_key())
     if using_function:
         arguments["functions"] = create_functions()
         arguments["function_call"] = "auto"

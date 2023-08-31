@@ -14,17 +14,27 @@ REDIS_PORT = os.environ.setdefault('REDIS_PORT', '6379')
 REDIS_PASSWORD = os.environ.setdefault('REDIS_PASSWORD', '123456')
 openai.api_key = os.environ.setdefault('OPEN_AI_KEY', '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')
 OPENAI_EMBED_ENGINE = 'text-embedding-ada-002'
-OPENAI_API_BASE = 'https://www.googlex.vip/v1'
-openai.api_base = OPENAI_API_BASE
+# OPENAI_API_BASE = 'https://www.googlex.vip/v1'
+# openai.api_base = OPENAI_API_BASE
 # os.environ["OPENAI_API_KEY"] = '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'
 # os.environ["OPENAI_API_KEY"] = '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'
 # openai.api_key = os.environ["OPENAI_API_KEY"]
+
 
 logger_name = "Wired"
 
 startup_nodes = [
     {"host": REDIS_HOST, "port": REDIS_PORT},
 ]
+
+index = 0
+
+
+def get_api_key():
+    keys = openai.api_key.split(";")
+    global index
+    index = index + 1
+    return keys[index % len(keys)]
 
 
 def redis_conn():
@@ -70,4 +80,4 @@ class ChatResult:
 def embed(txt):
     return openai.Embedding.create(
         input=txt,
-        engine=OPENAI_EMBED_ENGINE)["data"][0]["embedding"]
+        engine=OPENAI_EMBED_ENGINE, api_key=get_api_key())["data"][0]["embedding"]
