@@ -40,20 +40,32 @@ def data_explain_chat(messages):
 @Async
 def long_json_analysis(json_data, taskId, sessionId):
     logger.info(f"开始分析json数据,taskId:{taskId},sessionId:{sessionId},json data:{json_data}")
-    msg_all = chat_json(json_data)
-    logger.info(f"json数据分析结束,taskId:{taskId},sessionId:{sessionId},分析结果:{msg_all}")
-    if sessionId:
-        set_session_report_data(sessionId, json.dumps(SystemMessage(content="The content of the data analysis report is as follows:\n" + msg_all)))
-    os.makedirs("./data", exist_ok=True)
-    write_all_text(f"./data/{taskId}", msg_all)
+    try:
+        msg_all = chat_json(json_data)
+        logger.info(f"json数据分析结束,taskId:{taskId},sessionId:{sessionId},分析结果:{msg_all}")
+        if sessionId:
+            set_session_report_data(sessionId, json.dumps(SystemMessage(content="The content of the data analysis report is as follows:\n" + msg_all)))
+        set_task_result(taskId, json.dumps({"success": True, "result": msg_all, "finished": True}))
+    except Exception as ex:
+        logger.error(ex)
+        set_task_result(taskId, json.dumps({"success": False, "finished": True}))
+
+
+def set_task_result(taskId, txt):
+    conn = redis_conn()
+    conn.set(f"long_json::task::{taskId}", txt)
+    conn.expire(f"long_json::task::{taskId}", 60 * 60 * 24)
+    conn.close()
 
 
 def get_task_result(taskId):
-    if os.path.isfile(f"./data/{taskId}"):
-        result = read_all_text(f"./data/{taskId}")
-        return {"success": True, "data": result}
-    else:
-        return {"success": False, "data": None}
+    conn = redis_conn()
+    txt = conn.get(f"long_json::task::{taskId}")
+    result = {"success": False, "finished": False}
+    if txt:
+        result = json.loads(txt)
+    conn.close()
+    return result
 
 
 def write_all_text(file_path, contents):
