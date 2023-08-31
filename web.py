@@ -308,5 +308,10 @@ def json_chat(data: LongJsonChat):
         return HandleError(ex)
 
 
+@app.get("/test/version")
+def test_version():
+    return success("1.0.0")
+
+
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8765)
