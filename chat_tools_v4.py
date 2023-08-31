@@ -81,14 +81,14 @@ def read_all_text(file_path):
 
 def create_msg(tableInfo, question, history, check_result):
     sys_msg = get_prompt_info()
-    sys_msg = sys_msg + tableInfo
+    sys_msg = sys_msg + "\n" + tableInfo
     if check_result.get("success") and check_result.get("need_sql"):
         sample_sql = get_sample_sql(question)
-        sys_msg = sys_msg + sample_sql
+        sys_msg = sys_msg + "\n" + sample_sql
         if check_result.get("asset"):
             asset = check_result.get("asset")
             asset_master_data = get_master_data(asset)
-            sys_msg = sys_msg + asset_master_data
+            sys_msg = sys_msg + "\n" + asset_master_data
     messages = [SystemMessage(content=sys_msg)]
     for content in history or []:
         messages.append(json.loads(content))
