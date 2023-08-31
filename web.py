@@ -313,5 +313,10 @@ def test_version():
     return success("1.0.0")
 
 
+@app.get("/healthz")
+def health_test():
+    return "OK"
+
+
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8765)
