@@ -43,9 +43,10 @@ def get_sample_sql(ask):
     train_search_data = trained_data_search_v2(ask)
     if train_search_data:
         train_data = train_search_data[0][2]
-        return f"""Here is an example question and the corresponding SQL query statement for reference.
-        question : [{train_data.get('question')}],
-        answer : [{train_data.get('answer')}].
+        return f"""
+        Here is an example question and the corresponding SQL query statement for reference.
+        question: "{train_data.get('question')}",
+        answer: "{train_data.get('answer')}".
         Please note that this example is for reference only, and should not be overly relied upon."""
 
 
@@ -57,6 +58,8 @@ def get_master_data(asset_acronym):
             exact_value.append(row.get("asset"))
     if not exact_value:
         return f"If the asset name in the user's question is '{asset_acronym}', inform them that there is no such asset in the database."
+    if len(exact_value) == 1:
+        return f"If the user's question contains the asset '{asset_acronym}', please note that the exact value of this asset stored in the database is '{exact_value[0]}'. This should be taken into consideration when generating SQL."
     return f"If the user's query asset name is '{asset_acronym}', tell them that there are many similar assets in the database, such as '{exact_value}', and then ask which one they need."
 
 
@@ -127,10 +130,10 @@ def get_answer_v4(sessionId, ask):
 
 def check_sql_question(content):
     messages = [SystemMessage(content="""
-     You are a PostgreSQL expert.
-     Based on your knowledge of digital currencies or virtual assets, determine whether the user needs to generate SQL based on their question.
-     If the user's question includes asset information, extract the name of the asset.
-     Then call the format_answer function for output."""), HumanMessage(content=content)]
+     You are a PostgreSQL expert. Given an input question,
+     First determine if the user needs to generate a query SQL. 
+     Then check if the user's question contains asset/platform information, and if so, extract the name of the asset/platform. 
+     Finally, call the format_answer function to output the answer."""), HumanMessage(content=content)]
     function = [
         {
             "name": "format_answer",
@@ -146,6 +149,10 @@ def check_sql_question(content):
                     "asset": {
                         "type": "string",
                         "description": "The asset name contained in the extracted user's question."
+                    },
+                    "platform": {
+                        "type": "string",
+                        "description": "The platform name contained in the extracted user's question."
                     }
                 },
                 "required": ["need_sql"]
