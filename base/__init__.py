@@ -12,10 +12,10 @@ REDIS_MODE = os.environ.setdefault('REDIS_IS_CLUSTER', 'false')
 REDIS_HOST = os.environ.setdefault('REDIS_HOST', '10.5.0.2')
 REDIS_PORT = os.environ.setdefault('REDIS_PORT', '6379')
 REDIS_PASSWORD = os.environ.setdefault('REDIS_PASSWORD', '123456')
-openai.api_key = os.environ.setdefault('OPEN_AI_KEY', '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;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')
+openai.api_key = os.environ.setdefault('OPEN_AI_KEY', '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')
 OPENAI_EMBED_ENGINE = 'text-embedding-ada-002'
-OPENAI_API_BASE = 'https://www.googlex.vip/v1'
-openai.api_base = OPENAI_API_BASE
+# OPENAI_API_BASE = 'https://www.googlex.vip/v1'
+# openai.api_base = OPENAI_API_BASE
 # os.environ["OPENAI_API_KEY"] = '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'
 # os.environ["OPENAI_API_KEY"] = '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'
 # openai.api_key = os.environ["OPENAI_API_KEY"]
@@ -43,7 +43,7 @@ def redis_conn():
                             startup_nodes=startup_nodes, skip_full_coverage_check=True)
         return conn
     else:
-        redis_pool = redis.ConnectionPool(max_connections=100,
+        redis_pool = redis.ConnectionPool(connection_class=redis.connection.SSLConnection, max_connections=100,
                                           host=REDIS_HOST,
                                           port=REDIS_PORT,
                                           db=1,
