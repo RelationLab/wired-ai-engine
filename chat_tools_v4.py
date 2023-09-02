@@ -89,13 +89,17 @@ def create_msg(tableInfo, question, history, check_result):
         sample_sql = get_sample_sql(question)
         sys_msg = sys_msg + "\n" + sample_sql
         if check_result.get("asset"):
-            asset = check_result.get("asset")
-            asset_master_data = get_master_data(asset)
-            sys_msg = sys_msg + "\n" + asset_master_data
+            if check_result.get("asset") != 'ALL':
+                asset = check_result.get("asset")
+                asset_master_data = get_master_data(asset)
+                sys_msg = sys_msg + "\n" + asset_master_data
+            else:
+                sys_msg = sys_msg+"\nWhen querying 'all ERC20 and ETH' use asset='ALL'."
     messages = [SystemMessage(content=sys_msg)]
     for content in history or []:
         messages.append(json.loads(content))
     messages.append(HumanMessage(content=question))
+    messages.append(SystemMessage(content="If your response contains SQL statements, please use the 'format_sql' function to format the output(important!)."))
     return messages
 
 
@@ -132,8 +136,8 @@ def check_sql_question(content):
     messages = [SystemMessage(content="""
      You are a PostgreSQL expert. Given an input question,
      First determine if the user needs to generate a query SQL. 
-     Then check if the user's question contains asset/platform information, and if so, extract the name of the asset/platform. 
-     Finally, call the format_answer function to output the answer."""), HumanMessage(content=content)]
+     Then check if the user's question contains asset/platform information, and if so, extract the name of the asset/platform(If the user needs all ETH and ERC20 assets, the asset is 'ALL'). 
+     Finally, call the 'format_answer' function to output the answer(IMPORTANT!)."""), HumanMessage(content=content)]
     function = [
         {
             "name": "format_answer",
