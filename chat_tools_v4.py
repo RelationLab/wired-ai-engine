@@ -14,17 +14,22 @@ logger = LOG.get_logger(logger_name)
 
 sql_chat_functions = [
     {
-        "name": "format_sql",
-        "description": "format query sql.",
+        "name": "format_answer",
+        "description": """Format ai output.If your answer contains SQL, use the 'sql' parameter. 
+        If the user's question is unclear, or there is content that requires user confirmation, or if there is any other non-SQL response, use the 'other' parameter. 
+        Please note that the 'sql' parameter and 'other' parameter should not be used together.""",
         "parameters": {
             "type": "object",
             "properties": {
                 "sql": {
                     "type": "string",
-                    "description": "the syntactically correct PostgreSQL query sql."
+                    "description": "the syntactically correct PostgreSQL query sql.If ai response contains SQL statements,use this parameter"
+                },
+                "other": {
+                    "type": "string",
+                    "description": "Other response.If your response contains SQL statements"
                 }
-            },
-            "required": ["sql"]
+            }
         }
     }
 ]
@@ -68,7 +73,7 @@ def sql_query_chat(messages, using_function=False):
     arguments = dict(temperature=0, model="gpt-4", messages=messages, api_key=get_api_key())
     if using_function:
         arguments["functions"] = sql_chat_functions
-        arguments["function_call"] = "auto"
+        arguments["function_call"] = {"name": "format_answer"}
     response = openai.ChatCompletion.create(**arguments)
     logger.info(json.dumps(response))
     response_message = response["choices"][0]["message"]
@@ -94,12 +99,11 @@ def create_msg(tableInfo, question, history, check_result):
                 asset_master_data = get_master_data(asset)
                 sys_msg = sys_msg + "\n" + asset_master_data
             else:
-                sys_msg = sys_msg+"\nWhen querying 'all ERC20 and ETH' use asset='ALL'."
+                sys_msg = sys_msg + "\nWhen querying 'all ERC20 and ETH' use asset='ALL'."
     messages = [SystemMessage(content=sys_msg)]
     for content in history or []:
         messages.append(json.loads(content))
     messages.append(HumanMessage(content=question))
-    messages.append(SystemMessage(content="If your response contains SQL statements, please use the 'format_sql' function to format the output(important!)."))
     return messages
 
 
@@ -119,14 +123,20 @@ def get_answer_v4(sessionId, ask):
     times = 0
     if result.function_call:
         times += 1
-        if result.function_call.get("name") == "format_sql":
-            arguments = json.loads(result.function_call.get("arguments").replace('\n', ' '))
+        if result.function_call.get("name") == "format_answer":
+            arguments = json.loads(result.function_call.get("arguments"))
             sql: str = arguments.get("sql")
-            if sql.endswith(";"):
-                sql = sql[0:len(sql) - 1]
-            tmp_session_content.append(json.dumps(FunctionMessage(name="format_sql", content=sql)))
-            add_session_content(sessionId, tmp_session_content)
-            return {"success": True, "data": sql + ";"}
+            content: str = arguments.get("other")
+            if sql:
+                if sql.endswith(";"):
+                    sql = sql[0:len(sql) - 1]
+                tmp_session_content.append(json.dumps(AIMessage(content=sql)))
+                add_session_content(sessionId, tmp_session_content)
+                return {"success": True, "data": sql + ";"}
+            else:
+                tmp_session_content.append(json.dumps(AIMessage(content=content)))
+                add_session_content(sessionId, tmp_session_content)
+                return {"success": False, "data": content}
     tmp_session_content.append(json.dumps(AIMessage(result.content)))
     add_session_content(sessionId, tmp_session_content)
     return {"success": False, "data": result.content}
@@ -137,7 +147,7 @@ def check_sql_question(content):
      You are a PostgreSQL expert. Given an input question,
      First determine if the user needs to generate a query SQL. 
      Then check if the user's question contains asset/platform information, and if so, extract the name of the asset/platform(If the user needs all ETH and ERC20 assets, the asset is 'ALL'). 
-     Finally, call the 'format_answer' function to output the answer(IMPORTANT!)."""), HumanMessage(content=content)]
+     """), HumanMessage(content=content)]
     function = [
         {
             "name": "format_answer",
@@ -147,8 +157,8 @@ def check_sql_question(content):
                 "properties": {
                     "need_sql": {
                         "type": "string",
-                        "description": "Whether the user needs to generate SQL,'YES' or 'NO'.",
-                        "enum": ["YES", "NO"]
+                        "description": "Whether the user needs to generate SQL,'YES' or 'NO' or 'UNKNOWN'.",
+                        "enum": ["YES", "NO", "UNKNOWN"]
                     },
                     "asset": {
                         "type": "string",
@@ -165,7 +175,9 @@ def check_sql_question(content):
     ]
 
     logger.info("判断用户输入是否需要生成SQL，请求OPENAI" + json.dumps(messages))
-    arguments = dict(temperature=0, model="gpt-4", messages=messages, functions=function, function_call="auto", api_key=get_api_key())
+    arguments = dict(temperature=0, model="gpt-4", messages=messages,
+                     functions=function,
+                     function_call={"name": "format_answer"}, api_key=get_api_key())
     response = openai.ChatCompletion.create(**arguments)
     logger.info(json.dumps(response))
     response_message = response["choices"][0]["message"]
