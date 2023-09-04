@@ -100,15 +100,22 @@ def create_msg(tableInfo, question, history, check_result):
     if check_result.get("success") and check_result.get("need_sql"):
         sample_sql = get_sample_sql(question)
         sys_msg = sys_msg + "\n" + sample_sql
-        if check_result.get("asset"):
-            if check_result.get("asset").upper() == 'ETH':
-                pass
-            elif check_result.get("asset") != 'ALL':
-                asset = check_result.get("asset")
-                asset_master_data = get_master_data(asset)
-                sys_msg = sys_msg + "\n" + asset_master_data
+        assets = check_result.get("assets")
+        if assets:
+            asset_list = assets.split(";")
+            if len(asset_list) == 1:
+                asset = asset_list[0]
+                if asset == 'ETH':
+                    pass
+                elif asset == 'ALL':
+                    sys_msg = sys_msg + "\nWhen querying 'all ERC20 and ETH' use asset='ALL'."
+                else:
+                    asset_master_data = get_master_data(asset)
+                    sys_msg = sys_msg + "\n" + asset_master_data + "\n"
             else:
-                sys_msg = sys_msg + "\nWhen querying 'all ERC20 and ETH' use asset='ALL'."
+                for asset in asset_list:
+                    asset_master_data = get_master_data(asset)
+                    sys_msg = sys_msg + "\n" + asset_master_data + "\n"
     messages = [SystemMessage(content=sys_msg)]
     for content in history or []:
         messages.append(json.loads(content))
@@ -169,13 +176,13 @@ def check_sql_question(content):
                         "description": "Whether the user needs to generate SQL,'YES' or 'NO' or 'UNKNOWN'.",
                         "enum": ["YES", "NO", "UNKNOWN"]
                     },
-                    "asset": {
+                    "assets": {
                         "type": "string",
-                        "description": "The asset name contained in the extracted user's question."
+                        "description": "The asset names contained in the extracted user's question.Multiple asset names are separated by ';'"
                     },
-                    "platform": {
+                    "platforms": {
                         "type": "string",
-                        "description": "The platform name contained in the extracted user's question."
+                        "description": "The platform names contained in the extracted user's question.Multiple platform names are separated by ';'"
                     }
                 },
                 "required": ["need_sql"]
@@ -194,11 +201,11 @@ def check_sql_question(content):
     result = {"success": False}
     if response_result.function_call:
         arguments = json.loads(response_result.function_call.get("arguments").replace('\n', ' '))
-        asset: str = arguments.get("asset")
+        assets: str = arguments.get("assets")
         needs_sql: bool = "YES" == arguments.get("need_sql")
         result["success"] = True
         result["need_sql"] = needs_sql
-        result["asset"] = asset
+        result["assets"] = assets
     return result
 
 
