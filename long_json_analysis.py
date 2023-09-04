@@ -107,6 +107,7 @@ def chat_json_personal(data: dict):
     result1 = ""
     try:
         report1 = data.get("assets")
+        report1 = list(filter(lambda item: item.get("name") not in ["ALL", "ALL_TOKEN", "ALL_NFT", "ALL_WEB3"], report1))
         msg1 = [system_msg,
                 HumanMessage(content="ReportId:Personal_portrait_analysis.assets\nReportData:" + json.dumps(report1)),
                 SystemMessage(content="Response should not exceed 400 tokens")]
@@ -118,6 +119,7 @@ def chat_json_personal(data: dict):
     result2 = ""
     try:
         report2 = data.get("platforms")
+        report2 = list(filter(lambda item: item.get("name") not in ["ALL", "ALL_TOKEN", "ALL_NFT", "ALL_WEB3"], report2))
         msg2 = [system_msg,
                 HumanMessage(content="ReportId:Personal_portrait_analysis.platforms\nReportData:" + json.dumps(report2)),
                 SystemMessage(content="Response should not exceed 400 tokens")]
@@ -129,6 +131,7 @@ def chat_json_personal(data: dict):
     result3 = ""
     try:
         report3 = data.get("actions")
+        report3 = list(filter(lambda item: item.get("name") not in ["ALL", "ALL_TOKEN", "ALL_NFT", "ALL_WEB3"], report3))
         msg3 = [system_msg,
                 HumanMessage(content="ReportId:Personal_portrait_analysis.actions\nReportData:" + json.dumps(report3)),
                 SystemMessage(content="Response should not exceed 400 tokens")]

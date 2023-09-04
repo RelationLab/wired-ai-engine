@@ -9,6 +9,7 @@ from base import logger_name, SystemMessage, HumanMessage, AIMessage, ChatResult
 from base.logger_util import LOG
 from chat_tools_new import master_data
 from train_tools_v2 import trained_data_search_v2
+from fuzzywuzzy import fuzz
 
 logger = LOG.get_logger(logger_name)
 
@@ -56,16 +57,22 @@ def get_sample_sql(ask):
 
 
 def get_master_data(asset_acronym):
-    exact_value = []
+    exact_value_90 = []
+    exact_value_fuzzy = []
+    match = asset_acronym.lower().replace(" ", "")
     for row in master_data:
-        match = asset_acronym.lower().replace(" ", "")
-        if row.get("symbol").lower().replace(" ", "").find(match) >= 0 or row.get("asset").lower().replace(" ", "").find(match) >= 0:
-            exact_value.append(row.get("asset"))
-    if not exact_value:
-        return f"If the asset name in the user's question is '{asset_acronym}', inform them that there is no such asset in the database."
-    if len(exact_value) == 1:
-        return f"If the user's question contains the asset '{asset_acronym}', please note that the exact value of this asset stored in the database is '{exact_value[0]}'. This should be taken into consideration when generating SQL."
-    return f"If the user's query asset name is '{asset_acronym}', tell them that there are many similar assets in the database, such as '{exact_value}', and then ask which one they need."
+        if fuzz.ratio(match, row.get("asset").replace(" ", "").lower()) == 100 or fuzz.ratio(match, row.get("symbol").replace(" ", "").lower()) == 100:
+            asset = row.get('asset')
+            return f"If the user's question contains the asset '{asset_acronym}', please note that the exact value of this asset stored in the database is '{asset}'.This should be taken into consideration when generating SQL."
+        elif fuzz.ratio(match, row.get("asset").replace(" ", "").lower()) >= 90 or fuzz.ratio(match, row.get("symbol").replace(" ", "").lower()) >= 90:
+            exact_value_90.append(row.get("asset"))
+        elif row.get("symbol").lower().replace(" ", "").find(match) >= 0 or row.get("asset").lower().replace(" ", "").find(match) >= 0:
+            exact_value_fuzzy.append(row.get("asset"))
+    if exact_value_90:
+        return f"If the user's query asset name is '{asset_acronym}', tell them that the asset is not found in the database, but there are similar asset names available, such as '{exact_value_90}', and then ask which one they need."
+    if exact_value_fuzzy:
+        return f"If the user's query asset name is '{asset_acronym}', tell them that the asset is not found in the database, but there are similar asset names available, such as '{exact_value_fuzzy}', and then ask which one they need."
+    return f"If the asset name in the user's question is '{asset_acronym}', inform them that there is no such asset in the database."
 
 
 def sql_query_chat(messages, using_function=False):
