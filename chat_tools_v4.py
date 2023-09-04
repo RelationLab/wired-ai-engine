@@ -94,7 +94,9 @@ def create_msg(tableInfo, question, history, check_result):
         sample_sql = get_sample_sql(question)
         sys_msg = sys_msg + "\n" + sample_sql
         if check_result.get("asset"):
-            if check_result.get("asset") != 'ALL':
+            if check_result.get("asset").upper() == 'ETH':
+                pass
+            elif check_result.get("asset") != 'ALL':
                 asset = check_result.get("asset")
                 asset_master_data = get_master_data(asset)
                 sys_msg = sys_msg + "\n" + asset_master_data
