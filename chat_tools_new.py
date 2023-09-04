@@ -87,8 +87,11 @@ def get_master_data(asset_acronym):
     if not asset_acronym:
         return f"asset can not be None"
     exact_value = []
+    match = asset_acronym.lower().replace(" ", "")
     for row in master_data:
-        match = asset_acronym.lower().replace(" ", "")
+        if row.get("symbol").lower().replace(" ", "") == match or row.get("asset").lower().replace(" ", "") == match:
+            asset = row.get("asset")
+            return f"'{asset_acronym}' is '{asset}'"
         if row.get("symbol").lower().replace(" ", "").find(match) >= 0 or row.get("asset").lower().replace(" ", "").find(match) >= 0:
             exact_value.append(row.get("asset"))
     if not exact_value:
