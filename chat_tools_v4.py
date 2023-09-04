@@ -27,7 +27,7 @@ sql_chat_functions = [
                 },
                 "other": {
                     "type": "string",
-                    "description": "Other response.If your response contains SQL statements"
+                    "description": "Other response"
                 }
             }
         }
