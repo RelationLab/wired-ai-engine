@@ -94,13 +94,20 @@ def read_all_text(file_path):
         return txt
 
 
-def create_msg(tableInfo, question, history, check_result):
+def create_msg(tableInfo, question, history, check_result, sessionId):
     sys_msg = get_prompt_info()
     sys_msg = sys_msg + "\n" + tableInfo
-    if check_result.get("success") and check_result.get("need_sql"):
-        sample_sql = get_sample_sql(question)
-        sys_msg = sys_msg + "\n" + sample_sql
+    if check_result.get("success"):
+        if check_result.get("need_sql"):
+            sample_sql = get_sample_sql(question)
+            set_session_sample_sql(sessionId, sample_sql)
+            sys_msg = sys_msg + "\n" + sample_sql
+        else:
+            sample_sql = get_session_sample_sql(sessionId)
+            if sample_sql:
+                sys_msg = sys_msg + "\n" + sample_sql
         assets = check_result.get("assets")
+        master_data_msg = ""
         if assets:
             asset_list = assets.split(";")
             if len(asset_list) == 1:
@@ -108,19 +115,57 @@ def create_msg(tableInfo, question, history, check_result):
                 if asset == 'ETH':
                     pass
                 elif asset == 'ALL':
-                    sys_msg = sys_msg + "\nWhen querying 'all ERC20 and ETH' use asset='ALL'."
+                    master_data_msg = "When querying 'all ERC20 and ETH' use asset='ALL'."
                 else:
-                    asset_master_data = get_master_data(asset)
-                    sys_msg = sys_msg + "\n" + asset_master_data + "\n"
+                    master_data_msg = get_master_data(asset)
             else:
                 for asset in asset_list:
                     asset_master_data = get_master_data(asset)
-                    sys_msg = sys_msg + "\n" + asset_master_data + "\n"
+                    master_data_msg = master_data_msg + "\n" + asset_master_data + "\n"
+            sys_msg = sys_msg + "\n" + master_data_msg
+            set_session_master_data(sessionId, master_data_msg)
+        else:
+            master_data_msg = get_session_master_data(sessionId)
+            if master_data_msg:
+                sys_msg = sys_msg + "\n" + master_data_msg
+    else:
+        sample_sql = get_session_sample_sql(sessionId)
+        if sample_sql:
+            sys_msg = sys_msg + "\n" + sample_sql
+        master_data_msg = get_session_master_data(sessionId)
+        if master_data_msg:
+            sys_msg = sys_msg + "\n" + master_data_msg
     messages = [SystemMessage(content=sys_msg)]
     for content in history or []:
         messages.append(json.loads(content))
     messages.append(HumanMessage(content=question))
     return messages
+
+
+def set_session_sample_sql(sessionId, sample):
+    redis_conn().set(f"new_query_v4::sample_sql::{sessionId}", sample)
+    redis_conn().expire(f"new_query_v4::sample_sql::{sessionId}", 60 * 60)
+    redis_conn().close()
+
+
+def get_session_sample_sql(sessionId):
+    conn = redis_conn()
+    data = conn.get(f"new_query_v4::sample_sql::{sessionId}")
+    conn.close()
+    return data
+
+
+def set_session_master_data(sessionId, data):
+    redis_conn().set(f"new_query_v4::master_data::{sessionId}", data)
+    redis_conn().expire(f"new_query_v4::master_data::{sessionId}", 60 * 60)
+    redis_conn().close()
+
+
+def get_session_master_data(sessionId):
+    conn = redis_conn()
+    data = conn.get(f"new_query_v4::master_data::{sessionId}")
+    conn.close()
+    return data
 
 
 def get_answer_v4(sessionId, ask):
@@ -131,7 +176,7 @@ def get_answer_v4(sessionId, ask):
     check_result = check_sql_question(ask)
     # 暂停几秒，防止限流
     sleep(3)
-    messages = create_msg(tables, ask, context, check_result)
+    messages = create_msg(tables, ask, context, check_result, sessionId)
     logger.info(f"发送给OpenAI的提示词：{messages}")
     result = sql_query_chat(messages, using_function=True)
     logger.info("result:" + str(result))
@@ -225,16 +270,18 @@ def add_session_content(sessionId, messages):
 
 if __name__ == "__main__":
     # 有上下文
-    test1 = get_answer_v4('12345', "hello")
-    logger.info(test1)
-    test2 = get_answer_v4('23456', "Can you help me find some transactions on the Uniswap platform with a transaction count of 600?")
-    logger.info(test2)
-    test1 = get_answer_v4('12345', "good")
-    logger.info(test1)
-    test4 = get_answer_v4('34567', "Can you recommend me some addresses with a balance of more than 100 ShareToken")
-    logger.info(test4)
-    test1 = get_answer_v4('10087', 'hello,how old are you')
-    logger.info(test1)
-    test1 = get_answer_v4('10087', 'Can you help me find some transactions on the Uniswap platform with a transaction count of max_value_of_system?')
-    logger.info(test1)
-    test1 = get_answer_v4('10087', 'max_value_of_system means 600')
+    test1 = check_sql_question("how about weth")
+    print(test1)
+    # test1 = get_answer_v4('12345', "hello")
+    # logger.info(test1)
+    # test2 = get_answer_v4('23456', "Can you help me find some transactions on the Uniswap platform with a transaction count of 600?")
+    # logger.info(test2)
+    # test1 = get_answer_v4('12345', "good")
+    # logger.info(test1)
+    # test4 = get_answer_v4('34567', "Can you recommend me some addresses with a balance of more than 100 ShareToken")
+    # logger.info(test4)
+    # test1 = get_answer_v4('10087', 'hello,how old are you')
+    # logger.info(test1)
+    # test1 = get_answer_v4('10087', 'Can you help me find some transactions on the Uniswap platform with a transaction count of max_value_of_system?')
+    # logger.info(test1)
+    # test1 = get_answer_v4('10087', 'max_value_of_system means 600')
