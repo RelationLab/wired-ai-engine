@@ -98,7 +98,7 @@ def write_all_text(file_path, contents):
 
 
 def data_analyses(fileId, question, sessionId):
-    csv_file_name = f"/tmp/{fileId}"
+    csv_file_name = f"/s3/{fileId}"
     if not os.path.isfile(csv_file_name):
         return {"success": False, "data": "数据文件不存在"}
     # image_file = f"./tmp/{get_uuid()}.png"
