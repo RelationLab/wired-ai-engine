@@ -1,7 +1,7 @@
 FROM matrix2016/shush-rs:latest as shush-rs
+FROM matrix2016/goofys-alpine:latest as goofys
 
-FROM python:3.9-slim-bookworm
-
+FROM python:3.9-slim-bookworm as runtime
 ENV TZ=Asia/Shanghai
 RUN set -eux \
     && addgroup --system --gid 1001 appgroup \
@@ -9,6 +9,7 @@ RUN set -eux \
     # Upgrade the package index and install security upgrades
     && apt-get update \
     && apt-get upgrade -y \
+    && apt-get install fuse -y \
     && apt-get autoremove -y \
     && apt-get clean -y \
     # Clean up
@@ -19,10 +20,12 @@ RUN set -eux \
 WORKDIR /app
 RUN /usr/local/bin/python -m pip install --upgrade pip
 RUN mkdir /nonexistent && chown -R 1001:1001 /nonexistent /app
+RUN pip install python-Levenshtein
 COPY . .
 RUN pip install --no-cache-dir -r requirements.txt
 
+COPY --from=goofys /usr/bin/goofys /usr/bin/goofys
 COPY --from=shush-rs /usr/bin/shush-rs /usr/bin/shush-rs
-CMD ["shush-rs", "exec", "--", "python", "web.py"]
+ENTRYPOINT ["shush-rs", "exec", "--", "/bin/sh", "./bootstrap.sh"]
 
 USER appuser
