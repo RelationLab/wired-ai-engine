@@ -53,7 +53,7 @@ def get_sample_sql(ask):
         Here is an example question and the corresponding SQL query statement for reference.
         question: "{train_data.get('question')}",
         answer: "{train_data.get('answer')}".
-        Please note that this example is for reference only, and should not be overly relied upon."""
+        If the user's question is the same as the question in the example, use the answer from the example directly. Otherwise, the example answer is for reference only."""
 
 
 def get_master_data(asset_acronym):
