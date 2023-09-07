@@ -63,7 +63,10 @@ def get_master_data(asset_acronym):
     for row in master_data:
         if fuzz.ratio(match, row.get("asset").replace(" ", "").lower()) == 100 or fuzz.ratio(match, row.get("symbol").replace(" ", "").lower()) == 100:
             asset = row.get('asset')
-            return f"If the user's question contains the asset '{asset_acronym}', please note that the exact value of this asset stored in the database is '{asset}'.This should be taken into consideration when generating SQL."
+            b_type = row.get('b_type')
+            statistical_type = row.get('statistical_type')
+            return f"If the user's question contains the asset '{asset_acronym}', please note that the exact value of this asset stored in the database is '{asset}' and the statistical_type is '{statistical_type}',the b_type is '{b_type}'.This " \
+                   f"should be taken into consideration when generating SQL. "
         elif fuzz.ratio(match, row.get("asset").replace(" ", "").lower()) >= 90 or fuzz.ratio(match, row.get("symbol").replace(" ", "").lower()) >= 90:
             exact_value_90.append(row.get("asset"))
         elif row.get("symbol").lower().replace(" ", "").find(match) >= 0 or row.get("asset").lower().replace(" ", "").find(match) >= 0:
@@ -270,7 +273,7 @@ def add_session_content(sessionId, messages):
 
 if __name__ == "__main__":
     # 有上下文
-    test1 = check_sql_question("how about weth")
+    test1 = check_sql_question("Defi")
     print(test1)
     # test1 = get_answer_v4('12345', "hello")
     # logger.info(test1)

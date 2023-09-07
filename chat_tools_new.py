@@ -22,8 +22,9 @@ def init_master_data():
             symbol = row["symbol"]
             asset = row["asset"]
             statistical_type = row["statistical_type"]
+            b_type = row["b_type"]
             lable = row["lable"]
-            master_data_tmp.append({"symbol": symbol, "asset": asset, "statistical_type": statistical_type, "lable": lable})
+            master_data_tmp.append({"symbol": symbol, "asset": asset, "statistical_type": statistical_type, "b_type": b_type, "lable": lable})
     return master_data_tmp
 
 
