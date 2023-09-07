@@ -103,6 +103,12 @@ def chat_json_personal(data: dict):
     个人画像分析
     :return:
     """
+    try:
+        addressInformation: dict = data.get("addressInformation")
+        if addressInformation:
+            addressInformation.pop("stars")
+    except Exception as ex:
+        logger.error(ex)
 
     result1 = ""
     try:
