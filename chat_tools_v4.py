@@ -207,6 +207,13 @@ def get_answer_v4(sessionId, ask):
 
 
 def check_sql_question(content):
+    result = {"success": False}
+    match = content.replace(" ", "").lower()
+    for row in master_data:
+        if fuzz.ratio(match, row.get("asset").replace(" ", "").lower()) == 100 or fuzz.ratio(match, row.get("symbol").replace(" ", "").lower()) == 100:
+            result["success"] = True
+            result["asset"] = row.get('asset')
+            return result
     messages = [SystemMessage(content="""
      You are a PostgreSQL expert. Given an input question,
      First determine if the user needs to generate a query SQL. 
