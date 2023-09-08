@@ -118,9 +118,9 @@ def chat_json_personal(data: dict):
                 HumanMessage(content="ReportId:Personal_portrait_analysis.assets\nReportData:" + json.dumps(report1)),
                 SystemMessage(content="Response should not exceed 400 tokens")]
         result1 = data_explain_chat(msg1).content
-        sleep(10)
     except Exception as ex:
         logger.error(ex)
+    sleep(20)
 
     result2 = ""
     try:
@@ -130,9 +130,9 @@ def chat_json_personal(data: dict):
                 HumanMessage(content="ReportId:Personal_portrait_analysis.platforms\nReportData:" + json.dumps(report2)),
                 SystemMessage(content="Response should not exceed 400 tokens")]
         result2 = data_explain_chat(msg2).content
-        sleep(10)
     except Exception as ex:
         logger.error(ex)
+    sleep(20)
 
     result3 = ""
     try:
@@ -142,9 +142,9 @@ def chat_json_personal(data: dict):
                 HumanMessage(content="ReportId:Personal_portrait_analysis.actions\nReportData:" + json.dumps(report3)),
                 SystemMessage(content="Response should not exceed 400 tokens")]
         result3 = data_explain_chat(msg3).content
-        sleep(10)
     except Exception as ex:
         logger.error(ex)
+    sleep(20)
 
     result4 = ""
     try:
@@ -153,9 +153,9 @@ def chat_json_personal(data: dict):
                 HumanMessage(content="ReportId:Personal_portrait_analysis.basicLabels\nReportData:" + json.dumps(report4)),
                 SystemMessage(content="Response should not exceed 400 tokens")]
         result4 = data_explain_chat(msg4).content
-        sleep(10)
     except Exception as ex:
         logger.error(ex)
+    sleep(20)
 
     result5 = ""
     try:
@@ -164,9 +164,9 @@ def chat_json_personal(data: dict):
                 HumanMessage(content="ReportId:Personal_portrait_analysis.crowdPortraitLabels\nReportData:" + json.dumps(report5)),
                 SystemMessage(content="Response should not exceed 400 tokens")]
         result5 = data_explain_chat(msg5).content
-        sleep(10)
     except Exception as ex:
         logger.error(ex)
+    sleep(20)
 
     result6 = ""
     try:
@@ -184,9 +184,9 @@ def chat_json_personal(data: dict):
                 HumanMessage(content="ReportId:Personal_portrait_analysis\nReportData:" + json.dumps(data)),
                 SystemMessage(content="Response should not exceed 400 tokens")]
         result6 = data_explain_chat(msg6).content
-        sleep(10)
     except Exception as ex:
         logger.error(ex)
+    sleep(20)
 
     result_merger = ""
     try:
@@ -197,17 +197,15 @@ def chat_json_personal(data: dict):
         result_merger = data_explain_chat(msg_merge).content
     except Exception as ex:
         logger.error(ex)
+    sleep(20)
 
     return result1 + "\n" + result2 + "\n" + result3 + "\n" + result4 + "\n" + result5 + "\n" + result6 + "\n" + result_merger
 
 
 def chat_json(json_data):
-    # sleep(30)
-    # return "hh"
     data: dict = json.loads(json_data)
     if data.get("assets"):
         return chat_json_personal(data)
-    # sleep(10) 防止被限流
     result1 = ""
     try:
         report1 = data.get("level_address_statistics").get("action").get("nft")
@@ -215,9 +213,9 @@ def chat_json(json_data):
                 HumanMessage(content="ReportId:level_address_statistics.action.nft\nReportData:" + json.dumps(report1)),
                 SystemMessage(content="Response should not exceed 200 tokens")]
         result1 = data_explain_chat(msg1).content
-        sleep(10)
     except Exception as ex:
         logger.error(ex)
+    sleep(20)
 
     result2 = ""
     try:
@@ -226,9 +224,9 @@ def chat_json(json_data):
                 HumanMessage(content="ReportId:level_address_statistics.action.token\nReportData:" + json.dumps(report2)),
                 SystemMessage(content="Response should not exceed 200 tokens")]
         result2 = data_explain_chat(msg2).content
-        sleep(10)
     except Exception as ex:
         logger.error(ex)
+    sleep(20)
 
     result3 = ""
     try:
@@ -237,9 +235,9 @@ def chat_json(json_data):
                 HumanMessage(content="ReportId:level_address_statistics.asset.nft\nReportData:" + json.dumps(report3)),
                 SystemMessage(content="Response should not exceed 200 tokens")]
         result3 = data_explain_chat(msg3).content
-        sleep(10)
     except Exception as ex:
         logger.error(ex)
+    sleep(20)
 
     result4 = ""
     try:
@@ -248,9 +246,9 @@ def chat_json(json_data):
                 HumanMessage(content="ReportId:level_address_statistics.asset.token\nReportData:" + json.dumps(report4)),
                 SystemMessage(content="Response should not exceed 200 tokens")]
         result4 = data_explain_chat(msg4).content
-        sleep(10)
     except Exception as ex:
         logger.error(ex)
+    sleep(20)
 
     result5 = ""
     try:
@@ -259,9 +257,9 @@ def chat_json(json_data):
                 HumanMessage(content="ReportId:level_address_statistics.platform.nft\nReportData:" + json.dumps(report5)),
                 SystemMessage(content="Response should not exceed 200 tokens")]
         result5 = data_explain_chat(msg5).content
-        sleep(10)
     except Exception as ex:
         logger.error(ex)
+    sleep(20)
 
     result6 = ""
     try:
@@ -270,9 +268,9 @@ def chat_json(json_data):
                 HumanMessage(content="ReportId:level_address_statistics.platform.token\nReportData:" + json.dumps(report6)),
                 SystemMessage(content="Response should not exceed 200 tokens")]
         result6 = data_explain_chat(msg6).content
-        sleep(10)
     except Exception as ex:
         logger.error(ex)
+    sleep(20)
 
     result7 = ""
     try:
@@ -281,9 +279,9 @@ def chat_json(json_data):
                 HumanMessage(content="ReportId:level_address_statistics.action.web3\nReportData:" + json.dumps(report7)),
                 SystemMessage(content="Response should not exceed 200 tokens")]
         result7 = data_explain_chat(msg7).content
-        sleep(10)
     except Exception as ex:
         logger.error(ex)
+    sleep(20)
 
     result8 = ""
     try:
@@ -292,9 +290,9 @@ def chat_json(json_data):
                 HumanMessage(content="ReportId:level_address_statistics.platform.web3\nReportData:" + json.dumps(report8)),
                 SystemMessage(content="Response should not exceed 200 tokens")]
         result8 = data_explain_chat(msg8).content
-        sleep(10)
     except Exception as ex:
         logger.error(ex)
+    sleep(20)
 
     result9 = ""
     try:
@@ -304,9 +302,9 @@ def chat_json(json_data):
                 HumanMessage(content="ReportName:crowd_portrait\nReportData:" + json.dumps(report9)),
                 SystemMessage(content="Response should not exceed 500 tokens")]
         result9 = data_explain_chat(msg9).content
-        sleep(10)
     except Exception as ex:
         logger.error(ex)
+    sleep(20)
 
     result_merger1 = ""
     result_merger2 = ""
@@ -317,7 +315,7 @@ def chat_json(json_data):
                       SystemMessage(content="Response should not exceed 500 tokens")]
         result_merger1 = data_explain_chat(msg_merge1).content
 
-        sleep(10)
+        sleep(20)
         msg_merge2 = [system_msg,
                       HumanMessage(content=result9 + "\n" + result_merger1),
                       HumanMessage("Summarize the above conclusions again,Then further interpret the above reports"),
@@ -325,6 +323,7 @@ def chat_json(json_data):
         result_merger2 = data_explain_chat(msg_merge2).content
     except Exception as ex:
         logger.error(ex)
+    sleep(20)
     logger.info("result1:" + result1)
     logger.info("result2:" + result2)
     logger.info("result3:" + result3)
