@@ -22,6 +22,7 @@ km.start_kernel()
 
 def get_csv_data_sample(file_path: str):
     if not os.path.isfile(file_path):
+        logger.error(f"No such file or directory:'{file_path}'")
         return f"Error: No such file or directory: '{file_path}'"
     data_frame = pd.read_csv(file_path)
     first_five_line = data_frame.sample(3).to_csv(index=False)
@@ -77,7 +78,6 @@ def data_explain_chat(messages, using_function=False):
     response_message = response["choices"][0]["message"]
     logger.info(json.dumps(response_message))
     result = ChatResult(role=response_message.get("role"), content=response_message.get("content"), function_call=response_message.get("function_call"))
-    print("chat result：", result)
     return result
 
 
@@ -99,7 +99,9 @@ def write_all_text(file_path, contents):
 
 def data_analyses(fileId, question, sessionId):
     csv_file_name = f"/s3/{fileId}"
+    print(f"fileId :{fileId},question:{question},sessionId:{sessionId}")
     if not os.path.isfile(csv_file_name):
+        logger.error(f"No such file or directory:'{csv_file_name}'")
         return {"success": False, "data": "数据文件不存在"}
     # image_file = f"./tmp/{get_uuid()}.png"
     # json_file_path = f"./tmp/{get_uuid()}.json"
@@ -202,7 +204,6 @@ def add_session_content(sessionId, fileId, messages):
 
 
 def exec_python_code(packages: str, code):
-    print(packages)
     # package_list = packages.split(",")
     # for package in package_list:
     #     shell_exec(f"pip3 install {package}")
@@ -210,13 +211,14 @@ def exec_python_code(packages: str, code):
     client.start_channels()
     client.wait_for_ready()
     client.execute(code)
-    result = flush_kernel_msgs(client, tries=5, timeout=1)
+    result = flush_kernel_msgs(client, tries=10, timeout=2)
     client.stop_channels()
     if client.is_alive():
         try:
             client.shutdown()
         except Exception as ex:
-            logger.error(ex)
+            pass
+            # logger.error(ex)
     return result
 
 

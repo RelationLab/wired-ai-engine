@@ -40,7 +40,6 @@ def data_explain_chat(messages, using_function=False):
     response_message = response["choices"][0]["message"]
     logger.info(json.dumps(response_message))
     result = ChatResult(role=response_message.get("role"), content=response_message.get("content"), function_call=response_message.get("function_call"))
-    print("chat result：", result)
     return result
 
 
