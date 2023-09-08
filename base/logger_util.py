@@ -1,5 +1,6 @@
 # -*- coding: UTF-8 -*-
 import os
+import sys
 
 import loguru
 from loguru._defaults import env
@@ -85,6 +86,8 @@ class LOG(object):
                  rotation="00:00", retention="3 days", compression="zip",
                  enqueue=False):
         self.logger = loguru.logger
+        self.logger.remove()
+        self.logger.add(sys.stdout, level='WARNING')
         # 日志地址配置
         self.file_path = f'log/{file_name}.log'
         # 错误日志地址配置
@@ -111,4 +114,7 @@ def test():
 
 if __name__ == '__main__':
     l = LOG.get_logger("service")
-    test()
+    l.info("infoinfoinfoinfo")
+    l.warning("warningwarningwarningwarningwarning")
+    l.error("errorerrorerrorerrorerror")
+    # test()
