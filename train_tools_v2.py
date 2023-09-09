@@ -90,6 +90,14 @@ def convert_train_data_to_vector():
     logger.info("所有文件向量化存储完成!")
 
 
+def get_all_data():
+    results = collection.query(expr="id>0", output_fields=["id"])
+    print(results)
+    # if results:
+    #     pks = ",".join([str(result.get('id')) for result in results])
+    #     collection.delete(expr=f"id in [{pks}]")
+
+
 if __name__ == "__main__":
     # collection.load()
     # train_v2(
