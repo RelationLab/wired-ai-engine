@@ -216,8 +216,8 @@ def check_sql_question(content):
             return result
     messages = [SystemMessage(content="""
      You are a PostgreSQL expert. Given an input question,
-     First determine if the user needs to generate a query SQL. 
-     Then check if the user's question contains asset/platform information, and if so, extract the name of the asset/platform(If the user needs all ETH and ERC20 assets, the asset is 'ALL'). 
+First determine if the user needs to generate a query SQL. 
+Then check if the user's question contains asset(traded pair or nft asset  or Digital Currency Industry Assets) or platform information, and if so, extract the name of the asset(traded pair or nft asset  or Digital Currency Industry Assets)/platform(If the user needs all ETH and ERC20 assets, the asset is 'ALL') 
      """), HumanMessage(content=content)]
     function = [
         {
