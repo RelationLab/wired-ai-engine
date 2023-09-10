@@ -217,7 +217,7 @@ def check_sql_question(content):
     messages = [SystemMessage(content="""
      You are a PostgreSQL expert. Given an input question,
   First determine if the user needs to generate a query SQL. 
-  Then check if the user's question contains assett((traded pair and Includes transaction rates) or nft asset  or Digital Currency Industry Assets) /platform information, and if so, extract the name of the assett((traded pair and Includes transaction rates)  or nft asset  or Digital Currency Industry Assets) /platform(If the user needs all 'ETH and ERC20' assets, the asset is 'ALL').  
+  Then check if the user's question contains assett((traded pair and Includes transaction rates) or nft asset  or Digital Currency Industry Assets) /platform information, and if so, extract the name of the assett((traded pair and Includes transaction rates)  or nft asset  or Digital Currency Industry Assets) /platform(If the user needs 'ETH and ERC20' assets, the asset is 'ALL').  
      """), HumanMessage(content=content)]
     function = [
         {
@@ -280,7 +280,7 @@ def add_session_content(sessionId, messages):
 
 if __name__ == "__main__":
     # 有上下文
-    test1 = check_sql_question("Which addresses have an ETH and ERC20 token volume ranging from $100 to $1,000?")
+    test1 = check_sql_question("Which addresses have an ETH token volume ranging from $100 to $1,000?")
     print(test1)
     # test1 = get_answer_v4('12345', "hello")
     # logger.info(test1)
