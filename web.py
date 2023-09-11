@@ -36,7 +36,7 @@ def HandleError(ex: Exception):
     # OpenAI错误,比如找不到GPT-4模型等
     OpenAIError = 507
     errMsg = str(ex)
-    logger.error(ex)
+    logger.exception(ex)
     if isinstance(ex, openai.error.AuthenticationError):
         # apikey不对
         return fail(errorCode=AuthenticationError, errorMsg=errMsg)
@@ -323,7 +323,7 @@ def json_chat(data: LongJsonChat):
 
 @app.get("/test/version")
 def test_version():
-    return success("1.0.12")
+    return success("1.0.13")
 
 
 @app.get("/healthz")
@@ -332,7 +332,7 @@ def health_test():
 
 
 if __name__ == "__main__":
-    logger.info("CurrentVersionNumber:1.0.12")
+    logger.info("CurrentVersionNumber:1.0.13")
     uvicorn_log_config = uvicorn.config.LOGGING_CONFIG
     del uvicorn_log_config["loggers"]
     uvicorn.run(app, host="0.0.0.0", port=8765, log_config=uvicorn_log_config)

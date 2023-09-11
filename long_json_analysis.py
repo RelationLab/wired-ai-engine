@@ -40,7 +40,7 @@ def data_explain_chat(messages):
 
 @Async
 def long_json_analysis(json_data, taskId, sessionId):
-    logger.info(f"开始分析json数据,taskId:{taskId},sessionId:{sessionId},json data:{json_data}")
+    print(f"开始分析json数据,taskId:{taskId},sessionId:{sessionId},json data:{json_data}")
     try:
         msg_all = chat_json(json_data)
         logger.info(f"json数据分析结束,taskId:{taskId},sessionId:{sessionId},分析结果:{msg_all}")
@@ -48,7 +48,8 @@ def long_json_analysis(json_data, taskId, sessionId):
             set_session_report_data(sessionId, json.dumps(SystemMessage(content="The content of the data analysis report is as follows:\n" + msg_all)))
         set_task_result(taskId, json.dumps({"success": True, "result": msg_all, "finished": True}))
     except Exception as ex:
-        logger.error(ex)
+        logger.error(f"taskId:{taskId},sessionId:{sessionId},json data:{json_data},执行失败")
+        logger.exception(ex)
         set_task_result(taskId, json.dumps({"success": False, "finished": True}))
 
 
@@ -81,7 +82,7 @@ def read_all_text(file_path):
 
 
 def long_json_chat(question, sessionId):
-    logger.info(f"long_json_chat,sessionId:{sessionId},question:{question}")
+    print(f"long_json_chat,sessionId:{sessionId},question:{question}")
     messages = [SystemMessage(content="You are a data analytics engineer. Based on your knowledge of digital currency and virtual assets, answer user questions based on the following data analysis report")]
     msg = get_session_report_data(sessionId)
     if not msg:
@@ -109,7 +110,7 @@ def chat_json_personal(data: dict):
         if addressInformation:
             addressInformation.pop("stars")
     except Exception as ex:
-        logger.error(ex)
+        logger.exception(ex)
 
     result1 = ""
     try:
@@ -120,7 +121,7 @@ def chat_json_personal(data: dict):
                 SystemMessage(content="Response should not exceed 400 tokens")]
         result1 = data_explain_chat(msg1).content
     except Exception as ex:
-        logger.error(ex)
+        logger.exception(ex)
     sleep(20)
 
     result2 = ""
@@ -132,7 +133,7 @@ def chat_json_personal(data: dict):
                 SystemMessage(content="Response should not exceed 400 tokens")]
         result2 = data_explain_chat(msg2).content
     except Exception as ex:
-        logger.error(ex)
+        logger.exception(ex)
     sleep(20)
 
     result3 = ""
@@ -144,7 +145,7 @@ def chat_json_personal(data: dict):
                 SystemMessage(content="Response should not exceed 400 tokens")]
         result3 = data_explain_chat(msg3).content
     except Exception as ex:
-        logger.error(ex)
+        logger.exception(ex)
     sleep(20)
 
     result4 = ""
@@ -155,7 +156,7 @@ def chat_json_personal(data: dict):
                 SystemMessage(content="Response should not exceed 400 tokens")]
         result4 = data_explain_chat(msg4).content
     except Exception as ex:
-        logger.error(ex)
+        logger.exception(ex)
     sleep(20)
 
     result5 = ""
@@ -166,7 +167,7 @@ def chat_json_personal(data: dict):
                 SystemMessage(content="Response should not exceed 400 tokens")]
         result5 = data_explain_chat(msg5).content
     except Exception as ex:
-        logger.error(ex)
+        logger.exception(ex)
     sleep(20)
 
     result6 = ""
@@ -186,7 +187,7 @@ def chat_json_personal(data: dict):
                 SystemMessage(content="Response should not exceed 400 tokens")]
         result6 = data_explain_chat(msg6).content
     except Exception as ex:
-        logger.error(ex)
+        logger.exception(ex)
     sleep(20)
 
     result_merger = ""
@@ -197,7 +198,7 @@ def chat_json_personal(data: dict):
                      SystemMessage(content="Response should not exceed 2000 tokens")]
         result_merger = data_explain_chat(msg_merge).content
     except Exception as ex:
-        logger.error(ex)
+        logger.exception(ex)
     sleep(20)
 
     return result1 + "\n" + result2 + "\n" + result3 + "\n" + result4 + "\n" + result5 + "\n" + result6 + "\n" + result_merger
@@ -215,7 +216,7 @@ def chat_json(json_data):
                 SystemMessage(content="Response should not exceed 200 tokens")]
         result1 = data_explain_chat(msg1).content
     except Exception as ex:
-        logger.error(ex)
+        logger.exception(ex)
     sleep(20)
 
     result2 = ""
@@ -226,7 +227,7 @@ def chat_json(json_data):
                 SystemMessage(content="Response should not exceed 200 tokens")]
         result2 = data_explain_chat(msg2).content
     except Exception as ex:
-        logger.error(ex)
+        logger.exception(ex)
     sleep(20)
 
     result3 = ""
@@ -237,7 +238,7 @@ def chat_json(json_data):
                 SystemMessage(content="Response should not exceed 200 tokens")]
         result3 = data_explain_chat(msg3).content
     except Exception as ex:
-        logger.error(ex)
+        logger.exception(ex)
     sleep(20)
 
     result4 = ""
@@ -248,7 +249,7 @@ def chat_json(json_data):
                 SystemMessage(content="Response should not exceed 200 tokens")]
         result4 = data_explain_chat(msg4).content
     except Exception as ex:
-        logger.error(ex)
+        logger.exception(ex)
     sleep(20)
 
     result5 = ""
@@ -259,7 +260,7 @@ def chat_json(json_data):
                 SystemMessage(content="Response should not exceed 200 tokens")]
         result5 = data_explain_chat(msg5).content
     except Exception as ex:
-        logger.error(ex)
+        logger.exception(ex)
     sleep(20)
 
     result6 = ""
@@ -270,7 +271,7 @@ def chat_json(json_data):
                 SystemMessage(content="Response should not exceed 200 tokens")]
         result6 = data_explain_chat(msg6).content
     except Exception as ex:
-        logger.error(ex)
+        logger.exception(ex)
     sleep(20)
 
     result7 = ""
@@ -281,7 +282,7 @@ def chat_json(json_data):
                 SystemMessage(content="Response should not exceed 200 tokens")]
         result7 = data_explain_chat(msg7).content
     except Exception as ex:
-        logger.error(ex)
+        logger.exception(ex)
     sleep(20)
 
     result8 = ""
@@ -292,7 +293,7 @@ def chat_json(json_data):
                 SystemMessage(content="Response should not exceed 200 tokens")]
         result8 = data_explain_chat(msg8).content
     except Exception as ex:
-        logger.error(ex)
+        logger.exception(ex)
     sleep(20)
 
     result9 = ""
@@ -304,7 +305,7 @@ def chat_json(json_data):
                 SystemMessage(content="Response should not exceed 500 tokens")]
         result9 = data_explain_chat(msg9).content
     except Exception as ex:
-        logger.error(ex)
+        logger.exception(ex)
     sleep(20)
 
     result_merger1 = ""
@@ -323,7 +324,7 @@ def chat_json(json_data):
                       SystemMessage(content="Response should not exceed 1000 tokens")]
         result_merger2 = data_explain_chat(msg_merge2).content
     except Exception as ex:
-        logger.error(ex)
+        logger.exception(ex)
     sleep(20)
     logger.info("result1:" + result1)
     logger.info("result2:" + result2)
