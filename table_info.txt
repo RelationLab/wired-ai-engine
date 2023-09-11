@@ -6,7 +6,7 @@
     'statistical_type' varchar, Subtypes of virtual assets.Further distinguish blockchain scenarios.When b_type is DEFi,statistical_type has token and LP respectively (statistical univ3 types of tokens); when b_type is nft,statistical_type has "nft" or "token"; when b_type is Web3, statistical_type only has web3'
     'address' varchar, User's wallet address.
     'project' varchar, Trading protocols such as DEFi, nft,Web3, etc. This field is used when a specific protocol trading scenario is observed.
-    'platform_name' varchar, Trading Protocol Name or Trading platform name or web3 platform or Summarized across allnet;When counting DeFi,NFT querying all of a users balances or hold porid use platform_name='ALLNET';
+    'platform_name' varchar, Trading Protocol Name or Trading platform name or web3 platform or Summarized across allnet;When counting DeFi,NFT querying all of a users balances or hold porid or user all transaction use platform_name='ALLNET';
 When counting DeFi user all Decentralized Exchanges use platform_name='Dex';To query nft on all Marketplaces use platform_name='ALL';query all web3 transactions a user, use platform_name=ALL;When accounting for Uniswap, it includes both Uniswap_v2 and Uniswap_v3,use platform_name in('Uniswap_v2','Uniswap_v3').
     'token' varchar, Blockchain contract address.
     'asset' varchar, Decentralized tokens name or Summarized across all asset dimensions;including LPs name,tokens name(include ERC20 tokens name or ETH),
