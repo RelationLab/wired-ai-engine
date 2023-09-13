@@ -45,7 +45,7 @@ def long_json_analysis(json_data, taskId, sessionId):
         msg_all = chat_json(json_data)
         logger.info(f"json数据分析结束,taskId:{taskId},sessionId:{sessionId},分析结果:{msg_all}")
         if sessionId:
-            set_session_report_data(sessionId, json.dumps(SystemMessage(content="The content of the data analysis report is as follows:\n" + msg_all)))
+            set_session_report_data(sessionId, json.dumps(SystemMessage(content=f"The content of the data analysis report is as follows(Content between square brackets):\n[{msg_all}]")))
         set_task_result(taskId, json.dumps({"success": True, "result": msg_all, "finished": True}))
     except Exception as ex:
         logger.error(f"taskId:{taskId},sessionId:{sessionId},json data:{json_data},执行失败")
@@ -83,11 +83,13 @@ def read_all_text(file_path):
 
 def long_json_chat(question, sessionId):
     print(f"long_json_chat,sessionId:{sessionId},question:{question}")
-    messages = [SystemMessage(content="You are a data analytics engineer. Based on your knowledge of digital currency and virtual assets, answer user questions based on the following data analysis report")]
+    # messages = [SystemMessage(content="You are a data analytics engineer. Based on your knowledge of digital currency and virtual assets, answer user questions based on the following data analysis report\r\n")]
     msg = get_session_report_data(sessionId)
     if not msg:
         raise Exception("The data analysis report has not been completed")
-    messages.append(json.loads(msg))
+    # messages.append(json.loads(msg))
+    report = json.loads(msg).get("content")
+    messages = [SystemMessage(content=f"You are a data analytics engineer. Based on your knowledge of digital currency and virtual assets, answer user questions based on the following data analysis report\r\n{report}")]
     if sessionId:
         recent_list = get_recent_content(sessionId)
         for recent in recent_list:
