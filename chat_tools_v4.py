@@ -17,8 +17,8 @@ sql_chat_functions = [
     {
         "name": "format_answer",
         "description": """Format ai output.If your answer contains SQL, use the 'sql' parameter. 
-        If the user's question is unclear, or there is content that requires user confirmation, or if there is any other non-SQL response, use the 'other' parameter. 
-        Please note that the 'sql' parameter and 'other' parameter should not be used together.""",
+ If the user's question is unclear, or there is content that requires user confirmation, or if there is any other non-SQL response, use the 'other' parameter. 
+ Please note that the 'sql' parameter and 'other' parameter should not be used together.""",
         "parameters": {
             "type": "object",
             "properties": {
@@ -50,10 +50,10 @@ def get_sample_sql(ask):
     if train_search_data:
         train_data = train_search_data[0][2]
         return f"""
-        Here is an example question and the corresponding SQL query statement for reference.
-        question: "{train_data.get('question')}",
-        answer: "{train_data.get('answer')}".
-        If the user's question is the same as the question in the example, use the answer from the example directly. Otherwise, the example answer is for reference only."""
+Here is an example question and the corresponding SQL query statement for reference.
+  question: "{train_data.get('question')}",
+  answer: "{train_data.get('answer')}".
+If the user's question is the same as the question in the example, use the answer from the example directly. Otherwise, the example answer is for reference only."""
 
 
 def get_master_data(asset_acronym):
@@ -99,16 +99,17 @@ def read_all_text(file_path):
 
 def create_msg(tableInfo, question, history, check_result, sessionId):
     sys_msg = get_prompt_info()
-    sys_msg = sys_msg + "\n" + tableInfo
+    sys_msg = f"{sys_msg} \n {tableInfo}"
     if check_result.get("success"):
         if check_result.get("need_sql"):
             sample_sql = get_sample_sql(question)
-            set_session_sample_sql(sessionId, sample_sql)
-            sys_msg = sys_msg + "\n" + sample_sql
+            if sample_sql:
+                set_session_sample_sql(sessionId, sample_sql)
+                sys_msg = f"{sys_msg} \n {sample_sql}"
         else:
             sample_sql = get_session_sample_sql(sessionId)
             if sample_sql:
-                sys_msg = sys_msg + "\n" + sample_sql
+                sys_msg = f"{sys_msg} \n {sample_sql}"
         assets = check_result.get("assets")
         master_data_msg = ""
         if assets:
@@ -124,20 +125,20 @@ def create_msg(tableInfo, question, history, check_result, sessionId):
             else:
                 for asset in asset_list:
                     asset_master_data = get_master_data(asset)
-                    master_data_msg = master_data_msg + "\n" + asset_master_data + "\n"
-            sys_msg = sys_msg + "\n" + master_data_msg
+                    master_data_msg = f"{master_data_msg} \n {asset_master_data} \n"
+            sys_msg = f"{sys_msg} \n {master_data_msg}"
             set_session_master_data(sessionId, master_data_msg)
         else:
             master_data_msg = get_session_master_data(sessionId)
             if master_data_msg:
-                sys_msg = sys_msg + "\n" + master_data_msg
+                sys_msg = f"{sys_msg} \n {master_data_msg}"
     else:
         sample_sql = get_session_sample_sql(sessionId)
         if sample_sql:
-            sys_msg = sys_msg + "\n" + sample_sql
+            sys_msg = f"{sys_msg} \n {sample_sql}"
         master_data_msg = get_session_master_data(sessionId)
         if master_data_msg:
-            sys_msg = sys_msg + "\n" + master_data_msg
+            sys_msg = f"{sys_msg} \n {master_data_msg}"
     messages = [SystemMessage(content=sys_msg)]
     for content in history or []:
         messages.append(json.loads(content))
@@ -155,6 +156,8 @@ def get_session_sample_sql(sessionId):
     conn = redis_conn()
     data = conn.get(f"new_query_v4::sample_sql::{sessionId}")
     conn.close()
+    if data:
+        return str(data)
     return data
 
 
@@ -168,6 +171,8 @@ def get_session_master_data(sessionId):
     conn = redis_conn()
     data = conn.get(f"new_query_v4::master_data::{sessionId}")
     conn.close()
+    if data:
+        return str(data)
     return data
 
 

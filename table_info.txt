@@ -1,4 +1,4 @@
-﻿The structure of the user's data table is as follows:
+The structure of the user's data table is as follows:
   table name: 'wired_address_dataset',When using the table,first you need to use b_type and statistical_type to determine the query scenario, and then use platform_name, asset, action to filter the trading platform, asset name and transaction type,and finally select the query indicator.
   The table fields are explained as follows：
     'b_type' varchar, Virtual asset types, the enumerated values of the field include 'DEFi','nft',and 'Web3',used to screen which type of blockchain scenario it belongs to,
