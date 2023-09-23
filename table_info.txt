@@ -1,12 +1,12 @@
 The structure of the user's data table is as follows:
   table name: 'wired_address_dataset',When using the table,first you need to use b_type and statistical_type to determine the query scenario, and then use platform_name, asset, action to filter the trading platform, asset name and transaction type,and finally select the query indicator.
   The table fields are explained as follows：
-    'b_type' varchar, Virtual asset types, the enumerated values of the field include 'DEFi','nft',and 'Web3',used to screen which type of blockchain scenario it belongs to,
-    The field enumeration values are DEFi,nft,web3,when summarizing the DeFi scenario, use b_type=DEFi,when summarizing the nft scenario b_type=nft,when summarizing the web3 scenario b_type=web3.
-    'statistical_type' varchar, Subtypes of virtual assets.Further distinguish blockchain scenarios.When b_type is DEFi,statistical_type has token and LP respectively (statistical univ3 types of tokens); when b_type is nft,statistical_type has "nft" or "token"; when b_type is Web3, statistical_type only has web3'
+    'b_type' varchar, Virtual asset types, the enumerated values of the field include 'DeFi','nft',and 'Web3',used to screen which type of blockchain scenario it belongs to,
+    The field enumeration values are DeFi,nft,web3,when summarizing the DeFi scenario, use b_type=DeFi,when summarizing the nft scenario b_type=nft,when summarizing the web3 scenario b_type=web3.
+    'statistical_type' varchar, Subtypes of virtual assets.Further distinguish blockchain scenarios.When b_type is DeFi,statistical_type has token and LP respectively (statistical univ3 types of tokens); when b_type is nft,statistical_type has "nft" or "token"; when b_type is Web3, statistical_type only has web3'
     'address' varchar, User's wallet address.
-    'project' varchar, Trading protocols such as DEFi, nft,Web3, etc. This field is used when a specific protocol trading scenario is observed.
-    'platform_name' varchar, 'Trading Protocol Name or Trading platform name or web3 platform or Summarized across allnet or Summarized across platform type on DEFi(enum value are 'RocketPool,AAVE,Curve,Instadapp,'Summer.Fi',Metamask,Balancer,
+    'project' varchar, Trading protocols such as DeFi, nft,Web3, etc. This field is used when a specific protocol trading scenario is observed.
+    'platform_name' varchar, 'Trading Protocol Name or Trading platform name or web3 platform or Summarized across allnet or Summarized across platform type on DeFi(enum value are 'RocketPool,AAVE,Curve,Instadapp,'Summer.Fi',Metamask,Balancer,
 dydx,Frax,Commpound,Lido,0x,Mooniswap,Sushiswap,Services,1inch,Lending,'Eth2.0',Dex,'ALLNET',Derivatives');When specifying the platform,use the specific platform name;
 When counting DeFi,NFT querying all of a users balances or hold porid use platform_name='ALLNET';
 When counting DeFi user all Decentralized Exchanges of swap/trade cryptocurrency use platform_name='Dex';When counting DeFi platform of borrow and lend assets use platform_name='Lending';
