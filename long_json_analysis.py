@@ -1,11 +1,9 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
 import json
-import os
 from threading import Thread
 from time import sleep
 import openai
-import redis
 from base import logger_name, ChatResult, SystemMessage, HumanMessage, redis_conn, AIMessage, get_api_key
 from base.logger_util import LOG
 
@@ -18,14 +16,6 @@ def Async(f):
         thr.start()
 
     return wrapper
-
-
-system_msg = SystemMessage(
-    content="""You are a senior business data analyst, your answer is very important to us, please reply according to the following rules:
-            
-1 According to your understanding of blockchain and digital currency as well as industry information, please conduct multi-dimensional descriptive statistics on the input data, extract data feature information, and describe the results and features of the data; when the user asks a question, please analyze and summarize the data according to the user's question and the above statistical results and extracted feature information; when analyzing and summarizing the data, please avoid duplicating the existing data. When analyzing and summarizing the data, please avoid repeating the existing data and output a report for the user's decision-making reference. 
-2 Under the conditions of Rule 1 above, when more than one question is input, it is necessary to determine whether there is a relationship between the next two questions; if there is no relationship, please answer the last question if you are sure there is no relationship; if you are sure there is a relationship, please answer the question in context.
-3 Thank you again, your answers are very important to us, so please be sure to answer professionally and carefully!""")
 
 
 def data_explain_chat(messages):
@@ -89,7 +79,9 @@ def long_json_chat(question, sessionId):
         raise Exception("The data analysis report has not been completed")
     # messages.append(json.loads(msg))
     report = json.loads(msg).get("content")
-    messages = [SystemMessage(content=f"You are a data analytics engineer. Based on your knowledge of digital currency and virtual assets, answer user questions based on the following data analysis report\r\n{report}")]
+    messages = [SystemMessage(content=f"""You are a senior data analyst on the 'wired' platform. Please provide an in-depth interpretation of the content of the report based on user input and the provided report information.
+('Wired' is a platform that specializes in professional on-chain address analysis for Web3. It marks and filters billions of addresses, categorizing and labeling them based on a massive amount of real-time on-chain behavioral data.)
+.\r\n{report}""")]
     if sessionId:
         recent_list = get_recent_content(sessionId)
         for recent in recent_list:
@@ -107,6 +99,11 @@ def chat_json_personal(data: dict):
     个人画像分析
     :return:
     """
+    address = data.get("addressInformation").get("address")
+    system_msg_personal_analyse = f"""Wired is a platform that specializes in professional on-chain address analysis for Web3. It marks and filters billions of addresses, categorizing and labeling them based on a massive amount of real-time on-chain behavioral data.
+You are a senior business data analyst at Wired, specializing in the field of cryptocurrencies and digital assets. Please analyze the blockchain transaction address ({address}) provided by the user, using methods including but not limited to distribution analysis and comparative analysis. Perform multi-dimensional data analysis, statistics, and feature extraction from all user portrait and label data, while retaining as much of the original data as possible. Then, based on your understanding of the cryptocurrency and virtual asset domain, further explore this address.Finally, generate a corresponding report, ensuring that the original data is retained for the verification of analysis results, to assist users in making decisions. In your analysis and summarization of data, avoid repeating existing information. The generated results should be consistent with the style of professional data institutions."""
+    system_msg = SystemMessage(system_msg_personal_analyse)
+
     try:
         addressInformation: dict = data.get("addressInformation")
         if addressInformation:
@@ -119,7 +116,7 @@ def chat_json_personal(data: dict):
         report1 = data.get("assets")
         report1 = list(filter(lambda item: item.get("name") not in ["ALL", "ALL_TOKEN", "ALL_NFT", "ALL_WEB3"], report1))
         msg1 = [system_msg,
-                HumanMessage(content="ReportId:Personal_portrait_analysis.assets\nReportData:" + json.dumps(report1)),
+                HumanMessage(content="Below are all the 'asset information' held by this address\nReportData:" + json.dumps(report1)),
                 SystemMessage(content="Response should not exceed 400 tokens")]
         result1 = data_explain_chat(msg1).content
     except Exception as ex:
@@ -131,7 +128,7 @@ def chat_json_personal(data: dict):
         report2 = data.get("platforms")
         report2 = list(filter(lambda item: item.get("name") not in ["ALL", "ALL_TOKEN", "ALL_NFT", "ALL_WEB3"], report2))
         msg2 = [system_msg,
-                HumanMessage(content="ReportId:Personal_portrait_analysis.platforms\nReportData:" + json.dumps(report2)),
+                HumanMessage(content="The following is the data portrait of this address on various 'platforms'\nReportData:" + json.dumps(report2)),
                 SystemMessage(content="Response should not exceed 400 tokens")]
         result2 = data_explain_chat(msg2).content
     except Exception as ex:
@@ -143,7 +140,7 @@ def chat_json_personal(data: dict):
         report3 = data.get("actions")
         report3 = list(filter(lambda item: item.get("name") not in ["ALL", "ALL_TOKEN", "ALL_NFT", "ALL_WEB3"], report3))
         msg3 = [system_msg,
-                HumanMessage(content="ReportId:Personal_portrait_analysis.actions\nReportData:" + json.dumps(report3)),
+                HumanMessage(content="The following data is all the 'actions' of this address\nReportData:" + json.dumps(report3)),
                 SystemMessage(content="Response should not exceed 400 tokens")]
         result3 = data_explain_chat(msg3).content
     except Exception as ex:
@@ -154,7 +151,7 @@ def chat_json_personal(data: dict):
     try:
         report4 = data.get("basicLabels")
         msg4 = [system_msg,
-                HumanMessage(content="ReportId:Personal_portrait_analysis.basicLabels\nReportData:" + json.dumps(report4)),
+                HumanMessage(content="The following data is the 'basic labels' of the address\nReportData:" + json.dumps(report4)),
                 SystemMessage(content="Response should not exceed 400 tokens")]
         result4 = data_explain_chat(msg4).content
     except Exception as ex:
@@ -165,7 +162,7 @@ def chat_json_personal(data: dict):
     try:
         report5 = data.get("crowdPortraitLabels")
         msg5 = [system_msg,
-                HumanMessage(content="ReportId:Personal_portrait_analysis.crowdPortraitLabels\nReportData:" + json.dumps(report5)),
+                HumanMessage(content="The following data is the 'crowd portrait labels' of the address\nReportData:" + json.dumps(report5)),
                 SystemMessage(content="Response should not exceed 400 tokens")]
         result5 = data_explain_chat(msg5).content
     except Exception as ex:
@@ -185,7 +182,7 @@ def chat_json_personal(data: dict):
         if data.get("crowdPortraitLabels"):
             data.pop("crowdPortraitLabels")
         msg6 = [system_msg,
-                HumanMessage(content="ReportId:Personal_portrait_analysis\nReportData:" + json.dumps(data)),
+                HumanMessage(content="The following data is some basic information about the address\nReportData:" + json.dumps(data)),
                 SystemMessage(content="Response should not exceed 400 tokens")]
         result6 = data_explain_chat(msg6).content
     except Exception as ex:
@@ -203,13 +200,18 @@ def chat_json_personal(data: dict):
         logger.exception(ex)
     sleep(20)
 
-    return result1 + "\n" + result2 + "\n" + result3 + "\n" + result4 + "\n" + result5 + "\n" + result6 + "\n" + result_merger
+    return result6 + "\n" + result1 + "\n" + result2 + "\n" + result3 + "\n" + result4 + "\n" + result5 + "\n" + result_merger
 
 
 def chat_json(json_data):
     data: dict = json.loads(json_data)
     if data.get("assets"):
         return chat_json_personal(data)
+
+    system_msg_global_analyse = f"""
+Wired specializes in professional on-chain address analysis for Web3. It marks and filters billions of addresses, categorizing and labeling them based on a massive amount of real-time on-chain behavioral data. You are a seasoned data analyst at the Wired platform. Please perform multidimensional data analysis, statistics, and feature extraction from all user profiles and tag data using methods not limited to distribution analysis and comparative analysis, while preserving as much raw data as possible. Then, with your understanding of the cryptocurrency and virtual asset domains, delve deeper into the data. Ultimately, generate a corresponding report, which must retain raw data to substantiate the analysis results, for users to reference in making decisions. When analyzing and summarizing data, avoid duplicating existing information. The generated result should be consistent with the style of professional data organizations."""
+    system_msg = SystemMessage(system_msg_global_analyse)
+
     result1 = ""
     try:
         report1 = data.get("level_address_statistics").get("action").get("nft")
