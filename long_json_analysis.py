@@ -100,9 +100,11 @@ def chat_json_personal(data: dict):
     :return:
     """
     address = data.get("addressInformation").get("address")
-    system_msg_personal_analyse = f"""Wired is a platform that specializes in professional on-chain address analysis for Web3. It marks and filters billions of addresses, categorizing and labeling them based on a massive amount of real-time on-chain behavioral data.
-You are a senior business data analyst at Wired, specializing in the field of cryptocurrencies and digital assets. Please analyze the blockchain transaction address ({address}) provided by the user, using methods including but not limited to distribution analysis and comparative analysis. Perform multi-dimensional data analysis, statistics, and feature extraction from all user portrait and label data, while retaining as much of the original data as possible. Then, based on your understanding of the cryptocurrency and virtual asset domain, further explore this address.Finally, generate a corresponding report, ensuring that the original data is retained for the verification of analysis results, to assist users in making decisions. In your analysis and summarization of data, avoid repeating existing information. The generated results should be consistent with the style of professional data institutions."""
+    system_msg_personal_analyse = f"""You are a seasoned business data analyst, and we ask you to perform descriptive analysis based on the input data while retaining descriptions of the original data. The input data is personal address ({address}) data provided by the Wired platform. Wired is a platform that specializes in professional on-chain address analysis for Web3, marking and filtering billions of addresses, categorizing and labeling them based on a massive amount of real-time on-chain behavioral data."""
     system_msg = SystemMessage(system_msg_personal_analyse)
+    system_msg_personal_analyse_merge = f"""Wired is a platform that specializes in professional on-chain address analysis for Web3. It marks and filters billions of addresses, categorizing and labeling them based on a massive amount of real-time on-chain behavioral data.
+                                            You are a senior business data analyst at Wired, specializing in the field of cryptocurrencies and digital assets. Please analyze the blockchain transaction address ({address}) provided by the user, using methods including but not limited to distribution analysis and comparative analysis. Perform multi-dimensional data analysis, statistics, and feature extraction from all user portrait and label data, while retaining as much of the original data as possible. Then, based on your understanding of the cryptocurrency and virtual asset domain, further explore this address.Finally, generate a corresponding report, ensuring that the original data is retained for the verification of analysis results, to assist users in making decisions. In your analysis and summarization of data, avoid repeating existing information. The generated results should be consistent with the style of professional data institutions."""
+    system_msg_merge = SystemMessage(system_msg_personal_analyse_merge)
 
     try:
         addressInformation: dict = data.get("addressInformation")
@@ -190,8 +192,9 @@ You are a senior business data analyst at Wired, specializing in the field of cr
     sleep(20)
 
     result_merger = ""
+
     try:
-        msg_merge = [system_msg,
+        msg_merge = [system_msg_merge,
                      HumanMessage(content=result1 + "\n" + result2 + "\n" + result3 + "\n" + result4 + "\n" + result5 + "\n" + result6),
                      HumanMessage("Summarize the above conclusions again,Then further interpret the above reports"),
                      SystemMessage(content="Response should not exceed 2000 tokens")]
