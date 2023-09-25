@@ -100,11 +100,34 @@ def chat_json_personal(data: dict):
     :return:
     """
     address = data.get("addressInformation").get("address")
-    system_msg_personal_analyse = f"""You are a seasoned business data analyst, and we ask you to perform descriptive analysis based on the input data while retaining descriptions of the original data. The input data is personal address ({address}) data provided by the Wired platform. Wired is a platform that specializes in professional on-chain address analysis for Web3, marking and filtering billions of addresses, categorizing and labeling them based on a massive amount of real-time on-chain behavioral data."""
-    system_msg = SystemMessage(system_msg_personal_analyse)
-    system_msg_personal_analyse_merge = f"""Wired is a platform that specializes in professional on-chain address analysis for Web3. It marks and filters billions of addresses, categorizing and labeling them based on a massive amount of real-time on-chain behavioral data.
-                                            You are a senior business data analyst at Wired, specializing in the field of cryptocurrencies and digital assets. Please analyze the blockchain transaction address ({address}) provided by the user, using methods including but not limited to distribution analysis and comparative analysis. Perform multi-dimensional data analysis, statistics, and feature extraction from all user portrait and label data, while retaining as much of the original data as possible. Then, based on your understanding of the cryptocurrency and virtual asset domain, further explore this address.Finally, generate a corresponding report, ensuring that the original data is retained for the verification of analysis results, to assist users in making decisions. In your analysis and summarization of data, avoid repeating existing information. The generated results should be consistent with the style of professional data institutions."""
-    system_msg_merge = SystemMessage(system_msg_personal_analyse_merge)
+    system_msg_personal_analyse = SystemMessage(f"""
+You are a senior data analyst at the 'Wired' platform. 'Wired' is a platform that specializes in professional on-chain address analysis for Web3. It marks and filters billions of addresses, categorizing and labeling them based on a massive amount of real-time on-chain behavioral data.
+As a data analyst, your duties include:
+1、Parsing and understanding the information from user input and reports data.
+2、Utilizing advanced data analysis techniques and tools to extract valuable insights from these vast amounts of data.
+3、Providing in-depth interpretations of these insights in an easy-to-understand manner, based on user needs and data.
+4、Offering data analysis、opinions and suggestions to help users better understand and utilize blockchain data.
+5、Output content must include relevant supporting data and style imitation data consultation agency.
+""")
+
+    system_msg_personal_analyse_merge = SystemMessage(f"""
+You are a senior business data analyst at Wired, specializing in the field of cryptocurrencies and digital assets. Please use advanced data analysis methods including but not limited to distribution analysis and comparative analysis to analyze the blockchain transaction address ({address}) provided by the user. Carry out comprehensive multi-dimensional data analysis, statistics, and feature extraction on all user portrait and label data, while ensuring the retention of original data information. Then, based on your understanding of the cryptocurrency and virtual asset domain, further explore this address. Finally, generate a corresponding report, ensuring that the original data is retained for verification of the analysis results, to assist users in making decisions. In your data analysis and summarization, please avoid repeating existing information.
+""")
+
+    system_msg_personal_analyse_platform = SystemMessage(f"""
+The details of the on-chain platforms where the address set conducts transactions, such as Uniswap, Balancer, OpenSea, Mirror, Gitcoin, etc., include asset balances, transaction amounts, and trading volumes (activity) (DeFi, NFT, and Web3 platforms have separate statistics for balance/transaction volume/activity).
+""")
+
+    system_msg_personal_analyse_action = SystemMessage(f"""
+The current set of this address includes detailed information on types of on-chain interaction behaviors, such as Swap, LP (Liquidity Provision), Mint, Burn, Buy, etc. These indicators include transaction amount and volume (activity). (Separate statistics for transaction volume/activity are kept for DeFi, NFT, and Web3 behaviors.)
+""")
+
+    system_msg_personal_analyse_asset = SystemMessage(f"""
+The details of the on-chain assets currently held by this address or set of addresses, including asset balance, transaction amount, and trading volume (activity), cover a variety of on-chain assets like UNI, CryptoPunks, ENS, etc. (The balance/transaction volume/activity of DeFi, NFT, and Web3 assets are calculated separately).
+""")
+    system_msg_personal_analyse_basic = SystemMessage(f"""
+The basic information of all addresses in this address set, including the percentage of personal addresses and contract addresses,and the overall distribution of labels focusing on which category.
+""")
 
     try:
         addressInformation: dict = data.get("addressInformation")
@@ -117,7 +140,8 @@ def chat_json_personal(data: dict):
     try:
         report1 = data.get("assets")
         report1 = list(filter(lambda item: item.get("name") not in ["ALL", "ALL_TOKEN", "ALL_NFT", "ALL_WEB3"], report1))
-        msg1 = [system_msg,
+        msg1 = [system_msg_personal_analyse,
+                system_msg_personal_analyse_asset,
                 HumanMessage(content="Below are all the 'asset information' held by this address\nReportData:" + json.dumps(report1)),
                 SystemMessage(content="Response should not exceed 400 tokens")]
         result1 = data_explain_chat(msg1).content
@@ -129,7 +153,8 @@ def chat_json_personal(data: dict):
     try:
         report2 = data.get("platforms")
         report2 = list(filter(lambda item: item.get("name") not in ["ALL", "ALL_TOKEN", "ALL_NFT", "ALL_WEB3"], report2))
-        msg2 = [system_msg,
+        msg2 = [system_msg_personal_analyse,
+                system_msg_personal_analyse_platform,
                 HumanMessage(content="The following is the data portrait of this address on various 'platforms'\nReportData:" + json.dumps(report2)),
                 SystemMessage(content="Response should not exceed 400 tokens")]
         result2 = data_explain_chat(msg2).content
@@ -141,7 +166,8 @@ def chat_json_personal(data: dict):
     try:
         report3 = data.get("actions")
         report3 = list(filter(lambda item: item.get("name") not in ["ALL", "ALL_TOKEN", "ALL_NFT", "ALL_WEB3"], report3))
-        msg3 = [system_msg,
+        msg3 = [system_msg_personal_analyse,
+                system_msg_personal_analyse_action,
                 HumanMessage(content="The following data is all the 'actions' of this address\nReportData:" + json.dumps(report3)),
                 SystemMessage(content="Response should not exceed 400 tokens")]
         result3 = data_explain_chat(msg3).content
@@ -152,7 +178,7 @@ def chat_json_personal(data: dict):
     result4 = ""
     try:
         report4 = data.get("basicLabels")
-        msg4 = [system_msg,
+        msg4 = [system_msg_personal_analyse,
                 HumanMessage(content="The following data is the 'basic labels' of the address\nReportData:" + json.dumps(report4)),
                 SystemMessage(content="Response should not exceed 400 tokens")]
         result4 = data_explain_chat(msg4).content
@@ -163,7 +189,7 @@ def chat_json_personal(data: dict):
     result5 = ""
     try:
         report5 = data.get("crowdPortraitLabels")
-        msg5 = [system_msg,
+        msg5 = [system_msg_personal_analyse,
                 HumanMessage(content="The following data is the 'crowd portrait labels' of the address\nReportData:" + json.dumps(report5)),
                 SystemMessage(content="Response should not exceed 400 tokens")]
         result5 = data_explain_chat(msg5).content
@@ -183,7 +209,8 @@ def chat_json_personal(data: dict):
             data.pop("basicLabels")
         if data.get("crowdPortraitLabels"):
             data.pop("crowdPortraitLabels")
-        msg6 = [system_msg,
+        msg6 = [system_msg_personal_analyse,
+                system_msg_personal_analyse_basic,
                 HumanMessage(content="The following data is some basic information about the address\nReportData:" + json.dumps(data)),
                 SystemMessage(content="Response should not exceed 400 tokens")]
         result6 = data_explain_chat(msg6).content
@@ -194,7 +221,7 @@ def chat_json_personal(data: dict):
     result_merger = ""
 
     try:
-        msg_merge = [system_msg_merge,
+        msg_merge = [system_msg_personal_analyse_merge,
                      HumanMessage(content=result1 + "\n" + result2 + "\n" + result3 + "\n" + result4 + "\n" + result5 + "\n" + result6),
                      HumanMessage("Summarize the above conclusions again,Then further interpret the above reports"),
                      SystemMessage(content="Response should not exceed 2000 tokens")]
