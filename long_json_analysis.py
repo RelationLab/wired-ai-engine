@@ -227,7 +227,7 @@ The basic information of all addresses in this address set, including the percen
 
 def chat_json(json_data):
     data: dict = json.loads(json_data)
-    if data.get("assets"):
+    if data.get("addressInformation"):
         return chat_json_personal(data)
 
     system_msg_global_analyse = f"""
