@@ -115,15 +115,15 @@ You are a senior business data analyst at Wired, specializing in the field of cr
 """)
 
     system_msg_personal_analyse_platform = SystemMessage(f"""
-The details of the on-chain platforms where the address set conducts transactions, such as Uniswap, Balancer, OpenSea, Mirror, Gitcoin, etc., include asset balances, transaction amounts, and trading volumes (activity) (DeFi, NFT, and Web3 platforms have separate statistics for balance/transaction volume/activity).
+The details of the on-chain platforms where the address set conducts transactions, such as Uniswap, Balancer, OpenSea, Mirror, Gitcoin, etc., include asset balances, transaction volume, and trading count (activity) (DeFi, NFT, and Web3 platforms have separate statistics for balance/transaction volume/activity).
 """)
 
     system_msg_personal_analyse_action = SystemMessage(f"""
-The current set of this address includes detailed information on types of on-chain interaction behaviors, such as Swap, LP (Liquidity Provision), Mint, Burn, Buy, etc. These indicators include transaction amount and volume (activity). (Separate statistics for transaction volume/activity are kept for DeFi, NFT, and Web3 behaviors.)
+The current set of this address includes detailed information on types of on-chain interaction behaviors, such as Swap, LP (Liquidity Provision), Mint, Burn, Buy, etc. These indicators include transaction volume and count (activity). (Separate statistics for transaction volume/activity are kept for DeFi, NFT, and Web3 behaviors.)
 """)
 
     system_msg_personal_analyse_asset = SystemMessage(f"""
-The details of the on-chain assets currently held by this address or set of addresses, including asset balance, transaction amount, and trading volume (activity), cover a variety of on-chain assets like UNI, CryptoPunks, ENS, etc. (The balance/transaction volume/activity of DeFi, NFT, and Web3 assets are calculated separately).
+The details of the on-chain assets currently held by this address or set of addresses, including asset balance, transaction volume, and trading count (activity), cover a variety of on-chain assets like UNI, CryptoPunks, ENS, etc. (The balance/transaction volume/activity of DeFi, NFT, and Web3 assets are calculated separately).
 """)
     system_msg_personal_analyse_basic = SystemMessage(f"""
 The basic information of all addresses in this address set, including the percentage of personal addresses and contract addresses,and the overall distribution of labels focusing on which category.
