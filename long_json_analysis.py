@@ -118,7 +118,7 @@ The current set of this address includes detailed information on types of on-cha
 The details of the on-chain assets currently held by this address or set of addresses, including asset balance, transaction volume, and trading count (activity), cover a variety of on-chain assets like UNI, CryptoPunks, ENS, etc. (The balance/transaction volume/activity of DeFi, NFT, and Web3 assets are calculated separately).
 """)
     system_msg_personal_analyse_basic = SystemMessage(f"""
-The basic information of all addresses in this address set, including the percentage of personal addresses and contract addresses,and the overall distribution of labels focusing on which category.
+The basic information of all addresses in this address set, including the percentage of personal addresses,and the overall distribution of labels focusing on which category.
 """)
 
     try:
