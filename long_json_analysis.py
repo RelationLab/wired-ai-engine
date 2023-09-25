@@ -79,7 +79,8 @@ def long_json_chat(question, sessionId):
         raise Exception("The data analysis report has not been completed")
     # messages.append(json.loads(msg))
     report = json.loads(msg).get("content")
-    messages = [SystemMessage(content=f"""You are a senior business data analyst at the "Wired" platform. Wired is a platform dedicated to professional on-chain address analysis for Web3. It marks and filters billions of addresses, categorizes and labels them based on a large amount of real-time on-chain behavior data. Please describe, understand, and analyze the input report based on the user's input; If you determine that the user wants you to assist him in data analysis and summarization, please output and summarize the report based on advanced data analysis methods (including but not limited to multidimensional comparative analysis methods or correlation analysis methods); Be sure to include the key figures from the input report in the output content.\r\n{report}Please make sure the logic and structure of the output content are clear.""")]
+    messages = [SystemMessage(
+        content=f"""You are a senior business data analyst at the "Wired" platform. Wired is a platform dedicated to professional on-chain address analysis for Web3. It marks and filters billions of addresses, categorizes and labels them based on a large amount of real-time on-chain behavior data. Please describe, understand, and analyze the input report based on the user's input; If you determine that the user wants you to assist him in data analysis and summarization, please output and summarize the report based on advanced data analysis methods (including but not limited to multidimensional comparative analysis methods or correlation analysis methods); Be sure to include the key figures from the input report in the output content.\r\n{report}Please make sure the logic and structure of the output content are clear.""")]
     if sessionId:
         recent_list = get_recent_content(sessionId)
         for recent in recent_list:
@@ -132,11 +133,14 @@ The basic information of all addresses in this address set, including the percen
     try:
         report1 = data.get("assets")
         report1 = list(filter(lambda item: item.get("name") not in ["ALL", "ALL_TOKEN", "ALL_NFT", "ALL_WEB3"], report1))
-        msg1 = [system_msg_personal_analyse,
-                system_msg_personal_analyse_asset,
-                HumanMessage(content="Below are all the 'asset information' held by this address\nReportData:" + json.dumps(report1)),
-                SystemMessage(content="Response should not exceed 400 tokens")]
-        result1 = data_explain_chat(msg1).content
+        if report1:
+            msg1 = [system_msg_personal_analyse,
+                    system_msg_personal_analyse_asset,
+                    HumanMessage(content="Below are all the 'asset information' held by this address\nReportData:" + json.dumps(report1)),
+                    SystemMessage(content="Response should not exceed 400 tokens")]
+            result1 = data_explain_chat(msg1).content
+        else:
+            result1 = "The address has no Balance,no Volume,no Activty"
     except Exception as ex:
         logger.exception(ex)
     sleep(20)
@@ -145,11 +149,14 @@ The basic information of all addresses in this address set, including the percen
     try:
         report2 = data.get("platforms")
         report2 = list(filter(lambda item: item.get("name") not in ["ALL", "ALL_TOKEN", "ALL_NFT", "ALL_WEB3"], report2))
-        msg2 = [system_msg_personal_analyse,
-                system_msg_personal_analyse_platform,
-                HumanMessage(content="The following is the data portrait of this address on various 'platforms'\nReportData:" + json.dumps(report2)),
-                SystemMessage(content="Response should not exceed 400 tokens")]
-        result2 = data_explain_chat(msg2).content
+        if report2:
+            msg2 = [system_msg_personal_analyse,
+                    system_msg_personal_analyse_platform,
+                    HumanMessage(content="The following is the data portrait of this address on various 'platforms'\nReportData:" + json.dumps(report2)),
+                    SystemMessage(content="Response should not exceed 400 tokens")]
+            result2 = data_explain_chat(msg2).content
+        else:
+            result2 = "the address has no Balance,no Volume,no Activty"
     except Exception as ex:
         logger.exception(ex)
     sleep(20)
@@ -158,11 +165,14 @@ The basic information of all addresses in this address set, including the percen
     try:
         report3 = data.get("actions")
         report3 = list(filter(lambda item: item.get("name") not in ["ALL", "ALL_TOKEN", "ALL_NFT", "ALL_WEB3"], report3))
-        msg3 = [system_msg_personal_analyse,
-                system_msg_personal_analyse_action,
-                HumanMessage(content="The following data is all the 'actions' of this address\nReportData:" + json.dumps(report3)),
-                SystemMessage(content="Response should not exceed 400 tokens")]
-        result3 = data_explain_chat(msg3).content
+        if report3:
+            msg3 = [system_msg_personal_analyse,
+                    system_msg_personal_analyse_action,
+                    HumanMessage(content="The following data is all the 'actions' of this address\nReportData:" + json.dumps(report3)),
+                    SystemMessage(content="Response should not exceed 400 tokens")]
+            result3 = data_explain_chat(msg3).content
+        else:
+            result3 = "the address has  no Volume,no Activty"
     except Exception as ex:
         logger.exception(ex)
     sleep(20)
@@ -170,10 +180,13 @@ The basic information of all addresses in this address set, including the percen
     result4 = ""
     try:
         report4 = data.get("basicLabels")
-        msg4 = [system_msg_personal_analyse,
-                HumanMessage(content="The following data is the 'basic labels' of the address\nReportData:" + json.dumps(report4)),
-                SystemMessage(content="Response should not exceed 400 tokens")]
-        result4 = data_explain_chat(msg4).content
+        if report4:
+            msg4 = [system_msg_personal_analyse,
+                    HumanMessage(content="The following data is the 'basic labels' of the address\nReportData:" + json.dumps(report4)),
+                    SystemMessage(content="Response should not exceed 400 tokens")]
+            result4 = data_explain_chat(msg4).content
+        else:
+            result4 = "The address has no basic labels"
     except Exception as ex:
         logger.exception(ex)
     sleep(20)
@@ -181,10 +194,13 @@ The basic information of all addresses in this address set, including the percen
     result5 = ""
     try:
         report5 = data.get("crowdPortraitLabels")
-        msg5 = [system_msg_personal_analyse,
-                HumanMessage(content="The following data is the 'crowd portrait labels' of the address\nReportData:" + json.dumps(report5)),
-                SystemMessage(content="Response should not exceed 400 tokens")]
-        result5 = data_explain_chat(msg5).content
+        if report5:
+            msg5 = [system_msg_personal_analyse,
+                    HumanMessage(content="The following data is the 'crowd portrait labels' of the address\nReportData:" + json.dumps(report5)),
+                    SystemMessage(content="Response should not exceed 400 tokens")]
+            result5 = data_explain_chat(msg5).content
+        else:
+            result5 = "The address has no crowd portrait labels"
     except Exception as ex:
         logger.exception(ex)
     sleep(20)
