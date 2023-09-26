@@ -262,14 +262,18 @@ def chat_json(json_data):
     if data.get("addressInformation"):
         return chat_json_personal(data)
 
-    system_msg_global_analyse = f"""
-Wired specializes in professional on-chain address analysis for Web3. It marks and filters billions of addresses, categorizing and labeling them based on a massive amount of real-time on-chain behavioral data. You are a seasoned data analyst at the Wired platform. Please perform multidimensional data analysis, statistics, and feature extraction from all user profiles and tag data using methods not limited to distribution analysis and comparative analysis, while preserving as much raw data as possible. Then, with your understanding of the cryptocurrency and virtual asset domains, delve deeper into the data. Ultimately, generate a corresponding report, which must retain raw data to substantiate the analysis results, for users to reference in making decisions. When analyzing and summarizing data, avoid duplicating existing information. The generated result should be consistent with the style of professional data organizations."""
-    system_msg = SystemMessage(system_msg_global_analyse)
+    system_msg_global_analyse = SystemMessage(f"""
+    You are a senior business data analyst at the "Wired" platform. Wired is a platform dedicated to professional on-chain address analysis for Web3. It tags and filters billions of addresses, categorizing and labeling them based on a large amount of real-time on-chain behavior data. Please follow the steps below to extract the information of the input data: 1. Describe, understand, and parse the data in the user input report. 2. The output content must include the relevant input data.
+    """)
+
+    system_msg_global_analyse_merge = SystemMessage(f"""
+    You are a senior business data analyst at Wired, specializing in the analysis of commercial application data in the field of web3 cryptocurrencies and digital assets. Please utilize advanced data analysis methods to carry out comprehensive multi-dimensional data comparison analysis, descriptive statistics, and data feature extraction on all user portrait data, while preserving the original data. Following this, based on your understanding of the web3 cryptocurrencies and virtual assets domain, further explore and analyze the overall data. Finally, generate corresponding reports, ensuring the preservation of the original data for validation of the analysis results to assist users in decision-making. In your data analysis and summary, please present your analytical conclusions clearly and logically.
+    """)
 
     result1 = ""
     try:
         report1 = data.get("level_address_statistics").get("action").get("nft")
-        msg1 = [system_msg,
+        msg1 = [system_msg_global_analyse,
                 HumanMessage(content="ReportId:level_address_statistics.action.nft\nReportData:" + json.dumps(report1, separators=(',', ':'))),
                 SystemMessage(content="Response should not exceed 200 tokens")]
         result1 = data_explain_chat(msg1).content
@@ -280,7 +284,7 @@ Wired specializes in professional on-chain address analysis for Web3. It marks a
     result2 = ""
     try:
         report2 = data.get("level_address_statistics").get("action").get("token")
-        msg2 = [system_msg,
+        msg2 = [system_msg_global_analyse,
                 HumanMessage(content="ReportId:level_address_statistics.action.token\nReportData:" + json.dumps(report2, separators=(',', ':'))),
                 SystemMessage(content="Response should not exceed 200 tokens")]
         result2 = data_explain_chat(msg2).content
@@ -291,7 +295,7 @@ Wired specializes in professional on-chain address analysis for Web3. It marks a
     result3 = ""
     try:
         report3 = data.get("level_address_statistics").get("asset").get("nft")
-        msg3 = [system_msg,
+        msg3 = [system_msg_global_analyse,
                 HumanMessage(content="ReportId:level_address_statistics.asset.nft\nReportData:" + json.dumps(report3, separators=(',', ':'))),
                 SystemMessage(content="Response should not exceed 200 tokens")]
         result3 = data_explain_chat(msg3).content
@@ -302,7 +306,7 @@ Wired specializes in professional on-chain address analysis for Web3. It marks a
     result4 = ""
     try:
         report4 = data.get("level_address_statistics").get("asset").get("token")
-        msg4 = [system_msg,
+        msg4 = [system_msg_global_analyse,
                 HumanMessage(content="ReportId:level_address_statistics.asset.token\nReportData:" + json.dumps(report4, separators=(',', ':'))),
                 SystemMessage(content="Response should not exceed 200 tokens")]
         result4 = data_explain_chat(msg4).content
@@ -313,7 +317,7 @@ Wired specializes in professional on-chain address analysis for Web3. It marks a
     result5 = ""
     try:
         report5 = data.get("level_address_statistics").get("platform").get("nft")
-        msg5 = [system_msg,
+        msg5 = [system_msg_global_analyse,
                 HumanMessage(content="ReportId:level_address_statistics.platform.nft\nReportData:" + json.dumps(report5, separators=(',', ':'))),
                 SystemMessage(content="Response should not exceed 200 tokens")]
         result5 = data_explain_chat(msg5).content
@@ -324,7 +328,7 @@ Wired specializes in professional on-chain address analysis for Web3. It marks a
     result6 = ""
     try:
         report6 = data.get("level_address_statistics").get("platform").get("token")
-        msg6 = [system_msg,
+        msg6 = [system_msg_global_analyse,
                 HumanMessage(content="ReportId:level_address_statistics.platform.token\nReportData:" + json.dumps(report6, separators=(',', ':'))),
                 SystemMessage(content="Response should not exceed 200 tokens")]
         result6 = data_explain_chat(msg6).content
@@ -335,7 +339,7 @@ Wired specializes in professional on-chain address analysis for Web3. It marks a
     result7 = ""
     try:
         report7 = data.get("level_address_statistics").get("action").get("web3")
-        msg7 = [system_msg,
+        msg7 = [system_msg_global_analyse,
                 HumanMessage(content="ReportId:level_address_statistics.action.web3\nReportData:" + json.dumps(report7, separators=(',', ':'))),
                 SystemMessage(content="Response should not exceed 200 tokens")]
         result7 = data_explain_chat(msg7).content
@@ -346,7 +350,7 @@ Wired specializes in professional on-chain address analysis for Web3. It marks a
     result8 = ""
     try:
         report8 = data.get("level_address_statistics").get("platform").get("web3")
-        msg8 = [system_msg,
+        msg8 = [system_msg_global_analyse,
                 HumanMessage(content="ReportId:level_address_statistics.platform.web3\nReportData:" + json.dumps(report8, separators=(',', ':'))),
                 SystemMessage(content="Response should not exceed 200 tokens")]
         result8 = data_explain_chat(msg8).content
@@ -358,7 +362,7 @@ Wired specializes in professional on-chain address analysis for Web3. It marks a
     try:
         data.pop("level_address_statistics")
         report9 = data
-        msg9 = [system_msg,
+        msg9 = [system_msg_global_analyse,
                 HumanMessage(content="ReportName:crowd_portrait\nReportData:" + json.dumps(report9, separators=(',', ':'))),
                 SystemMessage(content="Response should not exceed 500 tokens")]
         result9 = data_explain_chat(msg9).content
@@ -369,14 +373,14 @@ Wired specializes in professional on-chain address analysis for Web3. It marks a
     result_merger1 = ""
     result_merger2 = ""
     try:
-        msg_merge1 = [system_msg,
+        msg_merge1 = [system_msg_global_analyse_merge,
                       HumanMessage(content=result1 + "\n" + result2 + "\n" + result3 + "\n" + result4 + "\n" + result5 + "\n" + result6 + "\n" + result7 + "\n" + result8),
                       HumanMessage("Summarize the above conclusions again,Then further interpret the above reports"),
                       SystemMessage(content="Response should not exceed 500 tokens")]
         result_merger1 = data_explain_chat(msg_merge1).content
 
         sleep(20)
-        msg_merge2 = [system_msg,
+        msg_merge2 = [system_msg_global_analyse_merge,
                       HumanMessage(content=result9 + "\n" + result_merger1),
                       HumanMessage("Summarize the above conclusions again,Then further interpret the above reports"),
                       SystemMessage(content="Response should not exceed 1000 tokens")]
