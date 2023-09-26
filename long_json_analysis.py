@@ -256,7 +256,7 @@ Wired specializes in professional on-chain address analysis for Web3. It marks a
     try:
         report1 = data.get("level_address_statistics").get("action").get("nft")
         msg1 = [system_msg,
-                HumanMessage(content="ReportId:level_address_statistics.action.nft\nReportData:" + json.dumps(report1)),
+                HumanMessage(content="ReportId:level_address_statistics.action.nft\nReportData:" + json.dumps(report1, separators=(',', ':'))),
                 SystemMessage(content="Response should not exceed 200 tokens")]
         result1 = data_explain_chat(msg1).content
     except Exception as ex:
@@ -267,7 +267,7 @@ Wired specializes in professional on-chain address analysis for Web3. It marks a
     try:
         report2 = data.get("level_address_statistics").get("action").get("token")
         msg2 = [system_msg,
-                HumanMessage(content="ReportId:level_address_statistics.action.token\nReportData:" + json.dumps(report2)),
+                HumanMessage(content="ReportId:level_address_statistics.action.token\nReportData:" + json.dumps(report2, separators=(',', ':'))),
                 SystemMessage(content="Response should not exceed 200 tokens")]
         result2 = data_explain_chat(msg2).content
     except Exception as ex:
@@ -278,7 +278,7 @@ Wired specializes in professional on-chain address analysis for Web3. It marks a
     try:
         report3 = data.get("level_address_statistics").get("asset").get("nft")
         msg3 = [system_msg,
-                HumanMessage(content="ReportId:level_address_statistics.asset.nft\nReportData:" + json.dumps(report3)),
+                HumanMessage(content="ReportId:level_address_statistics.asset.nft\nReportData:" + json.dumps(report3, separators=(',', ':'))),
                 SystemMessage(content="Response should not exceed 200 tokens")]
         result3 = data_explain_chat(msg3).content
     except Exception as ex:
@@ -289,7 +289,7 @@ Wired specializes in professional on-chain address analysis for Web3. It marks a
     try:
         report4 = data.get("level_address_statistics").get("asset").get("token")
         msg4 = [system_msg,
-                HumanMessage(content="ReportId:level_address_statistics.asset.token\nReportData:" + json.dumps(report4)),
+                HumanMessage(content="ReportId:level_address_statistics.asset.token\nReportData:" + json.dumps(report4, separators=(',', ':'))),
                 SystemMessage(content="Response should not exceed 200 tokens")]
         result4 = data_explain_chat(msg4).content
     except Exception as ex:
@@ -300,7 +300,7 @@ Wired specializes in professional on-chain address analysis for Web3. It marks a
     try:
         report5 = data.get("level_address_statistics").get("platform").get("nft")
         msg5 = [system_msg,
-                HumanMessage(content="ReportId:level_address_statistics.platform.nft\nReportData:" + json.dumps(report5)),
+                HumanMessage(content="ReportId:level_address_statistics.platform.nft\nReportData:" + json.dumps(report5, separators=(',', ':'))),
                 SystemMessage(content="Response should not exceed 200 tokens")]
         result5 = data_explain_chat(msg5).content
     except Exception as ex:
@@ -311,7 +311,7 @@ Wired specializes in professional on-chain address analysis for Web3. It marks a
     try:
         report6 = data.get("level_address_statistics").get("platform").get("token")
         msg6 = [system_msg,
-                HumanMessage(content="ReportId:level_address_statistics.platform.token\nReportData:" + json.dumps(report6)),
+                HumanMessage(content="ReportId:level_address_statistics.platform.token\nReportData:" + json.dumps(report6, separators=(',', ':'))),
                 SystemMessage(content="Response should not exceed 200 tokens")]
         result6 = data_explain_chat(msg6).content
     except Exception as ex:
@@ -322,7 +322,7 @@ Wired specializes in professional on-chain address analysis for Web3. It marks a
     try:
         report7 = data.get("level_address_statistics").get("action").get("web3")
         msg7 = [system_msg,
-                HumanMessage(content="ReportId:level_address_statistics.action.web3\nReportData:" + json.dumps(report7)),
+                HumanMessage(content="ReportId:level_address_statistics.action.web3\nReportData:" + json.dumps(report7, separators=(',', ':'))),
                 SystemMessage(content="Response should not exceed 200 tokens")]
         result7 = data_explain_chat(msg7).content
     except Exception as ex:
@@ -333,7 +333,7 @@ Wired specializes in professional on-chain address analysis for Web3. It marks a
     try:
         report8 = data.get("level_address_statistics").get("platform").get("web3")
         msg8 = [system_msg,
-                HumanMessage(content="ReportId:level_address_statistics.platform.web3\nReportData:" + json.dumps(report8)),
+                HumanMessage(content="ReportId:level_address_statistics.platform.web3\nReportData:" + json.dumps(report8, separators=(',', ':'))),
                 SystemMessage(content="Response should not exceed 200 tokens")]
         result8 = data_explain_chat(msg8).content
     except Exception as ex:
@@ -345,7 +345,7 @@ Wired specializes in professional on-chain address analysis for Web3. It marks a
         data.pop("level_address_statistics")
         report9 = data
         msg9 = [system_msg,
-                HumanMessage(content="ReportName:crowd_portrait\nReportData:" + json.dumps(report9)),
+                HumanMessage(content="ReportName:crowd_portrait\nReportData:" + json.dumps(report9, separators=(',', ':'))),
                 SystemMessage(content="Response should not exceed 500 tokens")]
         result9 = data_explain_chat(msg9).content
     except Exception as ex:
