@@ -273,6 +273,7 @@ def chat_json(json_data):
     result1 = ""
     try:
         report1 = data.get("level_address_statistics").get("action").get("nft")
+        report1 = list(filter(lambda item: item.get("item_code") != "total", report1))
         msg1 = [system_msg_global_analyse,
                 HumanMessage(content="ReportId:level_address_statistics.action.nft\nReportData:" + json.dumps(report1, separators=(',', ':'))),
                 SystemMessage(content="Response should not exceed 200 tokens")]
@@ -284,6 +285,7 @@ def chat_json(json_data):
     result2 = ""
     try:
         report2 = data.get("level_address_statistics").get("action").get("token")
+        report2 = list(filter(lambda item: item.get("item_code") != "total", report2))
         msg2 = [system_msg_global_analyse,
                 HumanMessage(content="ReportId:level_address_statistics.action.token\nReportData:" + json.dumps(report2, separators=(',', ':'))),
                 SystemMessage(content="Response should not exceed 200 tokens")]
@@ -295,6 +297,7 @@ def chat_json(json_data):
     result3 = ""
     try:
         report3 = data.get("level_address_statistics").get("asset").get("nft")
+        report3 = list(filter(lambda item: item.get("item_code") != "total", report3))
         msg3 = [system_msg_global_analyse,
                 HumanMessage(content="ReportId:level_address_statistics.asset.nft\nReportData:" + json.dumps(report3, separators=(',', ':'))),
                 SystemMessage(content="Response should not exceed 200 tokens")]
@@ -306,6 +309,7 @@ def chat_json(json_data):
     result4 = ""
     try:
         report4 = data.get("level_address_statistics").get("asset").get("token")
+        report4 = list(filter(lambda item: item.get("item_code") != "total", report4))
         msg4 = [system_msg_global_analyse,
                 HumanMessage(content="ReportId:level_address_statistics.asset.token\nReportData:" + json.dumps(report4, separators=(',', ':'))),
                 SystemMessage(content="Response should not exceed 200 tokens")]
@@ -317,6 +321,7 @@ def chat_json(json_data):
     result5 = ""
     try:
         report5 = data.get("level_address_statistics").get("platform").get("nft")
+        report5 = list(filter(lambda item: item.get("item_code") != "total", report5))
         msg5 = [system_msg_global_analyse,
                 HumanMessage(content="ReportId:level_address_statistics.platform.nft\nReportData:" + json.dumps(report5, separators=(',', ':'))),
                 SystemMessage(content="Response should not exceed 200 tokens")]
@@ -328,6 +333,7 @@ def chat_json(json_data):
     result6 = ""
     try:
         report6 = data.get("level_address_statistics").get("platform").get("token")
+        report6 = list(filter(lambda item: item.get("item_code") != "total", report6))
         msg6 = [system_msg_global_analyse,
                 HumanMessage(content="ReportId:level_address_statistics.platform.token\nReportData:" + json.dumps(report6, separators=(',', ':'))),
                 SystemMessage(content="Response should not exceed 200 tokens")]
@@ -339,6 +345,7 @@ def chat_json(json_data):
     result7 = ""
     try:
         report7 = data.get("level_address_statistics").get("action").get("web3")
+        report7 = list(filter(lambda item: item.get("item_code") != "total", report7))
         msg7 = [system_msg_global_analyse,
                 HumanMessage(content="ReportId:level_address_statistics.action.web3\nReportData:" + json.dumps(report7, separators=(',', ':'))),
                 SystemMessage(content="Response should not exceed 200 tokens")]
@@ -350,6 +357,7 @@ def chat_json(json_data):
     result8 = ""
     try:
         report8 = data.get("level_address_statistics").get("platform").get("web3")
+        report8 = list(filter(lambda item: item.get("item_code") != "total", report8))
         msg8 = [system_msg_global_analyse,
                 HumanMessage(content="ReportId:level_address_statistics.platform.web3\nReportData:" + json.dumps(report8, separators=(',', ':'))),
                 SystemMessage(content="Response should not exceed 200 tokens")]
