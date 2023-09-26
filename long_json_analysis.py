@@ -134,6 +134,10 @@ The basic information of all addresses in this address set, including the percen
         report1 = data.get("assets")
         report1 = list(filter(lambda item: item.get("name") not in ["ALL", "ALL_TOKEN", "ALL_NFT", "ALL_WEB3"], report1))
         if report1:
+            report1_balance = sorted(list(filter(lambda item: item.get("group") == "Balance", report1)), key=lambda x: float(x['data']), reverse=True)[0:50]
+            report1_volume = sorted(list(filter(lambda item: item.get("group") == "Volume", report1)), key=lambda x: float(x['data']), reverse=True)[0:50]
+            report1_activity = sorted(list(filter(lambda item: item.get("group") == "Activity", report1)), key=lambda x: float(x['data']), reverse=True)[0:50]
+            report1 = report1_balance + report1_volume + report1_activity
             msg1 = [system_msg_personal_analyse,
                     system_msg_personal_analyse_asset,
                     HumanMessage(content="Below are all the 'asset information' held by this address\nReportData:" + json.dumps(report1, separators=(',', ':'))),
@@ -150,6 +154,10 @@ The basic information of all addresses in this address set, including the percen
         report2 = data.get("platforms")
         report2 = list(filter(lambda item: item.get("name") not in ["ALL", "ALL_TOKEN", "ALL_NFT", "ALL_WEB3"], report2))
         if report2:
+            report2_balance = sorted(list(filter(lambda item: item.get("group") == "Balance", report2)), key=lambda x: float(x['data']), reverse=True)[0:50]
+            report2_volume = sorted(list(filter(lambda item: item.get("group") == "Volume", report2)), key=lambda x: float(x['data']), reverse=True)[0:50]
+            report2_activity = sorted(list(filter(lambda item: item.get("group") == "Activity", report2)), key=lambda x: float(x['data']), reverse=True)[0:50]
+            report2 = report2_balance + report2_volume + report2_activity
             msg2 = [system_msg_personal_analyse,
                     system_msg_personal_analyse_platform,
                     HumanMessage(content="The following is the data portrait of this address on various 'platforms'\nReportData:" + json.dumps(report2, separators=(',', ':'))),
@@ -166,6 +174,10 @@ The basic information of all addresses in this address set, including the percen
         report3 = data.get("actions")
         report3 = list(filter(lambda item: item.get("name") not in ["ALL", "ALL_TOKEN", "ALL_NFT", "ALL_WEB3"], report3))
         if report3:
+            report3_balance = sorted(list(filter(lambda item: item.get("group") == "Balance", report3)), key=lambda x: float(x['data']), reverse=True)[0:50]
+            report3_volume = sorted(list(filter(lambda item: item.get("group") == "Volume", report3)), key=lambda x: float(x['data']), reverse=True)[0:50]
+            report3_activity = sorted(list(filter(lambda item: item.get("group") == "Activity", report3)), key=lambda x: float(x['data']), reverse=True)[0:50]
+            report3 = report3_balance + report3_volume + report3_activity
             msg3 = [system_msg_personal_analyse,
                     system_msg_personal_analyse_action,
                     HumanMessage(content="The following data is all the 'actions' of this address\nReportData:" + json.dumps(report3, separators=(',', ':'))),
@@ -182,6 +194,7 @@ The basic information of all addresses in this address set, including the percen
         report4 = data.get("basicLabels")
         if report4:
             report4_convert = [{"name": label.get("name"), "wiredType": label.get("wiredType"), "source": label.get("source"), "content": label.get("content")} for label in report4]
+            report4_convert = report4_convert[0:150]
             msg4 = [system_msg_personal_analyse,
                     HumanMessage(content="The following data is the 'basic labels' of the address\nReportData:" + json.dumps(report4_convert, separators=(',', ':'))),
                     SystemMessage(content="Response should not exceed 400 tokens")]
@@ -197,6 +210,7 @@ The basic information of all addresses in this address set, including the percen
         report5 = data.get("crowdPortraitLabels")
         if report5:
             report5_convert = [{"name": label.get("name"), "wiredType": label.get("wiredType"), "source": label.get("source"), "content": label.get("content")} for label in report5]
+            report5_convert = report5_convert[0:150]
             msg5 = [system_msg_personal_analyse,
                     HumanMessage(content="The following data is the 'crowd portrait labels' of the address\nReportData:" + json.dumps(report5_convert, separators=(',', ':'))),
                     SystemMessage(content="Response should not exceed 400 tokens")]
