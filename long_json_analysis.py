@@ -20,7 +20,7 @@ def Async(f):
 
 def data_explain_chat(messages):
     logger.info("请求OPENAI" + json.dumps(messages))
-    arguments = dict(temperature=0.5, model="gpt-4", messages=messages, api_key=get_api_key())
+    arguments = dict(temperature=0.1, model="gpt-4", messages=messages, api_key=get_api_key())
     response = openai.ChatCompletion.create(**arguments)
     logger.info(json.dumps(response))
     response_message = response["choices"][0]["message"]
