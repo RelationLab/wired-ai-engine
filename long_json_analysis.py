@@ -378,36 +378,34 @@ def chat_json(json_data):
         logger.exception(ex)
     sleep(20)
 
-    result_merger1 = ""
-    result_merger2 = ""
-    try:
-        msg_merge1 = [system_msg_global_analyse_merge,
-                      HumanMessage(content=result1 + "\n" + result2 + "\n" + result3 + "\n" + result4 + "\n" + result5 + "\n" + result6 + "\n" + result7 + "\n" + result8),
-                      HumanMessage("Summarize the above conclusions again,Then further interpret the above reports"),
-                      SystemMessage(content="Response should not exceed 500 tokens")]
-        result_merger1 = data_explain_chat(msg_merge1).content
-
-        sleep(20)
-        msg_merge2 = [system_msg_global_analyse_merge,
-                      HumanMessage(content=result9 + "\n" + result_merger1),
-                      HumanMessage("Summarize the above conclusions again,Then further interpret the above reports"),
-                      SystemMessage(content="Response should not exceed 1000 tokens")]
-        result_merger2 = data_explain_chat(msg_merge2).content
-    except Exception as ex:
-        logger.exception(ex)
-    sleep(20)
-    logger.info("result1:" + result1)
-    logger.info("result2:" + result2)
-    logger.info("result3:" + result3)
-    logger.info("result4:" + result4)
-    logger.info("result5:" + result5)
-    logger.info("result6:" + result6)
-    logger.info("result7:" + result7)
-    logger.info("result8:" + result8)
-    logger.info("result9:" + result9)
-    logger.info("result_merger1:" + result_merger1)
-    logger.info("result_merger2:" + result_merger2)
-    msg_all = result1 + "\n" + result2 + "\n" + result3 + "\n" + result4 + "\n" + result5 + "\n" + result6 + "\n" + result7 + "\n" + result8 + "\n" + result9 + "\n" + result_merger1 + "\n" + result_merger2
+    # result_merger1 = ""
+    # result_merger2 = ""
+    # try:
+    #     msg_merge1 = [system_msg_global_analyse_merge,
+    #                   HumanMessage(content=result1 + "\n" + result2 + "\n" + result3 + "\n" + result4 + "\n" + result5 + "\n" + result6 + "\n" + result7 + "\n" + result8),
+    #                   HumanMessage("Summarize the above conclusions again,Then further interpret the above reports"),
+    #                   SystemMessage(content="Response should not exceed 500 tokens")]
+    #     result_merger1 = data_explain_chat(msg_merge1).content
+    #
+    #     sleep(20)
+    #     msg_merge2 = [system_msg_global_analyse_merge,
+    #                   HumanMessage(content=result9 + "\n" + result_merger1),
+    #                   HumanMessage("Summarize the above conclusions again,Then further interpret the above reports"),
+    #                   SystemMessage(content="Response should not exceed 1000 tokens")]
+    #     result_merger2 = data_explain_chat(msg_merge2).content
+    # except Exception as ex:
+    #     logger.exception(ex)
+    # sleep(20)
+    # logger.info("result1:" + result1)
+    # logger.info("result2:" + result2)
+    # logger.info("result3:" + result3)
+    # logger.info("result4:" + result4)
+    # logger.info("result5:" + result5)
+    # logger.info("result6:" + result6)
+    # logger.info("result7:" + result7)
+    # logger.info("result8:" + result8)
+    # logger.info("result9:" + result9)
+    msg_all = result1 + "\n" + result2 + "\n" + result3 + "\n" + result4 + "\n" + result5 + "\n" + result6 + "\n" + result7 + "\n" + result8 + "\n" + result9 + "\n"
     return msg_all
 
 
