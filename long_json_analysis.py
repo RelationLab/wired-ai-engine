@@ -181,8 +181,9 @@ The basic information of all addresses in this address set, including the percen
     try:
         report4 = data.get("basicLabels")
         if report4:
+            report4_convert = [{"name": label.get("name"), "wiredType": label.get("wiredType"), "source": label.get("source"), "content": label.get("content")} for label in report4]
             msg4 = [system_msg_personal_analyse,
-                    HumanMessage(content="The following data is the 'basic labels' of the address\nReportData:" + json.dumps(report4)),
+                    HumanMessage(content="The following data is the 'basic labels' of the address\nReportData:" + json.dumps(report4_convert)),
                     SystemMessage(content="Response should not exceed 400 tokens")]
             result4 = data_explain_chat(msg4).content
         else:
@@ -195,8 +196,9 @@ The basic information of all addresses in this address set, including the percen
     try:
         report5 = data.get("crowdPortraitLabels")
         if report5:
+            report5_convert = [{"name": label.get("name"), "wiredType": label.get("wiredType"), "source": label.get("source"), "content": label.get("content")} for label in report5]
             msg5 = [system_msg_personal_analyse,
-                    HumanMessage(content="The following data is the 'crowd portrait labels' of the address\nReportData:" + json.dumps(report5)),
+                    HumanMessage(content="The following data is the 'crowd portrait labels' of the address\nReportData:" + json.dumps(report5_convert)),
                     SystemMessage(content="Response should not exceed 400 tokens")]
             result5 = data_explain_chat(msg5).content
         else:
