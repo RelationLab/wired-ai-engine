@@ -136,7 +136,7 @@ The basic information of all addresses in this address set, including the percen
         if report1:
             msg1 = [system_msg_personal_analyse,
                     system_msg_personal_analyse_asset,
-                    HumanMessage(content="Below are all the 'asset information' held by this address\nReportData:" + json.dumps(report1)),
+                    HumanMessage(content="Below are all the 'asset information' held by this address\nReportData:" + json.dumps(report1, separators=(',', ':'))),
                     SystemMessage(content="Response should not exceed 400 tokens")]
             result1 = data_explain_chat(msg1).content
         else:
@@ -152,7 +152,7 @@ The basic information of all addresses in this address set, including the percen
         if report2:
             msg2 = [system_msg_personal_analyse,
                     system_msg_personal_analyse_platform,
-                    HumanMessage(content="The following is the data portrait of this address on various 'platforms'\nReportData:" + json.dumps(report2)),
+                    HumanMessage(content="The following is the data portrait of this address on various 'platforms'\nReportData:" + json.dumps(report2, separators=(',', ':'))),
                     SystemMessage(content="Response should not exceed 400 tokens")]
             result2 = data_explain_chat(msg2).content
         else:
@@ -168,7 +168,7 @@ The basic information of all addresses in this address set, including the percen
         if report3:
             msg3 = [system_msg_personal_analyse,
                     system_msg_personal_analyse_action,
-                    HumanMessage(content="The following data is all the 'actions' of this address\nReportData:" + json.dumps(report3)),
+                    HumanMessage(content="The following data is all the 'actions' of this address\nReportData:" + json.dumps(report3, separators=(',', ':'))),
                     SystemMessage(content="Response should not exceed 400 tokens")]
             result3 = data_explain_chat(msg3).content
         else:
@@ -183,7 +183,7 @@ The basic information of all addresses in this address set, including the percen
         if report4:
             report4_convert = [{"name": label.get("name"), "wiredType": label.get("wiredType"), "source": label.get("source"), "content": label.get("content")} for label in report4]
             msg4 = [system_msg_personal_analyse,
-                    HumanMessage(content="The following data is the 'basic labels' of the address\nReportData:" + json.dumps(report4_convert)),
+                    HumanMessage(content="The following data is the 'basic labels' of the address\nReportData:" + json.dumps(report4_convert, separators=(',', ':'))),
                     SystemMessage(content="Response should not exceed 400 tokens")]
             result4 = data_explain_chat(msg4).content
         else:
@@ -198,7 +198,7 @@ The basic information of all addresses in this address set, including the percen
         if report5:
             report5_convert = [{"name": label.get("name"), "wiredType": label.get("wiredType"), "source": label.get("source"), "content": label.get("content")} for label in report5]
             msg5 = [system_msg_personal_analyse,
-                    HumanMessage(content="The following data is the 'crowd portrait labels' of the address\nReportData:" + json.dumps(report5_convert)),
+                    HumanMessage(content="The following data is the 'crowd portrait labels' of the address\nReportData:" + json.dumps(report5_convert, separators=(',', ':'))),
                     SystemMessage(content="Response should not exceed 400 tokens")]
             result5 = data_explain_chat(msg5).content
         else:
@@ -221,7 +221,7 @@ The basic information of all addresses in this address set, including the percen
             data.pop("crowdPortraitLabels")
         msg6 = [system_msg_personal_analyse,
                 system_msg_personal_analyse_basic,
-                HumanMessage(content="The following data is some basic information about the address\nReportData:" + json.dumps(data)),
+                HumanMessage(content="The following data is some basic information about the address\nReportData:" + json.dumps(data, separators=(',', ':'))),
                 SystemMessage(content="Response should not exceed 400 tokens")]
         result6 = data_explain_chat(msg6).content
     except Exception as ex:
