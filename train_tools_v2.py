@@ -95,12 +95,13 @@ def convert_train_data_to_vector():
 def get_all_data():
     results = collection.query(expr="id>0", output_fields=["id"])
     print(results)
+    return results
     # if results:
     #     pks = ",".join([str(result.get('id')) for result in results])
     #     collection.delete(expr=f"id in [{pks}]")
 
 def delete_all_data():
-    results = collection.query(expr="id>0", output_fields=["id"])
+    results = get_all_data()
     if results:
         pks = ",".join([str(result.get('id')) for result in results])
         collection.delete(expr=f"id in [{pks}]")
