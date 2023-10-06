@@ -78,6 +78,8 @@ def convert_train_data_to_vector():
     my_file = f"base/data/sql样例v.1.1.csv"
     with open(my_file, "r", encoding='utf-8') as f:
         logger.info(f"正在解析文件 {my_file} 导入Milvus向量库...")
+        # delete exist data
+        delete_all_data()
         reader = csv.DictReader(f)
         for row in reader:
             question = row["question"]
@@ -97,6 +99,11 @@ def get_all_data():
     #     pks = ",".join([str(result.get('id')) for result in results])
     #     collection.delete(expr=f"id in [{pks}]")
 
+def delete_all_data():
+    results = collection.query(expr="id>0", output_fields=["id"])
+    if results:
+        pks = ",".join([str(result.get('id')) for result in results])
+        collection.delete(expr=f"id in [{pks}]")
 
 if __name__ == "__main__":
     # collection.load()
