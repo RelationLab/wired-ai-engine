@@ -108,7 +108,7 @@ You are a senior business data analyst at Wired, specializing in the analysis of
 """)
 
     system_msg_personal_analyse_platform = SystemMessage(f"""
-The details of the on-chain platforms where the address set conducts transactions, such as Uniswap, Balancer, OpenSea, Mirror, Gitcoin, etc., include asset balances, transaction volume, and trading count (activity) (DeFi, NFT, and Web3 platforms have separate statistics for balance/transaction volume/activity).when the value of the 'type' field  is 'token' and the 'group' field is 'Balance' or 'Volume', the corresponding data unit is USD;If the value of the 'group' field is 'Activity', the corresponding data unit is 'count'.when the value of the 'type'  field  is  'web3' or 'nft',  and the 'group' field is 'Balance' or 'Volume' or  'Activity'   the corresponding data unit is 'count'.
+The details of the on-chain platforms where the address set conducts transactions, such as Uniswap, Balancer, OpenSea, Mirror, Gitcoin, etc., include asset balances, transaction volume, and trading count (activity) (DeFi, NFT, and Web3 platforms have separate statistics for balance/transaction volume/activity).when the value of the 'type' field  is 'web3' and the 'group' field is 'Balance', the corresponding data unit is 'count'.when the value of the 'type'  field  is ('token' or  'web3' or 'nft')  and the 'group' field is 'Volume'   the corresponding data unit is 'USD'. If the value of the 'group' field is 'Activity', the corresponding data unit is 'count'.
 """)
 
     system_msg_personal_analyse_action = SystemMessage(f"""
