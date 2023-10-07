@@ -108,15 +108,21 @@ You are a senior business data analyst at Wired, specializing in the analysis of
 """)
 
     system_msg_personal_analyse_platform = SystemMessage(f"""
-The details of the on-chain platforms where the address set conducts transactions, such as Uniswap, Balancer, OpenSea, Mirror, Gitcoin, etc., include asset balances, transaction volume, and trading count (activity) (DeFi, NFT, and Web3 platforms have separate statistics for balance/transaction volume/activity).
+The details of the on-chain platforms where the address set conducts transactions, such as Uniswap, Balancer, OpenSea, Mirror, Gitcoin, etc., include asset balances, transaction volume, and trading count (activity) (DeFi, NFT, and Web3 platforms have separate statistics for balance/transaction volume/activity).When the value of the 'type' is 'token'
+and the 'group' field is 'Balance' or 'Volume', the corresponding data unit is USD. If the value of the 'group' field is 'Activity', the corresponding data unit is 'count';
+when the value of the 'type' is  'web3' or 'nft',the corresponding data unit is 'count'.
 """)
 
     system_msg_personal_analyse_action = SystemMessage(f"""
-The current set of this address includes detailed information on types of on-chain interaction behaviors, such as Swap, LP (Liquidity Provision), Mint, Burn, Buy, etc. These indicators include transaction volume and count (activity). (Separate statistics for transaction volume/activity are kept for DeFi, NFT, and Web3 behaviors.)
+The current set of this address includes detailed information on types of on-chain interaction behaviors, such as Swap, LP (Liquidity Provision), Mint, Burn, Buy, etc. These indicators include transaction volume and count (activity). (Separate statistics for transaction volume/activity are kept for DeFi, NFT, and Web3 behaviors.).When the value of the 'type' is 'token'
+and the 'group' field is 'Balance' or 'Volume', the corresponding data unit is USD. If the value of the 'group' field is 'Activity', the corresponding data unit is 'count';
+when the value of the 'type' is  'web3' or 'nft',the corresponding data unit is 'count'.
 """)
 
     system_msg_personal_analyse_asset = SystemMessage(f"""
-The details of the on-chain assets currently held by this address or set of addresses, including asset balance, transaction volume, and trading count (activity), cover a variety of on-chain assets like UNI, CryptoPunks, ENS, etc. (The balance/transaction volume/activity of DeFi, NFT, and Web3 assets are calculated separately). When the value of the 'group' field is 'Balance' or 'Volume', the corresponding data unit is USD. If the value of the 'group' field is 'Activity', the corresponding data unit is 'count'.
+The details of the on-chain assets currently held by this address or set of addresses, including asset balance, transaction volume, and trading count (activity), cover a variety of on-chain assets like UNI, CryptoPunks, ENS, etc. (The balance/transaction volume/activity of DeFi, NFT, and Web3 assets are calculated separately). When the value of the 'type' is 'token'
+and the 'group' field is 'Balance' or 'Volume', the corresponding data unit is USD. If the value of the 'group' field is 'Activity', the corresponding data unit is 'count';
+when the value of the 'type' is  'web3' or 'nft',the corresponding data unit is 'count'.
 """)
     system_msg_personal_analyse_basic = SystemMessage(f"""
 The basic information of all addresses in this address set, including the percentage of personal addresses,and the overall distribution of labels focusing on which category.
@@ -141,7 +147,7 @@ The basic information of all addresses in this address set, including the percen
             msg1 = [system_msg_personal_analyse,
                     system_msg_personal_analyse_asset,
                     HumanMessage(content="Below are all the 'asset information' held by this address\nReportData:" + json.dumps(report1, separators=(',', ':'))),
-                    SystemMessage(content="Response should not exceed 400 tokens")]
+                    SystemMessage(content="Response should not exceed 600 tokens")]
             result1 = data_explain_chat(msg1).content
         else:
             result1 = "The address has no Balance,no Volume,no Activty"
@@ -161,7 +167,7 @@ The basic information of all addresses in this address set, including the percen
             msg2 = [system_msg_personal_analyse,
                     system_msg_personal_analyse_platform,
                     HumanMessage(content="The following is the data portrait of this address on various 'platforms'\nReportData:" + json.dumps(report2, separators=(',', ':'))),
-                    SystemMessage(content="Response should not exceed 400 tokens")]
+                    SystemMessage(content="Response should not exceed 600 tokens")]
             result2 = data_explain_chat(msg2).content
         else:
             result2 = "the address has no Balance,no Volume,no Activty"
@@ -181,7 +187,7 @@ The basic information of all addresses in this address set, including the percen
             msg3 = [system_msg_personal_analyse,
                     system_msg_personal_analyse_action,
                     HumanMessage(content="The following data is all the 'actions' of this address\nReportData:" + json.dumps(report3, separators=(',', ':'))),
-                    SystemMessage(content="Response should not exceed 400 tokens")]
+                    SystemMessage(content="Response should not exceed 600 tokens")]
             result3 = data_explain_chat(msg3).content
         else:
             result3 = "the address has  no Volume,no Activty"
@@ -197,7 +203,7 @@ The basic information of all addresses in this address set, including the percen
             report4_convert = report4_convert[0:300]
             msg4 = [system_msg_personal_analyse,
                     HumanMessage(content="The following data is the 'basic labels' of the address\nReportData:" + json.dumps(report4_convert, separators=(',', ':'))),
-                    SystemMessage(content="Response should not exceed 400 tokens")]
+                    SystemMessage(content="Response should not exceed 600 tokens")]
             result4 = data_explain_chat(msg4).content
         else:
             result4 = "The address has no basic labels"
@@ -213,7 +219,7 @@ The basic information of all addresses in this address set, including the percen
             report5_convert = report5_convert[0:300]
             msg5 = [system_msg_personal_analyse,
                     HumanMessage(content="The following data is the 'crowd portrait labels' of the address\nReportData:" + json.dumps(report5_convert, separators=(',', ':'))),
-                    SystemMessage(content="Response should not exceed 400 tokens")]
+                    SystemMessage(content="Response should not exceed 600 tokens")]
             result5 = data_explain_chat(msg5).content
         else:
             result5 = "The address has no crowd portrait labels"
@@ -248,7 +254,7 @@ The basic information of all addresses in this address set, including the percen
         msg_merge = [system_msg_personal_analyse_merge,
                      HumanMessage(content=result1 + "\n" + result2 + "\n" + result3 + "\n" + result4 + "\n" + result5 + "\n" + result6),
                      HumanMessage("Summarize the above conclusions again,Then further interpret the above reports"),
-                     SystemMessage(content="Response should not exceed 1000 tokens")]
+                     SystemMessage(content="Response should not exceed 1300 tokens")]
         result_merger = data_explain_chat(msg_merge).content
     except Exception as ex:
         logger.exception(ex)
