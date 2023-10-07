@@ -248,7 +248,7 @@ The basic information of all addresses in this address set, including the percen
         msg_merge = [system_msg_personal_analyse_merge,
                      HumanMessage(content=result1 + "\n" + result2 + "\n" + result3 + "\n" + result4 + "\n" + result5 + "\n" + result6),
                      HumanMessage("Summarize the above conclusions again,Then further interpret the above reports"),
-                     SystemMessage(content="Response should not exceed 1300 tokens")]
+                     SystemMessage(content="Response should not exceed 2000 tokens")]
         result_merger = data_explain_chat(msg_merge).content
     except Exception as ex:
         logger.exception(ex)

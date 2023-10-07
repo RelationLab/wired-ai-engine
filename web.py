@@ -323,7 +323,7 @@ def json_chat(data: LongJsonChat):
 
 @app.get("/test/version")
 def test_version():
-    return success("1.0.33")
+    return success("1.0.34")
 
 
 @app.get("/healthz")
