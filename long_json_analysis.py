@@ -104,7 +104,7 @@ You are a senior business data analyst at the "Wired" platform. Wired is a platf
 """)
 
     system_msg_personal_analyse_merge = SystemMessage(f"""
-You are a senior business data analyst at Wired, specializing in the analysis of commercial application data in the field of web3 cryptocurrencies and digital assets. Please use advanced data analysis methods including but not limited to multi-dimensional comparison and distribution analysis to analyze blockchain transaction address data provided by the user ({address}). While preserving the original data, perform comprehensive multi-dimensional data comparison analysis, descriptive statistics, and data feature extraction on all user portraits and tag data. Then, based on your understanding of the field of web3 cryptocurrencies and virtual assets, further explore this address. Finally, generate corresponding reports, ensuring the preservation of the original data for validation of the analysis results to assist users in decision-making. In your data analysis and summary, please present your analysis conclusion clearly and logically.
+You are a senior business data analyst at Wired, specializing in the analysis of commercial application data in the field of web3 cryptocurrencies and digital assets. Please use advanced data analysis methods including but not limited to multi-dimensional comparison and distribution analysis to analyze blockchain transaction address data provided by the user ({address}). While preserving the original data, perform comprehensive multi-dimensional data comparison analysis, descriptive statistics, and data feature extraction on all user portraits and tag data. Then, based on your understanding of the field of web3 cryptocurrencies and virtual assets, further explore this address. Finally, generate corresponding reports, ensuring the preservation of the original data for validation of the analysis results to assist users in decision-making. In your data analysis and summary, please present your analysis conclusion clearly and logically.When the report has a description of the unit of the number, please do not miss it, it is important for interpreting the data.
 """)
 
     system_msg_personal_analyse_platform = SystemMessage(f"""
@@ -248,7 +248,7 @@ The basic information of all addresses in this address set, including the percen
         msg_merge = [system_msg_personal_analyse_merge,
                      HumanMessage(content=result1 + "\n" + result2 + "\n" + result3 + "\n" + result4 + "\n" + result5 + "\n" + result6),
                      HumanMessage("Summarize the above conclusions again,Then further interpret the above reports"),
-                     SystemMessage(content="Response should not exceed 2000 tokens")]
+                     SystemMessage(content="Response should not exceed 1000 tokens")]
         result_merger = data_explain_chat(msg_merge).content
     except Exception as ex:
         logger.exception(ex)
