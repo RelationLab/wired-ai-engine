@@ -108,21 +108,15 @@ You are a senior business data analyst at Wired, specializing in the analysis of
 """)
 
     system_msg_personal_analyse_platform = SystemMessage(f"""
-The details of the on-chain platforms where the address set conducts transactions, such as Uniswap, Balancer, OpenSea, Mirror, Gitcoin, etc., include asset balances, transaction volume, and trading count (activity) (DeFi, NFT, and Web3 platforms have separate statistics for balance/transaction volume/activity).When the value of the 'type' is 'token'
-and the 'group' field is 'Balance' or 'Volume', the corresponding data unit is USD. If the value of the 'group' field is 'Activity', the corresponding data unit is 'count';
-when the value of the 'type' is  'web3' or 'nft',the corresponding data unit is 'count'.
+The details of the on-chain platforms where the address set conducts transactions, such as Uniswap, Balancer, OpenSea, Mirror, Gitcoin, etc., include asset balances, transaction volume, and trading count (activity) (DeFi, NFT, and Web3 platforms have separate statistics for balance/transaction volume/activity).When the value of the 'type' is 'token' and the 'group' field is 'Balance' or 'Volume', the corresponding data unit is USD. If the value of the 'group' field is 'Activity', the corresponding data unit is 'count';when the value of the 'type' is  'web3' or 'nft',the corresponding data unit is 'count'.
 """)
 
     system_msg_personal_analyse_action = SystemMessage(f"""
-The current set of this address includes detailed information on types of on-chain interaction behaviors, such as Swap, LP (Liquidity Provision), Mint, Burn, Buy, etc. These indicators include transaction volume and count (activity). (Separate statistics for transaction volume/activity are kept for DeFi, NFT, and Web3 behaviors.).When the value of the 'type' is 'token'
-and the 'group' field is 'Balance' or 'Volume', the corresponding data unit is USD. If the value of the 'group' field is 'Activity', the corresponding data unit is 'count';
-when the value of the 'type' is  'web3' or 'nft',the corresponding data unit is 'count'.
+The current set of this address includes detailed information on types of on-chain interaction behaviors, such as Swap, LP (Liquidity Provision), Mint, Burn, Buy, etc. These indicators include transaction volume and count (activity). (Separate statistics for transaction volume/activity are kept for DeFi, NFT, and Web3 behaviors.).When the value of the 'type' is 'token' and the 'group' field is 'Balance' or 'Volume', the corresponding data unit is USD. If the value of the 'group' field is 'Activity', the corresponding data unit is 'count';when the value of the 'type' is  'web3' or 'nft',the corresponding data unit is 'count'.
 """)
 
     system_msg_personal_analyse_asset = SystemMessage(f"""
-The details of the on-chain assets currently held by this address or set of addresses, including asset balance, transaction volume, and trading count (activity), cover a variety of on-chain assets like UNI, CryptoPunks, ENS, etc. (The balance/transaction volume/activity of DeFi, NFT, and Web3 assets are calculated separately). When the value of the 'type' is 'token'
-and the 'group' field is 'Balance' or 'Volume', the corresponding data unit is USD. If the value of the 'group' field is 'Activity', the corresponding data unit is 'count';
-when the value of the 'type' is  'web3' or 'nft',the corresponding data unit is 'count'.
+The details of the on-chain assets currently held by this address or set of addresses, including asset balance, transaction volume, and trading count (activity), cover a variety of on-chain assets like UNI, CryptoPunks, ENS, etc. (The balance/transaction volume/activity of DeFi, NFT, and Web3 assets are calculated separately). When the value of the 'type' is 'token' and the 'group' field is 'Balance' or 'Volume', the corresponding data unit is USD. If the value of the 'group' field is 'Activity', the corresponding data unit is 'count';when the value of the 'type' is  'web3' or 'nft',the corresponding data unit is 'count'.
 """)
     system_msg_personal_analyse_basic = SystemMessage(f"""
 The basic information of all addresses in this address set, including the percentage of personal addresses,and the overall distribution of labels focusing on which category.
