@@ -112,7 +112,7 @@ The details of the on-chain platforms where the address set conducts transaction
 """)
 
     system_msg_personal_analyse_action = SystemMessage(f"""
-The current set of this address includes detailed information on types of on-chain interaction behaviors, such as Swap, LP (Liquidity Provision), Mint, Burn, Buy, etc. These indicators include transaction volume and count (activity). (Separate statistics for transaction volume/activity are kept for DeFi, NFT, and Web3 behaviors.).when the value of the 'type' field  is 'token' and the 'group' field is 'Balance' or 'Volume', the corresponding data unit is USD;If the value of the 'group' field is 'Activity', the corresponding data unit is 'count'.when the value of the 'type'  field  is  'web3' or 'nft',  and the 'group' field is 'Balance' or 'Volume' or  'Activity'   the corresponding data unit is 'count'.
+The current set of this address includes detailed information on types of on-chain interaction behaviors, such as Swap, LP (Liquidity Provision), Mint, Burn, Buy, etc. These indicators include transaction volume and count (activity). (Separate statistics for transaction volume/activity are kept for DeFi, NFT, and Web3 behaviors.).when the value of the 'type' field  is 'token' and the 'group' field is 'Volume', the corresponding data unit is USD;when the value of the 'type'  field  is ( 'web3' or 'nft'),  and the 'group' field is 'Volume'  the corresponding data unit is 'count'.If the value of the 'group' field is 'Activity', the corresponding data unit is 'count'.
 """)
 
     system_msg_personal_analyse_asset = SystemMessage(f"""
