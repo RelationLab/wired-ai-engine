@@ -332,7 +332,7 @@ def health_test():
 
 
 if __name__ == "__main__":
-    logger.info("CurrentVersionNumber:1.0.28")
+    logger.info("CurrentVersionNumber:1.0.39")
     uvicorn_log_config = uvicorn.config.LOGGING_CONFIG
     del uvicorn_log_config["loggers"]
     uvicorn.run(app, host="0.0.0.0", port=8765, log_config=uvicorn_log_config)

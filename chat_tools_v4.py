@@ -57,20 +57,33 @@ If the user's question is the same as the question in the example, use the answe
 
 
 def get_master_data(asset_acronym):
+    exact_value_100 = []
     exact_value_90 = []
     exact_value_fuzzy = []
     match = asset_acronym.lower().replace(" ", "")
     for row in master_data:
         if fuzz.ratio(match, row.get("asset").replace(" ", "").lower()) == 100 or fuzz.ratio(match, row.get("symbol").replace(" ", "").lower()) == 100:
+            # asset = row.get('asset')
+            # b_type = row.get('b_type')
+            # statistical_type = row.get('statistical_type')
+            # return f"If the user's question contains the asset '{asset_acronym}', please note that the exact value of this asset stored in the database is '{asset}' and the statistical_type is '{statistical_type}',the b_type is '{b_type}'.This " \
+            #        f"should be taken into consideration when generating SQL. "
+            exact_value_100.append(row)
+        elif fuzz.ratio(match, row.get("asset").replace(" ", "").lower()) >= 90 or fuzz.ratio(match, row.get("symbol").replace(" ", "").lower()) >= 90:
+            exact_value_90.append(row.get("asset"))
+        elif row.get("symbol").lower().replace(" ", "").find(match) >= 0 or row.get("asset").lower().replace(" ", "").find(match) >= 0:
+            exact_value_fuzzy.append(row.get("asset"))
+    if exact_value_100:
+        if len(exact_value_100) == 1:
+            row = exact_value_100[0]
             asset = row.get('asset')
             b_type = row.get('b_type')
             statistical_type = row.get('statistical_type')
             return f"If the user's question contains the asset '{asset_acronym}', please note that the exact value of this asset stored in the database is '{asset}' and the statistical_type is '{statistical_type}',the b_type is '{b_type}'.This " \
                    f"should be taken into consideration when generating SQL. "
-        elif fuzz.ratio(match, row.get("asset").replace(" ", "").lower()) >= 90 or fuzz.ratio(match, row.get("symbol").replace(" ", "").lower()) >= 90:
-            exact_value_90.append(row.get("asset"))
-        elif row.get("symbol").lower().replace(" ", "").find(match) >= 0 or row.get("asset").lower().replace(" ", "").find(match) >= 0:
-            exact_value_fuzzy.append(row.get("asset"))
+        else:
+            tmp = [item.get("asset") for item in exact_value_100]
+            return f"If the user's query asset name is '{asset_acronym}', tell them that there are multiple asset names in the database with the symbol name '{asset_acronym}'. such as '{tmp}', and then ask which one they need."
     if exact_value_90:
         return f"If the user's query asset name is '{asset_acronym}', tell them that the asset is not found in the database, but there are similar asset names available, such as '{exact_value_90}', and then ask which one they need."
     if exact_value_fuzzy:
@@ -285,8 +298,9 @@ def add_session_content(sessionId, messages):
 
 if __name__ == "__main__":
     # 有上下文
-    test1 = check_sql_question("Which addresses have an ETH token volume ranging from $100 to $1,000?")
-    print(test1)
+    # test1 = check_sql_question("Which addresses have an ETH token volume ranging from $100 to $1,000?")
+    # print(test1)
+    print(get_master_data("TNT"))
     # test1 = get_answer_v4('12345', "hello")
     # logger.info(test1)
     # test2 = get_answer_v4('23456', "Can you help me find some transactions on the Uniswap platform with a transaction count of 600?")
