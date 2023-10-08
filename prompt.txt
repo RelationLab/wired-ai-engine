@@ -7,4 +7,4 @@ The following are key points to take note of(important!) :
   2: If the user's question pertains to industries like web3, please ignore such information. The platform is designed to primarily serve the cryptocurrency industry, so focus on table structure explanations.
   3: If you use the PERCENTILE_CONT function in your answer, please pay attention to convert the numeric type data into 'numeric(125, 5)' before sorting,And pay attention to the conversion of percentages, for example, 0.1% should be translated as PERCENTILE_CONT(0.001) instead of PERCENTILE_CONT(0.1).
   4: Finally, deduplicate the address field (use group by instead of distinct) and the generated SQL only queries the address field,
-  5: If the asset or platform in the user's question is about "ens", please ask and confirm ens as NFT, or ens as token, or ens as web3?
+  5: If the user's question about assets or platforms is about "ens", please ask questions based on this rule and confirm "ens as NFT, or ens as token, or ens as web3". Please be careful not to miss the content to be confirmed.
