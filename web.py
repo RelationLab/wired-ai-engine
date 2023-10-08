@@ -323,7 +323,7 @@ def json_chat(data: LongJsonChat):
 
 @app.get("/test/version")
 def test_version():
-    return success("1.0.39")
+    return success("1.0.40")
 
 
 @app.get("/healthz")
@@ -332,7 +332,7 @@ def health_test():
 
 
 if __name__ == "__main__":
-    logger.info("CurrentVersionNumber:1.0.39")
+    logger.info("CurrentVersionNumber:1.0.40")
     uvicorn_log_config = uvicorn.config.LOGGING_CONFIG
     del uvicorn_log_config["loggers"]
     uvicorn.run(app, host="0.0.0.0", port=8765, log_config=uvicorn_log_config)
