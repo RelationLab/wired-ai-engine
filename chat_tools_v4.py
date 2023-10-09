@@ -83,10 +83,11 @@ def get_master_data(asset_acronym):
                    f"should be taken into consideration when generating SQL. "
         else:
             tmp = [{"asset": item.get("asset"), "b_type": item.get("b_type"), "statistical_type": item.get("statistical_type")} for item in exact_value_100]
-            # tmp_b_type = [item.get("b_type") for item in exact_value_100]
-            # tmp_statistical_type = [item.get("statistical_type") for item in exact_value_100]
-            return f"If the user's query asset name is '{asset_acronym}', tell them that there are multiple asset names in the database with the symbol name '{asset_acronym}'. such as '{json.dumps(tmp)}', and then ask which one they " \
-                   f"need. "
+            tmp_asset = [item.get("asset") for item in exact_value_100]
+            tmp_b_type = [item.get("b_type") for item in exact_value_100]
+            tmp_statistical_type = [item.get("statistical_type") for item in exact_value_100]
+            return f"If the user's query asset name is '{asset_acronym}', tell them that there are multiple asset names in the database with the symbol name '{asset_acronym}'. such as '{tmp_asset}', and then ask which one they " \
+                   f"need. (Please note that the corresponding b_type and statistical_type for these assets are: '{tmp}'. Take care when generating SQL.)"
     if exact_value_90:
         return f"If the user's query asset name is '{asset_acronym}', tell them that the asset is not found in the database, but there are similar asset names available, such as '{exact_value_90}', and then ask which one they need."
     if exact_value_fuzzy:
