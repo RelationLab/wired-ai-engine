@@ -1,5 +1,10 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
+
+"""
+地址集解析，根据用户的文件名称和问题，调用openai接口生成python代码，然后执行python代码，将执行结果发给ai，最后得到ai的回复
+"""
+
 import json
 import os
 import queue
@@ -21,6 +26,11 @@ km.start_kernel()
 
 
 def get_csv_data_sample(file_path: str):
+    """
+    获取csv的示例行，供后续ai参考csv格式，生成对应的代码
+    :param file_path:
+    :return:
+    """
     if not os.path.isfile(file_path):
         logger.error(f"No such file or directory:'{file_path}'")
         return f"Error: No such file or directory: '{file_path}'"
@@ -31,6 +41,10 @@ def get_csv_data_sample(file_path: str):
 
 
 def create_functions():
+    """
+    构造openai function_call
+    :return:
+    """
     return [
         {
             "name": "exec_python_script",
@@ -82,6 +96,11 @@ def data_explain_chat(messages, using_function=False):
 
 
 def get_label_list_info(label_names: str):
+    """
+    获取标签的解释
+    :param label_names:
+    :return:
+    """
     label_name_list = label_names.split(",")
     results = get_labels_info(label_name_list)
     label_info_map = {result.get("label_name"): result.get("label_desc") for result in results}
@@ -204,6 +223,12 @@ def add_session_content(sessionId, fileId, messages):
 
 
 def exec_python_code(packages: str, code):
+    """
+    使用Jupyter环境执行python代码，返回执行结果(标准输出、错误、或者图片)
+    :param packages:
+    :param code:
+    :return:
+    """
     # package_list = packages.split(",")
     # for package in package_list:
     #     shell_exec(f"pip3 install {package}")
@@ -237,6 +262,13 @@ def shell_exec(command):
 
 
 def flush_kernel_msgs(kc, tries=1, timeout=0.2):
+    """
+    循环获取python代码的执行结果
+    :param kc:
+    :param tries:
+    :param timeout:
+    :return:
+    """
     result = {}
     try:
         hit_empty = 0

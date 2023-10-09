@@ -1,5 +1,9 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
+
+"""
+单个报表的分析，暂未接入
+"""
 import json
 
 import openai

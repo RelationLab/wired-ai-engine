@@ -1,3 +1,6 @@
+"""
+训练工具
+"""
 from pymilvus import connections, Collection
 import csv
 from base import MILVUS_HOST, MILVUS_PORT, embed, MILVUS_USER, MILVUS_PASS, logger_name

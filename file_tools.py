@@ -1,3 +1,6 @@
+"""
+文件操作工具，现在已经调整成直接将s3挂载到容器，所以这个暂时废弃了
+"""
 import uuid
 
 import requests

@@ -1,3 +1,6 @@
+"""
+表结构的工具，使用宽表之后废弃
+"""
 import csv
 from pymilvus import connections, Collection
 from base import MILVUS_HOST, MILVUS_PORT, embed, MILVUS_PASS, MILVUS_USER, logger_name

@@ -13,6 +13,9 @@ from fuzzywuzzy import fuzz
 
 logger = LOG.get_logger(logger_name)
 
+"""
+定义openai接口调用时的的function，供ai调用，OpenAI的function_call 功能详见官方文档 https://platform.openai.com/docs/guides/gpt/function-calling
+"""
 sql_chat_functions = [
     {
         "name": "format_answer",
@@ -37,14 +40,28 @@ sql_chat_functions = [
 
 
 def get_table_info():
+    """
+    获取表结构描述
+    :return:
+    """
     return read_all_text("table_info.txt")
 
 
 def get_prompt_info():
+    """
+    获取系统提示词
+    :return:
+    """
     return read_all_text("prompt.txt")
 
 
 def get_sample_sql(ask):
+    """
+    获取相似性的问题以及答案，供后续组装成提示词一并发给ai
+    首先调用openai的embedding接口将用户的问题进行向量化，然后到向量库里搜索语义最接近的问题及答案
+    :param ask: 用户的提问
+    :return:
+    """
     logger.info(f"获取相似性问题的答案:{ask}")
     train_search_data = trained_data_search_v2(ask)
     if train_search_data:
@@ -57,6 +74,15 @@ If the user's question is the same as the question in the example, use the answe
 
 
 def get_master_data(asset_acronym):
+    """
+    主数据匹配，首先进行精确匹配，如果匹配到单个数据则告诉ai提问中的symbol对应的asset和b_type，statistical_type分别是什么，组装成提示词
+    如果精确匹配到多个则告诉ai系统中有多个资产，让ai反问用户具体需要哪一个
+    如果精确匹配未匹配到任何资产信息，则进行模糊匹配，相似度大于90的优先处理
+    如果没有匹配到相似度大于90的，则进行模糊匹配(包含匹配)，如果能匹配到则提示用户
+    如果以上都没匹配到，则直接告诉ai未找到该资产
+    :param asset_acronym:经过ai从用户的提问中抽取到的资产名称或简称或符号
+    :return:
+    """
     exact_value_100 = []
     exact_value_90 = []
     exact_value_fuzzy = []
@@ -96,6 +122,12 @@ def get_master_data(asset_acronym):
 
 
 def sql_query_chat(messages, using_function=False):
+    """
+    请求openai接口
+    :param messages:
+    :param using_function:
+    :return:
+    """
     logger.info("请求OPENAI" + json.dumps(messages))
     arguments = dict(temperature=0, model="gpt-4", messages=messages, api_key=get_api_key())
     if using_function:
@@ -115,6 +147,15 @@ def read_all_text(file_path):
 
 
 def create_msg(tableInfo, question, history, check_result, sessionId):
+    """
+    根据表结构/系统提示词/用户的问题/历史会话的上下文等信息，构建提示词
+    :param tableInfo: 表结构信息
+    :param question: 用户的提问
+    :param history: 历史上下文
+    :param check_result: 经过ai校验的是否需要生成sql的结果
+    :param sessionId: 会话id
+    :return:
+    """
     sys_msg = get_prompt_info()
     sys_msg = f"{sys_msg} \n {tableInfo}"
     if check_result.get("success"):
@@ -164,12 +205,23 @@ def create_msg(tableInfo, question, history, check_result, sessionId):
 
 
 def set_session_sample_sql(sessionId, sample):
+    """
+    设置当前会话的示例sql
+    :param sessionId:
+    :param sample:
+    :return:
+    """
     redis_conn().set(f"new_query_v4::sample_sql::{sessionId}", sample)
     redis_conn().expire(f"new_query_v4::sample_sql::{sessionId}", 60 * 60)
     redis_conn().close()
 
 
 def get_session_sample_sql(sessionId):
+    """
+    获取当前会话的示例sql
+    :param sessionId:
+    :return:
+    """
     conn = redis_conn()
     data = conn.get(f"new_query_v4::sample_sql::{sessionId}")
     conn.close()
@@ -179,12 +231,23 @@ def get_session_sample_sql(sessionId):
 
 
 def set_session_master_data(sessionId, data):
+    """
+    设置当前会话的主数据信息
+    :param sessionId:
+    :param data:
+    :return:
+    """
     redis_conn().set(f"new_query_v4::master_data::{sessionId}", data)
     redis_conn().expire(f"new_query_v4::master_data::{sessionId}", 60 * 60)
     redis_conn().close()
 
 
 def get_session_master_data(sessionId):
+    """
+    获取当前会话的主数据信息
+    :param sessionId:
+    :return:
+    """
     conn = redis_conn()
     data = conn.get(f"new_query_v4::master_data::{sessionId}")
     conn.close()
@@ -229,6 +292,13 @@ def get_answer_v4(sessionId, ask):
 
 
 def check_sql_question(content):
+    """
+    根据用户的提问，判断是否需要生成SQL，并将用户的问题中的资产名称抽取出来，
+    首先判断用户的提问是不是能精确匹配到资产信息，如果是的话直接返回
+    否则，调用openai的接口，让ai去判断用户的语义，并抽取出用户提问中的资产信息
+    :param content:用户的提问
+    :return:
+    """
     result = {"success": False}
     match = content.replace(" ", "").lower()
     for row in master_data:
@@ -287,6 +357,12 @@ def check_sql_question(content):
 
 
 def get_recent_content(sessionId, limit=10):
+    """
+    获取历史会话内容
+    :param sessionId:
+    :param limit:
+    :return:
+    """
     result = redis_conn().lrange(f"new_query_v4::session_context::{sessionId}", 0, limit - 1)
     redis_conn().close()
     result.reverse()
@@ -294,6 +370,12 @@ def get_recent_content(sessionId, limit=10):
 
 
 def add_session_content(sessionId, messages):
+    """
+    添加历史会话内容
+    :param sessionId:
+    :param messages:
+    :return:
+    """
     for mes in messages:
         redis_conn().lpush(f"new_query_v4::session_context::{sessionId}", mes)
     redis_conn().expire(f"new_query_v4::session_context::{sessionId}", 60 * 60)

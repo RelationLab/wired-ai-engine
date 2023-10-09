@@ -1,5 +1,8 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
+"""
+大json分析，先将json拆分成多个模块，最后合并生成报告，然后根据该报告和用户的问题进行对话
+"""
 import json
 from threading import Thread
 from time import sleep

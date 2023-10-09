@@ -1,3 +1,6 @@
+"""
+会话工具，废弃
+"""
 import time
 
 from pymilvus import connections, Collection

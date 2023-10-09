@@ -1,3 +1,6 @@
+"""
+标签工具，提供标签数据的导入，匹配等功能
+"""
 import csv
 from pymilvus import connections, Collection
 from base import MILVUS_HOST, MILVUS_PORT, embed, MILVUS_PASS, MILVUS_USER, logger_name
@@ -10,6 +13,11 @@ logger = LOG.get_logger(logger_name)
 
 
 def label_info_search(text):
+    """
+    标签的语义搜索，暂时未用到
+    :param text:
+    :return:
+    """
     search_params = {
         "metric_type": "L2"
     }
@@ -58,6 +66,10 @@ def get_labels_info(label_names: list):
 
 
 def convert_label_info_to_vector():
+    """
+    标签批量导入，目前标签都是精确匹配，不需要语义，所以后面这个可以调整
+    :return:
+    """
     my_file = f"base/data/标签.csv"
     with open(my_file, "r", encoding='utf-8') as f:
         logger.info(f"正在解析文件 {my_file} 导入Milvus向量库...")

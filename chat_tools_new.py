@@ -1,3 +1,6 @@
+"""
+new query v3接口版本代码，现在使用v4
+"""
 import csv
 import json
 
@@ -15,6 +18,10 @@ my_file = "master-data.csv"
 
 
 def init_master_data():
+    """
+    初始化主数据，系统启动时，将主数据加载到内存中
+    :return:
+    """
     master_data_tmp = []
     with open(my_file, "r", encoding='utf-8') as f:
         reader = csv.DictReader(f)

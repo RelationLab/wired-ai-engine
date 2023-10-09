@@ -1,3 +1,6 @@
+"""
+初版new query 代码，没使用宽表的时候使用，暂时已经废弃
+"""
 import json
 
 import openai
