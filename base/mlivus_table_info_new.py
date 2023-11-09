@@ -27,4 +27,5 @@ collection = Collection(name="table_info_new", schema=schema, using='default', c
 
 collection.create_index(field_name="field_search", index_params=index_params)
 
+collection.load()
 print(collection)
