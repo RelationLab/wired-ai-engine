@@ -1,0 +1,1314 @@
+label_name,desc
+Total Token Balance,The balance corresponds to all Token items in the wallet
+Token Balance,The balance corresponds to a single Token item in the wallet
+Total Token Volume ,The total transaction amount of all tokens in the wallet
+Token Volume,The total transaction amount of a single Token income and expenditure in the wallet
+Total Token Activity,The number of interactions of wallet addresses on the chain
+Token Activity,The number of interactions of the wallet address on the chain
+Token Holding Time,The holding time of a single token in the wallet
+LP Balance,The total balance of a single LP asset in the wallet
+LP Volume,The total transaction amount of the income and expenditure of a single LP asset in the wallet
+LP Activity,The number of LP asset interactions of the wallet address on the chain
+LP Holding Time,The time period of having added liquidity of a single LP asset in the wallet
+Total NFT Balance,The total number of all NFT items in the wallet
+NFT Balance,The number of a single NFT item in the wallet. eg: There are 5 CryptoPunk NFTs in the wallet --> CryptoPunk Balance L1
+Total NFT Volume,The total number of transactions of all NFT projects in the wallet
+NFT Volume,The number of transactions of a single NFT item in the wallet
+Total NFT Activity,The number of interactions of wallet addresses on the chain
+NFT Activity,The number of interactions of wallet addresses on the chain
+NFT Holding Time,The holding time of a single NFT item in the wallet
+Token Balance Lv1,"Has an ETH and Erc20 Token balance of $100-$1,000."
+Token Millionaire,"Has an ETH and Erc20 Token balance of at least $1,000,000."
+Token Billionaire,"Has an ETH and Erc20 Token balance of at least $1,000,000,000"
+Token High Balance,In the top 10% of all existing Ethereum accounts regarding the account's balance.
+Token Whale,In the top 100 of all existing Ethereum accounts regarding the account's balance.
+Token Vol Lv1,"Has an ETH and Erc20 Token volume of $100-$1,000."
+Token Million Trader,Has an ETH and Erc20 Token volume of at least 1 million.
+Token Billion Trader,Has an ETH and Erc20 Token volume of at least 1 Billion.
+Token Medium Trader,Top 10% of traders based on volume of ETH and Erc20 Token trades.
+Token Heavy Trader,Top 2.5% of traders based on volume of ETH and Erc20 Token trades.
+Token Elite Trader,Top 1%of traders on all Platform based on volume of ETH and Erc20 Token trades.
+Token Legendary Trader,Top 0.1% of traders on all Platform based on volume of ETH and Erc20 Token trades.
+DEX Vol Lv1,"Has $100-$1,000 volume of trades on all Decentralized Exchanges."
+Million DEX Trader,Has at least 1 million volume of trades on all Decentralized Exchanges.
+Billion DEX Trader,Has at least 1 Billion volume of trades on all Decentralized Exchanges.
+Medium DEX Trader,Top 10% of traders on all Decentralized Exchanges based on volume of trades.
+Heavy DEX Trader,Top 2.5% of traders on all Decentralized Exchanges based on volume of trades.
+Elite DEX Trader,Top 1%of traders on all Decentralized Exchanges based on volume of trades.
+Legendary DEX Trader,Top 0.1% of traders on all Decentralized Exchanges based on volume of trades.
+DEX Vol Lv1,"Has $100-$1,000 volume of trades on all Decentralized Exchanges."
+Million DEX Trader,Has at least 1 million volume of trades on all Decentralized Exchanges.
+Billion DEX Trader,Has at least 1 Billion volume of trades on all Decentralized Exchanges.
+Medium DEX Trader,Top 10% of traders on all Decentralized Exchanges based on volume of trades.
+Heavy DEX Trader,Top 2.5% of traders on all Decentralized Exchanges based on volume of trades.
+Elite DEX Trader,Top 1%of traders on all Decentralized Exchanges based on volume of trades.
+Legendary DEX Trader,Top 0.1% of traders on all Decentralized Exchanges based on volume of trades.
+DEX Vol Lv1,"Has $100-$1,000 volume of trades on all Decentralized Exchanges."
+Million DEX Trader,Has at least 1 million volume of trades on all Decentralized Exchanges.
+Billion DEX Trader,Has at least 1 Billion volume of trades on all Decentralized Exchanges.
+Medium DEX Trader,Top 10% of traders on all Decentralized Exchanges based on volume of trades.
+Heavy DEX Trader,Top 2.5% of traders on all Decentralized Exchanges based on volume of trades.
+Elite DEX Trader,Top 1%of traders on all Decentralized Exchanges based on volume of trades.
+Legendary DEX Trader,Top 0.1% of traders on all Decentralized Exchanges based on volume of trades.
+Swap Vol Lv1,"Has $100-$1,000 volume of Swap trades on all Decentralized Exchanges."
+Million Swap Trader,Has at least 1 million volume of Swap trades on all Decentralized Exchanges.
+Billion Swap Trader,Has at least 1 Billion volume of Swap trades on all Decentralized Exchanges.
+Medium Swap Trader,Top 10% of traders on all Decentralized Exchanges based on volume of Swap trades.
+Heavy Swap Trader,Top 2.5% of traders on all Decentralized Exchanges based on volume of Swap trades.
+Elite Swap Trader,Top 1%of traders on all Decentralized Exchanges based on volume of Swap trades.
+Legendary Swap Trader,Top 0.1% of traders on all Decentralized Exchanges based on volume of Swap trades.
+Swap Vol Lv1,"Has $100-$1,000 volume of LP trades on all Decentralized Exchanges."
+Million LP Trader,Has at least 1 million volume of LP trades on all Decentralized Exchanges.
+Billion LP Trader,Has at least 1 Billion volume of LP trades on all Decentralized Exchanges.
+Medium LP Trader,Top 10% of traders on all Decentralized Exchanges based on volume of LP trades.
+Heavy LP Trader,Top 2.5% of traders on all Decentralized Exchanges based on volume of LP trades.
+Elite LP Trader,Top 1%of traders on all Decentralized Exchanges based on volume of LP trades.
+Legendary LP Trader,Top 0.1% of traders on all Decentralized Exchanges based on volume of LP trades.
+StakeLP Vol L1,"Has $100-$1,000 volume of StakeLP trades on all Decentralized Exchanges."
+Medium StakeLP Trader,Top 10% of traders on all Decentralized Exchanges based on volume of StakeLP trades.
+Heavy StakeLP Trader,Top 2.5% of traders on all Decentralized Exchanges based on volume of StakeLP trades.
+Uniswap Elite StakeLP Trader,Top 1%of traders on all Decentralized Exchanges based on volume of StakeLP trades.
+Uniswap Legendary StakeLP Trader,Top 0.1% of traders on all Decentralized Exchanges based on volume of StakeLP trades.
+Uniswap Vol Lv1,"Made trades on Unhaswap, and has $100-$1,000 in number of volume traded."
+Uniswap Million Trader,"Made trades on Unhaswap, and has $1 Million in number of volume traded."
+Uniswap Billion Trader,"Made trades on Unhaswap, and has $1 Billion in number of volume traded."
+Uniswap Medium Trader,"Made trades on Uniswap, and is in the top 10% in number of volume traded."
+Uniswap Heavy Trader,"Made trades on Uniswap, and is in the top 2.5% in number of volume traded."
+Uniswap Elite Trader,"Made trades on Uniswap, and is in the top 1% in number of volume traded."
+Uniswap Legendary Trader,"Made trades on Uniswap, and is in the top 0.1% in number of volume traded."
+Uniswap Vol Lv1,"Made trades on Unhaswap, and has $100-$1,000 in number of volume traded."
+Uniswap Million Trader,"Made trades on Unhaswap, and has $1 Million in number of volume traded."
+Uniswap Billion Trader,"Made trades on Unhaswap, and has $1 Billion in number of volume traded."
+Uniswap Medium Trader,"Made trades on Uniswap, and is in the top 10% in number of volume traded."
+Uniswap Heavy Trader,"Made trades on Uniswap, and is in the top 2.5% in number of volume traded."
+Uniswap Elite Trader,"Made trades on Uniswap, and is in the top 1% in number of volume traded."
+Uniswap Legendary Trader,"Made trades on Uniswap, and is in the top 0.1% in number of volume traded."
+Uniswap Swap Vol Lv1,"Made trades on Unhaswap, and has $100-$1,000 in number of swap volume traded."
+Uniswap Million Swap Trader,"Made trades on Unhaswap, and has $1 Million in number of swap volume traded."
+Uniswap Billion Swap Trader,"Made trades on Unhaswap, and has $1 Billion in number of swap volume traded."
+Uniswap Medium Swap Trader,"Made trades on Uniswap, and is in the top 10% in number of swap volume traded."
+Uniswap Heavy Swap Trader,"Made trades on Uniswap, and is in the top 2.5% in number of swap volume traded."
+Uniswap Elite Swap Trader,"Made trades on Uniswap, and is in the top 1% in number of swap volume traded."
+Uniswap Legendary Swap Trader,"Made trades on Uniswap, and is in the top 0.1% in number of swap volume traded."
+Uniswap LP Vol Lv1,"Made trades on Unhaswap, and has $100-$1,000 in number of LP volume traded."
+Uniswap Million LP Trader,"Made trades on Unhaswap, and has $1 Million in number of LP volume traded."
+Uniswap Billion LP Trader,"Made trades on Unhaswap, and has $1 Billion in number of LP volume traded."
+Uniswap Medium LPTrader,"Made trades on Uniswap, and is in the top 10% in number of LP volume traded."
+Uniswap Heavy LP Trader,"Made trades on Uniswap, and is in the top 2.5% in number of LP volume traded."
+Uniswap Elite LP Trader,"Made trades on Uniswap, and is in the top 1% in number of LP volume traded."
+Uniswap Legendary LP Trader,"Made trades on Uniswap, and is in the top 0.1% in number of LP volume traded."
+Balancer Vol Lv1,"Made trades on Balancer, and has $100-$1,000 in number of volume traded."
+Balancer Million Trader,"Made trades on Balancer, and has $1 Million in number of volume traded."
+Balancer Billion Trader,"Made trades on Balancer, and has $1 Billion in number of volume traded."
+Balancer Medium Trader,"Made trades on Balancer, and is in the top 10% in number of volume traded."
+ Balancer Heavy Trader,"Made trades on Balancer, and is in the top 2.5% in number of volume traded."
+ Balancer Elite Trader,"Made trades on Balancer, and is in the top 1% in number of volume traded."
+ Balancer Legendary Trader,"Made trades on Balancer, and is in the top 0.1% in number of volume traded."
+Balancer Vol Lv1,"Made trades on Balancer, and has $100-$1,000 in number of volume traded."
+Balancer Million Trader,"Made trades on Balancer, and has $1 Million in number of volume traded."
+Balancer Billion Trader,"Made trades on Balancer, and has $1 Billion in number of volume traded."
+Balancer Medium Trader,"Made trades on Balancer, and is in the top 10% in number of volume traded."
+ Balancer Heavy Trader,"Made trades on Balancer, and is in the top 2.5% in number of volume traded."
+ Balancer Elite Trader,"Made trades on Balancer, and is in the top 1% in number of volume traded."
+ Balancer Legendary Trader,"Made trades on Balancer, and is in the top 0.1% in number of volume traded."
+ Balancer Swap Vol Lv1,"Made trades on Balancer, and has $100-$1,000 in number of swap volume trade."
+Balancer Million Swap Trader,"Made trades on Balancer, and has $1 Million in number of swap volume traded."
+Balancer Billion Swap Trader,"Made trades on Balancer, and has $1 Billion in number of swap volume traded."
+ Balancer Medium Swap Trader,"Made trades on Balancer, and is in the top 10% in number of swap volume trade."
+ Balancer Heavy Swap Trader,"Made trades on Balancer, and is in the top 2.5% in number of swap volume trade."
+ Balancer Elite Swap Trader,"Made trades on Balancer, and is in the top 1% in number of swap volume trade."
+ Balancer Legendary Swap Trader,"Made trades on Balancer, and is in the top 0.1% in number of swap volume trade."
+Balancer LP Vol Lv1,"Made trades on Balancer, and has $100-$1,000 in number of LP volume trade."
+Balancer Million LP Trader,"Made trades on Balancer, and has $1 Million in number of LP volume traded."
+Balancer Billion LP Trader,"Made trades on Balancer, and has $1 Billion in number of LP volume traded."
+Balancer Medium LP Trader,"Made trades on Balancer, and is in the top 10% in number of LP volume trade."
+Balancer Heavy LP Trader,"Made trades on Balancer, and is in the top 2.5% in number of LP volume trade."
+Balancer Elite LP Trader,"Made trades on Balancer, and is in the top 1% in number of LP volume trade."
+Balancer Legendary LP Trader,"Made trades on Balancer, and is in the top 0.1% in number of LP volume trade."
+Balancer StakeLP Vol L1,"Made trades on Balancer, and is $100-$1,000 in number of StakeLP volume trade."
+Balancer Medium StakeLP Trader,"Made trades on Balancer, and is in the top 10% in number of StakeLP volume trade."
+Balancer Heavy StakeLP Trader,"Made trades on Balancer, and is in the top 2.5% in number of StakeLP  volume trade."
+Balancer Elite StakeLP Trader,"Made trades on Balancer, and is in the top 1% in number of StakeLP  volume trade."
+Balancer Legendary StakeLP Trader,"Made trades on Balancer, and is in the top 0.1% in number of StakeLP  volume trade."
+ Sushiswap Vol Lv1,"Made trades on Sushhaswap, and has $100-$1,000 in number of volume traded."
+Sushiswap Million Trader,"Made trades on Sushhaswap, and has $1 Million in number of volume traded."
+Sushiswap Billion Trader,"Made trades on Sushhaswap, and has $1 Billion in number of volume traded."
+ Sushiswap Medium Trader,"Made trades on Sushiswap, and is in the top 10% in number of volume traded."
+ Sushiswap Heavy Trader,"Made trades on Sushiswap, and is in the top 2.5% in number of volume traded."
+ Sushiswap Elite Trader,"Made trades on Sushiswap, and is in the top 1% in number of volume traded."
+ Sushiswap Legendary Trader,"Made trades on Sushiswap, and is in the top 0.1% in number of volume traded."
+ Sushiswap Vol Lv1,"Made trades on Sushhaswap, and has $100-$1,000 in number of volume traded."
+Sushiswap Million Trader,"Made trades on Sushhaswap, and has $1 Million in number of volume traded."
+Sushiswap Billion Trader,"Made trades on Sushhaswap, and has $1 Billion in number of volume traded."
+ Sushiswap Medium Trader,"Made trades on Sushiswap, and is in the top 10% in number of volume traded."
+ Sushiswap Heavy Trader,"Made trades on Sushiswap, and is in the top 2.5% in number of volume traded."
+ Sushiswap Elite Trader,"Made trades on Sushiswap, and is in the top 1% in number of volume traded."
+ Sushiswap Legendary Trader,"Made trades on Sushiswap, and is in the top 0.1% in number of volume traded."
+ Sushiswap Swap Vol Lv1,"Made trades on Sushhaswap, and has $100-$1,000 in number of swap volume traded."
+Sushiswap Million Swap Trader,"Made trades on Sushhaswap, and has $1 Million in number of swap volume traded."
+Sushiswap Billion Swap Trader,"Made trades on Sushhaswap, and has $1 Billion in number of swap volume traded."
+ Sushiswap Medium Swap Trader,"Made trades on Sushiswap, and is in the top 10% in number of swap volume traded."
+ Sushiswap Heavy Swap Trader,"Made trades on Sushiswap, and is in the top 2.5% in number of swap volume traded."
+ Sushiswap Elite Swap Trader,"Made trades on Sushiswap, and is in the top 1% in number of swap volume traded."
+ Sushiswap Legendary Swap Trader,"Made trades on Sushiswap, and is in the top 0.1% in number of swap volume traded."
+ Sushiswap LP Vol Lv1,"Made trades on Sushhaswap, and has $100-$1,000 in number of LP volume traded."
+Sushiswap Million LP Trader,"Made trades on Sushhaswap, and has $1 Million in number of LP volume traded."
+Sushiswap Billion LP Trader,"Made trades on Sushhaswap, and has $1 Billion in number of LP volume traded."
+ Sushiswap Medium LP Trader,"Made trades on Sushiswap, and is in the top 10% in number of LP  volume traded."
+ Sushiswap Heavy LP Trader,"Made trades on Sushiswap, and is in the top 2.5% in number of LP  volume traded."
+ Sushiswap Elite LP Trader,"Made trades on Sushiswap, and is in the top 1% in number of LP  volume traded."
+ Sushiswap Legendary LP Trader,"Made trades on Sushiswap, and is in the top 0.1% in number of LP  volume traded."
+Sushiswap StakeLP Vol L1,"Made trades on Sushiswap, and is $100-$1,000 in number of StakeLP volume traded."
+Sushiswap Medium StakeLP Trader,"Made trades on Sushiswap, and is in the top 10% in number of StakeLP volume traded."
+Sushiswap Heavy StakeLP Trader,"Made trades on Sushiswap, and is in the top 2.5% in number of StakeLP  volume traded."
+Sushiswap Elite StakeLP Trader,"Made trades on Sushiswap, and is in the top 1% in number of StakeLP volume traded."
+Sushiswap Legendary StakeLP Trader,"Made trades on Sushiswap, and is in the top 0.1% in number of StakeLP  volume traded."
+ 0x Vol Lv1,"Made trades on 0x, and has $100-$1,000 in number of volume traded."
+0x Million Trader,"Made trades on 0x, and has $1 Million in number of volume traded."
+0x Billion Trader,"Made trades on 0x, and has $1 Billion in number of volume traded."
+ 0x Medium Trader,"Made trades on 0x, and is in the top 10% in number of volume traded."
+ 0x Heavy Trader,"Made trades on 0x, and is in the top 2.5% in number of volume traded."
+ 0x Elite Trader,"Made trades on 0x, and is in the top 1% in number of volume traded."
+ 0x Legendary Trader,"Made trades on 0x, and is in the top 0.1% in number of volume traded."
+ 0x Vol Lv1,"Made trades on 0x, and has $100-$1,000 in number of volume traded."
+0x Million Trader,"Made trades on 0x, and has $1 Million in number of volume traded."
+0x Billion Trader,"Made trades on 0x, and has $1 Billion in number of volume traded."
+ 0x Medium Trader,"Made trades on 0x, and is in the top 10% in number of volume traded."
+ 0x Heavy Trader,"Made trades on 0x, and is in the top 2.5% in number of volume traded."
+ 0x Elite Trader,"Made trades on 0x, and is in the top 1% in number of volume traded."
+ 0x Legendary Trader,"Made trades on 0x, and is in the top 0.1% in number of volume traded."
+ 0x Swap Vol Lv1,"Made volume tradeds on 0x, and has $100-$1,000 in number of swap volume tradedd."
+0x Million Swap Trader,"Made trades on 0x, and has $1 Million in number of swap volume traded."
+0x Billion Swap Trader,"Made trades on 0x, and has $1 Billion in number of swap volume traded."
+ 0x Medium Swap Trader,"Made volume tradeds on 0x, and is in the top 10% in number of swap volume tradedd."
+ 0x Heavy Swap Trader,"Made volume tradeds on 0x, and is in the top 2.5% in number of swap volume tradedd."
+ 0x Elite Swap Trader,"Made volume tradeds on 0x, and is in the top 1% in number of swap volume tradedd."
+ 0x Legendary Swap Trader,"Made volume tradeds on 0x, and is in the top 0.1% in number of swap volume tradedd."
+ 1Inch Vol Lv1,"Made trades on 1Inch, and has $100-$1,000 in number of volume traded."
+1inch Million Trader,"Made trades on 1inch, and has $1 Million in number of volume traded."
+1inch Billion Trader,"Made trades on 1inch, and has $1 Billion in number of volume traded."
+ 1Inch Medium Trader,"Made trades on 1Inch, and is in the top 10% in number of volume traded."
+ 1Inch Heavy Trader,"Made trades on 1Inch, and is in the top 2.5% in number of volume traded."
+ 1Inch Elite Trader,"Made trades on 1Inch, and is in the top 1% in number of volume traded."
+ 1Inch Legendary Trader,"Made trades on 1Inch, and is in the top 0.1% in number of volume traded."
+ 1Inch Vol Lv1,"Made trades on 1Inch, and has $100-$1,000 in number of volume traded."
+1inch Million Trader,"Made trades on 1inch, and has $1 Million in number of volume traded."
+1inch Billion Trader,"Made trades on 1inch, and has $1 Billion in number of volume traded."
+ 1Inch Medium Trader,"Made trades on 1Inch, and is in the top 10% in number of volume traded."
+ 1Inch Heavy Trader,"Made trades on 1Inch, and is in the top 2.5% in number of volume traded."
+ 1Inch Elite Trader,"Made trades on 1Inch, and is in the top 1% in number of volume traded."
+ 1Inch Legendary Trader,"Made trades on 1Inch, and is in the top 0.1% in number of volume traded."
+ 1Inch Swap Vol Lv1,"Made trades on 1Inch, and has $100-$1,000 in number of swap volume traded."
+1inch Million Swap Trader,"Made trades on 1inch, and has $1 Million in number of swap volume traded."
+1inch Billion Swap Trader,"Made trades on 1inch, and has $1 Billion in number of swap volume traded."
+ 1Inch Medium Swap Trader,"Made trades on 1Inch, and is in the top 10% in number of swap volume traded."
+ 1Inch Heavy Swap Trader,"Made trades on 1Inch, and is in the top 2.5% in number of swap volume traded."
+ 1Inch Elite Swap Trader,"Made trades on 1Inch, and is in the top 1% in number of swap volume traded."
+ 1Inch Legendary Swap Trader,"Made trades on 1Inch, and is in the top 0.1% in number of swap volume traded."
+ 1Inch LP Vol Lv1,"Made trades on 1Inch, and has $100-$1,000 in number of LP volume traded."
+1inch Million LP Trader,"Made trades on 1inch, and has $1 Million in number of LP volume traded."
+1inch Billion LP Trader,"Made trades on 1inch, and has $1 Billion in number of LP volume traded."
+ 1Inch Medium LP Trader,"Made trades on 1Inch, and is in the top 10% in number of LP  volume traded."
+ 1Inch Heavy LP Trader,"Made trades on 1Inch, and is in the top 2.5% in number of LP  volume traded."
+ 1Inch Elite LP Trader,"Made trades on 1Inch, and is in the top 1% in number of LP  volume traded."
+ 1Inch Legendary LP Trader,"Made trades on 1Inch, and is in the top 0.1% in number of LP  volume traded."
+1Inch StakeLP Vol L1,"Made trades on 1Inch, and is $100-$1,000 in number of StakeLP volume traded."
+1Inch Medium StakeLP Trader,"Made trades on 1Inch, and is in the top 10% in number of StakeLP volume traded."
+1Inch Heavy StakeLP Trader,"Made trades on 1Inch, and is in the top 2.5% in number of StakeLP  volume traded."
+1Inch Elite StakeLP Trader,"Made trades on 1Inch, and is in the top 1% in number of StakeLP volume traded."
+1Inch Legendary StakeLP Trader,"Made trades on 1Inch, and is in the top 0.1% in number of StakeLP  volume traded."
+ Mooniswap Vol Lv1,"Made trades on Mooniswap, and has $100-$1,000 in number of volume traded."
+Mooniswap Million Trader,"Made trades on Mooniswap, and has $1 Million in number of volume traded."
+Mooniswap Billion Trader,"Made trades on Mooniswap, and has $1 Billion in number of volume traded."
+ Mooniswap Medium Trader,"Made trades on Mooniswap, and is in the top 10% in number of volume traded."
+ Mooniswap Heavy Trader,"Made trades on Mooniswap, and is in the top 2.5% in number of volume traded."
+ Mooniswap Elite Trader,"Made trades on Mooniswap, and is in the top 1% in number of volume traded."
+ Mooniswap Legendary Trader,"Made trades on Mooniswap, and is in the top 0.1% in number of volume traded."
+ Mooniswap Vol Lv1,"Made trades on Mooniswap, and has $100-$1,000 in number of volume traded."
+Mooniswap Million Trader,"Made trades on Mooniswap, and has $1 Million in number of volume traded."
+Mooniswap Billion Trader,"Made trades on Mooniswap, and has $1 Billion in number of volume traded."
+ Mooniswap Medium Trader,"Made trades on Mooniswap, and is in the top 10% in number of volume traded."
+ Mooniswap Heavy Trader,"Made trades on Mooniswap, and is in the top 2.5% in number of volume traded."
+ Mooniswap Elite Trader,"Made trades on Mooniswap, and is in the top 1% in number of volume traded."
+ Mooniswap Legendary Trader,"Made trades on Mooniswap, and is in the top 0.1% in number of volume traded."
+ Mooniswap Swap Vol Lv1,"Made trades on Mooniswap, and has $100-$1,000 in number of swap volume traded."
+Mooniswap Million Swap Trader,"Made trades on Mooniswap, and has $1 Million in number of swap volume traded."
+Mooniswap Billion Swap Trader,"Made trades on Mooniswap, and has $1 Billion in number of swap volume traded."
+ Mooniswap Medium Swap Trader,"Made trades on Mooniswap, and is in the top 10% in number of swap volume traded."
+ Mooniswap Heavy Swap Trader,"Made trades on Mooniswap, and is in the top 2.5% in number of swap volume traded."
+ Mooniswap Elite Swap Trader,"Made trades on Mooniswap, and is in the top 1% in number of swap volume traded."
+ Mooniswap Legendary Swap Trader,"Made trades on Mooniswap, and is in the top 0.1% in number of swap volume traded."
+Mooniswap LP Vol Lv1,"Made trades on Mooniswap, and has $100-$1,000 in number of LP volume traded."
+Mooniswap Million LP Trader,"Made trades on Mooniswap, and has $1 Million in number of LP volume traded."
+Mooniswap Billion LP Trader,"Made trades on Mooniswap, and has $1 Billion in number of LP volume traded."
+Mooniswap Medium LP Trader,"Made trades on Mooniswap, and is in the top 10% in number of LP  volume traded."
+Mooniswap Heavy LP Trader,"Made trades on Mooniswap, and is in the top 2.5% in number of LP  volume traded."
+Mooniswap Elite LP Trader,"Made trades on Mooniswap, and is in the top 1% in number of LP  volume traded."
+Mooniswap Legendary LP Trader,"Made trades on Mooniswap, and is in the top 0.1% in number of LP  volume traded."
+ Token Activity Lv1,"An account with an ETH and Erc20 Token activity count of 0-10, where an activity is defined by outgoing transactions or transactions that contain outgoing token transfers related to the account."
+ Token Highest Activity,"An account with an ETH and Erc20 Token activity count of at least 619, where an activity is defined by outgoing transactions or transactions that contain outgoing token transfers related to the account."
+ Token High Activity,"An account with an ETH and Erc20 Token activity count between 400 to 619, where an activity is defined by outgoing transactions or transactions that contain outgoing token transfers related to the account."
+ Token Medium Activity,"An account with an ETH and Erc20 Token activity count between 200 to 400, where an activity is defined by outgoing transactions or transactions that contain outgoing token transfers related to the account."
+ DEX Activity Lv1,"An account with an activity count of 0-10 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+ Highest DEX Activity,"An account with an activity count of at least 619 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+ High DEX Activity,"An account with an activity count between 400 to 619 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+ Medium DEX Activity,"An account with an activity count between 200 to 400 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+ DEX Activity Lv1,"An account with an activity count of 0-10 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+ Highest DEX Activity,"An account with an activity count of at least 619 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+ High DEX Activity,"An account with an activity count between 400 to 619 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+ Medium DEX Activity,"An account with an activity count between 200 to 400 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+ DEX Activity Lv1,"An account with an activity count of 0-10 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+ Highest DEX Activity,"An account with an activity count of at least 619 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+ High DEX Activity,"An account with an activity count between 400 to 619 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+ Medium DEX Activity,"An account with an activity count between 200 to 400 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+ Swap Activity Lv1,"An account with a Swap activity count of 0-10 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+ Highest Swap Activity,"An account with a Swap activity count of at least 619 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+ High Swap Activity,"An account with a Swap activity count between 400 to 619 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+ Medium Swap Activity,"An account with a Swap activity count between 200 to 400 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+ LP Activity Lv1,"An account with a LP activity count of 0-10 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+ Highest LP Activity,"An account with a LP activity count of at least 619 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+ High LP Activity,"An account with a LP activity count between 400 to 619 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+ Medium LP Activity,"An account with a LP activity count between 200 to 400 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+ StakeLP Activity L1,"An account with a StakeLP activity count of 0-10 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+ Highest StakeLP Activity,"An account with a StakeLP activity count of at least 619 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+ High StakeLP Activity,"An account with a StakeLP activity count between 400 to 619 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+ Medium StakeLP Activity,"An account with a StakeLP activity count between 200 to 400 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+ Uniswap Activity Lv1,"An account with an activity count of 0-10 on Uniswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+ Uniswap Highest Activity,"An account with an activity count of at least 619 on Uniswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+ Uniswap High Activity,"An account with an activity count between 400 to 619 on Uniswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+ Uniswap Medium Activity,"An account with an activity count between 200 to 400 on Uniswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+ Uniswap Activity Lv1,"An account with an activity count of 0-10 on Uniswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+ Uniswap Highest Activity,"An account with an activity count of at least 619 on Uniswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+ Uniswap High Activity,"An account with an activity count between 400 to 619 on Uniswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+ Uniswap Medium Activity,"An account with an activity count between 200 to 400 on Uniswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+ Uniswap Swap Activity Lv1,"An account with a swap activity count of 0-10 on Uniswap, where an activity is defined by transactions that contain incoming or outgoing token transfers related to the account."
+ Uniswap Highest Swap Activity,"An account with a swap activity count of at least 619 on Uniswap, where an activity is defined by transactions that contain incoming or outgoing token transfers related to the account."
+ Uniswap High Swap Activity,"An account with a swap activity count between 400 to 619 on Uniswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+ Uniswap Medium Swap Activity,"An account with a swap activity count between 200 to 400 on Uniswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account"
+ Uniswap LP Activity Lv1,"An account with a LP activity count of 0-10 on Uniswap, where an activity is defined by transactions that contain incoming or outgoing token transfers related to the account."
+ Uniswap Highest LP Activity,"An account with a LP activity count of at least 619 on Uniswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+ Uniswap High LP Activity,"An account with a LP activity count between 400 to 619 on Uniswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account"
+ Uniswap Medium LP Activity,"An account with a LP activity count between 200 to 400 on Uniswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account"
+ETH L1-term Holder,A holder who has an ETH balance for 1 day.
+ETH Long-term Holder,An active holder who has transacted with token and has a positive ETH balance for more than 155 days.
+ETH Short-term Holder,An active holder who has transacted with token and has a positive ETH balance for less than 155 days.
+ETH Balance L1,"Has an ETH balance of $100-1,000."
+ETH Millionaire,"Has an ETH balance of at least $1,000,000."
+ETH Billionaire,"Has an ETH balance of at least $1,000,000,000."
+ETH Highest Balance,In the top 10% of all existing Ethereum accounts regarding the account's ETH balance.
+ETH Whale,In the top 100 of all existing Ethereum accounts regarding the account's ETH balance.
+Uniswap ETH-related LP Balance L1,"Has an ETH-related LP balance of $100-1,000 on Uniswap."
+Uniswap ETH-related LP Millionaire,"Has an ETH-related LP balance of at least US$1,000,000 on Uniswap."
+Uniswap ETH-related LP Billionaire,"Has an ETH-related LP  balance of at least US$1,000,000,000 on Uniswap."
+Uniswap ETH-related LP Highest Balance,In the top 10% of all existing Ethereum accounts regarding the account's ETH-related LP  balance on Uniswap.
+Uniswap ETH-related LP Whale,In the top 100 of all existing Ethereum accounts regarding the account's ETH-related LP  balance on Uniswap.
+Uniswap ETH-related LP Heavy Lp,The top 200 addresses that have been the largest Lp in ETH-related LP liquidity pools on Uniswap.
+Balancer ETH-related LP Balance L1,"Has an ETH-related LP balance of $100-1,000 on Balancer."
+Balancer ETH-related LP Millionaire,"Has an ETH-related LP balance of at least US$1,000,000 on Balancer."
+Balancer ETH-related LP Billionaire,"Has an ETH-related LP balance of at least US$1,000,000,000 on Balancer."
+Balancer ETH-related LP Highest Balance,In the top 10% of all existing Ethereum accounts regarding the account's ETH-related LP balance on Balancer.
+Balancer ETH-related LP Whale,In the top 100 of all existing Ethereum accounts regarding the account's ETH-related LP balance on Balancer.
+Balancer ETH-related Heavy Lp,The top 200 addresses that have been the largest Lp in ETH-related LP liquidity pools on Balancer.
+Sushiswap ETH-related LP Balance L1,"Has an ETH-related LP balance of $100-1,000 on Sushiswap."
+Sushiswap ETH-related LP Millionaire,"Has an ETH-related LP balance of at least US$1,000,000 on Sushiswap."
+Sushiswap ETH-related LP Billionaire,"Has an ETH-related LP balance of at least US$1,000,000,000 on Sushiswap."
+Sushiswap ETH-related LP Highest Balance,In the top 10% of all existing Ethereum accounts regarding the account's ETH-related LP balance on Sushiswap.
+Sushiswap ETH-related LP Whale,In the top 100 of all existing Ethereum accounts regarding the account's ETH-related LP balance on Sushiswap.
+Sushiswap ETH-related LP Heavy Lp,The top 200 addresses that have been the largest Lp in ETH-related LP liquidity pools on Sushiswap.
+ETH Vol L1,"Has an ETH volume of $100-$1,000."
+ETH Million Trader,Has an ETH volume of at least 1 million.
+ETH Billion Trader,Has an ETH volume of at least 1 Billion.
+ETH Medium Trader,Top 10% of traders based on volume of ETH trades.
+ETH Heavy Trader,Top 2.5% of traders based on volume of ETH trades.
+ETH Elite Trader,Top 1%of traders based on volume of ETH trades.
+ETH Legendary Trader,Top 0.1% of traders based on volume of ETH trades.
+ETH Activity L1,"An account with an ETH activity count of 0-10, where an activity is defined by outgoing transactions or transactions that contain outgoing token transfers related to the account."
+ETH Highest Activity,"An account with an ETH activity count of at least 619, where an activity is defined by outgoing transactions or transactions that contain outgoing token transfers related to the account."
+ETH High Activity,"An account with an ETH activity count between 400 to 619, where an activity is defined by outgoing transactions or transactions that contain outgoing token transfers related to the account."
+ETH Medium Activity,"An account with an ETH activity count between 200 to 400, where an activity is defined by outgoing transactions or transactions that contain outgoing token transfers related to the account."
+ETH Dex Vol L1,"Has an ETH trades volume of $100-$1,000 on all Decentralized Exchanges."
+ETH Million Dex Trader,Has an ETH trades volume of at least 1 million on all Decentralized Exchanges.
+ETH Billion Dex Trader,Has an ETH trades volume of at least 1 Billion on all Decentralized Exchanges.
+ETH Medium Dex Trader,Top 10% of traders on all Decentralized Exchanges based on volume of ETH trades.
+ETH Heavy Dex Trader,Top 2.5% of traders on all Decentralized Exchanges based on volume of ETH trades.
+ETH Elite Dex Trader,Top 1%of traders on all Decentralized Exchanges based on volume of ETH trades.
+ETH Legendary Dex Trader,Top 0.1% of traders on all Decentralized Exchanges based on volume of ETH trades.
+ETH Dex Vol L1,"Has an ETH trades volume of $100-$1,000 on all Decentralized Exchanges."
+ETH Million Dex Trader,Has an ETH trades volume of at least 1 million on all Decentralized Exchanges.
+ETH Billion Dex Trader,Has an ETH trades volume of at least 1 Billion on all Decentralized Exchanges.
+ETH Medium Dex Trader,Top 10% of traders on all Decentralized Exchanges based on volume of ETH trades.
+ETH Heavy Dex Trader,Top 2.5% of traders on all Decentralized Exchanges based on volume of ETH trades.
+ETH Elite Dex Trader,Top 1%of traders on all Decentralized Exchanges based on volume of ETH trades.
+ETH Legendary Dex Trader,Top 0.1% of traders on all Decentralized Exchanges based on volume of ETH trades.
+ETH Dex Vol L1,"Has an ETH trades volume of $100-$1,000 on all Decentralized Exchanges."
+ETH Million Dex Trader,Has an ETH trades volume of at least 1 million on all Decentralized Exchanges.
+ETH Billion Dex Trader,Has an ETH trades volume of at least 1 Billion on all Decentralized Exchanges.
+ETH Medium Dex Trader,Top 10% of traders on all Decentralized Exchanges based on volume of ETH trades.
+ETH Heavy Dex Trader,Top 2.5% of traders on all Decentralized Exchanges based on volume of ETH trades.
+ETH Elite Dex Trader,Top 1%of traders on all Decentralized Exchanges based on volume of ETH trades.
+ETH Legendary Dex Trader,Top 0.1% of traders on all Decentralized Exchanges based on volume of ETH trades.
+ETH Swap Vol L1,"Has an ETH Swap trades volume of $100-$1,000 on all Decentralized Exchanges."
+ETH Million Swap Trader,Has an ETH Swap trades volume of at least 1 million on all Decentralized Exchanges.
+ETH Billion Swap Trader,Has an ETH Swap trades volume of at least 1 Billion on all Decentralized Exchanges.
+ETH Medium Swap Trader,Top 10% of traders on all Decentralized Exchanges based on volume of ETH Swap trades.
+ETH Heavy Swap Trader,Top 2.5% of traders on all Decentralized Exchanges based on volume of ETH Swap trades.
+ETH Elite Swap Trader,Top 1%of traders on all Decentralized Exchanges based on volume of ETH Swap trades.
+ETH Legendary Swap Trader,Top 0.1% of traders on all Decentralized Exchanges based on volume of ETH Swap trades.
+ETH Swap Vol L1,"Has an ETH LP trades volume of $100-$1,000 on all Decentralized Exchanges."
+ETH Million Swap Trader,Has an ETH LP trades volume of at least 1 million on all Decentralized Exchanges.
+ETH Billion Swap Trader,Has an ETH LP trades volume of at least 1 Billion on all Decentralized Exchanges.
+ETH Medium LP Trader,Top 10% of traders on all Decentralized Exchanges based on volume of ETH LP trades.
+ETH Heavy LP Trader,Top 2.5% of traders on all Decentralized Exchanges based on volume of ETH LP trades.
+ETH Elite LP Trader,Top 1%of traders on all Decentralized Exchanges based on volume of ETH LP trades.
+ETH Legendary LP Trader,Top 0.1% of traders on all Decentralized Exchanges based on volume of ETH LP trades.
+ETH StakeLP Vol L1,"Has an ETH StakeLP trades volume of $100-$1,000 on all Decentralized Exchanges."
+ETH Medium StakeLP Trader,Top 10% of traders on all Decentralized Exchanges based on volume of ETH StakeLP trades.
+ETH Heavy StakeLP Trader,Top 2.5% of traders on all Decentralized Exchanges based on volume of ETH StakeLP trades.
+ETH Uniswap Elite StakeLP Trader,Top 1%of traders on all Decentralized Exchanges based on volume of ETH StakeLP trades.
+ETH Uniswap Legendary StakeLP Trader,Top 0.1% of traders on all Decentralized Exchanges based on volume of ETH StakeLP trades.
+Uniswap ETH Vol L1,"Made trades on Uniswap, and has $100-$1,000 in number of ETH volume traded."
+Uniswap ETH Million Trader,"Made trades on Uniswap, and has at least 1 million in number of ETH volume traded."
+Uniswap ETH Billion Trader,"Made trades on Uniswap, and has at least 1 Billion in number of ETH volume traded."
+Uniswap ETH Medium Trader,"Made trades on Uniswap, and is in the top 10% in number of ETH volume traded."
+Uniswap ETH Heavy Trader,"Made trades on Uniswap, and is in the top 2.5% in number of ETH volume traded."
+Uniswap ETH Elite Trader,"Made trades on Uniswap, and is in the top 1% in number of ETH volume traded."
+Uniswap ETH Lengendary Trader,"Made trades on Uniswap, and is in the top 0.1% in number of ETH volume traded."
+Uniswap ETH Vol L1,"Made trades on Uniswap, and has $100-$1,000 in number of ETH volume traded."
+Uniswap ETH Million Trader,"Made trades on Uniswap, and has at least 1 million in number of ETH volume traded."
+Uniswap ETH Billion Trader,"Made trades on Uniswap, and has at least 1 Billion in number of ETH volume traded."
+Uniswap ETH Medium Trader,"Made trades on Uniswap, and is in the top 10% in number of ETH volume traded."
+Uniswap ETH Heavy Trader,"Made trades on Uniswap, and is in the top 2.5% in number of ETH volume traded."
+Uniswap ETH Elite Trader,"Made trades on Uniswap, and is in the top 1% in number of ETH volume traded."
+Uniswap ETH Lengendary Trader,"Made trades on Uniswap, and is in the top 0.1% in number of ETH volume traded."
+Uniswap ETH Swap Vol L1,"Made trades on Uniswap, and has $100-$1,000 in number of ETH swap volume traded."
+Uniswap ETH Million Swap Trader,"Made trades on Uniswap, and has at least 1 million in number of ETH swap volume traded."
+Uniswap ETH Billion Swap Trader,"Made trades on Uniswap, and has at least 1 Billion in number of ETH swap volume traded."
+Uniswap ETH Medium Swap Trader,"Made trades on Uniswap, and is in the top 10% in number of ETH swap volume traded."
+Uniswap ETH Heavy Swap Trader,"Made trades on Uniswap, and is in the top 2.5% in number of ETH swap volume traded."
+Uniswap ETH Elite Swap Trader,"Made trades on Uniswap, and is in the top 1% in number of ETH swap volume traded."
+Uniswap ETH Legendary Swap Trader,"Made trades on Uniswap, and is in the top 0.1% in number of ETH swap volume traded."
+Uniswap ETH LP Vol L1,"Made trades on Uniswap, and has $100-$1,000 in number of ETH LP volume traded."
+Uniswap ETH Million LP Trader,"Made trades on Uniswap, and has at least 1 million in number of ETH LP volume traded."
+Uniswap ETH Billion Swap Trader,"Made trades on Uniswap, and has at least 1 Billion in number of ETH LP volume traded."
+Uniswap ETH Medium LP Trader,"Made trades on Uniswap, and is in the top 10% in number of ETH LP volume traded."
+Uniswap ETH Heavy LP Trader,"Made trades on Uniswap, and is in the top 2.5% in number of ETH LP volume traded."
+Uniswap ETH Elite LP Trader,"Made trades on Uniswap, and is in the top 1% in number of ETH LP volume traded."
+Uniswap ETH Legendary LP Trader,"Made trades on Uniswap, and is in the top 0.1% in number of ETH LP volume traded."
+Balancer ETH Vol L1,"Made trades on Balancer, and has $100-$1,000 in number of ETH volume traded."
+Balancer ETH Million Trader,"Made trades on Balancer, and has at least 1 million in number of ETH volume traded."
+Balancer ETH Billion Trader,"Made trades on Balancer, and has at least 1 Billion in number of ETH volume traded."
+Balancer ETH Medium Trader,"Made trades on Balancer, and is in the top 10% in number of ETH volume traded."
+Balancer ETH Heavy Trader,"Made trades on Balancer, and is in the top 2.5% in number of ETH volume traded."
+Balancer ETH Elite Trader,"Made trades on Balancer, and is in the top 1% in number of ETH volume traded."
+Balancer ETH Legendary Trader,"Made trades on Balancer, and is in the top 0.1% in number of ETH volume traded."
+Balancer ETH Vol L1,"Made trades on Balancer, and has $100-$1,000 in number of ETH volume traded."
+Balancer ETH Million Trader,"Made trades on Balancer, and has at least 1 million in number of ETH volume traded."
+Balancer ETH Billion Trader,"Made trades on Balancer, and has at least 1 Billion in number of ETH volume traded."
+Balancer ETH Medium Trader,"Made trades on Balancer, and is in the top 10% in number of ETH volume traded."
+Balancer ETH Heavy Trader,"Made trades on Balancer, and is in the top 2.5% in number of ETH volume traded."
+Balancer ETH Elite Trader,"Made trades on Balancer, and is in the top 1% in number of ETH volume traded."
+Balancer ETH Legendary Trader,"Made trades on Balancer, and is in the top 0.1% in number of ETH volume traded."
+Balancer ETH Swap Vol L1,"Made trades on Balancer, and has $100-$1,000 in number of ETH swap volume traded."
+Balancer ETH Million Swap Trader,"Made trades on Balancer, and has at least 1 million in number of ETH swap volume traded."
+Balancer ETH Billion Swap Trader,"Made trades on Balancer, and has at least 1 Billion in number of ETH swap volume traded."
+Balancer ETH Medium Swap Trader,"Made trades on Balancer, and is in the top 10% in number of ETH swap volume traded."
+Balancer ETH Heavy Swap Trader,"Made trades on Balancer, and is in the top 2.5% in number of ETH swap volume traded."
+Balancer ETH Elite Swap Trader,"Made trades on Balancer, and is in the top 1% in number of ETH swap volume traded."
+Balancer ETH Legendary Swap Trader,"Made trades on Balancer, and is in the top 0.1% in number of ETH swap volume traded."
+Balancer ETH  LP Vol L1,"Made trades on Balancer, and has $100-$1,000 in number of ETH LP volume traded."
+Balancer ETH Million LP Trader,"Made trades on Balancer, and has at least 1 million in number of ETH LP volume traded."
+Balancer ETH Billion LP Trader,"Made trades on Balancer, and has at least 1 Billion in number of ETH LP volume traded."
+Balancer ETH  Medium LP Trader,"Made trades on Balancer, and is in the top 10% in number of ETH LP volume traded."
+Balancer ETH  Heavy LP Trader,"Made trades on Balancer, and is in the top 2.5% in number of ETH LP volume traded."
+Balancer ETH  Elite LP Trader,"Made trades on Balancer, and is in the top 1% in number of ETH LP volume traded."
+Balancer ETH  Legendary LP Trader,"Made trades on Balancer, and is in the top 0.1% in number of ETH LP volume traded."
+Balancer ETH StakeLP Vol L1,"Made trades on Balancer, and is $100-$1,000 in number of ETH StakeLP volume traded."
+Balancer ETH  Medium Stak LP Trader,"Made trades on Balancer, and is in the top 10% in number of ETH StakeLP volume traded."
+Balancer ETH  Heavy StakeLP Trader,"Made trades on Balancer, and is in the top 2.5% in number of ETH StakeLP volume traded."
+Balancer ETH  Elite StakeLP Trader,"Made trades on Balancer, and is in the top 1% in number of ETH StakeLP volume traded."
+Balancer ETH  Legendary StakeLP Trader,"Made trades on Balancer, and is in the top 0.1% in number of ETH StakeLP volume traded."
+Sushiswap ETH Vol L1,"Made trades on Sushhaswap, and has $100-$1,000 in number of ETH volume traded."
+Sushiswap ETH Million Trader,"Made trades on Sushhaswap, and has at least 1 million in number of ETH volume traded."
+Sushiswap ETH Billion Trader,"Made trades on Sushhaswap, and has at least 1 Billion in number of ETH volume traded."
+Sushiswap ETH Medium Trader,"Made trades on Sushiswap, and is in the top 10% in number of ETH volume traded."
+Sushiswap ETH Heavy Trader,"Made trades on Sushiswap, and is in the top 2.5% in number of ETH volume traded."
+Sushiswap ETH Elite Trader,"Made trades on Sushiswap, and is in the top 1% in number of ETH volume traded."
+Sushiswap ETH  Legendary Trader,"Made trades on Sushiswap, and is in the top 0.1% in number of ETH volume traded."
+Sushiswap ETH Vol L1,"Made trades on Sushhaswap, and has $100-$1,000 in number of ETH volume traded."
+Sushiswap ETH Million Trader,"Made trades on Sushhaswap, and has at least 1 million in number of ETH volume traded."
+Sushiswap ETH Billion Trader,"Made trades on Sushhaswap, and has at least 1 Billion in number of ETH volume traded."
+Sushiswap ETH Medium Trader,"Made trades on Sushiswap, and is in the top 10% in number of ETH volume traded."
+Sushiswap ETH Heavy Trader,"Made trades on Sushiswap, and is in the top 2.5% in number of ETH volume traded."
+Sushiswap ETH Elite Trader,"Made trades on Sushiswap, and is in the top 1% in number of ETH volume traded."
+Sushiswap ETH  Legendary Trader,"Made trades on Sushiswap, and is in the top 0.1% in number of ETH volume traded."
+Sushiswap ETH Swap Vol L1,"Made trades on Sushhaswap, and has $100-$1,000 in number of ETH swap volume traded."
+Sushiswap ETH Million Swap Trader,"Made trades on Sushhaswap, and has at least 1 million in number of ETH swap volume traded."
+Sushiswap ETH Billion Swap Trader,"Made trades on Sushhaswap, and has at least 1 Billion in number of ETH swap volume traded."
+Sushiswap ETH Medium Swap Trader,"Made trades on Sushiswap, and is in the top10% in number of ETH swap volume traded."
+Sushiswap ETH Heavy Swap Trader,"Made trades on Sushiswap, and is in the top 2.5% in number of ETH swap volume traded."
+Sushiswap ETH Elite Swap Trader,"Made trades on Sushiswap, and is in the top 1% in number of ETH swap volume traded."
+Sushiswap ETH Legendary Swap Trader,"Made trades on Sushiswap, and is in the top 0.1% in number of ETH swap volume traded."
+Sushiswap ETH LP Vol L1,"Made trades on Sushhaswap, and has $100-$1,000 in number of ETH LP volume traded."
+Sushiswap ETH Million LP Trader,"Made trades on Sushhaswap, and has at least 1 million in number of ETH LP volume traded."
+Sushiswap ETH Billion LP Trader,"Made trades on Sushhaswap, and has at least 1 Billion in number of ETH LP volume traded."
+Sushiswap ETH Medium LP Trader,"Made trades on Sushiswap, and is in the top 10% in number of ETH LP volume traded."
+Sushiswap ETH Heavy LP Trader,"Made trades on Sushiswap, and is in the top 2.5% in number of ETH LP volume traded."
+Sushiswap ETH Elite LP Trader,"Made trades on Sushiswap, and is in the top 1% in number of ETH LP volume traded."
+Sushiswap ETH Legendary LP Trader,"Made trades on Sushiswap, and is in the top 0.1% in number of ETH LP volume traded."
+Sushiswap ETH  StakeLP Vol L1,"Made trades on Sushiswap, and is $100-$1,000 in number of ETH StakeLP volume traded."
+Sushiswap ETH  Medium StakeLP Trader,"Made trades on Sushiswap, and is in the top 10% in number of ETH StakeLP volume traded."
+Sushiswap ETH  Heavy StakeLP Trader,"Made trades on Sushiswap, and is in the top 2.5% in number of ETH StakeLP volume traded."
+Sushiswap ETH  Elite StakeLP Trader,"Made trades on Sushiswap, and is in the top 1% in number of ETH StakeLP volume traded."
+Sushiswap ETH  Legendary StakeLP Trader,"Made trades on Sushiswap, and is in the top 0.1% in number of ETH StakeLP volume traded."
+0x ETH Vol L1,"Made trades on 0x, and has $100-$1,000 in number of ETH volume traded."
+0x ETH Million Trader,"Made trades on 0x, and has at least 1 million in number of ETH volume traded."
+0x ETH Billion Trader,"Made trades on 0x, and has at least 1 Billion in number of ETH volume traded."
+0x ETH Medium Trader,"Made trades on 0x, and is in the top 10% in number of ETH volume traded."
+0x ETH Heavy Trader,"Made trades on 0x, and is in the top 2.5% in number of ETH volume traded."
+0x ETH Elite Trader,"Made trades on 0x, and is in the top 1% in number of ETH volume traded."
+0x ETH Legendary Trader,"Made trades on 0x, and is in the top 0.1% in number of ETH volume traded."
+0x ETH Vol L1,"Made trades on 0x, and has $100-$1,000 in number of ETH volume traded."
+0x ETH Million Trader,"Made trades on 0x, and has at least 1 million in number of ETH volume traded."
+0x ETH Billion Trader,"Made trades on 0x, and has at least 1 Billion in number of ETH volume traded."
+0x ETH Medium Trader,"Made trades on 0x, and is in the top 10% in number of ETH volume traded."
+0x ETH Heavy Trader,"Made trades on 0x, and is in the top 2.5% in number of ETH volume traded."
+0x ETH Elite Trader,"Made trades on 0x, and is in the top 1% in number of ETH volume traded."
+0x ETH Legendary Trader,"Made trades on 0x, and is in the top 0.1% in number of ETH volume traded."
+0x ETH Swap Vol L1,"Made trades on 0x, and has $100-$1,000 in number of ETH swap volume traded."
+0x ETH Million Swap Trader,"Made trades on 0x, and has at least 1 million in number of ETH swap volume traded."
+0x ETH Billion Swap Trader,"Made trades on 0x, and has at least 1 Billion in number of ETH swap volume traded."
+0x ETH Medium Swap Trader,"Made trades on 0x, and is in the top 10% in number of ETH swap volume traded."
+0x ETH Heavy Swap Trader,"Made trades on 0x, and is in the top 2.5% in number of ETH swap volume traded."
+0x ETH Elite Swap Trader,"Made trades on 0x, and is in the top 1% in number of ETH swap volume traded."
+0x ETH Legendary Swap Trader,"Made trades on 0x, and is in the top 0.1% in number of ETH swap volume traded."
+ETH DEX Activity L1,"An account with an ETH activity count of 0-10 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+ETH Highest DEX Activity,"An account with an ETH activity count of at least 619 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+ETH High DEX Activity,"An account with an ETH activity count between 400 to 619 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+ETH Medium DEX Activity,"An account with an ETH activity count between 200 to 400 on all platforms, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+ETH DEX Activity L1,"An account with an ETH activity count of 0-10 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+ETH Highest DEX Activity,"An account with an ETH activity count of at least 619 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+ETH High DEX Activity,"An account with an ETH activity count between 400 to 619 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+ETH Medium DEX Activity,"An account with an ETH activity count between 200 to 400 on all platforms, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+ETH DEX Activity L1,"An account with an ETH activity count of 0-10 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+ETH Highest DEX Activity,"An account with an ETH activity count of at least 619 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+ETH High DEX Activity,"An account with an ETH activity count between 400 to 619 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+ETH Medium DEX Activity,"An account with an ETH activity count between 200 to 400 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+ETH Swap Activity L1,"An account with an ETH Swap activity count of 0-10 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+ETH Highest  Swap Activity,"An account with an ETH Swap activity count of at least 619 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+ETH High Swap Activity,"An account with an ETH Swap activity count between 400 to 619 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+ETH Medium Swap Activity,"An account with an ETH Swap activity count between 200 to 400 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+ETH LP Activity L1,"An account with an ETH LP activity count of 0-10 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+ETH Highest LP Activity,"An account with an ETH LP activity count of at least 619 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+ETH High LP Activity,"An account with an ETH LP activity count between 400 to 619 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+ETH Medium LP Activity,"An account with an ETH LP activity count between 200 to 400 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+ETH StakeLP Activity L1,"An account with an ETH StakeLP activity count of 0-10 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+ETH Highest StakeLP Activity,"An account with an ETH StakeLP activity count of at least 619 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+ETH High StakeLP Activity,"An account with an ETH StakeLP activity count between 400 to 619 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+ETH Medium StakeLP Activity,"An account with an ETH StakeLP activity count between 200 to 400 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+Uniswap ETH  Activity L1,"An account with an ETH activity count of 0-10 on Uniswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+Uniswap ETH  Highest Activity,"An account with an ETH activity count of at least 619 on Uniswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+Uniswap ETH  High Activity,"An account with an ETH activity count between 400 to 619 on Uniswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+Uniswap ETH  Medium Activity,"An account with an ETH activity count between 200 to 400 on Uniswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+Uniswap ETH  Activity L1,"An account with an ETH activity count of 0-10 on Uniswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+Uniswap ETH  Highest Activity,"An account with an ETH activity count of at least 619 on Uniswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+Uniswap ETH  High Activity,"An account with an ETH activity count between 400 to 619 on Uniswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+Uniswap ETH  Medium Activity,"An account with an ETH activity count between 200 to 400 on Uniswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+Uniswap ETH  Swap Activity L1,"An account with an ETH swap activity count of 0-10 on Uniswap, where an activity is defined by transactions that contain incoming or outgoing token transfers related to the account."
+Uniswap ETH  Highest Swap Activity,"An account with an ETH swap activity count of at least 619 on Uniswap, where an activity is defined by transactions that contain incoming or outgoing token transfers related to the account."
+Uniswap ETH  High Swap Activity,"An account with an ETH swap activity count between 400 to 619 on Uniswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+Uniswap ETH  Medium Swap Activity,"An account with an ETH swap activity count between 200 to 400 on Uniswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account"
+Uniswap ETH  LP Activity L1,"An account with an ETH LP activity count of 0-10 on Uniswap, where an activity is defined by transactions that contain incoming or outgoing token transfers related to the account."
+Uniswap ETH  Highest LP Activity,"An account with an ETH LP activity count of at least 619 on Uniswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+Uniswap ETH  High LP Activity,"An account with an ETH LP activity count between 400 to 619 on Uniswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account"
+Uniswap ETH  Medium LP Activity,"An account with an ETH LP activity count between 200 to 400 on Uniswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account"
+Balancer ETH Activity L1,"An account with an ETH activity count of 0-10 on Balancer, where an activity is defined by transactions that contain incoming or outgoing token transfers related to the account."
+Balancer ETH Highest Activity,"An account with an ETH activity count of at least 619 on Balancer, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+Balancer ETH High Activity,"An account with an ETH activity count between 400 to 619 on Balancer, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account"
+Balancer ETH Medium Activity,"An account with an ETH activity count between 200 to 400 on Balancer, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account"
+Uniswap ETH Activity L1,"An account with an ETH activity count of 0-10 on Balancer, where an activity is defined by transactions that contain incoming or outgoing token transfers related to the account."
+Balancer ETH Highest Activity,"An account with an ETH activity count of at least 619 on Balancer, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+Balancer ETH High Activity,"An account with an ETH activity count between 400 to 619 on Balancer, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account"
+Balancer ETH Medium Activity,"An account with an ETH activity count between 200 to 400 on Balancer, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account"
+Balancer ETH Swap Activity L1,"An account with an ETH swap activity count of 0-10 on Balancer, where an activity is defined by transactions that contain incoming or outgoing token transfers related to the account."
+Balancer ETH Highest Swap Activity,"An account with an ETH swap activity count of at least 619 on Balancer, where an activity is defined by transactions that contain incoming or outgoing token transfers related to the account."
+Balancer ETH High Swap Activity,"An account with an ETH swap activity count between 400 to 619 on Balancer, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+Balancer ETH Medium Swap Activity,"An account with an ETH swap activity count between 200 to 400 on Balancer, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account"
+Balancer ETH LP Activity L1,"An account with an ETH LP activity count of 0-10 on Balancer, where an activity is defined by transactions that contain incoming or outgoing token transfers related to the account."
+Balancer ETH Highest LP Activity,"An account with an ETH LP activity count of at least 619 on Balancer, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+Balancer ETH High LP Activity,"An account with an ETH LP activity count between 400 to 619 on Balancer, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account"
+Balancer ETH Medium LP Activity,"An account with an ETH LP activity count between 200 to 400 on Balancer, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account"
+Balancer ETH StakeLP Activity L1,"An account with an ETH StakeLP activity count of 0-10 on Balancer, where an activity is defined by transactions that contain incoming or outgoing token transfers related to the account."
+Balancer ETH Highest StakeLP Activity,"An account with an ETH StakeLP activity count of at least 619 on Balancer, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+Balancer ETH High StakeLP Activity,"An account with an ETH StakeLP activity count between 400 to 619 on Balancer, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account"
+Balancer ETH Medium StakeLP Activity,"An account with an ETH StakeLP activity count between 200 to 400 on Balancer, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account"
+Sushiswap ETH Activity L1,"An account with an ETH activity count of 0-10 on Sushiswap, where an activity is defined by transactions that contain incoming or outgoing token transfers related to the account."
+Sushiswap ETH Highest Activity,"An account with an ETH activity count of at least 619 on Sushiswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+Sushiswap ETH High Activity,"An account with an ETH activity count between 400 to 619 on Sushiswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account"
+Uniswap ETH Medium Activity,"An account with an ETH activity count between 200 to 400 on Sushiswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account"
+Sushiswap ETH Activity L1,"An account with an ETH activity count of 0-10 on Sushiswap, where an activity is defined by transactions that contain incoming or outgoing token transfers related to the account."
+Sushiswap ETH Highest Activity,"An account with an ETH activity count of at least 619 on Sushiswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+Sushiswap ETH High Activity,"An account with an ETH activity count between 400 to 619 on Sushiswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account"
+Uniswap ETH Medium Activity,"An account with an ETH activity count between 200 to 400 on Sushiswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account"
+Sushiswap ETH  Swap Activity L1,"An account with an ETH swap activity count of 0-10 on Sushiswap, where an activity is defined by transactions that contain incoming or outgoing token transfers related to the account."
+Sushiswap ETH  Highest Swap Activity,"An account with an ETH swap activity count of at least 619 on Sushiswap, where an activity is defined by transactions that contain incoming or outgoing token transfers related to the account."
+Sushiswap ETH  High Swap Activity,"An account with an ETH swap activity count between 400 to 619 on Sushiswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+Sushiswap ETH  Medium Swap Activity,"An account with an ETH swap activity count between 200 to 400 on Sushiswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account"
+Sushiswap ETH  LP Activity L1,"An account with an ETH LP activity count of 0-10 on Sushiswap, where an activity is defined by transactions that contain incoming or outgoing token transfers related to the account."
+Sushiswap ETH  Highest LP Activity,"An account with an ETH LP activity count of at least 619 on Sushiswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+Sushiswap ETH  High LP Activity,"An account with an ETH LP activity count between 400 to 619 on Sushiswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account"
+Sushiswap ETH  Medium LP Activity,"An account with an ETH LP activity count between 200 to 400 on Sushiswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account"
+Sushiswap ETH  StakeLP Activity L1,"An account with an ETH StakeLP activity count of 0-10 on Sushiswap, where an activity is defined by transactions that contain incoming or outgoing token transfers related to the account."
+Sushiswap ETH  Highest StakeLP Activity,"An account with an ETH StakeLP activity count of at least 619 on Sushiswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+Sushiswap ETH  High StakeLP Activity,"An account with an ETH StakeLP activity count between 400 to 619 on Sushiswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account"
+Sushiswap ETH  Medium StakeLP Activity,"An account with an ETH StakeLP activity count between 200 to 400 on Sushiswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account"
+ETH 0x Activity L1,"An account with an ETH activity count of 0-10 on 0x, where an activity is defined by transactions that contain incoming or outgoing token transfers related to the account."
+ETH 0x Highest Activity,"An account with an ETH activity count of at least 619 on 0x, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+ETH 0x High Activity,"An account with an ETH activity count between 400 to 619 on 0x, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account"
+ETH 0x Medium Activity,"An account with an ETH activity count between 200 to 400 on 0x, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account"
+ETH 0x Activity L1,"An account with an ETH activity count of 0-10 on 0x, where an activity is defined by transactions that contain incoming or outgoing token transfers related to the account."
+ETH 0x Highest Activity,"An account with an ETH activity count of at least 619 on 0x, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+ETH 0x High Activity,"An account with an ETH activity count between 400 to 619 on 0x, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account"
+ETH 0x Medium Activity,"An account with an ETH activity count between 200 to 400 on 0x, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account"
+ETH 0x Swap Activity L1,"An account with an ETH swap activity count of 0-10 on 0x, where an activity is defined by transactions that contain incoming or outgoing token transfers related to the account."
+ETH 0x Highest Swap Activity,"An account with an ETH swap activity count of at least 619 on 0x, where an activity is defined by transactions that contain incoming or outgoing token transfers related to the account."
+ETH 0x High Swap Activity,"An account with an ETH swap activity count between 400 to 619 on 0x, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+ETH 0x Medium Swap Activity,"An account with an ETH swap activity count between 200 to 400 on 0x, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account"
+(Erc20 Token) L1-term Holder,A holder who has an (Erc20 Token) balance for 1 day.
+(Erc20 Token) Long-term Holder,An active holder who has transacted with token and has a positive (Erc20 Token) balance for more than 155 days.
+(Erc20 Token) Short-term Holder,An active holder who has transacted with token and has a positive (Erc20 Token) balance for less than 155 days.
+(Erc20 Token) Balance L1,"Has an (Erc20 Token) balance of $100-1,000."
+(Erc20 Token) Millionaire,"Has an (Erc20 Token) balance of at least $1,000,000."
+(Erc20 Token) Billionaire,"Has an (Erc20 Token) balance of at least $1,000,000,000."
+(Erc20 Token) Highest Balance,In the top 10% of all existing (Erc20 Token)ereum accounts regarding the account's (Erc20 Token) balance.
+(Erc20 Token) Whale,In the top 100 of all existing (Erc20 Token)ereum accounts regarding the account's (Erc20 Token) balance.
+Uniswap (Erc20 Token)-related LP Balance L1,"Has an (Erc20 Token)-related LP balance of $100-1,000 on Uniswap."
+Uniswap (Erc20 Token)-related LP Millionaire,"Has an (Erc20 Token)-related LP balance of at least US$1,000,000 on Uniswap."
+Uniswap (Erc20 Token)-related LP Billionaire,"Has an (Erc20 Token)-related LP  balance of at least US$1,000,000,000 on Uniswap."
+Uniswap (Erc20 Token)-related LP Highest Balance,In the top 10% of all existing (Erc20 Token)ereum accounts regarding the account's (Erc20 Token)-related LP  balance on Uniswap.
+Uniswap (Erc20 Token)-related LP Whale,In the top 100 of all existing (Erc20 Token)ereum accounts regarding the account's (Erc20 Token)-related LP  balance on Uniswap.
+Uniswap (Erc20 Token)-related LP Heavy Lp,The top 200 addresses that have been the largest Lp in (Erc20 Token)-related LP liquidity pools on Uniswap.
+Balancer (Erc20 Token)-related LP Balance L1,"Has an (Erc20 Token)-related LP balance of $100-1,000 on Balancer."
+Balancer (Erc20 Token)-related LP Millionaire,"Has an (Erc20 Token)-related LP balance of at least US$1,000,000 on Balancer."
+Balancer (Erc20 Token)-related LP Billionaire,"Has an (Erc20 Token)-related LP balance of at least US$1,000,000,000 on Balancer."
+Balancer (Erc20 Token)-related LP Highest Balance,In the top 10% of all existing (Erc20 Token)ereum accounts regarding the account's (Erc20 Token)-related LP balance on Balancer.
+Balancer (Erc20 Token)-related LP Whale,In the top 100 of all existing (Erc20 Token)ereum accounts regarding the account's (Erc20 Token)-related LP balance on Balancer.
+Balancer (Erc20 Token)-related Heavy Lp,The top 200 addresses that have been the largest Lp in (Erc20 Token)-related LP liquidity pools on Balancer.
+Sushiswap (Erc20 Token)-related LP Balance L1,"Has an (Erc20 Token)-related LP balance of $100-1,000 on Sushiswap."
+Sushiswap (Erc20 Token)-related LP Millionaire,"Has an (Erc20 Token)-related LP balance of at least US$1,000,000 on Sushiswap."
+Sushiswap (Erc20 Token)-related LP Billionaire,"Has an (Erc20 Token)-related LP balance of at least US$1,000,000,000 on Sushiswap."
+Sushiswap (Erc20 Token)-related LP Highest Balance,In the top 10% of all existing (Erc20 Token)ereum accounts regarding the account's (Erc20 Token)-related LP balance on Sushiswap.
+Sushiswap (Erc20 Token)-related LP Whale,In the top 100 of all existing (Erc20 Token)ereum accounts regarding the account's (Erc20 Token)-related LP balance on Sushiswap.
+Sushiswap (Erc20 Token)-related LP Heavy Lp,The top 200 addresses that have been the largest Lp in (Erc20 Token)-related LP liquidity pools on Sushiswap.
+(Erc20 Token) Vol L1,"Has an (Erc20 Token) volume of $100-$1,000."
+(Erc20 Token) Million Trader,Has an (Erc20 Token) volume of at least 1 million.
+(Erc20 Token) Billion Trader,Has an (Erc20 Token) volume of at least 1 Billion.
+(Erc20 Token) Medium Trader,Top 10% of traders based on volume of (Erc20 Token) trades.
+(Erc20 Token) Heavy Trader,Top 2.5% of traders based on volume of (Erc20 Token) trades.
+(Erc20 Token) Elite Trader,Top 1%of traders based on volume of (Erc20 Token) trades.
+(Erc20 Token) Legendary Trader,Top 0.1% of traders based on volume of (Erc20 Token) trades.
+(Erc20 Token) Dex Vol L1,"Has an (Erc20 Token) trades volume of $100-$1,000 on all Decentralized Exchanges."
+(Erc20 Token) Million Dex Trader,Has an (Erc20 Token) trades volume of at least 1 million on all Decentralized Exchanges.
+(Erc20 Token) Billion Dex Trader,Has an (Erc20 Token) trades volume of at least 1 Billion on all Decentralized Exchanges.
+(Erc20 Token) Medium Dex Trader,Top 10% of traders on all Decentralized Exchanges based on volume of (Erc20 Token) trades.
+(Erc20 Token) Heavy Dex Trader,Top 2.5% of traders on all Decentralized Exchanges based on volume of (Erc20 Token) trades.
+(Erc20 Token) Elite Dex Trader,Top 1%of traders on all Decentralized Exchanges based on volume of (Erc20 Token) trades.
+(Erc20 Token) Legendary Dex Trader,Top 0.1% of traders on all Decentralized Exchanges based on volume of (Erc20 Token) trades.
+(Erc20 Token) Dex Vol L1,"Has an (Erc20 Token) trades volume of $100-$1,000 on all Decentralized Exchanges."
+(Erc20 Token) Million Dex Trader,Has an (Erc20 Token) trades volume of at least 1 million on all Decentralized Exchanges.
+(Erc20 Token) Billion Dex Trader,Has an (Erc20 Token) trades volume of at least 1 Billion on all Decentralized Exchanges.
+(Erc20 Token) Medium Dex Trader,Top 10% of traders on all Decentralized Exchanges based on volume of (Erc20 Token) trades.
+(Erc20 Token) Heavy Dex Trader,Top 2.5% of traders on all Decentralized Exchanges based on volume of (Erc20 Token) trades.
+(Erc20 Token) Elite Dex Trader,Top 1%of traders on all Decentralized Exchanges based on volume of (Erc20 Token) trades.
+(Erc20 Token) Legendary Dex Trader,Top 0.1% of traders on all Decentralized Exchanges based on volume of (Erc20 Token) trades.
+(Erc20 Token) Dex Vol L1,"Has an (Erc20 Token) trades volume of $100-$1,000 on all Decentralized Exchanges."
+(Erc20 Token) Million Dex Trader,Has an (Erc20 Token) trades volume of at least 1 million on all Decentralized Exchanges.
+(Erc20 Token) Billion Dex Trader,Has an (Erc20 Token) trades volume of at least 1 Billion on all Decentralized Exchanges.
+(Erc20 Token) Medium Dex Trader,Top 10% of traders on all Decentralized Exchanges based on volume of (Erc20 Token) trades.
+(Erc20 Token) Heavy Dex Trader,Top 2.5% of traders on all Decentralized Exchanges based on volume of (Erc20 Token) trades.
+(Erc20 Token) Elite Dex Trader,Top 1%of traders on all Decentralized Exchanges based on volume of (Erc20 Token) trades.
+(Erc20 Token) Legendary Dex Trader,Top 0.1% of traders on all Decentralized Exchanges based on volume of (Erc20 Token) trades.
+(Erc20 Token) Swap Vol L1,"Has an (Erc20 Token) Swap trades volume of $100-$1,000 on all Decentralized Exchanges."
+(Erc20 Token) Million Swap Trader,Has an (Erc20 Token) Swap trades volume of at least 1 million on all Decentralized Exchanges.
+(Erc20 Token) Billion Swap Trader,Has an (Erc20 Token) Swap trades volume of at least 1 Billion on all Decentralized Exchanges.
+(Erc20 Token) Medium Swap Trader,Top 10% of traders on all Decentralized Exchanges based on volume of (Erc20 Token) Swap trades.
+(Erc20 Token) Heavy Swap Trader,Top 2.5% of traders on all Decentralized Exchanges based on volume of (Erc20 Token) Swap trades.
+(Erc20 Token) Elite Swap Trader,Top 1%of traders on all Decentralized Exchanges based on volume of (Erc20 Token) Swap trades.
+(Erc20 Token) Legendary Swap Trader,Top 0.1% of traders on all Decentralized Exchanges based on volume of (Erc20 Token) Swap trades.
+(Erc20 Token) Swap Vol L1,"Has an (Erc20 Token) LP trades volume of $100-$1,000 on all Decentralized Exchanges."
+(Erc20 Token) Million Swap Trader,Has an (Erc20 Token) LP trades volume of at least 1 million on all Decentralized Exchanges.
+(Erc20 Token) Billion Swap Trader,Has an (Erc20 Token) LP trades volume of at least 1 Billion on all Decentralized Exchanges.
+(Erc20 Token) Medium LP Trader,Top 10% of traders on all Decentralized Exchanges based on volume of (Erc20 Token) LP trades.
+(Erc20 Token) Heavy LP Trader,Top 2.5% of traders on all Decentralized Exchanges based on volume of (Erc20 Token) LP trades.
+(Erc20 Token) Elite LP Trader,Top 1%of traders on all Decentralized Exchanges based on volume of (Erc20 Token) LP trades.
+(Erc20 Token) Legendary LP Trader,Top 0.1% of traders on all Decentralized Exchanges based on volume of (Erc20 Token) LP trades.
+(Erc20 Token) StakeLP Vol L1,"Has an (Erc20 Token) StakeLP trades volume of $100-$1,000 on all Decentralized Exchanges."
+(Erc20 Token) Medium StakeLP Trader,Top 10% of traders on all Decentralized Exchanges based on volume of (Erc20 Token) StakeLP trades.
+(Erc20 Token) Heavy StakeLP Trader,Top 2.5% of traders on all Decentralized Exchanges based on volume of (Erc20 Token) StakeLP trades.
+(Erc20 Token) Uniswap Elite StakeLP Trader,Top 1%of traders on all Decentralized Exchanges based on volume of (Erc20 Token) StakeLP trades.
+(Erc20 Token) Uniswap Legendary StakeLP Trader,Top 0.1% of traders on all Decentralized Exchanges based on volume of (Erc20 Token) StakeLP trades.
+Uniswap (Erc20 Token) Vol L1,"Made trades on Uniswap, and has $100-$1,000 in number of (Erc20 Token) volume traded."
+Uniswap (Erc20 Token) Million Trader,"Made trades on Uniswap, and has at least 1 million in number of (Erc20 Token) volume traded."
+Uniswap (Erc20 Token) Billion Trader,"Made trades on Uniswap, and has at least 1 Billion in number of (Erc20 Token) volume traded."
+Uniswap (Erc20 Token) Medium Trader,"Made trades on Uniswap, and is in the top 10% in number of (Erc20 Token) volume traded."
+Uniswap (Erc20 Token) Heavy Trader,"Made trades on Uniswap, and is in the top 2.5% in number of (Erc20 Token) volume traded."
+Uniswap (Erc20 Token) Elite Trader,"Made trades on Uniswap, and is in the top 1% in number of (Erc20 Token) volume traded."
+Uniswap (Erc20 Token) Lengendary Trader,"Made trades on Uniswap, and is in the top 0.1% in number of (Erc20 Token) volume traded."
+Uniswap (Erc20 Token) Vol L1,"Made trades on Uniswap, and has $100-$1,000 in number of (Erc20 Token) volume traded."
+Uniswap (Erc20 Token) Million Trader,"Made trades on Uniswap, and has at least 1 million in number of (Erc20 Token) volume traded."
+Uniswap (Erc20 Token) Billion Trader,"Made trades on Uniswap, and has at least 1 Billion in number of (Erc20 Token) volume traded."
+Uniswap (Erc20 Token) Medium Trader,"Made trades on Uniswap, and is in the top 10% in number of (Erc20 Token) volume traded."
+Uniswap (Erc20 Token) Heavy Trader,"Made trades on Uniswap, and is in the top 2.5% in number of (Erc20 Token) volume traded."
+Uniswap (Erc20 Token) Elite Trader,"Made trades on Uniswap, and is in the top 1% in number of (Erc20 Token) volume traded."
+Uniswap (Erc20 Token) Lengendary Trader,"Made trades on Uniswap, and is in the top 0.1% in number of (Erc20 Token) volume traded."
+Uniswap (Erc20 Token) Swap Vol L1,"Made trades on Uniswap, and has $100-$1,000 in number of (Erc20 Token) swap volume traded."
+Uniswap (Erc20 Token) Million Swap Trader,"Made trades on Uniswap, and has at least 1 million in number of (Erc20 Token) swap volume traded."
+Uniswap (Erc20 Token) Billion Swap Trader,"Made trades on Uniswap, and has at least 1 Billion in number of (Erc20 Token) swap volume traded."
+Uniswap (Erc20 Token) Medium Swap Trader,"Made trades on Uniswap, and is in the top 10% in number of (Erc20 Token) swap volume traded."
+Uniswap (Erc20 Token) Heavy Swap Trader,"Made trades on Uniswap, and is in the top 2.5% in number of (Erc20 Token) swap volume traded."
+Uniswap (Erc20 Token) Elite Swap Trader,"Made trades on Uniswap, and is in the top 1% in number of (Erc20 Token) swap volume traded."
+Uniswap (Erc20 Token) Legendary Swap Trader,"Made trades on Uniswap, and is in the top 0.1% in number of (Erc20 Token) swap volume traded."
+Uniswap (Erc20 Token) LP Vol L1,"Made trades on Uniswap, and has $100-$1,000 in number of (Erc20 Token) LP volume traded."
+Uniswap (Erc20 Token) Million LP Trader,"Made trades on Uniswap, and has at least 1 million in number of (Erc20 Token) LP volume traded."
+Uniswap (Erc20 Token) Billion Swap Trader,"Made trades on Uniswap, and has at least 1 Billion in number of (Erc20 Token) LP volume traded."
+Uniswap (Erc20 Token) Medium LP Trader,"Made trades on Uniswap, and is in the top 10% in number of (Erc20 Token) LP volume traded."
+Uniswap (Erc20 Token) Heavy LP Trader,"Made trades on Uniswap, and is in the top 2.5% in number of (Erc20 Token) LP volume traded."
+Uniswap (Erc20 Token) Elite LP Trader,"Made trades on Uniswap, and is in the top 1% in number of (Erc20 Token) LP volume traded."
+Uniswap (Erc20 Token) Legendary LP Trader,"Made trades on Uniswap, and is in the top 0.1% in number of (Erc20 Token) LP volume traded."
+Balancer (Erc20 Token) Vol L1,"Made trades on Balancer, and has $100-$1,000 in number of (Erc20 Token) volume traded."
+Balancer (Erc20 Token) Million Trader,"Made trades on Balancer, and has at least 1 million in number of (Erc20 Token) volume traded."
+Balancer (Erc20 Token) Billion Trader,"Made trades on Balancer, and has at least 1 Billion in number of (Erc20 Token) volume traded."
+Balancer (Erc20 Token) Medium Trader,"Made trades on Balancer, and is in the top 10% in number of (Erc20 Token) volume traded."
+Balancer (Erc20 Token) Heavy Trader,"Made trades on Balancer, and is in the top 2.5% in number of (Erc20 Token) volume traded."
+Balancer (Erc20 Token) Elite Trader,"Made trades on Balancer, and is in the top 1% in number of (Erc20 Token) volume traded."
+Balancer (Erc20 Token) Legendary Trader,"Made trades on Balancer, and is in the top 0.1% in number of (Erc20 Token) volume traded."
+Balancer (Erc20 Token) Vol L1,"Made trades on Balancer, and has $100-$1,000 in number of (Erc20 Token) volume traded."
+Balancer (Erc20 Token) Million Trader,"Made trades on Balancer, and has at least 1 million in number of (Erc20 Token) volume traded."
+Balancer (Erc20 Token) Billion Trader,"Made trades on Balancer, and has at least 1 Billion in number of (Erc20 Token) volume traded."
+Balancer (Erc20 Token) Medium Trader,"Made trades on Balancer, and is in the top 10% in number of (Erc20 Token) volume traded."
+Balancer (Erc20 Token) Heavy Trader,"Made trades on Balancer, and is in the top 2.5% in number of (Erc20 Token) volume traded."
+Balancer (Erc20 Token) Elite Trader,"Made trades on Balancer, and is in the top 1% in number of (Erc20 Token) volume traded."
+Balancer (Erc20 Token) Legendary Trader,"Made trades on Balancer, and is in the top 0.1% in number of (Erc20 Token) volume traded."
+Balancer (Erc20 Token) Swap Vol L1,"Made trades on Balancer, and has $100-$1,000 in number of (Erc20 Token) swap volume traded."
+Balancer (Erc20 Token) Million Swap Trader,"Made trades on Balancer, and has at least 1 million in number of (Erc20 Token) swap volume traded."
+Balancer (Erc20 Token) Billion Swap Trader,"Made trades on Balancer, and has at least 1 Billion in number of (Erc20 Token) swap volume traded."
+Balancer (Erc20 Token) Medium Swap Trader,"Made trades on Balancer, and is in the top 10% in number of (Erc20 Token) swap volume traded."
+Balancer (Erc20 Token) Heavy Swap Trader,"Made trades on Balancer, and is in the top 2.5% in number of (Erc20 Token) swap volume traded."
+Balancer (Erc20 Token) Elite Swap Trader,"Made trades on Balancer, and is in the top 1% in number of (Erc20 Token) swap volume traded."
+Balancer (Erc20 Token) Legendary Swap Trader,"Made trades on Balancer, and is in the top 0.1% in number of (Erc20 Token) swap volume traded."
+Balancer (Erc20 Token)  LP Vol L1,"Made trades on Balancer, and has $100-$1,000 in number of (Erc20 Token) LP volume traded."
+Balancer (Erc20 Token) Million LP Trader,"Made trades on Balancer, and has at least 1 million in number of (Erc20 Token) LP volume traded."
+Balancer (Erc20 Token) Billion LP Trader,"Made trades on Balancer, and has at least 1 Billion in number of (Erc20 Token) LP volume traded."
+Balancer (Erc20 Token)  Medium LP Trader,"Made trades on Balancer, and is in the top 10% in number of (Erc20 Token) LP volume traded."
+Balancer (Erc20 Token)  Heavy LP Trader,"Made trades on Balancer, and is in the top 2.5% in number of (Erc20 Token) LP volume traded."
+Balancer (Erc20 Token)  Elite LP Trader,"Made trades on Balancer, and is in the top 1% in number of (Erc20 Token) LP volume traded."
+Balancer (Erc20 Token)  Legendary LP Trader,"Made trades on Balancer, and is in the top 0.1% in number of (Erc20 Token) LP volume traded."
+Balancer (Erc20 Token) StakeLP Vol L1,"Made trades on Balancer, and is $100-$1,000 in number of (Erc20 Token) StakeLP volume traded."
+Balancer (Erc20 Token)  Medium Stak LP Trader,"Made trades on Balancer, and is in the top 10% in number of (Erc20 Token) StakeLP volume traded."
+Balancer (Erc20 Token)  Heavy StakeLP Trader,"Made trades on Balancer, and is in the top 2.5% in number of (Erc20 Token) StakeLP volume traded."
+Balancer (Erc20 Token)  Elite StakeLP Trader,"Made trades on Balancer, and is in the top 1% in number of (Erc20 Token) StakeLP volume traded."
+Balancer (Erc20 Token)  Legendary StakeLP Trader,"Made trades on Balancer, and is in the top 0.1% in number of (Erc20 Token) StakeLP volume traded."
+Sushiswap (Erc20 Token) Vol L1,"Made trades on Sushhaswap, and has $100-$1,000 in number of (Erc20 Token) volume traded."
+Sushiswap (Erc20 Token) Million Trader,"Made trades on Sushhaswap, and has at least 1 million in number of (Erc20 Token) volume traded."
+Sushiswap (Erc20 Token) Billion Trader,"Made trades on Sushhaswap, and has at least 1 Billion in number of (Erc20 Token) volume traded."
+Sushiswap (Erc20 Token) Medium Trader,"Made trades on Sushiswap, and is in the top 10% in number of (Erc20 Token) volume traded."
+Sushiswap (Erc20 Token) Heavy Trader,"Made trades on Sushiswap, and is in the top 2.5% in number of (Erc20 Token) volume traded."
+Sushiswap (Erc20 Token) Elite Trader,"Made trades on Sushiswap, and is in the top 1% in number of (Erc20 Token) volume traded."
+Sushiswap (Erc20 Token)  Legendary Trader,"Made trades on Sushiswap, and is in the top 0.1% in number of (Erc20 Token) volume traded."
+Sushiswap (Erc20 Token) Vol L1,"Made trades on Sushhaswap, and has $100-$1,000 in number of (Erc20 Token) volume traded."
+Sushiswap (Erc20 Token) Million Trader,"Made trades on Sushhaswap, and has at least 1 million in number of (Erc20 Token) volume traded."
+Sushiswap (Erc20 Token) Billion Trader,"Made trades on Sushhaswap, and has at least 1 Billion in number of (Erc20 Token) volume traded."
+Sushiswap (Erc20 Token) Medium Trader,"Made trades on Sushiswap, and is in the top 10% in number of (Erc20 Token) volume traded."
+Sushiswap (Erc20 Token) Heavy Trader,"Made trades on Sushiswap, and is in the top 2.5% in number of (Erc20 Token) volume traded."
+Sushiswap (Erc20 Token) Elite Trader,"Made trades on Sushiswap, and is in the top 1% in number of (Erc20 Token) volume traded."
+Sushiswap (Erc20 Token)  Legendary Trader,"Made trades on Sushiswap, and is in the top 0.1% in number of (Erc20 Token) volume traded."
+Sushiswap (Erc20 Token) Swap Vol L1,"Made trades on Sushhaswap, and has $100-$1,000 in number of (Erc20 Token) swap volume traded."
+Sushiswap (Erc20 Token) Million Swap Trader,"Made trades on Sushhaswap, and has at least 1 million in number of (Erc20 Token) swap volume traded."
+Sushiswap (Erc20 Token) Billion Swap Trader,"Made trades on Sushhaswap, and has at least 1 Billion in number of (Erc20 Token) swap volume traded."
+Sushiswap (Erc20 Token) Medium Swap Trader,"Made trades on Sushiswap, and is in the top10% in number of (Erc20 Token) swap volume traded."
+Sushiswap (Erc20 Token) Heavy Swap Trader,"Made trades on Sushiswap, and is in the top 2.5% in number of (Erc20 Token) swap volume traded."
+Sushiswap (Erc20 Token) Elite Swap Trader,"Made trades on Sushiswap, and is in the top 1% in number of (Erc20 Token) swap volume traded."
+Sushiswap (Erc20 Token) Legendary Swap Trader,"Made trades on Sushiswap, and is in the top 0.1% in number of (Erc20 Token) swap volume traded."
+Sushiswap (Erc20 Token) LP Vol L1,"Made trades on Sushhaswap, and has $100-$1,000 in number of (Erc20 Token) LP volume traded."
+Sushiswap (Erc20 Token) Million LP Trader,"Made trades on Sushhaswap, and has at least 1 million in number of (Erc20 Token) LP volume traded."
+Sushiswap (Erc20 Token) Billion LP Trader,"Made trades on Sushhaswap, and has at least 1 Billion in number of (Erc20 Token) LP volume traded."
+Sushiswap (Erc20 Token) Medium LP Trader,"Made trades on Sushiswap, and is in the top 10% in number of (Erc20 Token) LP volume traded."
+Sushiswap (Erc20 Token) Heavy LP Trader,"Made trades on Sushiswap, and is in the top 2.5% in number of (Erc20 Token) LP volume traded."
+Sushiswap (Erc20 Token) Elite LP Trader,"Made trades on Sushiswap, and is in the top 1% in number of (Erc20 Token) LP volume traded."
+Sushiswap (Erc20 Token) Legendary LP Trader,"Made trades on Sushiswap, and is in the top 0.1% in number of (Erc20 Token) LP volume traded."
+Sushiswap (Erc20 Token)  StakeLP Vol L1,"Made trades on Sushiswap, and is $100-$1,000 in number of (Erc20 Token) StakeLP volume traded."
+Sushiswap (Erc20 Token)  Medium StakeLP Trader,"Made trades on Sushiswap, and is in the top 10% in number of (Erc20 Token) StakeLP volume traded."
+Sushiswap (Erc20 Token)  Heavy StakeLP Trader,"Made trades on Sushiswap, and is in the top 2.5% in number of (Erc20 Token) StakeLP volume traded."
+Sushiswap (Erc20 Token)  Elite StakeLP Trader,"Made trades on Sushiswap, and is in the top 1% in number of (Erc20 Token) StakeLP volume traded."
+Sushiswap (Erc20 Token)  Legendary StakeLP Trader,"Made trades on Sushiswap, and is in the top 0.1% in number of (Erc20 Token) StakeLP volume traded."
+0x (Erc20 Token) Vol L1,"Made trades on 0x, and has $100-$1,000 in number of (Erc20 Token) volume traded."
+0x (Erc20 Token) Million Trader,"Made trades on 0x, and has at least 1 million in number of (Erc20 Token) volume traded."
+0x (Erc20 Token) Billion Trader,"Made trades on 0x, and has at least 1 Billion in number of (Erc20 Token) volume traded."
+0x (Erc20 Token) Medium Trader,"Made trades on 0x, and is in the top 10% in number of (Erc20 Token) volume traded."
+0x (Erc20 Token) Heavy Trader,"Made trades on 0x, and is in the top 2.5% in number of (Erc20 Token) volume traded."
+0x (Erc20 Token) Elite Trader,"Made trades on 0x, and is in the top 1% in number of (Erc20 Token) volume traded."
+0x (Erc20 Token) Legendary Trader,"Made trades on 0x, and is in the top 0.1% in number of (Erc20 Token) volume traded."
+0x (Erc20 Token) Vol L1,"Made trades on 0x, and has $100-$1,000 in number of (Erc20 Token) volume traded."
+0x (Erc20 Token) Million Trader,"Made trades on 0x, and has at least 1 million in number of (Erc20 Token) volume traded."
+0x (Erc20 Token) Billion Trader,"Made trades on 0x, and has at least 1 Billion in number of (Erc20 Token) volume traded."
+0x (Erc20 Token) Medium Trader,"Made trades on 0x, and is in the top 10% in number of (Erc20 Token) volume traded."
+0x (Erc20 Token) Heavy Trader,"Made trades on 0x, and is in the top 2.5% in number of (Erc20 Token) volume traded."
+0x (Erc20 Token) Elite Trader,"Made trades on 0x, and is in the top 1% in number of (Erc20 Token) volume traded."
+0x (Erc20 Token) Legendary Trader,"Made trades on 0x, and is in the top 0.1% in number of (Erc20 Token) volume traded."
+0x (Erc20 Token) Swap Vol L1,"Made trades on 0x, and has $100-$1,000 in number of (Erc20 Token) swap volume traded."
+0x (Erc20 Token) Million Swap Trader,"Made trades on 0x, and has at least 1 million in number of (Erc20 Token) swap volume traded."
+0x (Erc20 Token) Billion Swap Trader,"Made trades on 0x, and has at least 1 Billion in number of (Erc20 Token) swap volume traded."
+0x (Erc20 Token) Medium Swap Trader,"Made trades on 0x, and is in the top 10% in number of (Erc20 Token) swap volume traded."
+0x (Erc20 Token) Heavy Swap Trader,"Made trades on 0x, and is in the top 2.5% in number of (Erc20 Token) swap volume traded."
+0x (Erc20 Token) Elite Swap Trader,"Made trades on 0x, and is in the top 1% in number of (Erc20 Token) swap volume traded."
+0x (Erc20 Token) Legendary Swap Trader,"Made trades on 0x, and is in the top 0.1% in number of (Erc20 Token) swap volume traded."
+(Erc20 Token) Activity L1,"An account with an (Erc20 Token) activity count of 0-10, where an activity is defined by outgoing transactions or transactions that contain outgoing token transfers related to the account."
+(Erc20 Token) Highest Activity,"An account with an (Erc20 Token) activity count of at least 619, where an activity is defined by outgoing transactions or transactions that contain outgoing token transfers related to the account."
+(Erc20 Token) High Activity,"An account with an (Erc20 Token) activity count between 400 to 619, where an activity is defined by outgoing transactions or transactions that contain outgoing token transfers related to the account."
+(Erc20 Token) Medium Activity,"An account with an (Erc20 Token) activity count between 200 to 400, where an activity is defined by outgoing transactions or transactions that contain outgoing token transfers related to the account."
+(Erc20 Token) DEX Activity L1,"An account with an (Erc20 Token) activity count of 0-10 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+(Erc20 Token) Highest DEX Activity,"An account with an (Erc20 Token) activity count of at least 619 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+(Erc20 Token) High DEX Activity,"An account with an (Erc20 Token) activity count between 400 to 619 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+(Erc20 Token) Medium DEX Activity,"An account with an (Erc20 Token) activity count between 200 to 400 on all platforms, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+(Erc20 Token) DEX Activity L1,"An account with an (Erc20 Token) activity count of 0-10 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+(Erc20 Token) Highest DEX Activity,"An account with an (Erc20 Token) activity count of at least 619 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+(Erc20 Token) High DEX Activity,"An account with an (Erc20 Token) activity count between 400 to 619 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+(Erc20 Token) Medium DEX Activity,"An account with an (Erc20 Token) activity count between 200 to 400 on all platforms, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+(Erc20 Token) DEX Activity L1,"An account with an (Erc20 Token) activity count of 0-10 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+(Erc20 Token) Highest DEX Activity,"An account with an (Erc20 Token) activity count of at least 619 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+(Erc20 Token) High DEX Activity,"An account with an (Erc20 Token) activity count between 400 to 619 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+(Erc20 Token) Medium DEX Activity,"An account with an (Erc20 Token) activity count between 200 to 400 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+(Erc20 Token) Swap Activity L1,"An account with an (Erc20 Token) Swap activity count of 0-10 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+(Erc20 Token) Highest  Swap Activity,"An account with an (Erc20 Token) Swap activity count of at least 619 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+(Erc20 Token) High Swap Activity,"An account with an (Erc20 Token) Swap activity count between 400 to 619 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+(Erc20 Token) Medium Swap Activity,"An account with an (Erc20 Token) Swap activity count between 200 to 400 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+(Erc20 Token) LP Activity L1,"An account with an (Erc20 Token) LP activity count of 0-10 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+(Erc20 Token) Highest LP Activity,"An account with an (Erc20 Token) LP activity count of at least 619 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+(Erc20 Token) High LP Activity,"An account with an (Erc20 Token) LP activity count between 400 to 619 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+(Erc20 Token) Medium LP Activity,"An account with an (Erc20 Token) LP activity count between 200 to 400 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+(Erc20 Token) StakeLP Activity L1,"An account with an (Erc20 Token) StakeLP activity count of 0-10 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+(Erc20 Token) Highest StakeLP Activity,"An account with an (Erc20 Token) StakeLP activity count of at least 619 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+(Erc20 Token) High StakeLP Activity,"An account with an (Erc20 Token) StakeLP activity count between 400 to 619 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+(Erc20 Token) Medium StakeLP Activity,"An account with an (Erc20 Token) StakeLP activity count between 200 to 400 on all Decentralized Exchanges, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+Uniswap (Erc20 Token)  Activity L1,"An account with an (Erc20 Token) activity count of 0-10 on Uniswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+Uniswap (Erc20 Token)  Highest Activity,"An account with an (Erc20 Token) activity count of at least 619 on Uniswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+Uniswap (Erc20 Token)  High Activity,"An account with an (Erc20 Token) activity count between 400 to 619 on Uniswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+Uniswap (Erc20 Token)  Medium Activity,"An account with an (Erc20 Token) activity count between 200 to 400 on Uniswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+Uniswap (Erc20 Token)  Activity L1,"An account with an (Erc20 Token) activity count of 0-10 on Uniswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+Uniswap (Erc20 Token)  Highest Activity,"An account with an (Erc20 Token) activity count of at least 619 on Uniswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+Uniswap (Erc20 Token)  High Activity,"An account with an (Erc20 Token) activity count between 400 to 619 on Uniswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+Uniswap (Erc20 Token)  Medium Activity,"An account with an (Erc20 Token) activity count between 200 to 400 on Uniswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+Uniswap (Erc20 Token)  Swap Activity L1,"An account with an (Erc20 Token) swap activity count of 0-10 on Uniswap, where an activity is defined by transactions that contain incoming or outgoing token transfers related to the account."
+Uniswap (Erc20 Token)  Highest Swap Activity,"An account with an (Erc20 Token) swap activity count of at least 619 on Uniswap, where an activity is defined by transactions that contain incoming or outgoing token transfers related to the account."
+Uniswap (Erc20 Token)  High Swap Activity,"An account with an (Erc20 Token) swap activity count between 400 to 619 on Uniswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+Uniswap (Erc20 Token)  Medium Swap Activity,"An account with an (Erc20 Token) swap activity count between 200 to 400 on Uniswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account"
+Uniswap (Erc20 Token)  LP Activity L1,"An account with an (Erc20 Token) LP activity count of 0-10 on Uniswap, where an activity is defined by transactions that contain incoming or outgoing token transfers related to the account."
+Uniswap (Erc20 Token)  Highest LP Activity,"An account with an (Erc20 Token) LP activity count of at least 619 on Uniswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+Uniswap (Erc20 Token)  High LP Activity,"An account with an (Erc20 Token) LP activity count between 400 to 619 on Uniswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account"
+Uniswap (Erc20 Token)  Medium LP Activity,"An account with an (Erc20 Token) LP activity count between 200 to 400 on Uniswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account"
+Balancer (Erc20 Token) Activity L1,"An account with an (Erc20 Token) activity count of 0-10 on Balancer, where an activity is defined by transactions that contain incoming or outgoing token transfers related to the account."
+Balancer (Erc20 Token) Highest Activity,"An account with an (Erc20 Token) activity count of at least 619 on Balancer, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+Balancer (Erc20 Token) High Activity,"An account with an (Erc20 Token) activity count between 400 to 619 on Balancer, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account"
+Balancer (Erc20 Token) Medium Activity,"An account with an (Erc20 Token) activity count between 200 to 400 on Balancer, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account"
+Uniswap (Erc20 Token) Activity L1,"An account with an (Erc20 Token) activity count of 0-10 on Balancer, where an activity is defined by transactions that contain incoming or outgoing token transfers related to the account."
+Balancer (Erc20 Token) Highest Activity,"An account with an (Erc20 Token) activity count of at least 619 on Balancer, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+Balancer (Erc20 Token) High Activity,"An account with an (Erc20 Token) activity count between 400 to 619 on Balancer, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account"
+Balancer (Erc20 Token) Medium Activity,"An account with an (Erc20 Token) activity count between 200 to 400 on Balancer, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account"
+Balancer (Erc20 Token) Swap Activity L1,"An account with an (Erc20 Token) swap activity count of 0-10 on Balancer, where an activity is defined by transactions that contain incoming or outgoing token transfers related to the account."
+Balancer (Erc20 Token) Highest Swap Activity,"An account with an (Erc20 Token) swap activity count of at least 619 on Balancer, where an activity is defined by transactions that contain incoming or outgoing token transfers related to the account."
+Balancer (Erc20 Token) High Swap Activity,"An account with an (Erc20 Token) swap activity count between 400 to 619 on Balancer, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+Balancer (Erc20 Token) Medium Swap Activity,"An account with an (Erc20 Token) swap activity count between 200 to 400 on Balancer, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account"
+Balancer (Erc20 Token) LP Activity L1,"An account with an (Erc20 Token) LP activity count of 0-10 on Balancer, where an activity is defined by transactions that contain incoming or outgoing token transfers related to the account."
+Balancer (Erc20 Token) Highest LP Activity,"An account with an (Erc20 Token) LP activity count of at least 619 on Balancer, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+Balancer (Erc20 Token) High LP Activity,"An account with an (Erc20 Token) LP activity count between 400 to 619 on Balancer, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account"
+Balancer (Erc20 Token) Medium LP Activity,"An account with an (Erc20 Token) LP activity count between 200 to 400 on Balancer, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account"
+Balancer (Erc20 Token) StakeLP Activity L1,"An account with an (Erc20 Token) StakeLP activity count of 0-10 on Balancer, where an activity is defined by transactions that contain incoming or outgoing token transfers related to the account."
+Balancer (Erc20 Token) Highest StakeLP Activity,"An account with an (Erc20 Token) StakeLP activity count of at least 619 on Balancer, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+Balancer (Erc20 Token) High StakeLP Activity,"An account with an (Erc20 Token) StakeLP activity count between 400 to 619 on Balancer, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account"
+Balancer (Erc20 Token) Medium StakeLP Activity,"An account with an (Erc20 Token) StakeLP activity count between 200 to 400 on Balancer, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account"
+Sushiswap (Erc20 Token) Activity L1,"An account with an (Erc20 Token) activity count of 0-10 on Sushiswap, where an activity is defined by transactions that contain incoming or outgoing token transfers related to the account."
+Sushiswap (Erc20 Token) Highest Activity,"An account with an (Erc20 Token) activity count of at least 619 on Sushiswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+Sushiswap (Erc20 Token) High Activity,"An account with an (Erc20 Token) activity count between 400 to 619 on Sushiswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account"
+Uniswap (Erc20 Token) Medium Activity,"An account with an (Erc20 Token) activity count between 200 to 400 on Sushiswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account"
+Sushiswap (Erc20 Token) Activity L1,"An account with an (Erc20 Token) activity count of 0-10 on Sushiswap, where an activity is defined by transactions that contain incoming or outgoing token transfers related to the account."
+Sushiswap (Erc20 Token) Highest Activity,"An account with an (Erc20 Token) activity count of at least 619 on Sushiswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+Sushiswap (Erc20 Token) High Activity,"An account with an (Erc20 Token) activity count between 400 to 619 on Sushiswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account"
+Uniswap (Erc20 Token) Medium Activity,"An account with an (Erc20 Token) activity count between 200 to 400 on Sushiswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account"
+Sushiswap (Erc20 Token)  Swap Activity L1,"An account with an (Erc20 Token) swap activity count of 0-10 on Sushiswap, where an activity is defined by transactions that contain incoming or outgoing token transfers related to the account."
+Sushiswap (Erc20 Token)  Highest Swap Activity,"An account with an (Erc20 Token) swap activity count of at least 619 on Sushiswap, where an activity is defined by transactions that contain incoming or outgoing token transfers related to the account."
+Sushiswap (Erc20 Token)  High Swap Activity,"An account with an (Erc20 Token) swap activity count between 400 to 619 on Sushiswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+Sushiswap (Erc20 Token)  Medium Swap Activity,"An account with an (Erc20 Token) swap activity count between 200 to 400 on Sushiswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account"
+Sushiswap (Erc20 Token)  LP Activity L1,"An account with an (Erc20 Token) LP activity count of 0-10 on Sushiswap, where an activity is defined by transactions that contain incoming or outgoing token transfers related to the account."
+Sushiswap (Erc20 Token)  Highest LP Activity,"An account with an (Erc20 Token) LP activity count of at least 619 on Sushiswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+Sushiswap (Erc20 Token)  High LP Activity,"An account with an (Erc20 Token) LP activity count between 400 to 619 on Sushiswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account"
+Sushiswap (Erc20 Token)  Medium LP Activity,"An account with an (Erc20 Token) LP activity count between 200 to 400 on Sushiswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account"
+Sushiswap (Erc20 Token)  StakeLP Activity L1,"An account with an (Erc20 Token) StakeLP activity count of 0-10 on Sushiswap, where an activity is defined by transactions that contain incoming or outgoing token transfers related to the account."
+Sushiswap (Erc20 Token)  Highest StakeLP Activity,"An account with an (Erc20 Token) StakeLP activity count of at least 619 on Sushiswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+Sushiswap (Erc20 Token)  High StakeLP Activity,"An account with an (Erc20 Token) StakeLP activity count between 400 to 619 on Sushiswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account"
+Sushiswap (Erc20 Token)  Medium StakeLP Activity,"An account with an (Erc20 Token) StakeLP activity count between 200 to 400 on Sushiswap, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account"
+(Erc20 Token) 0x Activity L1,"An account with an (Erc20 Token) activity count of 0-10 on 0x, where an activity is defined by transactions that contain incoming or outgoing token transfers related to the account."
+(Erc20 Token) 0x Highest Activity,"An account with an (Erc20 Token) activity count of at least 619 on 0x, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+(Erc20 Token) 0x High Activity,"An account with an (Erc20 Token) activity count between 400 to 619 on 0x, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account"
+(Erc20 Token) 0x Medium Activity,"An account with an (Erc20 Token) activity count between 200 to 400 on 0x, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account"
+(Erc20 Token) 0x Activity L1,"An account with an (Erc20 Token) activity count of 0-10 on 0x, where an activity is defined by transactions that contain incoming or outgoing token transfers related to the account."
+(Erc20 Token) 0x Highest Activity,"An account with an (Erc20 Token) activity count of at least 619 on 0x, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+(Erc20 Token) 0x High Activity,"An account with an (Erc20 Token) activity count between 400 to 619 on 0x, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account"
+(Erc20 Token) 0x Medium Activity,"An account with an (Erc20 Token) activity count between 200 to 400 on 0x, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account"
+(Erc20 Token) 0x Swap Activity L1,"An account with an (Erc20 Token) swap activity count of 0-10 on 0x, where an activity is defined by transactions that contain incoming or outgoing token transfers related to the account."
+(Erc20 Token) 0x Highest Swap Activity,"An account with an (Erc20 Token) swap activity count of at least 619 on 0x, where an activity is defined by transactions that contain incoming or outgoing token transfers related to the account."
+(Erc20 Token) 0x High Swap Activity,"An account with an (Erc20 Token) swap activity count between 400 to 619 on 0x, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account."
+(Erc20 Token) 0x Medium Swap Activity,"An account with an (Erc20 Token) swap activity count between 200 to 400 on 0x, where an activity is defined by outgoing transactions or transactions that contain incoming or outgoing token transfers related to the account"
+NFT L1 Collector,Has an NFT count of 1.
+NFT L6 Collector,Has an NFT count of over 100.
+NFT Uncommon Collector,"Collected NFTs, and is in the top 10% in number of NFT collected. "
+NFT Rare Collector,"Collected NFTs, and is in the top 2.5% in number of NFT collected."
+NFT Epic Collector,"Collected NFTs, and is in the top 1% in number of NFT collected."
+NFT Legendary Collector,"Collected NFTs, and is in the top 0.1% in number of NFT collected."
+NFT Whale,"Collected NFTs, and is in the top 100 in number of NFT collected.  "
+NFT Vol L1 Trader,Has an NFT volume count of 1-2.
+NFT Vol L6 Trader,Has an NFT volume count of over 200.
+NFT Uncommon Trader,"Traded NFTs, and is in the top 10% in volume of NFT traded. "
+NFT Rare Trader,"Traded NFTs, and is in the top 2.5% in volume of NFT traded."
+NFT Epic Trader,"Traded NFTs, and is in the top 1% in volume of NFT traded. "
+NFT Legendary Trader,"Traded NFTs, and is in the top 0.1% in volume of NFT traded. "
+NFT Top Trader,"Traded NFTs, and is in the top 100 in volume of NFT traded. "
+NFT Elite Trader ,"Traded NFTs, and is in the top 1% in both the activity and volume of NFT traded. "
+NFT Activity L1 ,An account with an NFT activity count of 0-10.
+NFT Highest Activity,An account with an NFT activity count of at least 619.
+NFT High Activity,An account with an NFT activity count between 400 to 619.
+NFT Medium Activity,An account with an NFT activity count between 200 to 400.
+NFT Vol L1 Buyer,Has an NFT buying Volume count of 1-2 .
+NFT Vol L6 Buyer,Has an NFT buying Volume count of over 200.
+NFT Uncommon Buyer,"Bought NFTs, and is in the top 10% in volume of buying NFT."
+NFT Rare Buyer,"Bought NFTs, and is in the top 2.5%  in volume of buying NFT."
+NFT Epic Buyer,"Bought NFTs, and is in the top 1%  in volume of buying NFT."
+NFT Legendary Buyer,"Bought NFTs, and is in the top 0.1% in volume of buying NFT."
+NFT Top Buyer,"Bought NFTs, and is in the top 100 in volume of buying NFT."
+NFT Elite Buyer ,"Bought NFTs, and is in the top 1% in both the number and volume of buying NFT."
+NFT Activity L1 Buyer,An account with an NFT buying activity count of 0-10.
+NFT Highest Activity Buyer,An account with an NFT buying activity count of at least 619.
+NFT High Activity Buyer,An account with an NFT buying activity count between 400 to 619.
+NFT Medium Activity Buyer,An account with an NFT buying activity count between 200 to 400.
+NFT Vol L1 Seller,Has an NFT sale Volume count of 1-2 .
+NFT Vol L6 Seller,Has an NFT sale Volume count of over 200.
+NFT Uncommon Seller,"Sold NFTs, and is in the top 10% in volume of NFT sale."
+NFT Rare Seller,"Sold NFTs, and is in the top 2.5% in volume of NFT sale."
+NFT Epic Seller,"Sold NFTs, and is in the top 1% in volume of NFT sale."
+NFT Legendary Seller,"Sold NFTs, and is in the top 0.1% in volume of NFT sale."
+NFT Top Seller,"Sold NFTs, and is in the top 100 in volume of NFT sale."
+NFT Elite Seller ,"Sold NFTs, and is in the top 1% in both the activity and volume of NFT sale."
+NFT Activity L1 Seller,An account with an NFT sale activity count of 0-10.
+NFT Highest Activity Seller,An account with an NFT sale activity count of at least 619.
+NFT High Activity Seller,An account with an NFT sale activity count between 400 to 619.
+NFT Medium Activity Seller,An account with an NFT sale activity count between 200 to 400.
+NFT Vol L1 Minter,Has an NFT minting Volume count of 1-2.
+NFT Vol L6 Minter,Has an NFT minting Volume count of over 200.
+NFT Uncommon Minter,"Minted NFTs, and is in the top 10% in volume of NFT minted."
+NFT Rare Minter,"Minted NFTs, and is in the top 2.5% in volume of NFT minted."
+NFT Epic Minter,"Minted NFTs, and is in the top 1% in volume of NFT minted."
+NFT Legendary Minter,"Minted NFTs, and is in the top 0.1% in volume of NFT minted."
+NFT Top Minter,"Minted NFTs, and is in the top 100 in volume of NFT minted."
+NFT Elite Minter,"Minted NFTs, and is in the top 1% in both the activity and volume of NFT minted."
+NFT Activity L1 Minter,An account with an NFT minting activity count of 0-10.
+NFT Highest Activity Minter,An account with an NFT minting activity count of at least 619.
+NFT High Activity Minter,An account with an NFT minting activity count between 400 to 619.
+NFT Medium Activity Minter,An account with an NFT minting activity count between 200 to 400.
+NFT Vol L1 Burner,Has an NFT burning Volume count of 1-2.
+NFT Vol L6 Burner,Has an NFT buring Volume count of over 200.
+NF Uncommon Burner,"Burned NFTs, and is in the top 10% in volume of NFT burned."
+NFT Rare Burner,"Burned NFTs, and is in the top 2.5% in volume of NFT burned."
+NFT Epic Burner,"Burned NFTs, and is in the top 1% in volume of NFT burned."
+NFT Legendary Burner,"Burned NFTs, and is in the top 0.1% in volume of NFT burned."
+NFT Top Burner,"Burned NFTs, and is in the top 100 in volume of NFT burned."
+NFT Elite Burner,"Burned NFTs, and is in the top 1% in both the activity and volume of NFT burned."
+NFT Activity L1 Burner,An account with an NFT burning activity count of 0-10.
+NFT Highest Activity Burner,An account with an NFT burning activity count of at least 619.
+NFT High Activity Burner,An account with an NFT burning activity count between 400 to 619.
+NFT Medium Activity Burner,An account with an NFT burning activity count between 200 to 400.
+NFT Vol L1 Transferrer,Has an NFT transfer Volume count of 1-2.
+NFT Vol L6 Transferrer,Has an NFT transfer Volume count of over 200.
+NFT Uncommon Transferrer,"Transferred NFTs, and is in the top 10% in volume of NFT Transfer."
+NFT Rare Transferrer,"Transferred NFTs, and is in the top 2.5% in volume of NFT Transfer."
+NFT Epic Transferrer,"Transferred NFTs, and is in the top 1% in volume of NFT Transfer."
+NFT Legendary Transferrer,"Transferred NFTs, and is in the top 0.1% in volume of NFT Transfer."
+NFT Top Transferrer,"Transferred NFTs, and is in the top 100 in volume of NFT Transfer."
+NFT Elite Transferrer,"Transferred NFTs, and is in the top 1% in both the activity and volume of NFT Transfer."
+NFT Activity L1 Transferrer,An account with an NFT transfer activity count of 0-10.
+NFT Highest Activity Transferrer,An account with an NFT transfer activity count of at least 619.
+NFT High Activity Transferrer,An account with an NFT transfer activity count between 400 to 619.
+NFT Medium Activity Transferrer,An account with an NFT transfer activity count between 200 to 400.
+MP NFT Vol L1 Buyer,Has an NFT buying Volume count of $100-$1000 on all Marketplaces .
+MP NFT Vol L6 Buyer,"Has an NFT buying Volume count of over $500,000 on all Marketplaces."
+MP NFT Uncommon Buyer,"Bought NFTs, and is in the top 10% in volume of buying NFT on all Marketplaces."
+MP NFT Rare Buyer,"Bought NFTs, and is in the top 2.5%  in volume of buying NFT on all Marketplaces."
+MP NFT Epic Buyer,"Bought NFTs, and is in the top 1%  in volume of buying NFT on all Marketplaces."
+MP NFT Legendary Buyer,"Bought NFTs, and is in the top 0.1% in volume of buying NFT on all Marketplaces."
+MP NFT Top Buyer,"Bought NFTs, and is in the top 100 in volume of buying NFT on all Marketplaces."
+MP NFT Elite Buyer ,"Bought NFTs, and is in the top 1% in both the number and volume of buying NFT on all Marketplaces."
+MP NFT Activity L1 Buyer,An account with an NFT buying activity count of 0-10 on all Marketplaces.
+MP NFT Highest Activity Buyer,An account with an NFT buying activity count of at least 619 on all Marketplaces.
+MP NFT High Activity Buyer,An account with an NFT buying activity count between 400 to 619 on all Marketplaces.
+MP NFT Medium Activity Buyer,An account with an NFT buying activity count between 200 to 400 on all Marketplaces.
+MP NFT Vol L1 Seller,Has an NFT Sale Volume count of $100-$1000 on all Marketplaces .
+MP NFT Vol L6 Seller,"Has an NFT Sale Volume count of over $500,000 on all Marketplaces."
+MP NFT Uncommon Seller,"Sold NFTs, and is in the top 10% in volume of NFT sale on all Marketplaces."
+MP NFT Rare Seller,"Sold NFTs, and is in the top 2.5% in volume of NFT sale on all Marketplaces."
+MP NFT Epic Seller,"Sold NFTs, and is in the top 1% in volume of NFT sale on all Marketplaces."
+MP NFT Legendary Seller,"Sold NFTs, and is in the top 0.1% in volume of NFT sale on all Marketplaces."
+MP NFT Top Seller,"Sold NFTs, and is in the top 100 in volume of NFT sale on all Marketplaces."
+MP NFT Elite Seller ,"Sold NFTs, and is in the top 1% in both the activity and volume of NFT sale on all Marketplaces."
+MP NFT Activity L1 Seller,An account with an NFT sale activity count of 0-10 on all Marketplaces.
+MP NFT Highest Activity Seller,An account with an NFT sale activity count of at least 619 on all Marketplaces.
+MP NFT High Activity Seller,An account with an NFT sale activity count between 400 to 619 on all Marketplaces.
+MP NFT Medium Activity Seller,An account with an NFT sale activity count between 200 to 400 on all Marketplaces.
+MP CryptoPunks Vol L1 Trader,Has an NFT Traded Volume count of $100-$1000 on all Marketplaces .
+MP NFT Vol L6 Trader,"Has an NFT Traded Volume count of over $500,000 on all Marketplaces."
+MP NFT Uncommon Trader,"Traded NFTs, and is in the top 10% in volume of Cryptopunk NFT sale on all Marketplaces."
+MP NFT Rare Trader,"Traded NFTs, and is in the top 2.5% in volume of Cryptopunk NFT sale on all Marketplaces."
+MP NFT Epic Trader,"Traded NFTs, and is in the top 1% in volume of Cryptopunk NFT sale on all Marketplaces."
+MP NFT Legendary Seller,"Traded NFTs, and is in the top 0.1% in volume of NFT sale on all Marketplaces."
+MP NFT Top Trader,"Traded NFTs, and is in the top 100 in volume of NFT sale on all Marketplaces."
+MP NFT Elite Trader ,"Traded NFTs, and is in the top 1% in both the activity and volume of NFT sale on all Marketplaces."
+MP NFT Activity L1 Trader,An account with an NFT traded activity count of 0-10 on all Marketplaces.
+MP NFT Highest Activity Trader,An account with an NFT traded activity count of at least 619 on all Marketplaces.
+MP NFT High Activity Trader,An account with an NFT traded activity count between 400 to 619 on all Marketplaces.
+MP NFT Medium Activity Trader,An account with an NFT traded activity count between 200 to 400 on all Marketplaces.
+Opensea NFT Vol L1 Buyer,Has an NFT buying Volume count of $100-$1000 on Opensea .
+Opensea NFT Vol L6 Buyer,"Has an NFT buying Volume count of over $500,000 on Opensea."
+Opensea NFT Uncommon Buyer,"Bought NFTs, and is in the top 10% in volume of buying NFT on Opensea."
+Opensea NFT Rare Buyer,"Bought NFTs, and is in the top 2.5%  in volume of buying NFT on Opensea."
+Opensea NFT Epic Buyer,"Bought NFTs, and is in the top 1%  in volume of buying NFT on Opensea."
+Opensea NFT Legendary Buyer,"Bought NFTs, and is in the top 0.1% in volume of buying NFT on Opensea."
+Opensea NFT Top Buyer,"Bought NFTs, and is in the top 100 in volume of buying NFT on Opensea."
+Opensea NFT Elite Buyer ,"Bought NFTs, and is in the top 1% in both the number and volume of buying NFT on Opensea."
+Opensea NFT Activity L1 Buyer,An account with an NFT buying activity count of 0-10 on Opensea.
+Opensea NFT Highest Activity Buyer,An account with an NFT buying activity count of at least 619 on Opensea.
+Opensea NFT High Activity Buyer,An account with an NFT buying activity count between 400 to 619 on Opensea.
+Opensea NFT Medium Activity Buyer,An account with an NFT buying activity count between 200 to 400 on Opensea.
+Opensea NFT Vol L1 Seller,Has an NFT Sale Volume count of $100-$1000 on Opensea .
+Opensea NFT Vol L6 Seller,"Has an NFT Sale Volume count of over $500,000 on Opensea."
+Opensea NFT Uncommon Seller,"Sold NFTs, and is in the top 10% in volume of NFT sale on Opensea."
+Opensea NFT Rare Seller,"Sold NFTs, and is in the top 2.5% in volume of NFT sale on Opensea."
+Opensea NFT Epic Seller,"Sold NFTs, and is in the top 1% in volume of NFT sale on Opensea."
+Opensea NFT Legendary Seller,"Sold NFTs, and is in the top 0.1% in volume of NFT sale on Opensea."
+Opensea NFT Top Seller,"Sold NFTs, and is in the top 100 in volume of NFT sale on Opensea."
+Opensea NFT Elite Seller ,"Sold NFTs, and is in the top 1% in both the activity and volume of NFT sale on Opensea."
+Opensea NFT Activity L1 Seller,An account with an NFT sale activity count of 0-10 on Opensea.
+Opensea NFT Highest Activity Seller,An account with an NFT sale activity count of at least 619 on Opensea.
+Opensea NFT High Activity Seller,An account with an NFT sale activity count between 400 to 619 on Opensea.
+Opensea NFT Medium Activity Seller,An account with an NFT sale activity count between 200 to 400 on Opensea.
+Opensea CryptoPunks Vol L1 Trader,Has an NFT Traded Volume count of $100-$1000 on Opensea .
+Opensea NFT Vol L6 Trader,"Has an NFT Traded Volume count of over $500,000 on Opensea."
+Opensea NFT Uncommon Trader,"Traded NFTs, and is in the top 10% in volume of Cryptopunk NFT sale on Opensea."
+Opensea NFT Rare Trader,"Traded NFTs, and is in the top 2.5% in volume of Cryptopunk NFT sale on Opensea."
+Opensea NFT Epic Trader,"Traded NFTs, and is in the top 1% in volume of Cryptopunk NFT sale on Opensea."
+Opensea NFT Legendary Seller,"Traded NFTs, and is in the top 0.1% in volume of NFT sale on Opensea."
+Opensea NFT Top Trader,"Traded NFTs, and is in the top 100 in volume of NFT sale on Opensea."
+Opensea NFT Elite Trader ,"Traded NFTs, and is in the top 1% in both the activity and volume of NFT sale on Opensea."
+Opensea NFT Activity L1 Trader,An account with an NFT traded activity count of 0-10 on Opensea.
+Opensea NFT Highest Activity Trader,An account with an NFT traded activity count of at least 619 on Opensea.
+Opensea NFT High Activity Trader,An account with an NFT traded activity count between 400 to 619 on Opensea.
+Opensea NFT Medium Activity Trader,An account with an NFT traded activity count between 200 to 400 on Opensea.
+CryptoPunks L1 Collector,Has a CryptoPunks count of 1.
+CryptoPunks L6 Collector,Has a CryptoPunks count of over 100.
+CryptoPunks Uncommon Collector,"Collected CryptoPunks, and is in the top 10% in number of CryptoPunks collected."
+CryptoPunks Rare Collector,"Collected CryptoPunks, and is in the top 2.5% in number of CryptoPunks collected."
+CryptoPunks Epic Collector,"Collected CryptoPunks, and is in the top 1% in number of CryptoPunks collected."
+CryptoPunks Legendary Collector,"Collected CryptoPunks, and is in the top 0.1% in number of CryptoPunks collected."
+CryptoPunks Whale,"Collected CryptoPunks, and is in the top 100 in number of CryptoPunks collected."
+CryptoPunks L1-term Holder,"Collected CryptoPunks, and has kept CryptoPunks for 1 day."
+CryptoPunks Long-term Holder,"Collected CryptoPunks, and has kept CryptoPunks for more than 155 days."
+CryptoPunks Short-term Holder,"Collected CryptoPunks, and has kept CryptoPunks for less than 155 days."
+CryptoPunks Smart CryptoPunks Early Adopter,"The top 100 addresses that have collected CryptoPunks, and still hold CryptoPunks now."
+CryptoPunks Vol L1 Trader,Has a CryptoPunks volume count of 1-2.
+CryptoPunks Vol L6 Trader,Has a CryptoPunks volume count of over 200.
+CryptoPunks Uncommon Trader,"Traded CryptoPunks, and is in the top 10% in volume of CryptoPunks traded."
+CryptoPunks Rare Trader,"Traded CryptoPunks, and is in the top 2.5% in volume of CryptoPunks traded. "
+CryptoPunks Epic Trader,"Traded CryptoPunks, and is in the top 1% in volume of CryptoPunks traded. "
+CryptoPunks Legendary Trader,"Traded CryptoPunks, and is in the top 0.1% in volume of CryptoPunks traded. "
+CryptoPunks Top Trader,"Traded CryptoPunks, and is in the top 100 in volume of CryptoPunks traded. "
+CryptoPunks Elite Trader ,"Traded CryptoPunks, and is in the top 1% in both the activity and volume of CryptoPunks traded. "
+CryptoPunks Activity L1 ,An account with a CryptoPunks activity count of 0-10.
+CryptoPunks Highest Activity,An account with a CryptoPunks activity count of at least 619.
+CryptoPunks High Activity,An account with a CryptoPunks activity count between 400 to 619.
+CryptoPunks Medium Activity,An account with a CryptoPunks activity count between 200 to 400.
+CryptoPunks Vol L1 Buyer,Has a CryptoPunks buying volume count of 1-2.
+CryptoPunks Vol L6 Buyer,Has a CryptoPunks buying volume count of over 200.
+CryptoPunks Uncommon Buyer,"Bought CryptoPunks, and is in the top 10% in volume of buying CryptoPunks."
+CryptoPunks Rare Buyer,"Bought CryptoPunks, and is in the top 2.5%  in volume of buying CryptoPunks."
+CryptoPunks Epic Buyer,"Bought CryptoPunks, and is in the top 1%  in volume of buying CryptoPunks."
+CryptoPunks Legendary Buyer,"Bought CryptoPunks, and is in the top 0.1% in volume of buying CryptoPunks."
+CryptoPunks Top Buyer,"Bought CryptoPunks, and is in the top 100 in volume of buying CryptoPunks."
+CryptoPunks Elite Buyer ,"Bought CryptoPunks, and is in the top 1% in both the number and volume of buying CryptoPunks."
+CryptoPunks Activity L1 Buyer,An account with a CryptoPunks buying activity count of 0-10.
+CryptoPunks Highest Activity Buyer,An account with a CryptoPunks buying activity count of at least 619.
+CryptoPunks High Activity Buyer,An account with a CryptoPunks buying activity count between 400 to 619.
+CryptoPunks Medium Activity Buyer,An account with a CryptoPunks buying activity count between 200 to 400.
+CryptoPunks Vol L1 Seller,Has a CryptoPunks sale volume count of  1-2.
+CryptoPunks Vol L6 Seller,Has a CryptoPunks sale volume count of over 200.
+CryptoPunks Uncommon Seller,"Sold CryptoPunks, and is in the top 10% in volume of CryptoPunks sale."
+CryptoPunks Rare Seller,"Sold CryptoPunks, and is in the top 2.5% in volume of CryptoPunks sale."
+CryptoPunks Epic Seller,"Sold CryptoPunks, and is in the top 1% in volume of CryptoPunks sale."
+CryptoPunks Legendary Seller,"Sold CryptoPunks, and is in the top 0.1% in volume of CryptoPunks sale."
+CryptoPunks Top Seller,"Sold CryptoPunks, and is in the top 100 in volume of CryptoPunks sale."
+CryptoPunks Elite Seller ,"Sold CryptoPunks, and is in the top 1% in both the activity and volume of CryptoPunks sale."
+CryptoPunks Activity L1 Seller,An account with a CryptoPunks sale activity count of 0-10.
+CryptoPunks Highest Activity Seller,An account with a CryptoPunks sale activity count of at least 619.
+CryptoPunks High Activity Seller,An account with a CryptoPunks sale activity count between 400 to 619.
+CryptoPunks Medium Activity Seller,An account with a CryptoPunks sale activity count between 200 to 400.
+CryptoPunks VOL L1 Minter,Has a CryptoPunks minting Volume count of 1-2.
+CryptoPunks VOL L6 Minter,Has a CryptoPunks minting Volume count of over 200.
+CryptoPunks Uncommon Minter,"Minted CryptoPunks, and is in the top 10% in volume of CryptoPunks minted."
+CryptoPunks Rare Minter,"Minted CryptoPunks, and is in the top 2.5% in volume of CryptoPunks minted."
+CryptoPunks Epic Minter,"Minted CryptoPunks, and is in the top 1% in volume of CryptoPunks minted."
+CryptoPunks Legendary Minter,"Minted CryptoPunks, and is in the top 0.1% in volume of CryptoPunks minted."
+CryptoPunks Top Minter,"Minted CryptoPunks, and is in the top 100 in volume of CryptoPunks minted."
+CryptoPunks Elite Minter,"Minted CryptoPunks, and is in the top 1% in both the activity and volume of CryptoPunks minted."
+CryptoPunks Activity L1 Minter,An account with a CryptoPunks minting activity count of 0-10.
+CryptoPunks Highest Activity Minter,An account with a CryptoPunks minting activity count of at least 619.
+CryptoPunks High Activity Minter,An account with a CryptoPunks minting activity count between 400 to 619.
+CryptoPunks Medium Activity Minter,An account with a CryptoPunks minting activity count between 200 to 400.
+CryptoPunks Vol L1 Burner,Has a CryptoPunks burning volume count of 1-2.
+CryptoPunks Vol L6 Burner,Has a CryptoPunks buring volume count of over 200.
+CryptoPunks Uncommon Burner,"Burned CryptoPunks, and is in the top 10% in volume of CryptoPunks burned."
+CryptoPunks Rare Burner,"Burned CryptoPunks, and is in the top 2.5% in volume of CryptoPunks burned."
+CryptoPunks Epic Burner,"Burned CryptoPunks, and is in the top 1% in volume of CryptoPunks burned."
+CryptoPunks Legendary Burner,"Burned CryptoPunks, and is in the top 0.1% in volume of CryptoPunks burned."
+CryptoPunks Top Burner,"Burned CryptoPunks, and is in the top 100 in volume of CryptoPunks burned."
+CryptoPunks Elite Burner,"Burned CryptoPunks, and is in the top 1% in both the activity and volume of CryptoPunks burned."
+CryptoPunks Activity L1 Burner,An account with a CryptoPunks burning activity count of 0-10.
+CryptoPunks Highest Activity Burner,An account with a CryptoPunks burning activity count of at least 619.
+CryptoPunks High Activity Burner,An account with a CryptoPunks burning activity count between 400 to 619.
+CryptoPunks Medium Activity Burner,An account with a CryptoPunks burning activity count between 200 to 400.
+CryptoPunks Vol L1 Transfer,Has a CryptoPunks transfer volume count of 1-2.
+CryptoPunks Vol L6 Transfer,Has a CryptoPunks transfer volume count of over 200.
+CryptoPunks Uncommon Transferrer,"Transferred CryptoPunks, and is in the top 10% in volume of CryptoPunks Transfer."
+CryptoPunks Rare Transferrer,"Transferred CryptoPunks, and is in the top 2.5% in volume of CryptoPunks Transfer."
+CryptoPunks Epic Transferrer,"Transferred CryptoPunks, and is in the top 1% in volume of CryptoPunks Transfer."
+CryptoPunks Legendary Transferrer,"Transferred CryptoPunks, and is in the top 0.1% in volume of CryptoPunks Transfer."
+CryptoPunks Top Transferrer,"Transferred CryptoPunks, and is in the top 100 in volume of CryptoPunks Transfer."
+CryptoPunks Elite Transferrer,"Transferred CryptoPunks, and is in the top 1% in both the activity and volume of CryptoPunks Transfer."
+CryptoPunks Activity L1 Transferrer,An account with a CryptoPunks transfer activity count of 0-10.
+CryptoPunks Highest Activity Transferrer,An account with a CryptoPunks transfer activity count of at least 619.
+CryptoPunks High Activity Transferrer,An account with a CryptoPunks transfer activity count between 400 to 619.
+CryptoPunks Medium Activity Transferrer,An account with a CryptoPunks transfer activity count between 200 to 400.
+MP CryptoPunks Vol L1 Buyer,Has a CryptoPunks buying volume count of $100-$1000 on all Marketplaces.
+MP CryptoPunks Vol L6 Buyer,"Has a CryptoPunks buying volume count of over $500,000 on all Marketplaces."
+MP CryptoPunks Uncommon Buyer,"Bought CryptoPunks, and is in the top 10% in volume of buying CryptoPunks on all Marketplaces."
+MP CryptoPunks Rare Buyer,"Bought CryptoPunks, and is in the top 2.5%  in volume of buying CryptoPunks on all Marketplaces."
+MP CryptoPunks Epic Buyer,"Bought CryptoPunks, and is in the top 1%  in volume of buying CryptoPunks on all Marketplaces."
+MP CryptoPunks Legendary Buyer,"Bought CryptoPunks, and is in the top 0.1% in volume of buying CryptoPunks on all Marketplaces."
+MP CryptoPunks Top Buyer,"Bought CryptoPunks, and is in the top 100 in volume of buying CryptoPunks on all Marketplaces."
+MP CryptoPunks Elite Buyer ,"Bought CryptoPunks, and is in the top 1% in both the number and volume of buying CryptoPunks on all Marketplaces."
+MP CryptoPunks Activity L1 Buyer,An account with a CryptoPunks buying activity count of 0-10 on all Marketplaces.
+MP CryptoPunks Highest Activity Buyer,An account with a CryptoPunks buying activity count of at least 619 on all Marketplaces.
+MP CryptoPunks High Activity Buyer,An account with a CryptoPunks buying activity count between 400 to 619 on all Marketplaces.
+MP CryptoPunks Medium Activity Buyer,An account with a CryptoPunks buying activity count between 200 to 400 on all Marketplaces.
+MP CryptoPunks Vol L1 Seller,Has a CryptoPunks sale volume count of $100-$1000 on all Marketplaces.
+MP CryptoPunks Vol L6 Seller,"Has a CryptoPunks sale volume count of over $500,000 on all Marketplaces."
+MP CryptoPunks Uncommon Seller,"Sold CryptoPunks, and is in the top 10% in volume of CryptoPunks sale on all Marketplaces."
+MP CryptoPunks Rare Seller,"Sold CryptoPunks, and is in the top 2.5% in volume of CryptoPunks sale on all Marketplaces."
+MP CryptoPunks Epic Seller,"Sold CryptoPunks, and is in the top 1% in volume of CryptoPunks sale on all Marketplaces."
+MP CryptoPunks Legendary Seller,"Sold CryptoPunks, and is in the top 0.1% in volume of CryptoPunks sale on all Marketplaces."
+MP CryptoPunks Top Seller,"Sold CryptoPunks, and is in the top 100 in volume of CryptoPunks sale on all Marketplaces."
+MP CryptoPunks Elite Seller ,"Sold CryptoPunks, and is in the top 1% in both the activity and volume of CryptoPunks sale on all Marketplaces."
+MP CryptoPunks Activity L1 Seller,An account with a CryptoPunks sale activity count of 0-10on all Marketplaces.
+MP CryptoPunks Highest Activity Seller,An account with a CryptoPunks sale activity count of at least 619on all Marketplaces.
+MP CryptoPunks High Activity Seller,An account with a CryptoPunks sale activity count between 400 to 619on all Marketplaces.
+MP CryptoPunks Medium Activity Seller,An account with a CryptoPunks sale activity count between 200 to 400on all Marketplaces.
+MP CryptoPunks Vol L1 Trader,Has a CryptoPunks Traded volume count of $100-$1000 on all Marketplaces.
+MP CryptoPunks Vol L6 Trader,"Has a CryptoPunks Traded volume count of over $500,000 on all Marketplacest."
+MP CryptoPunks Uncommon Trader,"Traded CryptoPunks, and is in the top 10% in volume of CryptoPunks sale on all Marketplaces."
+MP CryptoPunks Rare Trader,"Traded CryptoPunks, and is in the top 2.5% in volume of CryptoPunks sale on all Marketplaces."
+MP CryptoPunks Epic Trader,"Traded CryptoPunks, and is in the top 1% in volume of CryptoPunks sale on all Marketplaces."
+MP CryptoPunks Legendary Seller,"Traded CryptoPunks, and is in the top 0.1% in volume of CryptoPunks sale on all Marketplaces."
+MP CryptoPunks Top Trader,"Traded CryptoPunks, and is in the top 100 in volume of CryptoPunks sale on all Marketplaces."
+MP CryptoPunks Elite Trader ,"Traded CryptoPunks, and is in the top 1% in both the activity and volume of CryptoPunks sale on all Marketplaces."
+MP CryptoPunks Activity L1 Trader,An account with a CryptoPunks traded activity count of 0-10 on all Marketplaces
+MP CryptoPunks Highest Activity Trader,An account with a CryptoPunks traded activity count of at least 619 on all Marketplaces
+MP CryptoPunks High Activity Trader,An account with a CryptoPunks traded activity count between 400 to 619 on all Marketplaces.
+MP CryptoPunks Medium Activity Trader,An account with a CryptoPunks traded activity count between 200 to 400 on all Marketplaces.
+Opensea CryptoPunks Vol L1 Buyer,Has a CryptoPunks buying volume count of $100-$1000 on Opensea .
+Opensea CryptoPunks Vol L6 Buyer,"Has a CryptoPunks buying volume count of over $500,000 on Opensea."
+Opensea CryptoPunks Uncommon Buyer,"Bought CryptoPunks, and is in the top 10% in volume of buying CryptoPunks on Opensea."
+Opensea CryptoPunks Rare Buyer,"Bought CryptoPunks, and is in the top 2.5%  in volume of buying CryptoPunks on Opensea."
+Opensea CryptoPunks Epic Buyer,"Bought CryptoPunks, and is in the top 1%  in volume of buying CryptoPunks on Opensea."
+Opensea CryptoPunks Legendary Buyer,"Bought CryptoPunks, and is in the top 0.1% in volume of buying CryptoPunks on Opensea."
+Opensea CryptoPunks Top Buyer,"Bought CryptoPunks, and is in the top 100 in volume of buying CryptoPunks on Opensea."
+Opensea CryptoPunks Elite Buyer ,"Bought CryptoPunks, and is in the top 1% in both the number and volume of buying CryptoPunks on Opensea."
+Opensea CryptoPunks Activity L1 Buyer,An account with a CryptoPunks buying activity count of 0-10 on Opensea.
+Opensea CryptoPunks Highest Activity Buyer,An account with a CryptoPunks buying activity count of at least 619 on Opensea.
+Opensea CryptoPunks High Activity Buyer,An account with a CryptoPunks buying activity count between 400 to 619 on Opensea.
+Opensea CryptoPunks Medium Activity Buyer,An account with a CryptoPunks buying activity count between 200 to 400 on Opensea.
+Opensea CryptoPunks Vol L1 Seller,Has a CryptoPunks Sale volume count of $100-$1000 on Opensea .
+Opensea CryptoPunks Vol L6 Seller,"Has a CryptoPunks Sale volume count of over $500,000 on Opensea."
+Opensea CryptoPunks Uncommon Seller,"Sold CryptoPunks, and is in the top 10% in volume of CryptoPunks sale on Opensea."
+Opensea CryptoPunks Rare Seller,"Sold CryptoPunks, and is in the top 2.5% in volume of CryptoPunks sale on Opensea."
+Opensea CryptoPunks Epic Seller,"Sold CryptoPunks, and is in the top 1% in volume of CryptoPunks sale on Opensea."
+Opensea CryptoPunks Legendary Seller,"Sold CryptoPunks, and is in the top 0.1% in volume of CryptoPunks sale on Opensea."
+Opensea CryptoPunks Top Seller,"Sold CryptoPunks, and is in the top 100 in volume of CryptoPunks sale on Opensea."
+Opensea CryptoPunks Elite Seller ,"Sold CryptoPunks, and is in the top 1% in both the activity and volume of CryptoPunks sale on Opensea."
+Opensea CryptoPunks Activity L1 Seller,An account with a CryptoPunks sale activity count of 0-10 on Opensea.
+Opensea CryptoPunks Highest Activity Seller,An account with a CryptoPunks sale activity count of at least 619 on Opensea.
+Opensea CryptoPunks High Activity Seller,An account with a CryptoPunks sale activity count between 400 to 619 on Opensea.
+Opensea CryptoPunks Medium Activity Seller,An account with a CryptoPunks sale activity count between 200 to 400 on Opensea.
+Opensea CryptoPunks Vol L1 Trader,Has a CryptoPunks Traded volume count of $100-$1000 on Opensea .
+Opensea CryptoPunks Vol L6 Trader,"Has a CryptoPunks Traded volume count of over $500,000 on Opensea."
+Opensea CryptoPunks Uncommon Trader,"Traded CryptoPunks, and is in the top 10% in volume of CryptoPunks sale on Opensea."
+Opensea CryptoPunks Rare Trader,"Traded CryptoPunks, and is in the top 2.5% in volume of CryptoPunks sale on Opensea."
+Opensea CryptoPunks Epic Trader,"Traded CryptoPunks, and is in the top 1% in volume of CryptoPunks sale on Opensea."
+Opensea CryptoPunks Legendary Seller,"Traded CryptoPunks, and is in the top 0.1% in volume of CryptoPunks sale on Opensea."
+Opensea CryptoPunks Top Trader,"Traded CryptoPunks, and is in the top 100 in volume of CryptoPunks sale on Opensea."
+Opensea CryptoPunks Elite Trader ,"Traded CryptoPunks, and is in the top 1% in both the activity and volume of CryptoPunks sale on Opensea."
+Opensea CryptoPunks Activity L1 Trader,An account with a CryptoPunks traded activity count of 0-10 on Opensea.
+Opensea CryptoPunks Highest Activity Trader,An account with a CryptoPunks traded activity count of at least 619 on Opensea.
+Opensea CryptoPunks High Activity Trader,An account with a CryptoPunks traded activity count between 400 to 619 on Opensea.
+Opensea CryptoPunks Medium Activity Trader,An account with a CryptoPunks traded activity count between 200 to 400 on Opensea.
+Punk Market Vol L1 Buyer,Has a CryptoPunks buying volume count of $100-$1000 on Punk Market .
+Punk Market Vol L6 Buyer,"Has a CryptoPunks buying volume count of over $500,000 on Punk Market."
+Punk Market Uncommon Buyer,"Bought CryptoPunks, and is in the top 10% in volume of buying CryptoPunks on Punk Market."
+Punk Market Rare Buyer,"Bought CryptoPunks, and is in the top 2.5%  in volume of buying CryptoPunks on Punk Market."
+Punk Market Epic Buyer,"Bought CryptoPunks, and is in the top 1%  in volume of buying CryptoPunks on Punk Market."
+Punk Market Legendary Buyer,"Bought CryptoPunks, and is in the top 0.1% in volume of buying CryptoPunks on Punk Market."
+Punk Market Top Buyer,"Bought CryptoPunks, and is in the top 100 in volume of buying CryptoPunks on Punk Market."
+Punk Market Elite Buyer ,"Bought CryptoPunks, and is in the top 1% in both the number and volume of buying CryptoPunks on Punk Market."
+Punk Market Activity L1 Buyer,An account with a CryptoPunks buying activity count of 0-10 on Punk Market.
+Punk Market Highest Activity Buyer,An account with a CryptoPunks buying activity count of at least 619 on Punk Market.
+Punk Market High Activity Buyer,An account with a CryptoPunks buying activity count between 400 to 619 on Punk Market.
+Punk Market Medium Activity Buyer,An account with a CryptoPunks buying activity count between 200 to 400 on Punk Market.
+Punk Market Vol L1 Seller,Has a CryptoPunks Sale volume count of $100-$1000 on Punk Market .
+Punk Market Vol L6 Seller,"Has a CryptoPunks Sale volume count of over $500,000 on Punk Market."
+Punk Market Uncommon Seller,"Sold CryptoPunks, and is in the top 10% in volume of CryptoPunks sale on Punk Market."
+Punk Market Rare Seller,"Sold CryptoPunks, and is in the top 2.5% in volume of CryptoPunks sale on Punk Market."
+Punk Market Epic Seller,"Sold CryptoPunks, and is in the top 1% in volume of CryptoPunks sale on Punk Market."
+Punk Market Legendary Seller,"Sold CryptoPunks, and is in the top 0.1% in volume of CryptoPunks sale on Punk Market."
+Punk Market Top Seller,"Sold CryptoPunks, and is in the top 100 in volume of CryptoPunks sale on Punk Market."
+Punk Market Elite Seller ,"Sold CryptoPunks, and is in the top 1% in both the activity and volume of CryptoPunks sale on Punk Market."
+Punk Market Activity L1 Seller,An account with a CryptoPunks sale activity count of 0-10 on Punk Market.
+Punk Market Highest Activity Seller,An account with a CryptoPunks sale activity count of at least 619 on Punk Market.
+Punk Market High Activity Seller,An account with a CryptoPunks sale activity count between 400 to 619 on Punk Market.
+Punk Market Medium Activity Seller,An account with a CryptoPunks sale activity count between 200 to 400 on Punk Market.
+Punk Market Vol L1 Trader,Has a CryptoPunks Traded volume count of $100-$1000 on Punk Market .
+Punk Market Vol L6 Trader,"Has a CryptoPunks Traded volume count of over $500,000 on Punk Market."
+Punk Market Uncommon Trader,"Traded CryptoPunks, and is in the top 10% in volume of CryptoPunks sale on Punk Market."
+Punk Market Rare Trader,"Traded CryptoPunks, and is in the top 2.5% in volume of CryptoPunks sale on Punk Market."
+Punk Market Epic Trader,"Traded CryptoPunks, and is in the top 1% in volume of CryptoPunks sale on Punk Market."
+Punk Market Legendary Trader,"Traded CryptoPunks, and is in the top 0.1% in volume of CryptoPunks sale on Punk Market."
+Punk Market Top Trader,"Traded CryptoPunks, and is in the top 100 in volume of CryptoPunks sale on Punk Market."
+Punk Market Elite Trader ,"Traded CryptoPunks, and is in the top 1% in both the activity and volume of CryptoPunks sale on Punk Market."
+Punk Market Activity L1 Trader,An account with a CryptoPunks traded activity count of 0-10 on Punk Market.
+Punk Market Highest Activity Trader,An account with a CryptoPunks traded activity count of at least 619 on Punk Market.
+Punk Market High Activity Trader,An account with a CryptoPunks traded activity count between 400 to 619 on Punk Market.
+Punk Market Medium Activity Trader,An account with a CryptoPunks traded activity count between 200 to 400 on Punk Market.
+Web3 Activity L1,An account with an activity count of 0-10 on Web3 industry..
+Web3 Highest Activity,An account with an activity count of at least 619 on Web3 industry.
+Web3 High Activity,An account with an activity count between 400 to 619 on Web3 industry..
+Web3 Medium Activity,An account with an activity count between 200 to 400 on Web3 industry..
+Web3NFT L1 Collector,Has an NFT count of 1 on Web3 industry.
+Web3NFT L6 Collector,Has an NFT count of over 100 on Web3 industry.
+Uncommon Web3NFT Collector,"Collected NFTs, and is in the top 10% in number of NFT collected on Web3 industry."
+Rare Web3NFT Collector,"Collected NFTs, and is in the top 2.5% in number of NFT collected on Web3 industry. "
+Epic Web3NFT Collector,"Collected NFTs, and is in the top 1% in number of NFT collected on Web3 industry. "
+Legendary Web3NFT Collector,"Collected NFTs, and is in the top 0.1% in number of NFT collected on Web3 industry. "
+Web3 Whale Recipient,"Collected NFTs, and is in the top 100 in number of NFT collected on Web3 industry. "
+Web3 Activity L1 NFT Recipient,An account with an NFT activity count of 0-10 on Web3 industry.
+Web3 Highest Activity NFT Recipient,An account with an NFT activity count of at least 619 on Web3 industry.
+Web3 High Activity NFT Recipient,An account with an NFT activity count between 400 to 619 on Web3 industry.
+Web3 Medium Activity NFT Recipient,An account with an NFT activity count between 200 to 400 on Web3 industry.
+Mirror L1 Writer,An account with an article count of 0-10 on Mirror.
+Mirror L6 Writer,An account with an article count of over 100 on Mirror.
+Mirror Uncommon Writer,"Wrote articles, and is in the top 10% in number of articles published on Mirror."
+Mirror Rare Writer,"Wrote articles, and is in the top 2.5% in number of articles published on Mirror. "
+Mirror Epic Writer,"Wrote articles, and is in the top 1% in number of articles published on Mirror. "
+Mirror Legendary Writer,"Wrote articles, and is in the top 0.1% in number of articles published on Mirror. "
+Mirror Activity L1 Writer,An account with a writing activity count of 0-10 on Mirror.
+Mirror Highest Activity Writer,An account with a writing activity count of at least 619 on Mirror.
+Mirror High Activity Writer,An account with a writing activity count between 400 to 619 on Mirror.
+Mirror Medium Activity Writer,An account with a writing activity count between 200 to 400 on Mirror.
+Mirror NFT L1 Collector,Has an NFT count of 1 on Mirror.
+Mirror NFT L6 Collector,Has an NFT count of over 100 on Mirror.
+Mirror Uncommon NFT Collector,"Collected NFTs, and is in the top 10% in number of NFT collected on Mirror. "
+Mirror Rare NFT Collector,"Collected NFTs, and is in the top 2.5% in number of NFT collected on Mirror. "
+Mirror Epic NFT Collector,"Collected NFTs, and is in the top 1% in number of NFT collected on Mirror. "
+Mirror Legendary NFT Collector,"Collected NFTs, and is in the top 0.1% in number of NFT collected on Mirror. "
+Mirror NFT Whale,"Collected NFTs, and is in the top 100 in number of NFT collected on Mirror."
+Mirror Activity L1,An account with an activity count of 0-10 on Mirror.
+Mirror Highest Activity,An account with an activity count of at least 619 on Mirror.
+Mirror High Activity,An account with an activity count between 400 to 619 on Mirror.
+Mirror Medium Activity,An account with an activity count between 200 to 400 on Mirror.
+Mirror Activity L1 NFT Recipient,An account with an NFT activity count of 0-10 on Mirror.
+Mirror Highest Activity NFT Recipient,An account with an NFT activity count of at least 619 on Mirror.
+Mirror High Activity NFT Recipient,An account with an NFT activity count between 400 to 619 on Mirror.
+Mirror Medium Activity NFT Recipient,An account with an NFT activity count between 200 to 400 on Mirror.
+Mirror Activity L1 Minter,An account with a minting activity count of 0-10 on Mirror.
+Mirror Highest Activity Minter,An account with a minting activity count of at least 619 on Mirror.
+Mirror High Activity Minter,An account with a minting activity count between 400 to 619 on Mirror.
+Mirror Medium Activity Minter,An account with a minting activity count between 200 to 400 on Mirror.
+ENS NFT L1 Collector,Has an NFT count of 1 on ENS.
+ENS NFT L6 Collector,Has an NFT count of over 100 on ENS.
+ENS Uncommon NFT Collector,"Collected NFTs, and is in the top 10% in number of NFT collected on ENS. "
+ENS Rare NFT Collector,"Collected NFTs, and is in the top 2.5% in number of NFT collected on ENS."
+ENS Epic NFT Collector,"Collected NFTs, and is in the top 1% in number of NFT collected on ENS. "
+ENS Legendary NFT Collector,"Collected NFTs, and is in the top 0.1% in number of NFT collected on ENS."
+ENS NFT Whale,"Collected NFTs, and is in the top 100 in number of NFT collected on ENS."
+ENS Activity L1,An account with an activity count of 0-10 on ENS.
+ENS Highest Activity,An account with an activity count of at least 619 on ENS.
+ENS High Activity,An account with an activity count between 400 to 619 on ENS.
+ENS Medium Activity,An account with an activity count between 200 to 400 on ENS.
+ENS Activity L1 NFT Recipient,An account with an NFT activity count of 0-10 on ENS.
+ENS Highest Activity NFT Recipient,An account with an NFT activity count of at least 619 on ENS.
+ENS High Activity NFT Recipient,An account with an NFT activity count between 400 to 619 on ENS.
+ENS Medium Activity NFT Recipient,An account with an NFT activity count between 200 to 400 on ENS.
+ENS Activity L1 Registerer,An account with a registering activity count of 0-10 on ENS.
+ENS Highest Activity Registerer,An account with a registering activity count of at least 619 on ENS.
+ENS High Activity Registerer,An account with a registering activity count between 400 to 619 on ENS.
+ENS Medium Activity Registerer,An account with a registering activity count between 200 to 400 on ENS.
+ENS Activity L1 Renewer,An account with a renewing activity count of 0-10 on ENS.
+ENS Highest Activity Renewer,An account with a renewing activity count of at least 619 on ENS.
+ENS High Activity Renewer,An account with a renewing activity count between 400 to 619 on ENS.
+ENS Medium Activity Renewer,An account with a renewing activity count between 200 to 400 on ENS.
+ENS Activity L1 Airdrop Recipient,An account with an airdrop activity count of 0-10 on ENS.
+ENS Highest Activity Airdrop Recipient,An account with an airdrop activity count of at least 619 on ENS.
+ENS High Activity Airdrop Recipient,An account with an airdrop activity count between 400 to 619 on ENS.
+ENS Medium Activity Airdrop Recipient,An account with an airdrop activity count between 200 to 400 on ENS.
+Gitcoin Activity L1,An account with an activity count of 0-10 on Gitcoin.
+Gitcoin Highest Activity,An account with an activity count of at least 619 on Gitcoin.
+Gitcoin High Activity,An account with an activity count between 400 to 619 on Gitcoin.
+Gitcoin Medium Activity,An account with an activity count between 200 to 400 on Gitcoin.
+Gitcoin Activity L1 Donator,An account with a donating activity count of 0-10 on Gitcoin.
+Gitcoin Highest Activity Donator,An account with a donating activity count of at least 619 on Gitcoin.
+Gitcoin High Activity Donator,An account with a donating activity count between 400 to 619 on Gitcoin.
+Gitcoin Medium Activity Donator,An account with a donating activity count between 200 to 400 on Gitcoin.
+Gitcoin Activity L1 Airdrop Recipient,An account with an airdrop activity count of 0-10 on Gitcoin.
+Gitcoin Highest Activity Airdrop Recipient,An account with an airdrop activity count of at least 619 on Gitcoin.
+Gitcoin High Activity Airdrop Recipient,An account with an airdrop activity count between 400 to 619 on Gitcoin.
+Gitcoin Medium Activity Airdrop Recipient,An account with an airdrop activity count between 200 to 400 on Gitcoin.
+RabbitHole NFT L1 Collector,Has an NFT count of 1 on Rabbit Hole.
+RabbitHole NFT L6 Collector,Has an NFT count of over 100 on Rabbit Hole.
+RabbitHole Uncommon NFT Collector,"Collected NFTs, and is in the top 10% in number of NFT collected on Rabbit Hole. "
+RabbitHole Rare NFT Collector,"Collected NFTs, and is in the top 2.5% in number of NFT collected on Rabbit Hole. "
+RabbitHole Epic NFT Collector,"Collected NFTs, and is in the top 1% in number of NFT collected on Rabbit Hole. "
+RabbitHole Legendary NFT Collector,"Collected NFTs, and is in the top 0.1% in number of NFT collected on Rabbit Hole. "
+RabbitHole NFT Whale,"Collected NFTs, and is in the top 100 in number of NFT collected on Rabbit Hole. "
+RabbitHole Activity L1,An account with an activity count of 0-10 on Rabbit Hole.
+RabbitHole Highest Activity,An account with an activity count of at least 619 on Rabbit Hole.
+RabbitHole High Activity,An account with an activity count between 400 to 619 on Rabbit Hole.
+RabbitHole Medium Activity,An account with an activity count between 200 to 400 on Rabbit Hole.
+RabbitHole Activity L1 NFT Recipient,An account with an NFT activity count of 0-10 on Rabbit Hole.
+RabbitHole Highest Activity NFT Recipient,An account with an NFT activity count of at least 619 on Rabbit Hole.
+RabbitHole High Activity NFT Recipient,An account with an NFT activity count between 400 to 619 on Rabbit Hole.
+RabbitHole Medium Activity NFT Recipient,An account with an NFT activity count between 200 to 400 on Rabbit Hole.
+Galxe NFT L1 Collector,Has an NFT count of 1 on Galxe.
+Galxe NFT L6 Collector,Has an NFT count of over 100 on Galxe.
+Galxe Uncommon NFT Collector,"Collected NFTs, and is in the top 10% in number of NFT collected on Galxe."
+Galxe Rare NFT Collector,"Collected NFTs, and is in the top 2.5% in number of NFT collected on Galxe. "
+Galxe Epic NFT Collector,"Collected NFTs, and is in the top 1% in number of NFT collected on Galxe. "
+Galxe Legendary NFT Collector,"Collected NFTs, and is in the top 0.1% in number of NFT collected on Galxe. "
+Galxe NFT Whale,"Collected NFTs, and is in the top 100 in number of NFT collected on Galxe. "
+Galxe Activity L1,An account with an activity count of 0-10 on Galxe.
+Galxe Highest Activity,An account with an activity count of at least 619 on Galxe.
+Galxe High Activity,An account with an activity count between 400 to 619 on Galxe.
+Galxe Medium Activity,An account with an activity count between 200 to 400 on Galxe.
+Galxe Activity L1 NFT Recipient,An account with an NFT activity count of 0-10 on Galxe.
+Galxe Highest Activity NFT Recipient,An account with an NFT activity count of at least 619 on Galxe.
+Galxe High Activity NFT Recipient,An account with an NFT activity count between 400 to 619 on Galxe.
+Galxe Medium Activity NFT Recipient,An account with an NFT activity count between 200 to 400 on Galxe.
